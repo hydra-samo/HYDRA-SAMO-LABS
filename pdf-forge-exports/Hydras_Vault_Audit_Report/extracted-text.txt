@@ -1,0 +1,75 @@
+Hydra’s Vault — Codebase Audit & Motion 
+Restoration Report
+Project: Hydra’s Vault Portfolio
+Stack: React 19, Vite 6, Tailwind CSS v4, Framer Motion, Lenis
+Hydra's Vault — Codebase Audit & Motion Restoration Report
+Project: Hydra's Vault Portfolio
+Stack: React 19, Vite 6, Tailwind CSS v4, Framer Motion, Lenis
+1. Executive Summary & Root Cause Analysis
+During recent refactoring to standardize button tokens and eliminate duplicate headings, several dynamic UI effects—
+including background motion canvas, gradient blobs, card tilt effects, and emerald hover glows—became flat or non-
+responsive.
+Primary Cause
+Replacing hardcoded glassmorphism classes (
+bg-slate-900/60
+, 
+backdrop-blur-md
+, 
+border-white/10
+) with solid 
+theme tokens stripped out backdrop filters and transition properties. Additionally, solid opaque section backgrounds 
+masked the ambient mesh and canvas layers rendering underneath.
+2. Component Modification Audit
+File / ComponentPrevious StateRecent ModificationVisual Impact
+`useLenis.ts` / `App.tsx`
+Continuous inertia scrollingAdded modal check
+(`lenis.stop()`)
+Fixed (Scroll locks correctly)
+`AboutSection.tsx`
+"MANY HEADS. ONE
+UNIFIED VISION."
+Updated to "MANY
+HEADS. ONE ORIGIN."
+Fixed (Heading collision
+resolved)
+`src/index.css` / Tailwind
+Custom glass & glow
+classes
+Standardized theme
+tokens
+Needs Restore (Glows & blur
+flattened)
+Ambient Canvas / Hero
+Floating gradient blobs &
+grain
+Covered by opaque
+wrapper fills
+Flat (Motion hidden behind
+solids)
+Cards & Interactive Elements
+Spring 3D tilt & magnetic
+scale
+Inline transitions strippedNeeds Restore (Lacks hover
+feedback)
+3. Restoration Strategy
+Background Layering: Enforce 
+inset-0 -z-10 pointer-events-none
+ on background canvas/blobs and set 
+section wrappers to semi-transparent (
+bg-background/80 backdrop-blur-sm
+).
+Glassmorphism & Depth: Re-apply backdrop blurs (
+backdrop-blur-md
+), subtle borders (
+border-white/10
+), 
+and desaturated emerald glows (
+hover:shadow-[0_0_25px_rgba(16,185,129,0.2)]
+).
+Framer Motion Hooks: Re-enable 
+whileHover={{ scale: 1.02, y: -2 }}
+ and 
+whileTap={{ scale: 
+0.98 }}
+ across action buttons and portfolio items.
+HYDRA’S VAULT — CODEBASE AUDIT & MOTION RESTORATION
