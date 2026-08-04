@@ -22,12 +22,18 @@ export function useOpenGraph(customOg?: Partial<OpenGraphConfig>) {
     };
 
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
-    
-    // Resolve absolute image URL if relative
-    let fullImageUrl = ogData.image || '/hydra_logo.jpg';
-    if (fullImageUrl.startsWith('/')) {
-      fullImageUrl = `${origin}${fullImageUrl}`;
-    }
+
+    // Resolve a (possibly relative) asset path to an absolute URL that
+    // respects Vite's base path (e.g. '/HYDRA-VAULT/' on GitHub Pages).
+    const base = import.meta.env.BASE_URL;
+    const toAbsolute = (p: string): string => {
+      if (/^https?:\/\//i.test(p)) return p;
+      const clean = p.replace(/^\//, '');
+      if (base.startsWith('/')) return `${origin}${base}${clean}`;
+      return `${origin}/${clean}`;
+    };
+
+    let fullImageUrl = toAbsolute(ogData.image || 'hydra_logo.jpg');
 
     let fullUrl = ogData.url || (typeof window !== 'undefined' ? window.location.href : origin);
     if (fullUrl.startsWith('/')) {
