@@ -28,3 +28,8 @@
 - **Layout & Micro-Interactions**:
   - Convert "Agency vs Hydra" table into a clean, humanized 2-column narrative ("Many Heads, One Unified Vision").
   - Maintain Lenis smooth scroll (`lenis`), SVG film-grain noise overlay, `AmbientBackground` green light blurs, `TiltCard` physics, and `MagneticButton` interactions.
+
+## Logo & Brand Mark Governance
+- **Icon only**: The Hydra brand mark (`src/components/HydraLogo.tsx`) must never contain text, initials, typography, slogans, or borders. Prohibit adding any of these in future refactors — the mark is a single, standalone icon.
+- **Single SVG, pure geometry**: All UI components must use the single `HydraLogo` SVG icon with its pure path geometry (`currentColor` fills/strokes, `hydra-head-0/1/2` classes). Do not introduce raster logo variants, re-trace paths, or add decorative vector elements.
+- **External lighting**: All lighting, glow, and reflections must remain external in the CSS layer utilities (`.hydra-mark-glow`, `.hydra-mark-pulse`, `.hydra-mark-spin` in `src/index.css`). Never bake gradients, glow, shadows, or reflections into the SVG itself — keep the raw vector clarity intact.

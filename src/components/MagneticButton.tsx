@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { cn } from '../lib/utils';
+import { useCoarsePointer } from '../hooks/useCoarsePointer';
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -16,6 +17,9 @@ interface MagneticButtonProps {
 /**
  * A button that gently pulls toward the cursor while hovered (and springs back
  * on leave). Used on primary CTAs to make the interface feel tactile.
+ *
+ * On touch devices (coarse pointer) the pull is disabled — there is no cursor
+ * to track — and the button behaves as a plain tap target.
  */
 export const MagneticButton: React.FC<MagneticButtonProps> = ({
   children,
@@ -28,10 +32,12 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   'aria-label': ariaLabel,
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
+  const isCoarse = useCoarsePointer();
   const x = useSpring(useMotionValue(0), { stiffness: 150, damping: 15, mass: 0.7 });
   const y = useSpring(useMotionValue(0), { stiffness: 150, damping: 15, mass: 0.7 });
 
   const onMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (isCoarse) return;
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     x.set((e.clientX - (rect.left + rect.width / 2)) * strength);
@@ -39,6 +45,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   };
 
   const reset = () => {
+    if (isCoarse) return;
     x.set(0);
     y.set(0);
   };

@@ -24,7 +24,7 @@ export function useOpenGraph(customOg?: Partial<OpenGraphConfig>) {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
 
     // Resolve a (possibly relative) asset path to an absolute URL that
-    // respects Vite's base path (e.g. '/HYDRA-VAULT/' on GitHub Pages).
+    // respects Vite's base path (e.g. '/HYDRA-SAMO/' on GitHub Pages).
     const base = import.meta.env.BASE_URL;
     const toAbsolute = (p: string): string => {
       if (/^https?:\/\//i.test(p)) return p;

@@ -54,7 +54,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 dark:bg-black/95 backdrop-blur-2xl overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 dark:bg-black/95 backdrop-blur-2xl overflow-y-auto" data-lenis-prevent>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -64,7 +64,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
           {/* Header Bar */}
           <div className="p-5 sm:p-6 border-b border-[var(--border-color)] flex items-center justify-between bg-[var(--card-bg)]">
             <div>
-              <span className="text-[10px] font-mono text-accent uppercase tracking-widest block mb-1 font-semibold">
+              <span className="text-xs font-mono text-accent uppercase tracking-widest block mb-1 font-semibold">
                 {clientName}
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-main)] uppercase font-display">
@@ -106,7 +106,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
           </div>
 
           {/* Modal Body */}
-          <div className="p-6 overflow-y-auto flex-1 space-y-6">
+          <div className="p-6 overflow-y-auto flex-1 space-y-6" data-lenis-prevent>
             
             {activeTab === 'video' ? (
               <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black border border-white/10 group">
@@ -162,12 +162,12 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                     className="absolute inset-0 w-full h-full object-cover max-w-none"
                     style={{ width: '100%' }}
                   />
-                  <span className="absolute top-4 left-4 px-3 py-1 bg-black/80 text-white text-[10px] font-mono rounded">
+                  <span className="absolute top-4 left-4 px-3 py-1 bg-black/80 text-white text-xs font-mono rounded">
                     {t('modal.raw')}
                   </span>
                 </div>
 
-                <span className="absolute top-4 right-4 px-3 py-1 bg-accent/20 text-accent border border-accent/40 text-[10px] font-mono rounded font-bold backdrop-blur-sm">
+                <span className="absolute top-4 right-4 px-3 py-1 bg-accent/20 text-accent border border-accent/40 text-xs font-mono rounded font-bold backdrop-blur-sm">
                   {t('modal.grade')}
                 </span>
 
@@ -199,7 +199,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                       {project.metrics.map((m) => (
                         <div key={m.label} className="p-3 bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)]">
                           <span className="text-xl font-extrabold text-accent block">{m.value}</span>
-                          <span className="text-[10px] font-mono text-slate-500 dark:text-white/50">{m.label}</span>
+                          <span className="text-xs font-mono text-slate-500 dark:text-white/50">{m.label}</span>
                         </div>
                       ))}
                     </div>
@@ -208,7 +208,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
                 <div className="space-y-4 bg-[var(--card-bg)] p-5 rounded-2xl border border-[var(--border-color)]">
                   <div>
-                    <span className="text-[10px] font-mono text-slate-500 dark:text-white/50 uppercase block mb-1 font-medium">
+                    <span className="text-xs font-mono text-slate-500 dark:text-white/50 uppercase block mb-1 font-medium">
                       {t('modal.software')}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -222,7 +222,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
                   {project.deliverables && (
                     <div>
-                      <span className="text-[10px] font-mono text-slate-500 dark:text-white/50 uppercase block mb-1 font-medium">
+                      <span className="text-xs font-mono text-slate-500 dark:text-white/50 uppercase block mb-1 font-medium">
                         {t('modal.deliverables')}
                       </span>
                       <ul className="space-y-1 text-xs text-slate-700 dark:text-white/70">

@@ -102,18 +102,24 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
   };
 
   return (
-    <section id="voice" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative border-y border-[var(--border-color)] transition-colors duration-300">
+    <section id="voice" className="py-16 sm:py-24 px-4 sm:px-6 text-[var(--text-main)] relative transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase font-display text-[var(--text-main)] mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)] mb-6">
             {t('voice.headingProf')} <span className="text-accent">{t('voice.headingOver')}</span>
           </h2>
           <p className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed font-normal">
             {t('voice.intro')}
           </p>
-        </div>
+        </motion.div>
 
         {/* Studio Console Container */}
         <div className="glass-card p-5 sm:p-10 rounded-3xl relative overflow-hidden">
@@ -125,7 +131,7 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
                   key={cat}
                   onClick={() => handleCategorySelect(cat)}
                   className={cn(
-                    'px-4 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold uppercase tracking-wider transition-all flex items-center',
+                    'px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-semibold uppercase tracking-wider transition-all flex items-center',
                     selectedCategory === cat
                       ? 'bg-accent text-black shadow-sm'
                       : 'bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-white/60 hover:text-slate-950 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10'
@@ -162,10 +168,10 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
           <div className="mb-10 glass-card p-6 sm:p-8 rounded-2xl">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
               <div>
-                <span className="text-[10px] font-mono text-accent uppercase tracking-widest block mb-1">
+                <span className="text-xs font-mono text-accent uppercase tracking-widest block mb-1">
                   {t('voice.nowPlaying')} {categoryLabels[activeTrackLocal.category] ?? activeTrackLocal.category}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-main)]">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[var(--text-main)]">
                   {activeTrackLocal.title}
                 </h3>
               </div>
@@ -214,7 +220,7 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
 
 
             {/* Waveform Bars */}
-            <div className="flex items-center justify-center gap-1.5 h-28 my-6 px-4 bg-slate-200/80 dark:bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)] overflow-hidden">
+            <div className="flex items-center justify-center gap-1 sm:gap-1.5 h-28 my-6 px-4 bg-slate-200/80 dark:bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)] overflow-hidden">
               {activeTrackLocal.waveform.map((val, idx) => (
                 <motion.div
                   key={idx}
@@ -233,7 +239,7 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
                     delay: idx * 0.02,
                   }}
                   className={cn(
-                    'w-1.5 rounded-full transition-colors',
+                    'w-0.5 sm:w-1 lg:w-1.5 rounded-full transition-colors',
                     isPlaying ? 'bg-accent' : 'bg-slate-400/50 dark:bg-white/20'
                   )}
                 />
@@ -249,7 +255,7 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
                   exit={{ opacity: 0, height: 0 }}
                   className="mt-6 pt-6 border-t border-[var(--border-color)]"
                 >
-                  <span className="text-[10px] font-mono text-slate-500 dark:text-white/40 uppercase tracking-widest block mb-2">
+                  <span className="text-xs font-mono text-slate-500 dark:text-white/40 uppercase tracking-widest block mb-2">
                     {t('voice.scriptTranscript')}
                   </span>
                   <p className="text-base sm:text-lg italic font-serif text-slate-800 dark:text-[var(--text-main)]/90 bg-white dark:bg-[var(--card-bg)]/60 p-4 rounded-xl border border-[var(--border-color)] border-l-4 border-l-accent">
@@ -280,16 +286,16 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
                 )}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono text-accent font-semibold">
+                  <span className="text-xs font-mono text-accent font-semibold">
                     {categoryLabels[track.category] ?? track.category}
                   </span>
-                  <span className="text-[10px] font-mono opacity-60 flex items-center gap-1">
+                  <span className="text-xs font-mono opacity-60 flex items-center gap-1">
                     {!track.audioUrl && <MicOff size={10} />}
                     {track.duration}
                   </span>
                 </div>
-                <h4 className="font-bold text-sm text-[var(--text-main)] mb-1">{track.title}</h4>
-                <p className="text-[11px] text-[var(--text-muted)] line-clamp-2">{track.description}</p>
+                <h4 className="font-bold text-base text-[var(--text-main)] mb-1">{track.title}</h4>
+                <p className="text-sm text-[var(--text-muted)] line-clamp-2">{track.description}</p>
               </motion.div>
             ))}
           </div>

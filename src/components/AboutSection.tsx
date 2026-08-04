@@ -8,7 +8,7 @@ export const AboutSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative overflow-hidden transition-colors duration-300">
+    <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 text-[var(--text-main)] relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         {/* Portrait Image Column */}
@@ -17,7 +17,7 @@ export const AboutSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full lg:w-1/2"
+          className="w-full lg:w-1/2 max-w-md mx-auto lg:max-w-none"
         >
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/25 via-accent-soft/15 to-accent/30 dark:from-accent/25 dark:via-accent/15 dark:to-accent/30 opacity-10 dark:opacity-25 blur-2xl group-hover:opacity-25 dark:group-hover:opacity-45 transition-opacity duration-700 rounded-3xl" />
@@ -29,32 +29,23 @@ export const AboutSection: React.FC = () => {
                 loading="lazy"
                 className="w-full aspect-square object-cover object-top rounded-2xl transition-transform duration-700 transform group-hover:scale-[1.02]"
               />
-              
-              {/* Overlay Badge */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-slate-950/85 dark:bg-[var(--card-bg)]/85 backdrop-blur-xl border border-white/10 rounded-xl flex items-center justify-between">
-                <div>
-                  <h4 className="font-extrabold text-sm text-white uppercase tracking-wider">
-                    {t('about.badgeName')}
-                  </h4>
-                  <span className="text-[10px] font-mono text-accent">
-                    {t('about.badgeSub')}
-                  </span>
-                </div>
-                <span className="px-2.5 py-1 rounded bg-accent text-[10px] font-mono font-bold text-black uppercase">
-                  {t('about.badgeActive')}
-                </span>
-              </div>
             </div>
           </div>
         </motion.div>
 
         {/* Narrative Column */}
-        <div className="w-full lg:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full lg:w-1/2"
+        >
           <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-3 font-medium">
             {t('about.eyebrow')}
           </span>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-8 font-display text-[var(--text-main)] uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-8 font-display text-[var(--text-main)] uppercase">
             {t('about.headingOne')} <br />
             <span className="text-accent">
               {t('about.headingTwo')}
@@ -76,7 +67,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Key Advantages Grid */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 border-t border-slate-200 dark:border-white/10">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-slate-200 dark:border-white/10">
             {[
               t('about.adv1'),
               t('about.adv2'),
@@ -97,7 +88,7 @@ export const AboutSection: React.FC = () => {
             ))}
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

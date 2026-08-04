@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Zap, Sun, Moon } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { Lang } from '../i18n/translations';
 import { cn } from '../lib/utils';
+import { HydraLogo } from './HydraLogo';
 
 interface NavigationProps {
   onOpenBrief: () => void;
-  onOpenReel: () => void;
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
 }
@@ -60,7 +60,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ lang, onSelect, lab
           key={code}
           onClick={() => onSelect(code)}
           className={cn(
-            'px-2.5 py-1.5 min-h-[36px] rounded-full text-[10px] font-semibold uppercase tracking-widest transition-all',
+            'px-2.5 py-1.5 min-h-[36px] rounded-full text-xs font-semibold uppercase tracking-widest transition-all',
             lang === code
               ? 'bg-accent text-black shadow-sm'
               : 'text-slate-500 dark:text-white/50 hover:text-slate-800 dark:hover:text-white'
@@ -76,7 +76,6 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ lang, onSelect, lab
 
 export const Navigation: React.FC<NavigationProps> = ({
   onOpenBrief,
-  onOpenReel,
   theme,
   onToggleTheme,
 }) => {
@@ -89,25 +88,20 @@ export const Navigation: React.FC<NavigationProps> = ({
     { name: t('nav.voice'), href: '#voice' },
     { name: t('nav.process'), href: '#process' },
     { name: t('nav.origin'), href: '#about' },
-    { name: t('nav.contact'), href: '#contact' },
   ];
 
   const languageOptions: Lang[] = ['en', 'fr', 'ar'];
 
   return (
-    <nav className="fixed top-3 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl">
+    <nav className="fixed top-[calc(0.75rem+env(safe-area-inset-top,0px))] md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl">
       <div className="bg-[var(--card-bg)]/90 backdrop-blur-xl border border-[var(--border-color)] rounded-[24px] px-4 sm:px-6 py-3 flex items-center justify-between shadow-md dark:shadow-none transition-colors duration-300">
         
         {/* Brand wordmark */}
-        <a href="#" className="flex items-center min-h-[44px] group">
-          <div className="flex flex-col">
-            <span className="font-semibold tracking-tight text-xs sm:text-sm uppercase text-[var(--text-main)] group-hover:text-accent transition-colors leading-tight">
-              HYDRA SAMO
-            </span>
-            <span className="text-[10px] font-mono tracking-widest text-accent uppercase leading-none font-medium mt-0.5">
-              {t('brand.tagline')}
-            </span>
-          </div>
+        <a href="#" className="flex items-center gap-2.5 sm:gap-3 min-h-[44px] group">
+          <HydraLogo className="h-6 w-6 sm:h-7 sm:w-7 text-accent group-hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.6)] transition-[filter]" />
+          <span className="font-semibold tracking-tight text-sm sm:text-base uppercase text-[var(--text-main)] group-hover:text-accent transition-colors leading-tight">
+            HYDRA SAMO
+          </span>
         </a>
 
         {/* Desktop Links with Framer Motion Staggered Entrance */}
@@ -115,7 +109,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           variants={navContainerVariants}
           initial="hidden"
           animate="visible"
-          className="hidden md:flex items-center gap-6 lg:gap-8 text-[11px] font-medium uppercase tracking-[0.15em] text-slate-600 dark:text-white/50"
+          className="hidden md:flex items-center gap-6 lg:gap-8 text-xs sm:text-sm font-medium uppercase tracking-[0.15em] text-slate-600 dark:text-white/50"
         >
           {navLinks.map((link) => (
             <motion.a 
@@ -132,7 +126,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         {/* Right Action Controls */}
         <div className="flex items-center gap-2.5 sm:gap-3.5">
           {/* Location Status Badge */}
-          <span className="hidden xl:inline-block font-mono text-[10px] uppercase tracking-widest text-accent font-medium mr-1">
+          <span className="hidden xl:inline-block font-mono text-xs uppercase tracking-widest text-accent font-medium mr-1">
             {t('badge.location')}
           </span>
 
@@ -211,7 +205,8 @@ export const Navigation: React.FC<NavigationProps> = ({
                 transition: { staggerChildren: 0.06, delayChildren: 0.05 }
               }
             }}
-            className="md:hidden mt-2.5 bg-[var(--card-bg)]/95 border border-[var(--border-color)] rounded-3xl p-6 shadow-2xl backdrop-blur-2xl transition-colors duration-300"
+            className="md:hidden mt-2.5 bg-[var(--card-bg)]/95 border border-[var(--border-color)] rounded-3xl p-6 shadow-2xl backdrop-blur-2xl max-h-[70vh] overflow-y-auto overscroll-contain transition-colors duration-300"
+            data-lenis-prevent
           >
             <div className="flex flex-col gap-4">
               {/* Language Selector in Drawer */}
@@ -267,15 +262,6 @@ export const Navigation: React.FC<NavigationProps> = ({
               ))}
 
               <div className="pt-2 flex flex-col gap-3">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenReel();
-                  }}
-                  className="w-full py-3.5 min-h-[44px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-semibold text-xs uppercase tracking-wider rounded-2xl flex items-center justify-center gap-2"
-                >
-                  <Zap size={14} className="text-accent" /> {t('btn.watchShowreel')}
-                </button>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);

@@ -11,21 +11,27 @@ export const ProcessSection: React.FC = () => {
   const comparison = localizeComparison(COMPARISON_MATRIX, lang);
 
   return (
-    <section id="process" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative transition-colors duration-300">
+    <section id="process" className="py-16 sm:py-24 px-4 sm:px-6 text-[var(--text-main)] relative transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="mb-20">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase font-display text-[var(--text-main)] mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)] mb-6">
             {t('process.how')} <span className="text-accent">{t('process.operates')}</span>
           </h2>
           <p className="max-w-2xl text-base sm:text-lg text-[var(--text-muted)] font-normal leading-relaxed">
             {t('process.intro')}
           </p>
-        </div>
+        </motion.div>
 
         {/* 5-Step Workflow Cards — no SaaS badges, soft emerald hover */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 mb-16">
           {steps.map((step, idx) => (
             <motion.div
               key={step.number}
@@ -38,25 +44,25 @@ export const ProcessSection: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2.5 mb-4">
                   <span className="w-2 h-2 rounded-full bg-accent/60 group-hover:bg-accent transition-colors shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
-                  <span className="text-[10px] font-mono text-accent uppercase tracking-widest font-semibold">
+                  <span className="text-xs font-mono text-accent uppercase tracking-widest font-semibold">
                     {step.subtitle}
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[var(--text-main)] uppercase mb-3 group-hover:text-accent transition-colors">
+                <h3 className="text-base font-semibold text-[var(--text-main)] uppercase mb-3 group-hover:text-accent transition-colors">
                   {step.title}
                 </h3>
 
-                <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-6">
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
                   {step.description}
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100 dark:border-white/5">
-                <span className="text-[9px] font-mono text-slate-400 dark:text-white/40 uppercase block mb-1">
+                <span className="text-xs font-mono text-slate-400 dark:text-white/40 uppercase block mb-1">
                   {t('process.deliverable')}
                 </span>
-                <span className="text-xs font-semibold text-slate-800 dark:text-white/90">
+                <span className="text-sm font-semibold text-slate-800 dark:text-white/90">
                   {step.deliverable}
                 </span>
               </div>
@@ -65,8 +71,8 @@ export const ProcessSection: React.FC = () => {
         </div>
 
         {/* Many Heads, One Unified Vision — humanized two-column narrative */}
-        <div className="mb-14">
-          <h3 className="text-3xl sm:text-5xl font-bold tracking-tight uppercase font-display text-[var(--text-main)]">
+        <div className="mb-10">
+          <h3 className="text-2xl sm:text-4xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)]">
             {t('process.narrativeTitle')}{' '}
             <span className="text-accent">{t('process.narrativeTitleGrad')}</span>
           </h3>

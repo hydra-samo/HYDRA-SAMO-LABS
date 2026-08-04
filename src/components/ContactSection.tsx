@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle2, Globe, X, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle2, X, AlertCircle } from 'lucide-react';
 import { BriefFormData } from '../types';
 import { useLanguage } from '../i18n/LanguageContext';
 import { MagneticButton } from './MagneticButton';
@@ -16,11 +16,10 @@ const FORM_ACCESS_KEY = import.meta.env.VITE_FORM_ACCESS_KEY as string | undefin
 const isFormConfigured = Boolean(FORM_ENDPOINT);
 
 interface ContactSectionProps {
-  isOpenModal?: boolean;
-  onCloseModal?: () => void;
+  onCloseModal: () => void;
 }
 
-export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onCloseModal }) => {
+export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) => {
   const { t } = useLanguage();
 
   const [formData, setFormData] = useState<BriefFormData>({
@@ -104,7 +103,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
             <CheckCircle2 size={40} />
           </div>
 
-          <h3 className="text-3xl font-extrabold text-[var(--text-main)] mb-4 uppercase">
+          <h3 className="text-2xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)] mb-4">
             {t('contact.successTitle')}
           </h3>
 
@@ -117,7 +116,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
               setSubmitted(false);
               if (onCloseModal) onCloseModal();
             }}
-            className="px-8 py-3.5 min-h-[44px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-semibold text-xs uppercase tracking-wider rounded-full transition-all hover:shadow-[0_0_25px_rgba(16,185,129,0.2)]"
+            className="px-8 py-3.5 min-h-[44px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-semibold text-sm uppercase tracking-wider rounded-full transition-all hover:shadow-[0_0_25px_rgba(16,185,129,0.2)]"
           >
             {t('btn.submitAnotherBrief')}
           </MagneticButton>
@@ -127,7 +126,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
           
           {/* Services Selector */}
           <div>
-            <label className="text-xs font-mono uppercase text-accent tracking-widest block mb-3 font-semibold">
+            <label className="text-sm font-mono uppercase text-accent tracking-widest block mb-3 font-semibold">
               {t('contact.labelServices')}
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -142,7 +141,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
                   key={s.id}
                   onClick={() => toggleService(s.id)}
                   className={cn(
-                    'p-3.5 min-h-[44px] rounded-xl border text-xs font-semibold text-left transition-all',
+                    'p-3.5 min-h-[44px] rounded-xl border text-sm font-semibold text-left transition-all',
                     formData.services.includes(s.id)
                       ? 'bg-accent border-accent text-black shadow-sm'
                       : 'bg-white dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-700 dark:text-white/60 hover:text-slate-950 dark:hover:text-white'
@@ -160,7 +159,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
           {/* Contact Details */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label className="text-xs font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelName')}
               </label>
               <input
@@ -174,7 +173,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
             </div>
 
             <div>
-              <label className="text-xs font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelEmail')}
               </label>
               <input
@@ -188,7 +187,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
             </div>
 
             <div>
-              <label className="text-xs font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelCompany')}
               </label>
               <input
@@ -204,7 +203,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
           {/* Budget & Timeline Selectors */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="text-xs font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelBudget')}
               </label>
               <select
@@ -220,7 +219,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
             </div>
 
             <div>
-              <label className="text-xs font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelTimeline')}
               </label>
               <select
@@ -292,59 +291,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
     </div>
   );
 
-  if (isOpenModal) {
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 dark:bg-black/90 backdrop-blur-xl overflow-y-auto">
-        <div className="relative bg-[var(--bg-canvas)] border border-[var(--border-color)] rounded-3xl p-6 sm:p-10 w-full max-w-4xl my-8 max-h-[90vh] overflow-y-auto shadow-2xl">
-          <button
-            onClick={onCloseModal}
-            className="absolute top-6 right-6 p-2.5 min-w-[44px] min-h-[44px] rounded-full bg-slate-200 dark:bg-white/5 border border-[var(--border-color)] text-slate-700 dark:text-white/70 hover:text-slate-950 dark:hover:text-white flex items-center justify-center"
-          >
-            <X size={20} />
-          </button>
-
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-[var(--text-main)] uppercase">
-              {t('contact.headingLet')} <span className="text-accent">{t('contact.headingTogether')}</span>
-            </h2>
-          </div>
-
-          {FormContent}
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative border-t border-[var(--border-color)] transition-colors duration-300">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Headline */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight uppercase font-display text-[var(--text-main)] mb-6">
-            {t('contact.let')} <span className="text-accent">{t('contact.headingBuild')}</span>
+    <div data-lenis-prevent className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-slate-950/80 dark:bg-black/90 backdrop-blur-xl overflow-y-auto">
+      <div data-lenis-prevent className="relative bg-[var(--bg-canvas)] border border-[var(--border-color)] rounded-3xl p-6 sm:p-10 w-full max-w-4xl my-auto max-h-[90vh] overflow-y-auto shadow-2xl">
+        <button
+          onClick={onCloseModal}
+          className="absolute top-6 right-6 p-2.5 min-w-[44px] min-h-[44px] rounded-full bg-slate-200 dark:bg-white/5 border border-[var(--border-color)] text-slate-700 dark:text-white/70 hover:text-slate-950 dark:hover:text-white flex items-center justify-center"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)]">
+            {t('contact.headingLet')} <span className="text-accent">{t('contact.headingTogether')}</span>
           </h2>
-          <p className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed font-normal">
-            {t('contact.intro')}
-          </p>
         </div>
 
         {FormContent}
-
-        {/* Footer Meta */}
-        <div className="mt-24 pt-8 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-500 dark:text-white/40 uppercase">
-          <div className="flex items-center gap-2">
-            <Globe size={14} className="text-accent" />
-            <span>{t('contact.footer', { year: new Date().getFullYear() })}</span>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <span className="text-[var(--text-muted)]">{t('contact.footerGlobal')}</span>
-            <span className="text-accent">{t('contact.footerDirect')}</span>
-          </div>
-        </div>
-
       </div>
-    </section>
+    </div>
   );
 };

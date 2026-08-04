@@ -1,7 +1,11 @@
-# HYDRA SAMO — Portfolio
+# HYDRA SAMO LABS — Portfolio
 
 Official editorial dark-mode portfolio for **Bendali Issam Eddine (Hydra Samo)** —
 video editing, motion graphics, and voice-over artistry.
+
+## Live site
+
+- **Deployed:** https://hydra-samo.github.io/HYDRA-SAMO-LABS/
 
 ## Stack
 

@@ -90,7 +90,7 @@ export const ProjectCard: React.FC<{
               <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 flex items-center justify-center">
                 <Film size={16} className="text-accent/50" />
               </div>
-              <span className="text-[10px] font-mono text-slate-400 dark:text-white/30 uppercase tracking-widest">
+              <span className="text-xs font-mono text-slate-400 dark:text-white/30 uppercase tracking-widest">
                 {t('work.streaming')}
               </span>
             </motion.div>
@@ -111,7 +111,7 @@ export const ProjectCard: React.FC<{
                 loading="lazy"
                 onLoad={() => setImageLoaded(true)}
                 className={cn(
-                  'w-full h-full object-cover transition-all duration-700 group-hover:scale-105 transform-gpu will-change-transform filter grayscale-[15%] group-hover:grayscale-0',
+                  'w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-active:scale-105 transform-gpu will-change-transform filter grayscale-[15%] group-hover:grayscale-0',
                   imageLoaded ? 'opacity-100' : 'opacity-0'
                 )}
               />
@@ -125,17 +125,17 @@ export const ProjectCard: React.FC<{
 
               {/* Top Badge Info */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                <span className="px-3 py-1 rounded-full bg-slate-900/80 dark:bg-[var(--card-bg)]/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-accent font-bold uppercase tracking-widest">
+                <span className="px-3 py-1 rounded-full bg-slate-900/80 dark:bg-[var(--card-bg)]/80 backdrop-blur-md border border-white/10 text-xs font-mono text-accent font-bold uppercase tracking-widest">
                   {project.tag}
                 </span>
-                <span className="px-2.5 py-1 rounded-md bg-black/60 text-[10px] font-mono text-white/90">
+                <span className="px-2.5 py-1 rounded-md bg-black/60 text-xs font-mono text-white/90">
                   {project.year}
                 </span>
               </div>
 
-              {/* Hover Play / View Center Trigger */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                <div className="w-16 h-16 rounded-full bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
+              {/* Hover / Tap Play View Center Trigger */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 z-20">
+                <div className="w-16 h-16 rounded-full bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 group-active:scale-100 transition-transform duration-300">
                   <Play size={24} className="fill-current text-accent ml-1" />
                 </div>
               </div>
@@ -146,16 +146,16 @@ export const ProjectCard: React.FC<{
 
       {/* Card Footer Info */}
       <div className="p-6 relative z-10">
-        <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-white/50 mb-2">
+        <div className="flex items-center justify-between text-xs sm:text-sm font-mono text-slate-500 dark:text-white/50 mb-2">
           <span>{t('work.client')} {project.client.toUpperCase()}</span>
           <span className="text-accent font-bold">{t('work.caseStudy')}</span>
         </div>
 
-        <h3 className="text-2xl font-bold tracking-tight text-[var(--text-main)] group-hover:text-accent transition-colors mb-2 uppercase">
+        <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-[var(--text-main)] group-hover:text-accent transition-colors mb-2 uppercase">
           {project.title}
         </h3>
 
-        <p className="text-xs text-[var(--text-muted)] line-clamp-2 mb-4 leading-relaxed">
+        <p className="text-sm sm:text-base text-[var(--text-muted)] line-clamp-2 mb-4 leading-relaxed">
           {project.description}
         </p>
 
@@ -165,7 +165,7 @@ export const ProjectCard: React.FC<{
             {project.softwareStack.map((sw) => (
               <span
                 key={sw}
-                className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-white/60 border border-slate-200 dark:border-transparent"
+                className="text-xs sm:text-sm font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-white/60 border border-slate-200 dark:border-transparent"
               >
                 {sw}
               </span>
@@ -194,13 +194,19 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({ onSelectProject, onOpe
   });
 
   return (
-    <section id="work" className="py-24 sm:py-32 px-4 sm:px-6 relative transition-colors duration-300">
+    <section id="work" className="py-16 sm:py-24 px-4 sm:px-6 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8"
+        >
           <div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase font-display text-[var(--text-main)]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)]">
               {t('work.selected')} <span className="text-accent">{t('work.works')}</span>
             </h2>
           </div>
@@ -217,7 +223,7 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({ onSelectProject, onOpe
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id as any)}
                 className={cn(
-                  'px-4 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold uppercase tracking-wider transition-all flex items-center',
+                  'px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-semibold uppercase tracking-wider transition-all flex items-center',
                   activeCategory === cat.id
                     ? 'bg-accent text-black shadow-sm'
                     : 'text-slate-700 dark:text-white/60 hover:text-slate-950 dark:hover:text-white hover:bg-slate-300/50 dark:hover:bg-white/5'
@@ -227,7 +233,7 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({ onSelectProject, onOpe
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Projects Grid with Staggered Container & Viewport Threshold Lazy Loading */}
         <AnimatePresence mode="wait">
@@ -269,20 +275,6 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({ onSelectProject, onOpe
             )}
           </motion.div>
         </AnimatePresence>
-
-        {/* Bottom Banner to Launch Master Reel */}
-        <div className="mt-16 p-8 glass-card rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-2xl font-bold text-[var(--text-main)] mb-2">{t('work.bannerTitle')}</h3>
-            <p className="text-sm text-[var(--text-muted)]">{t('work.bannerDesc')}</p>
-          </div>
-          <button
-            onClick={onOpenReel}
-            className="px-8 py-4 min-h-[44px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-semibold text-xs uppercase tracking-wider rounded-full transition-all flex items-center gap-3 shrink-0"
-          >
-            <Play size={16} className="fill-current" /> {t('btn.watchMasterShowreel')}
-          </button>
-        </div>
 
       </div>
     </section>
