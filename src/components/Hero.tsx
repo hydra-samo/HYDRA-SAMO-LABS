@@ -36,7 +36,7 @@ export const Hero: React.FC<HeroProps> = ({
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 pt-28 sm:pt-32 pb-16 overflow-hidden text-[var(--text-main)] bg-[var(--bg-canvas)]/80 backdrop-blur-sm transition-colors duration-300">
+    <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 pt-28 sm:pt-32 pb-16 overflow-hidden text-[var(--text-main)] transition-colors duration-300">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-16">
           

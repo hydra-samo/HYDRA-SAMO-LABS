@@ -194,7 +194,7 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({ onSelectProject, onOpe
   });
 
   return (
-    <section id="work" className="py-24 sm:py-32 px-4 sm:px-6 relative bg-[var(--bg-canvas)]/80 backdrop-blur-sm transition-colors duration-300">
+    <section id="work" className="py-24 sm:py-32 px-4 sm:px-6 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}

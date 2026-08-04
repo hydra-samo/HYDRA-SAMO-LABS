@@ -24,6 +24,10 @@ export const AmbientBackground: React.FC = () => {
 
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      {/* Deep radial emerald wash grounding the abyssal canvas (#060c09) —
+          a faint #10b981 bloom top-left and a deeper #059669 bottom-right. */}
+      <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_-10%,rgba(16,185,129,0.07),transparent_55%),radial-gradient(120%_120%_at_90%_110%,rgba(5,150,105,0.09),transparent_60%)]" />
+
       {/* Organic color blobs */}
       <div
         className="ambient-blob ambient-blob--a -top-[18vh] -left-[14vw] h-[55vw] w-[55vw]"

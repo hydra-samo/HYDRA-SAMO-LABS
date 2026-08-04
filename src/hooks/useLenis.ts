@@ -2,21 +2,19 @@ import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 
 /**
- * Global smooth scroll with light damping. Skipped entirely for users with
- * reduced-motion preferences. Anchor links (`#work`, `#voice`, …) are routed
- * through Lenis manually so section navigation gets the same weightless easing
- * (and an offset that clears the floating nav).
+ * Global smooth scroll with light damping. Anchor links (`#work`, `#voice`, …)
+ * are routed through Lenis manually so section navigation gets the same
+ * weightless easing (and an offset that clears the floating nav).
  *
- * Returns a ref to the live Lenis instance (or null before mount / when
- * reduced-motion skipped it) so callers — e.g. App.tsx — can stop/start it
- * while a modal is open, instead of letting the background scroll underneath.
+ * Returns a ref to the live Lenis instance (or null before mount) so callers —
+ * e.g. App.tsx — can stop/start it while a modal is open, instead of letting
+ * the background scroll underneath.
  */
 export function useLenis() {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const lenis = new Lenis({
       duration: 1.2,

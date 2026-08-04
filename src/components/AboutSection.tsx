@@ -8,7 +8,7 @@ export const AboutSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative overflow-hidden bg-[var(--bg-canvas)]/80 backdrop-blur-sm transition-colors duration-300">
+    <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         {/* Portrait Image Column */}

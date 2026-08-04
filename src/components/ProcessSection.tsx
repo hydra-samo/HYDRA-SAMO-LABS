@@ -11,7 +11,7 @@ export const ProcessSection: React.FC = () => {
   const comparison = localizeComparison(COMPARISON_MATRIX, lang);
 
   return (
-    <section id="process" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative bg-[var(--bg-canvas)]/80 backdrop-blur-sm transition-colors duration-300">
+    <section id="process" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}

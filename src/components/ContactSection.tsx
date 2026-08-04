@@ -316,7 +316,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpenModal, onC
   }
 
   return (
-    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative border-t border-[var(--border-color)] bg-[var(--bg-canvas)]/80 backdrop-blur-sm transition-colors duration-300">
+    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 text-[var(--text-main)] relative border-t border-[var(--border-color)] transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         
         {/* Headline */}
