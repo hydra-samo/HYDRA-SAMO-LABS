@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react';
  * cursor spotlight) behind scroll-driven motion for touch users.
  */
 export function useCoarsePointer(): boolean {
-  const [coarse, setCoarse] = useState(false);
+  const [coarse, setCoarse] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(pointer: coarse)').matches;
+  });
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const mq = window.matchMedia('(pointer: coarse)');
-    setCoarse(mq.matches);
     const handler = (e: MediaQueryListEvent) => setCoarse(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
