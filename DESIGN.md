@@ -8,6 +8,7 @@
   - No solid flat bright accent CTAs.
   - No corporate agency comparison matrices.
   - No rigid numbered badges (`01`, `02`).
+  - No geo/location badges (e.g., `ALGERIA // GLOBAL`) — removed from the nav; forbidden in every locale.
 
 ## Color System Tokens
 - Canvas Base: `#060c09` (Abyssal Dark Slate)

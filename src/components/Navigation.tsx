@@ -143,11 +143,6 @@ export const Navigation: React.FC<NavigationProps> = ({
 
         {/* Right Action Controls */}
         <div className="flex items-center gap-2.5 sm:gap-3.5">
-          {/* Location Status Badge */}
-          <span className="hidden xl:inline-block font-mono text-xs uppercase tracking-widest text-accent font-medium mr-1">
-            {t('badge.location')}
-          </span>
-
           {/* Dark / Light Mode Toggle Button */}
           <motion.button
             whileTap={{ scale: 0.92 }}

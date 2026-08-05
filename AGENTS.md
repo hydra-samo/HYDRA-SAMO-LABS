@@ -24,7 +24,7 @@
   - Accent: Mythic Emerald / Toxic Jade (`#10b981`, `#059669`, with soft `#34d399` highlights).
   - Canvas: Deep Abyssal Dark Slate (`#060c09` or `#0b1410`).
   - Text: Off-white (`#f3f4f6`) titles and muted slate (`#94a3b8`) body text.
-- **Strictly Forbidden Tropes**: Neon Cyan (`#00FFCC`, `#00F0FF`), bright blue gradients, SaaS section eyebrow pills (`// SELECTED WORKS`), rigid corporate comparison tables, numbered SaaS badges (`01`, `02`).
+- **Strictly Forbidden Tropes**: Neon Cyan (`#00FFCC`, `#00F0FF`), bright blue gradients, SaaS section eyebrow pills (`// SELECTED WORKS`), rigid corporate comparison tables, numbered SaaS badges (`01`, `02`), and geo/location badges (e.g. `ALGERIA // GLOBAL`, "Based in …", country pins). Location badges were removed from `Navigation.tsx` and their translation keys deleted — do not reintroduce them in any language.
 - **Layout & Micro-Interactions**:
   - Convert "Agency vs Hydra" table into a clean, humanized 2-column narrative ("Many Heads, One Unified Vision").
   - Maintain Lenis smooth scroll (`lenis`), SVG film-grain noise overlay, `AmbientBackground` green light blurs, `TiltCard` physics, and `MagneticButton` interactions.
