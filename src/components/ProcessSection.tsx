@@ -44,12 +44,12 @@ export const ProcessSection: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2.5 mb-4">
                   <span className="w-2 h-2 rounded-full bg-accent/60 group-hover:bg-accent transition-colors shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
-                  <span className="text-xs font-mono text-accent uppercase tracking-widest font-semibold">
+                  <span className="text-xs text-accent uppercase tracking-widest font-medium">
                     {step.subtitle}
                   </span>
                 </div>
 
-                <h3 className="text-base font-semibold text-[var(--text-main)] uppercase mb-3 group-hover:text-accent transition-colors">
+                <h3 className="text-base font-display font-medium text-[var(--text-main)] uppercase mb-3 group-hover:text-accent transition-colors">
                   {step.title}
                 </h3>
 
@@ -59,7 +59,7 @@ export const ProcessSection: React.FC = () => {
               </div>
 
               <div className="pt-4 border-t border-slate-100 dark:border-white/5">
-                <span className="text-xs font-mono text-slate-400 dark:text-white/40 uppercase block mb-1">
+                <span className="text-xs text-slate-400 dark:text-white/40 uppercase block mb-1">
                   {t('process.deliverable')}
                 </span>
                 <span className="text-sm font-semibold text-slate-800 dark:text-white/90">
@@ -85,7 +85,7 @@ export const ProcessSection: React.FC = () => {
               <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-500 dark:text-white/50">
                 <Layers size={18} />
               </div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-white/70">
+              <h4 className="text-sm font-display font-medium uppercase tracking-wider text-slate-700 dark:text-white/70">
                 {t('process.fragmentedTitle')}
               </h4>
             </div>
@@ -109,7 +109,7 @@ export const ProcessSection: React.FC = () => {
               <div className="p-2.5 rounded-xl bg-accent/15 border border-accent/40 text-accent">
                 <Check size={18} />
               </div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-[var(--text-main)]">
+              <h4 className="text-sm font-display font-medium uppercase tracking-wider text-[var(--text-main)]">
                 {t('process.unifiedTitle')}
               </h4>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Play, Pause, Volume2, VolumeX, Maximize, Sliders, CheckCircle2, ArrowRight } from 'lucide-react';
+import { X, Play, Pause, Volume2, VolumeX, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Project } from '../types';
 import { useLanguage } from '../i18n/LanguageContext';
 import { cn } from '../lib/utils';
@@ -64,17 +64,17 @@ export const VideoModal: React.FC<VideoModalProps> = ({
           {/* Header Bar */}
           <div className="p-5 sm:p-6 border-b border-[var(--border-color)] flex items-center justify-between bg-[var(--card-bg)]">
             <div>
-              <span className="text-xs font-mono text-accent uppercase tracking-widest block mb-1 font-semibold">
+              <span className="text-xs text-accent uppercase tracking-widest block mb-1 font-medium">
                 {clientName}
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-main)] uppercase font-display">
+              <h3 className="text-xl sm:text-2xl font-medium text-[var(--text-main)] uppercase font-display">
                 {modalTitle}
               </h3>
             </div>
 
             <div className="flex items-center gap-3">
               {project?.beforeGradeImg && project?.afterGradeImg && (
-                <div className="flex bg-slate-200 dark:bg-[var(--card-bg)] p-1 rounded-xl border border-[var(--border-color)] text-xs font-mono">
+                <div className="flex bg-slate-200 dark:bg-[var(--card-bg)] p-1 rounded-xl border border-[var(--border-color)] text-xs">
                   <button
                     onClick={() => setActiveTab('video')}
                     className={cn(
@@ -126,7 +126,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                     onClick={togglePlay}
                     className="p-2.5 rounded-full bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 hover:scale-105 transition-transform"
                   >
-                    {isPlaying ? <Pause size={18} className="text-accent" /> : <Play size={18} className="fill-current text-accent" />}
+                    {isPlaying ? <Pause size={18} className="text-accent" /> : <Play size={18} className="text-accent" />}
                   </button>
 
                   <div className="flex items-center gap-3">
@@ -147,6 +147,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                   src={project?.afterGradeImg}
                   alt="After Grade"
                   referrerPolicy="no-referrer"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
 
@@ -159,6 +160,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                     src={project?.beforeGradeImg}
                     alt="Before Grade"
                     referrerPolicy="no-referrer"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover max-w-none"
                     style={{ width: '100%' }}
                   />
@@ -167,7 +169,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                   </span>
                 </div>
 
-                <span className="absolute top-4 right-4 px-3 py-1 bg-accent/20 text-accent border border-accent/40 text-xs font-mono rounded font-bold backdrop-blur-sm">
+                <span className="absolute top-4 right-4 px-3 py-1 bg-accent/20 text-accent border border-accent/40 text-xs font-mono rounded font-semibold backdrop-blur-sm">
                   {t('modal.grade')}
                 </span>
 
@@ -187,7 +189,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
             {project && (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-4 border-t border-slate-200 dark:border-white/10">
                 <div className="lg:col-span-2 space-y-4">
-                  <h4 className="text-sm font-mono text-accent uppercase tracking-wider font-bold">
+                  <h4 className="text-sm font-display text-accent uppercase tracking-wider font-medium">
                     {t('modal.brief')}
                   </h4>
                   <p className="text-sm text-slate-700 dark:text-white/80 leading-relaxed font-normal">
@@ -198,7 +200,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                     <div className="grid grid-cols-3 gap-3 pt-2">
                       {project.metrics.map((m) => (
                         <div key={m.label} className="p-3 bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)]">
-                          <span className="text-xl font-extrabold text-accent block">{m.value}</span>
+                          <span className="text-xl font-semibold text-accent block">{m.value}</span>
                           <span className="text-xs font-mono text-slate-500 dark:text-white/50">{m.label}</span>
                         </div>
                       ))}
@@ -208,7 +210,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
                 <div className="space-y-4 bg-[var(--card-bg)] p-5 rounded-2xl border border-[var(--border-color)]">
                   <div>
-                    <span className="text-xs font-mono text-slate-500 dark:text-white/50 uppercase block mb-1 font-medium">
+                    <span className="text-xs text-slate-500 dark:text-white/50 uppercase block mb-1 font-medium">
                       {t('modal.software')}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -222,13 +224,13 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
                   {project.deliverables && (
                     <div>
-                      <span className="text-xs font-mono text-slate-500 dark:text-white/50 uppercase block mb-1 font-medium">
+                      <span className="text-xs text-slate-500 dark:text-white/50 uppercase block mb-1 font-medium">
                         {t('modal.deliverables')}
                       </span>
                       <ul className="space-y-1 text-xs text-slate-700 dark:text-white/70">
                         {project.deliverables.map((d) => (
                           <li key={d} className="flex items-center gap-1.5">
-                            <CheckCircle2 size={12} className="text-accent" /> {d}
+                            <CheckCircle2 size={12} className="text-accent shrink-0" /> {d}
                           </li>
                         ))}
                       </ul>
@@ -240,7 +242,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                       onClose();
                       onOpenBrief();
                     }}
-                    className="w-full mt-4 py-3 min-h-[44px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2"
+                    className="w-full mt-4 py-3 min-h-[44px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-semibold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2"
                   >
                     <span>{t('btn.requestSimilar')}</span>
                     <ArrowRight size={14} />

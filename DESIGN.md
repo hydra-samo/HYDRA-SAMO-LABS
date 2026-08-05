@@ -28,9 +28,52 @@
 3. Typography Spacing:
    - Uncluttered headings with high contrast. Accentuate max 1-2 words per heading using `#10b981`.
 
+## Typography System
+
+### Font Stacks (canonical tokens in `src/index.css` `@theme`)
+- **`--font-sans`** — `Manrope` · EN/FR body (400), UI labels (500), buttons/CTAs (600).
+- **`--font-display`** — `Space Grotesk` · Wordmark (700), hero (700), primary section titles (600), secondary headings (500).
+- **`--font-arabic`** — `IBM Plex Sans Arabic` · Arabic headings (600, 500 for secondary) and body (400), applied automatically by the `html.lang-ar` overrides.
+- **`--font-mono`** — `JetBrains Mono` · Code and technical readouts only (400, 600 for emphasis).
+
+Wired from Google Fonts in `index.html` — weights are deliberately limited for performance:
+`Space+Grotesk:wght@500;600;700`, `Manrope:wght@400;500;600`, `IBM+Plex+Sans+Arabic:wght@400;500;600;700`, `JetBrains+Mono:wght@400;600`.
+
+### Type Hierarchy
+- **Logo wordmark** — Space Grotesk 700, uppercase. Tracking `-0.02em` in the nav and pre-splash lockups; `-0.03em` on the Plymouth splash title (settles tight after its wide→tight reveal).
+- **Hero display** — Space Grotesk 700, `text-4xl sm:text-5xl md:text-6xl lg:text-7xl`, `tracking-tight`, `leading-[1.02]`.
+- **Primary section titles (h2)** — Space Grotesk 600, `text-3xl sm:text-4xl md:text-5xl`, uppercase, max 1–2 words in Mythic Emerald.
+- **Secondary headings (h3/h4)** — Space Grotesk 500 — card titles, track names, modal titles, narrative column headers.
+- **Body (EN/FR)** — Manrope 400, `leading-relaxed` (the default `font-sans`).
+- **UI labels & eyebrows** — Manrope 500, `text-xs`/`text-sm`, uppercase, `tracking-widest`. Not mono.
+- **Buttons & CTAs** — Manrope 600 (`font-semibold`), uppercase, `tracking-wider`.
+- **Arabic** — IBM Plex Sans Arabic: 600 for headings, 400 for body, via the `html.lang-ar` stack overrides.
+- **Code / technical meta** — JetBrains Mono: software-stack pills, timestamps/durations, video overlay badges (RAW/GRADE), metric readouts, and literal code refs (`VITE_FORM_ENDPOINT`).
+
+### Mono = Technical Only
+JetBrains Mono is reserved for code and data readouts. Every prose eyebrow, form label, and menu label renders in Manrope 500. No `font-mono` eyebrows — the `// SECTION` pattern stays banned.
+
+### Responsive Scale
+- Fluid step-up per breakpoint — no single-size headings: hero `text-4xl → lg:text-7xl`, section titles `text-3xl → md:text-5xl`, cards `text-xl sm:text-2xl` (or `text-base`/`text-sm` for dense UI).
+- Arabic: `html.lang-ar` scales text steps ~+30% (`.text-xs` → 15px … `.text-7xl` → 88px) and zeroes letter-spacing — Arabic reads smaller and breaks apart under wide tracking.
+
+### Accessibility
+- Contrast-driven palette: off-white titles `#f3f4f6`, muted body `#94a3b8`, emerald accents `#10b981` on abyssal `#060c09` — AA-friendly for large/bold type.
+- Interactive text is never smaller than `text-xs`/`text-sm` with `min-h-[44px]` touch targets.
+- `prefers-reduced-motion` skips the splash letter-spacing reveal.
+- Font sizes are px-based Tailwind utilities, so they scale cleanly under browser zoom (200%).
+
 ## Architectural Rules
 - Use relative imports ONLY (`../components/...`).
 - Utility function: Always pass class strings through `cn()` from `src/lib/utils.ts`.
+
+## Device-Tier Performance Budget
+- **Source of truth**: `src/hooks/useDeviceTier.ts` detects `low | medium | high` once per session (CPU cores, deviceMemory, effectiveType, saveData, coarse pointer) and mirrors it onto `<html data-quality="low|medium|high">`.
+- **Low tier** (weak phones): no Lenis (native scroll — anchor jumps need `[id] { scroll-margin-top: 96px }`), 1 static ambient blob, no aurora/spotlight/drift, no backdrop-blur on glass, no blur entrance animations, every other waveform bar.
+- **Medium tier**: Lenis at 0.95s, 2 ambient blobs, reduced `blur(9px)` glass, no spotlight.
+- **High tier**: full experience (Lenis 1.2s, 3 blobs + drift + aurora + spotlight, `blur(12px)` glass).
+- **Convention**: components gate JS animations with `cheapMotion = isCoarse || tier === 'low'`; CSS gates static compositing cost via `html[data-quality]` selectors in `src/index.css`.
+- **CSP**: `index.html` ships a Content-Security-Policy meta tag with NO `unsafe-eval` — required for Electron to clear its "Insecure Content-Security-Policy" warning. `script-src 'unsafe-inline'` is kept for Vite dev; do not add `unsafe-eval` back.
 
 ## HYDRA SAMO — Master Logo Design System
 

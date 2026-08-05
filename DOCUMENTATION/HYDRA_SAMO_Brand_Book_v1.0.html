@@ -1,0 +1,3119 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="generator" content="HYDRA SAMO Brand Book build pipeline"/>
+<meta name="description" content="HYDRA SAMO Brand Identity System — Engineering Documentation — Production Handbook (v1.0, 2026-08-05)."/>
+<title>HYDRA SAMO — Brand Book v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>/* HYDRA SAMO — Brand Book v1.0 · Dark Bio-Organic Editorial */
+:root {
+  --accent: #10b981;
+  --jade: #059669;
+  --mint: #34d399;
+  --canvas: #060c09;
+  --panel: #0b1512;
+  --panel2: #0a120f;
+  --bone: #f3f4f6;
+  --muted: #94a3b8;
+  --body: #b9c4cd;
+  --grid: #17352a;
+}
+
+* { box-sizing: border-box; }
+
+html.dark {
+  background: var(--canvas);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(16,185,129,0.07), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(5,150,105,0.06), transparent 60%),
+    var(--canvas);
+  color: var(--body);
+  font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 64px 32px 120px;
+}
+
+.page > h1:first-child {
+  text-align: center;
+  font-size: 46px;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.page > h2:first-of-type {
+  text-align: center;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mark-img {
+  display: block;
+  width: 180px;
+  margin: 34px auto 22px;
+  filter: drop-shadow(0 0 18px rgba(16,185,129,0.35));
+}
+
+.page > p:has(.mark-img) + p,
+.page > h2:first-of-type + p,
+.page > h2:first-of-type ~ p:has(strong) {
+  text-align: center;
+}
+
+.page > p:first-of-type strong {
+  display: block;
+  margin-top: 4px;
+}
+
+.page > p em {
+  display: block;
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  color: var(--bone);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 56px 0 10px;
+  padding-top: 26px;
+  border-top: 1px solid var(--grid);
+  position: relative;
+}
+
+h1::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 21px;
+  margin: 40px 0 10px;
+  color: var(--mint);
+}
+
+h3 {
+  font-size: 17px;
+  margin: 28px 0 8px;
+  color: var(--bone);
+}
+
+h4 {
+  font-size: 15px;
+  margin: 22px 0 6px;
+}
+
+p { margin: 0 0 14px; }
+
+strong { color: var(--bone); font-weight: 600; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(16,185,129,0.3); }
+a:hover { border-bottom-color: var(--accent); }
+
+ul, ol { margin: 0 0 16px; padding-left: 26px; }
+li { margin-bottom: 5px; }
+li::marker { color: var(--accent); }
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--grid);
+  margin: 30px 0;
+}
+
+blockquote {
+  margin: 0 0 16px;
+  padding: 14px 20px;
+  border-left: 3px solid var(--accent);
+  background: var(--panel);
+  border-radius: 0 8px 8px 0;
+  color: #c8d3db;
+}
+
+code {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.85em;
+  color: var(--mint);
+  background: var(--panel);
+  padding: 1px 6px;
+  border-radius: 5px;
+  border: 1px solid var(--grid);
+}
+
+pre {
+  background: var(--panel);
+  border: 1px solid var(--grid);
+  border-radius: 10px;
+  padding: 16px 18px;
+  overflow-x: auto;
+  margin: 0 0 18px;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--mint);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 20px;
+  font-size: 14px;
+  background: var(--panel2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--panel);
+  color: var(--bone);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--accent);
+}
+
+th, td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--grid);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) { background: rgba(16,185,129,0.025); }
+tbody tr:last-child td { border-bottom: none; }
+
+@media (max-width: 640px) {
+  .page { padding: 40px 18px 90px; }
+  h1 { font-size: 24px; }
+  table { font-size: 12.5px; }
+  th, td { padding: 7px 9px; }
+}
+
+@media print {
+  .page { max-width: none; padding: 0; }
+  body { background: #fff; color: #000; }
+  a { color: #059669; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<h1 id="hydra-samo">HYDRA SAMO</h1>
+<h2 id="brand-identity-system-engineering-documentation-production-handbook">Brand Identity System — Engineering Documentation — Production Handbook</h2>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjExIDIuOTQgNzggNzgiPgogIDxwYXRoIGZpbGw9IiMxMGI5ODEiIGQ9Ik0gNTAuMDAgMTEuNTAgQyA1MC41NiAxMi4wNSwgNTIuMjAgMTMuNTUsIDUzLjM2IDE0LjgwIEMgNTQuNTIgMTYuMDUsIDU1LjY4IDE3LjM3LCA1Ni45NiAxOS4wMCBDIDU4LjI0IDIwLjYzLCA2MC40NCAyMi43MywgNjEuMDQgMjQuNjAgQyA2MS42NCAyNi40NywgNjAuODQgMjguNDAsIDYwLjU2IDMwLjIwIEMgNjAuMjggMzIuMDAsIDU5LjUzIDM0LjAyLCA1OS4zNiAzNS40MCBDIDU5LjE5IDM2Ljc4LCA1OS41MCAzNy45OCwgNTkuNTIgMzguNTAgTCA1MC4wMCAzMy4wMCBMIDQwLjQ4IDM4LjUwIEMgNDAuNTAgMzcuOTgsIDQwLjc3IDM2Ljc4LCA0MC42NCAzNS40MCBDIDQwLjUxIDM0LjAyLCAzOS40MCAzMS45NywgMzkuNjggMzAuMjAgQyAzOS45NiAyOC40MywgNDEuNTYgMjYuNDAsIDQyLjMyIDI0LjgwIEMgNDMuMDggMjMuMjAsIDQzLjUyIDIyLjI3LCA0NC4yNCAyMC42MCBDIDQ0Ljk2IDE4LjkzLCA0NS42OCAxNi4zMiwgNDYuNjQgMTQuODAgQyA0Ny42MCAxMy4yOCwgNDkuNDQgMTIuMDUsIDUwLjAwIDExLjUwIFoiIC8+CiAgPHBhdGggZmlsbD0iIzEwYjk4MSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDUwIDUwKSIgZD0iTSA1MC4wMCAxMS41MCBDIDUwLjU2IDEyLjA1LCA1Mi4yMCAxMy41NSwgNTMuMzYgMTQuODAgQyA1NC41MiAxNi4wNSwgNTUuNjggMTcuMzcsIDU2Ljk2IDE5LjAwIEMgNTguMjQgMjAuNjMsIDYwLjQ0IDIyLjczLCA2MS4wNCAyNC42MCBDIDYxLjY0IDI2LjQ3LCA2MC44NCAyOC40MCwgNjAuNTYgMzAuMjAgQyA2MC4yOCAzMi4wMCwgNTkuNTMgMzQuMDIsIDU5LjM2IDM1LjQwIEMgNTkuMTkgMzYuNzgsIDU5LjUwIDM3Ljk4LCA1OS41MiAzOC41MCBMIDUwLjAwIDMzLjAwIEwgNDAuNDggMzguNTAgQyA0MC41MCAzNy45OCwgNDAuNzcgMzYuNzgsIDQwLjY0IDM1LjQwIEMgNDAuNTEgMzQuMDIsIDM5LjQwIDMxLjk3LCAzOS42OCAzMC4yMCBDIDM5Ljk2IDI4LjQzLCA0MS41NiAyNi40MCwgNDIuMzIgMjQuODAgQyA0My4wOCAyMy4yMCwgNDMuNTIgMjIuMjcsIDQ0LjI0IDIwLjYwIEMgNDQuOTYgMTguOTMsIDQ1LjY4IDE2LjMyLCA0Ni42NCAxNC44MCBDIDQ3LjYwIDEzLjI4LCA0OS40NCAxMi4wNSwgNTAuMDAgMTEuNTAgWiIgLz4KICA8cGF0aCBmaWxsPSIjMTBiOTgxIiB0cmFuc2Zvcm09InJvdGF0ZSgyNDAgNTAgNTApIiBkPSJNIDUwLjAwIDExLjUwIEMgNTAuNTYgMTIuMDUsIDUyLjIwIDEzLjU1LCA1My4zNiAxNC44MCBDIDU0LjUyIDE2LjA1LCA1NS42OCAxNy4zNywgNTYuOTYgMTkuMDAgQyA1OC4yNCAyMC42MywgNjAuNDQgMjIuNzMsIDYxLjA0IDI0LjYwIEMgNjEuNjQgMjYuNDcsIDYwLjg0IDI4LjQwLCA2MC41NiAzMC4yMCBDIDYwLjI4IDMyLjAwLCA1OS41MyAzNC4wMiwgNTkuMzYgMzUuNDAgQyA1OS4xOSAzNi43OCwgNTkuNTAgMzcuOTgsIDU5LjUyIDM4LjUwIEwgNTAuMDAgMzMuMDAgTCA0MC40OCAzOC41MCBDIDQwLjUwIDM3Ljk4LCA0MC43NyAzNi43OCwgNDAuNjQgMzUuNDAgQyA0MC41MSAzNC4wMiwgMzkuNDAgMzEuOTcsIDM5LjY4IDMwLjIwIEMgMzkuOTYgMjguNDMsIDQxLjU2IDI2LjQwLCA0Mi4zMiAyNC44MCBDIDQzLjA4IDIzLjIwLCA0My41MiAyMi4yNywgNDQuMjQgMjAuNjAgQyA0NC45NiAxOC45MywgNDUuNjggMTYuMzIsIDQ2LjY0IDE0LjgwIEMgNDcuNjAgMTMuMjgsIDQ5LjQ0IDEyLjA1LCA1MC4wMCAxMS41MCBaIiAvPgogIDxwYXRoIGZpbGw9IiMxMGI5ODEiIGQ9Ik0gNTAuMDAgMzMuMDAgTCA2NC43MiA0MS41MCBMIDY0LjcyIDU4LjUwIEwgNTAuMDAgNjcuMDAgTCAzNS4yOCA1OC41MCBMIDM1LjI4IDQxLjUwIFoiIC8+Cjwvc3ZnPgo=" alt="HYDRA SAMO — Certified Mark" class="mark-img"/></p>
+<p><strong>Version:</strong> 1.0
+<strong>Release Status:</strong> PRODUCTION-READY
+<strong>Publication Date:</strong> 2026-08-05
+<strong>Repository Version:</strong> v4.0.0 — "One Body, Three Heads"
+<strong>Brand Owner:</strong> Bendali Issam Eddine (Hydra Samo)</p>
+<p><em>The definitive reference manual for the HYDRA SAMO Brand Identity System. Supersedes the individual engineering documents for reading purposes; the original documents remain the official source files.</em></p>
+<hr />
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-brand-philosophy">2. Brand Philosophy</a></li>
+<li><a href="#3-creative-vision">3. Creative Vision</a></li>
+<li><a href="#4-design-principles">4. Design Principles</a></li>
+<li><a href="#5-logo-evolution">5. Logo Evolution</a></li>
+<li><a href="#6-geometry">6. Geometry</a></li>
+<li><a href="#7-construction">7. Construction</a></li>
+<li><a href="#8-hexagonal-grid-system">8. Hexagonal Grid System</a></li>
+<li><a href="#9-optical-corrections">9. Optical Corrections</a></li>
+<li><a href="#10-symbol-meaning">10. Symbol Meaning</a></li>
+<li><a href="#11-typography">11. Typography</a></li>
+<li><a href="#12-color-system">12. Color System</a></li>
+<li><a href="#13-iconography">13. Iconography</a></li>
+<li><a href="#14-motion-system">14. Motion System</a></li>
+<li><a href="#15-website-integration">15. Website Integration</a></li>
+<li><a href="#16-development-architecture">16. Development Architecture</a></li>
+<li><a href="#17-svg-engineering">17. SVG Engineering</a></li>
+<li><a href="#18-component-implementation">18. Component Implementation</a></li>
+<li><a href="#19-asset-pipeline">19. Asset Pipeline</a></li>
+<li><a href="#20-production-workflow">20. Production Workflow</a></li>
+<li><a href="#21-qa-process">21. QA Process</a></li>
+<li><a href="#22-certification">22. Certification</a></li>
+<li><a href="#23-brand-freeze">23. Brand Freeze</a></li>
+<li><a href="#24-governance">24. Governance</a></li>
+<li><a href="#25-repository-structure">25. Repository Structure</a></li>
+<li><a href="#26-asset-library">26. Asset Library</a></li>
+<li><a href="#27-print-system">27. Print System</a></li>
+<li><a href="#28-social-system">28. Social System</a></li>
+<li><a href="#29-motion-deliverables">29. Motion Deliverables</a></li>
+<li><a href="#30-website-assets">30. Website Assets</a></li>
+<li><a href="#31-developer-guide">31. Developer Guide</a></li>
+<li><a href="#32-file-structure">32. File Structure</a></li>
+<li><a href="#33-version-history">33. Version History</a></li>
+<li><a href="#34-future-versioning">34. Future Versioning</a></li>
+<li><a href="#35-final-release">35. Final Release</a></li>
+<li><a href="#36-appendix">36. Appendix</a></li>
+</ul>
+<hr />
+<h1 id="1-introduction">1. Introduction</h1>
+<h2 id="11-the-brand">1.1 The Brand</h2>
+<p>HYDRA SAMO is a premium portfolio and creative studio specializing in <strong>Video Editing</strong>, <strong>Motion Design</strong>, and <strong>Voice Over</strong> — three disciplines, one unified body of work. The brand is the creative output of <strong>Bendali Issam Eddine</strong> (Hydra Samo), a solo creative studio operating as the sole approval authority for every branding decision.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brand owner</td>
+<td>Bendali Issam Eddine (Hydra Samo) — solo creative studio</td>
+</tr>
+<tr>
+<td>Repository</td>
+<td><code>hydra-samo/HYDRA-SAMO-LABS</code></td>
+</tr>
+<tr>
+<td>Live URL</td>
+<td><code>https://hydra-samo.github.io/HYDRA-SAMO-LABS/</code></td>
+</tr>
+<tr>
+<td>Copyright</td>
+<td>Bendali Issam Eddine (Hydra Samo)</td>
+</tr>
+<tr>
+<td>License</td>
+<td>Proprietary — all rights reserved</td>
+</tr>
+<tr>
+<td>System steward</td>
+<td>Lead Brand Systems Engineer (production pipeline)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-purpose-of-this-book">1.2 Purpose of This Book</h2>
+<p>This publication compiles the <strong>entire HYDRA SAMO Brand Identity System</strong> — from design brief through certification, production, packaging, and release — into a single coherent reference. It consolidates the complete project history so that:</p>
+<ul>
+<li>No design decision is lost.</li>
+<li>No engineering rationale is lost.</li>
+<li>No governance rule is lost.</li>
+<li>The brand can be reproduced from a single authoritative document.</li>
+</ul>
+<h2 id="13-how-to-read-this-book">1.3 How to Read This Book</h2>
+<p>The book is organized into 36 chapters mirroring the brand lifecycle:</p>
+<ol>
+<li><strong>Foundation (1–4):</strong> what the brand is and why it exists.</li>
+<li><strong>Design System (5–14):</strong> logo evolution, geometry, construction, color, typography, iconography, motion.</li>
+<li><strong>Engineering &amp; Integration (15–18):</strong> website architecture, SVG engineering, component implementation.</li>
+<li><strong>Production (19–32):</strong> asset pipeline, QA, certification, governance, and every deliverable system.</li>
+<li><strong>Release &amp; Future (33–36):</strong> versioning, final release, and the appendix.</li>
+</ol>
+<p>Every chapter references the authoritative source documents in the repository; where information appeared in multiple documents it has been <strong>merged, not duplicated</strong>.</p>
+<h2 id="14-lifecycle-summary">1.4 Lifecycle Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Source docs</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Design specification</td>
+<td><code>DESIGN.md</code>, <code>AGENTS.md</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Independent reviews</td>
+<td><code>OUTPUT/01</code> … <code>04</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Consensus review</td>
+<td><code>OUTPUT/05</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Implementation plan</td>
+<td><code>OUTPUT/06</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Changelog</td>
+<td><code>OUTPUT/07</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Final certification</td>
+<td><code>OUTPUT/08</code></td>
+<td>✅ CERTIFIED</td>
+</tr>
+<tr>
+<td>Brand freeze</td>
+<td><code>OUTPUT/09</code></td>
+<td>✅ LOCKED</td>
+</tr>
+<tr>
+<td>Master asset</td>
+<td><code>OUTPUT/10</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Export pipeline</td>
+<td><code>OUTPUT/11</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Website assets</td>
+<td><code>OUTPUT/12</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Motion system</td>
+<td><code>OUTPUT/13</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Social system</td>
+<td><code>OUTPUT/14</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Print system</td>
+<td><code>OUTPUT/15</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Brand governance</td>
+<td><code>OUTPUT/16</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>File structure</td>
+<td><code>OUTPUT/17</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>QA validation</td>
+<td><code>OUTPUT/18</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Final release</td>
+<td><code>OUTPUT/19</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Asset production</td>
+<td><code>OUTPUT/20</code> + report</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Production QA</td>
+<td><code>OUTPUT/21</code> + report</td>
+<td>✅ PASSED</td>
+</tr>
+<tr>
+<td>Completion audit</td>
+<td><code>OUTPUT/22</code> + report</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Release packaging</td>
+<td><code>OUTPUT/23</code> + report</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Final sign-off</td>
+<td><code>OUTPUT/24</code> + report</td>
+<td>✅ COMPLETE</td>
+</tr>
+<tr>
+<td>Pipeline execution</td>
+<td><code>OUTPUT/25</code> + execution</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Complete brand system</td>
+<td><code>OUTPUT/26</code></td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Brand book</td>
+<td><code>OUTPUT/27</code></td>
+<td>✅ This document</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="2-brand-philosophy">2. Brand Philosophy</h1>
+<h2 id="21-one-body-three-heads">2.1 One Body, Three Heads</h2>
+<p>The HYDRA SAMO identity is built on a single organizing idea: <strong>one body, three heads</strong>. The three disciplines — Video Editing, Motion Design, and Voice Over — are not three separate businesses under one name; they are three specialized capabilities growing from one unified creative body. The identity must therefore read as a <em>single organism</em>, never as a collection of disconnected marks.</p>
+<h2 id="22-the-hidden-hydra-principle">2.2 The Hidden Hydra Principle</h2>
+<p>The mark must not immediately appear to be a hydra. At first glance it reads as a clean, engineered, tri-symmetric geometric emblem. Only after a closer look does the viewer realize the symbol subtly forms a three-headed serpent. The discovery must feel <strong>intentional and satisfying</strong> — the icon rewards attention without relying on obvious creature details.</p>
+<h2 id="23-aesthetic-bio-organic-dark-editorial">2.3 Aesthetic: Bio-Organic Dark Editorial</h2>
+<p>The visual language is immersive, high-contrast, dark-mode-first editorial showcase:</p>
+<ul>
+<li>Deep Abyssal canvas.</li>
+<li>Mythic Emerald life-signal accents.</li>
+<li>Glassmorphic surfaces over a film-grain atmosphere.</li>
+<li>Engineered precision that still feels organic — a "hydra discovered inside a futuristic interface."</li>
+</ul>
+<h2 id="24-banned-anti-patterns">2.4 Banned Anti-Patterns</h2>
+<p>The following are <strong>strictly forbidden</strong> in every language, locale, and surface:</p>
+<table>
+<thead>
+<tr>
+<th>Anti-pattern</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Neon cyan</td>
+<td><code>#00FFCC</code>, <code>#00F0FF</code>, <code>#00E5FF</code>, default neon Tailwind colors</td>
+</tr>
+<tr>
+<td>Bright blue gradients</td>
+<td>Cyan/blue gradient accents</td>
+</tr>
+<tr>
+<td>SaaS eyebrow pills</td>
+<td><code>// SECTION_TITLE</code> mono eyebrows, pill wrappers</td>
+</tr>
+<tr>
+<td>Comparison matrices</td>
+<td>Rigid corporate "Agency vs Hydra" tables</td>
+</tr>
+<tr>
+<td>Numbered badges</td>
+<td><code>01</code>, <code>02</code> rigid numbered markers</td>
+</tr>
+<tr>
+<td>Geo/location badges</td>
+<td><code>ALGERIA // GLOBAL</code>, "Based in …", country pins — in any locale</td>
+</tr>
+</tbody>
+</table>
+<p>These were codified during the review pipeline and remain active governance (<code>DESIGN.md</code>, <code>AGENTS.md</code>).</p>
+<h2 id="25-communication-values">2.5 Communication Values</h2>
+<p>The brand communicates: <strong>Precision, Movement, Creativity, Innovation, Craftsmanship, Intelligence, Trust, and Premium quality</strong> — with the quiet confidence of a lasting identity rather than a transient trend.</p>
+<hr />
+<h1 id="3-creative-vision">3. Creative Vision</h1>
+<h2 id="31-the-design-brief">3.1 The Design Brief</h2>
+<p>The master logo design brief defines a single iconic SVG brand mark for HYDRA SAMO. The mark must consist of <strong>only one icon</strong> — no text, no initials, no typography, no slogan, no border, no background, no decorative elements.</p>
+<p>It should feel timeless, premium, confident, and instantly recognizable — in the company of brands such as Apple, Nike, Vercel, Linear, Framer, Mercedes-Benz, Nothing, and OpenAI. Not trendy. Not flashy. Not illustrative. Not generic AI art. It must still feel modern twenty years from now.</p>
+<h2 id="32-vision-statements">3.2 Vision Statements</h2>
+<ul>
+<li><strong>A hidden symbol discovered inside a futuristic interface</strong> — an abstract geometric emblem that quietly reveals a three-headed hydra.</li>
+<li><strong>Simple enough to be recognized instantly</strong>; distinctive enough to stand on its own without text; refined enough to become the lasting visual identity.</li>
+<li><strong>Engineered, not illustrated</strong> — every angle, intersection, and curve appears mathematically intentional.</li>
+</ul>
+<h2 id="33-the-concept-is-approved">3.3 The Concept Is Approved</h2>
+<p>The concept — three heads, one body, one engine — was <strong>unanimously defended</strong> across all independent reviews. The reviews refined the <em>perceptibility</em> of the concept, never the concept itself.</p>
+<hr />
+<h1 id="4-design-principles">4. Design Principles</h1>
+<h2 id="41-core-principles">4.1 Core Principles</h2>
+<ol>
+<li><strong>Identity before decoration.</strong> The "three heads, one body" read is sacred; any treatment that obscures it fails.</li>
+<li><strong>Monochrome-first.</strong> The design must be perfect in solid black before color; recoloring must be effortless.</li>
+<li><strong>Single source of truth.</strong> One certified master; every raster, icon, social asset, print file, and motion asset is derived from it. Re-export only, never re-create.</li>
+<li><strong>Lighting lives outside the SVG.</strong> All glow, shadow, and reflection are external CSS utilities — never baked into the vector.</li>
+<li><strong>Restraint over ornament.</strong> Minimal anchor points, clean cubic Béziers, generous negative space, no gradients, no effects, no embedded rasters in the master vector.</li>
+<li><strong>Motion is opt-in and settled.</strong> Approved effects reveal the mark and settle; the only approved loop is the low-key loading pulse.</li>
+<li><strong>Accessibility is non-negotiable.</strong> <code>prefers-reduced-motion</code>, decorative <code>aria-hidden</code>, WCAG AA contrast.</li>
+<li><strong>Vector discipline.</strong> True SVG, pixel-perfect geometry, crisp at 16×16, fully editable in Figma, Illustrator, and Inkscape.</li>
+</ol>
+<h2 id="42-what-the-mark-must-do">4.2 What the Mark Must Do</h2>
+<p>The logo must:</p>
+<ul>
+<li>Work as favicon (16 px), app icon, loading animation, watermark, and social avatar.</li>
+<li>Be monochrome-true (<code>currentColor</code>).</li>
+<li>Be motion-ready (stroke drawing, glow, pulse, hover) without losing identity.</li>
+<li>Remain legible from 16 px to billboard scale.</li>
+</ul>
+<h2 id="43-what-the-mark-must-never-do">4.3 What the Mark Must Never Do</h2>
+<p>From the negative prompt: no fantasy hydras, realistic snakes, dragons, esports/gaming logos, mascots, clipart, NFT/crypto styling, shields, crests, crowns, wings, eyes, teeth, tongues, scales, tribal patterns, medieval styling, lettermarks, monograms, typography inside the mark, stock-logo aesthetics — or anything that feels aggressive, generic, or obviously AI-generated.</p>
+<hr />
+<h1 id="5-logo-evolution">5. Logo Evolution</h1>
+<h2 id="51-timeline">5.1 Timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>V1</strong></td>
+<td>Original concept</td>
+<td>Superseded</td>
+</tr>
+<tr>
+<td><strong>V2</strong></td>
+<td>Pre-refinement baseline — 3-fold master head path + pointy-top hexagon core (circumradius 14.5)</td>
+<td>Superseded</td>
+</tr>
+<tr>
+<td><strong>V4</strong></td>
+<td>Certified refinement of V2 — locked serpent-head geometry + R17 hex core, shared optical frame</td>
+<td>✅ CERTIFIED — permanent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="52-review-cycle-2026-08-05-first-review">5.2 Review Cycle 2026-08-05 (First Review)</h2>
+<p>The first independent review cycle scored the V2 baseline:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Reviewer</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creative Direction</td>
+<td>Creative Director</td>
+<td>63 / 100</td>
+</tr>
+<tr>
+<td>Construction</td>
+<td>Senior Logo Designer</td>
+<td>67 / 100</td>
+</tr>
+<tr>
+<td>Brand Recognition</td>
+<td>Brand Recognition Specialist</td>
+<td>53 / 100</td>
+</tr>
+<tr>
+<td>Risk / Gatekeeping</td>
+<td>Devil's Advocate</td>
+<td>54 / 100</td>
+</tr>
+<tr>
+<td><strong>Consensus Overall</strong></td>
+<td><strong>All reviewers</strong></td>
+<td><strong>59 / 100</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict: REFINE.</strong></p>
+<h3 id="major-findings">Major Findings</h3>
+<ol>
+<li><strong>Favicon fails at 16 px</strong> (Critical) — three heads + hexagon merge into a blob; mark small and off-center in the tile.</li>
+<li><strong>Optical frame off</strong> (High) — mark occupies y 11.5–69.9 of the 0–100 canvas; ~30% dead space below.</li>
+<li><strong>Wrong perceptual category</strong> (High) — reads rotor / drone / fan / generic tech crest, not a creative hydra.</li>
+<li><strong>Construction kinks</strong> (Medium) — non-tangent joints at the throat notch and lower-right base.</li>
+<li><strong>Off-brand social asset</strong> (High) — OpenGraph image steel-blue and under-sized vs the live emerald mark.</li>
+<li><strong>Unused legacy colorways</strong> (Medium) — teal / violet / warm rasters remained in the repo.</li>
+<li><strong>Hidden hydra invisible</strong> (Medium) — concept correct, perceptibility insufficient.</li>
+</ol>
+<h3 id="strengths-recorded">Strengths Recorded</h3>
+<ul>
+<li>Concept: three heads, one body, one engine — unanimously defended.</li>
+<li>Exact regular hexagon core (circumradius 14.5); correct 3-fold rotation construction.</li>
+<li>Exemplary SVG discipline: <code>currentColor</code>, <code>pathLength</code>, no baked decoration, clean markup.</li>
+<li>Consistent website integration across nav / hero / pre-splash / splash.</li>
+</ul>
+<h2 id="53-refinement-plan-priority-1">5.3 Refinement Plan (Priority 1)</h2>
+<p>The implementation plan (<code>OUTPUT/06</code>) defined launch-blocking changes:</p>
+<ul>
+<li><strong>P1-1</strong> Fix the optical frame (viewBox re-balance → ≥75% coverage, optical center at center).</li>
+<li><strong>P1-2</strong> Provide a dedicated favicon that reads at 16 px.</li>
+<li><strong>P1-3</strong> Make the head read as a head, not a blade (broaden base flare, ≈83° → ≈55–60° wedge).</li>
+<li><strong>P1-4</strong> Repair construction tangency (every joint tangent-continuous, zero visible corners).</li>
+<li><strong>P1-5</strong> Rebuild the OpenGraph / social preview from the single source.</li>
+<li><strong>P1-6</strong> Retire the legacy raster logo variants.</li>
+</ul>
+<p><strong>Priority 2</strong> covered the outline-variant leak, internal weight rebalance, the fate of <code>.hydra-mark-spin</code>, cleaning the component API, and documenting minimum sizes and clear space.</p>
+<h2 id="54-v4-implementation-same-day">5.4 V4 Implementation (Same Day)</h2>
+<p>Executed on brand-owner approval, the V4 refinement delivered:</p>
+<ul>
+<li>Head geometry rebuilt from two open Catmull-Rom chains + V-base tucking the core top edges.</li>
+<li>Hexagon core enlarged to circumradius 17; shared optical frame reframed to <code>11 2.94 78 78</code>.</li>
+<li><code>.hydra-mark-spin</code> retired from CSS and governance (rotor cue).</li>
+<li>Legacy teal / violet / warm rasters retired from the repository.</li>
+<li>All measured verification gates passed (see Chapter 6, 9, 22).</li>
+</ul>
+<hr />
+<h1 id="6-geometry">6. Geometry</h1>
+<h2 id="61-certified-parameters">6.1 Certified Parameters</h2>
+<p>The geometry sheet below is the certified record, sourced from <code>MASTER/hydra-mark_v4_master.svg</code> (<code>ASSETS/SOURCE/geometry-sheet.md</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>viewBox</td>
+<td><code>11 2.94 78 78</code> (square)</td>
+</tr>
+<tr>
+<td>Paths</td>
+<td>4 (3 heads + hex core)</td>
+</tr>
+<tr>
+<td>Origin / rotation center</td>
+<td><code>(50, 50)</code></td>
+</tr>
+<tr>
+<td>Head rotations</td>
+<td><code>0°</code>, <code>120°</code>, <code>240°</code> (static <code>rotate(...)</code> only)</td>
+</tr>
+<tr>
+<td>Head tip (head 0)</td>
+<td><code>(50, 11.50)</code></td>
+</tr>
+<tr>
+<td>Head → core junction</td>
+<td><code>(50, 33.00)</code></td>
+</tr>
+<tr>
+<td>Head height (safe-zone module)</td>
+<td><code>21.5 u</code></td>
+</tr>
+<tr>
+<td>Core hexagon vertices</td>
+<td><code>(50,33) (64.72,41.5) (64.72,58.5) (50,67) (35.28,58.5) (35.28,41.5)</code></td>
+</tr>
+<tr>
+<td>Core circumradius</td>
+<td><code>17 u</code></td>
+</tr>
+<tr>
+<td>Tip circle radius</td>
+<td><code>38.5 u</code> (through head tips)</td>
+</tr>
+<tr>
+<td>Full mark extent</td>
+<td>x <code>16.65…83.35</code>, y <code>11.5…72.2</code> (incl. rotated head tips)</td>
+</tr>
+<tr>
+<td>pathLength</td>
+<td><code>1</code> on all four paths (for draw/trace math)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="62-the-construction-grid">6.2 The Construction Grid</h2>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00IC02IDEwOCAxMDgiIGZpbGw9Im5vbmUiPgogIDxyZWN0IHg9Ii00IiB5PSItNiIgd2lkdGg9IjEwOCIgaGVpZ2h0PSIxMDgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMDIiLz4KICA8ZyBzdHJva2U9IiMzNGQzOTkiIHN0cm9rZS1vcGFjaXR5PSIwLjE4IiBzdHJva2Utd2lkdGg9IjAuNCI+CiAgICA8bGluZSB4MT0iMCIgeTE9Ii02IiB4Mj0iMCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjAiIHgxPSItNCIgeTI9IjAiIHgyPSIxMDQiLz4KICAgIDxsaW5lIHgxPSI1IiB5MT0iLTYiIHgyPSI1IiB5Mj0iMTAyIi8+CiAgICA8bGluZSB5MT0iNSIgeDE9Ii00IiB5Mj0iNSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjEwIiB5MT0iLTYiIHgyPSIxMCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjEwIiB4MT0iLTQiIHkyPSIxMCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjE1IiB5MT0iLTYiIHgyPSIxNSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjE1IiB4MT0iLTQiIHkyPSIxNSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjIwIiB5MT0iLTYiIHgyPSIyMCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjIwIiB4MT0iLTQiIHkyPSIyMCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjI1IiB5MT0iLTYiIHgyPSIyNSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjI1IiB4MT0iLTQiIHkyPSIyNSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjMwIiB5MT0iLTYiIHgyPSIzMCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjMwIiB4MT0iLTQiIHkyPSIzMCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjM1IiB5MT0iLTYiIHgyPSIzNSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjM1IiB4MT0iLTQiIHkyPSIzNSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjQwIiB5MT0iLTYiIHgyPSI0MCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjQwIiB4MT0iLTQiIHkyPSI0MCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjQ1IiB5MT0iLTYiIHgyPSI0NSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjQ1IiB4MT0iLTQiIHkyPSI0NSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjUwIiB5MT0iLTYiIHgyPSI1MCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjUwIiB4MT0iLTQiIHkyPSI1MCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjU1IiB5MT0iLTYiIHgyPSI1NSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjU1IiB4MT0iLTQiIHkyPSI1NSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjYwIiB5MT0iLTYiIHgyPSI2MCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjYwIiB4MT0iLTQiIHkyPSI2MCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjY1IiB5MT0iLTYiIHgyPSI2NSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjY1IiB4MT0iLTQiIHkyPSI2NSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjcwIiB5MT0iLTYiIHgyPSI3MCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjcwIiB4MT0iLTQiIHkyPSI3MCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9Ijc1IiB5MT0iLTYiIHgyPSI3NSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9Ijc1IiB4MT0iLTQiIHkyPSI3NSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjgwIiB5MT0iLTYiIHgyPSI4MCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjgwIiB4MT0iLTQiIHkyPSI4MCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9Ijg1IiB5MT0iLTYiIHgyPSI4NSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9Ijg1IiB4MT0iLTQiIHkyPSI4NSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjkwIiB5MT0iLTYiIHgyPSI5MCIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9IjkwIiB4MT0iLTQiIHkyPSI5MCIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9Ijk1IiB5MT0iLTYiIHgyPSI5NSIgeTI9IjEwMiIvPgogICAgPGxpbmUgeTE9Ijk1IiB4MT0iLTQiIHkyPSI5NSIgeDI9IjEwNCIvPgogICAgPGxpbmUgeDE9IjEwMCIgeTE9Ii02IiB4Mj0iMTAwIiB5Mj0iMTAyIi8+CiAgICA8bGluZSB5MT0iMTAwIiB4MT0iLTQiIHkyPSIxMDAiIHgyPSIxMDQiLz4KICA8L2c+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMzguNSIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utd2lkdGg9IjAuNiIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLWRhc2hhcnJheT0iMyAyIi8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMTYiICAgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utd2lkdGg9IjAuNiIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLWRhc2hhcnJheT0iMyAyIi8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMS41IiAgZmlsbD0iIzM0ZDM5OSIgc3Ryb2tlPSJub25lIi8+CiAgPGcgc3Ryb2tlPSIjMzRkMzk5IiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlLW9wYWNpdHk9IjAuNiI+CiAgICA8bGluZSB4MT0iNTAiIHkxPSI1MCIgeDI9IjUwIiB5Mj0iMTEuNSIvPgogICAgPGxpbmUgeDE9IjUwIiB5MT0iNTAiIHgyPSIzNi4xNCIgeTI9IjQyIi8+CiAgICA8bGluZSB4MT0iNTAiIHkxPSI1MCIgeDI9IjYzLjg2IiB5Mj0iNDIiLz4KICA8L2c+CiAgPGcgc3Ryb2tlPSIjMDU5NjY5IiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSI+CiAgICA8bGluZSB4MT0iNTAiIHkxPSIzMyIgeDI9IjY0LjcyIiB5Mj0iNDEuNSIvPgogICAgPGxpbmUgeDE9IjUwIiB5MT0iMzMiIHgyPSIzNS4yOCIgeTI9IjQxLjUiLz4KICA8L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTQgNikiPjx0ZXh0IHg9IjAiIHk9IjAiIGZpbGw9IiM5NGEzYjgiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iNiI+UiAzOC41IHRpcCBjaXJjbGUgwrcgUiAxNiBjb3JlIGhleCDCtyAxMjDCsCBzcG9rZXM8L3RleHQ+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgOTYpIj48dGV4dCB4PSIwIiB5PSIwIiBmaWxsPSIjOTRhM2I4IiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjYiPkh5ZHJhIFNhbW8gVjQg4oCUIGNvbnN0cnVjdGlvbiDCtyB2aWV3Qm94IDExIDIuOTQgNzggNzggwrcgdW5pdCBncmlkIDU8L3RleHQ+PC9nPgogIDxwYXRoIGZpbGw9IiMxMGI5ODEiIGQ9Ik0gNTAuMDAgMTEuNTAgQyA1MC41NiAxMi4wNSwgNTIuMjAgMTMuNTUsIDUzLjM2IDE0LjgwIEMgNTQuNTIgMTYuMDUsIDU1LjY4IDE3LjM3LCA1Ni45NiAxOS4wMCBDIDU4LjI0IDIwLjYzLCA2MC40NCAyMi43MywgNjEuMDQgMjQuNjAgQyA2MS42NCAyNi40NywgNjAuODQgMjguNDAsIDYwLjU2IDMwLjIwIEMgNjAuMjggMzIuMDAsIDU5LjUzIDM0LjAyLCA1OS4zNiAzNS40MCBDIDU5LjE5IDM2Ljc4LCA1OS41MCAzNy45OCwgNTkuNTIgMzguNTAgTCA1MC4wMCAzMy4wMCBMIDQwLjQ4IDM4LjUwIEMgNDAuNTAgMzcuOTgsIDQwLjc3IDM2Ljc4LCA0MC42NCAzNS40MCBDIDQwLjUxIDM0LjAyLCAzOS40MCAzMS45NywgMzkuNjggMzAuMjAgQyAzOS45NiAyOC40MywgNDEuNTYgMjYuNDAsIDQyLjMyIDI0LjgwIEMgNDMuMDggMjMuMjAsIDQzLjUyIDIyLjI3LCA0NC4yNCAyMC42MCBDIDQ0Ljk2IDE4LjkzLCA0NS42OCAxNi4zMiwgNDYuNjQgMTQuODAgQyA0Ny42MCAxMy4yOCwgNDkuNDQgMTIuMDUsIDUwLjAwIDExLjUwIFoiLz4KICA8cGF0aCBmaWxsPSIjMTBiOTgxIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjAgNTAgNTApIiBkPSJNIDUwLjAwIDExLjUwIEMgNTAuNTYgMTIuMDUsIDUyLjIwIDEzLjU1LCA1My4zNiAxNC44MCBDIDU0LjUyIDE2LjA1LCA1NS42OCAxNy4zNywgNTYuOTYgMTkuMDAgQyA1OC4yNCAyMC42MywgNjAuNDQgMjIuNzMsIDYxLjA0IDI0LjYwIEMgNjEuNjQgMjYuNDcsIDYwLjg0IDI4LjQwLCA2MC41NiAzMC4yMCBDIDYwLjI4IDMyLjAwLCA1OS41MyAzNC4wMiwgNTkuMzYgMzUuNDAgQyA1OS4xOSAzNi43OCwgNTkuNTAgMzcuOTgsIDU5LjUyIDM4LjUwIEwgNTAuMDAgMzMuMDAgTCA0MC40OCAzOC41MCBDIDQwLjUwIDM3Ljk4LCA0MC43NyAzNi43OCwgNDAuNjQgMzUuNDAgQyA0MC41MSAzNC4wMiwgMzkuNDAgMzEuOTcsIDM5LjY4IDMwLjIwIEMgMzkuOTYgMjguNDMsIDQxLjU2IDI2LjQwLCA0Mi4zMiAyNC44MCBDIDQzLjA4IDIzLjIwLCA0My41MiAyMi4yNywgNDQuMjQgMjAuNjAgQyA0NC45NiAxOC45MywgNDUuNjggMTYuMzIsIDQ2LjY0IDE0LjgwIEMgNDcuNjAgMTMuMjgsIDQ5LjQ0IDEyLjA1LCA1MC4wMCAxMS41MCBaIi8+CiAgPHBhdGggZmlsbD0iIzEwYjk4MSIgdHJhbnNmb3JtPSJyb3RhdGUoMjQwIDUwIDUwKSIgZD0iTSA1MC4wMCAxMS41MCBDIDUwLjU2IDEyLjA1LCA1Mi4yMCAxMy41NSwgNTMuMzYgMTQuODAgQyA1NC41MiAxNi4wNSwgNTUuNjggMTcuMzcsIDU2Ljk2IDE5LjAwIEMgNTguMjQgMjAuNjMsIDYwLjQ0IDIyLjczLCA2MS4wNCAyNC42MCBDIDYxLjY0IDI2LjQ3LCA2MC44NCAyOC40MCwgNjAuNTYgMzAuMjAgQyA2MC4yOCAzMi4wMCwgNTkuNTMgMzQuMDIsIDU5LjM2IDM1LjQwIEMgNTkuMTkgMzYuNzgsIDU5LjUwIDM3Ljk4LCA1OS41MiAzOC41MCBMIDUwLjAwIDMzLjAwIEwgNDAuNDggMzguNTAgQyA0MC41MCAzNy45OCwgNDAuNzcgMzYuNzgsIDQwLjY0IDM1LjQwIEMgNDAuNTEgMzQuMDIsIDM5LjQwIDMxLjk3LCAzOS42OCAzMC4yMCBDIDM5Ljk2IDI4LjQzLCA0MS41NiAyNi40MCwgNDIuMzIgMjQuODAgQyA0My4wOCAyMy4yMCwgNDMuNTIgMjIuMjcsIDQ0LjI0IDIwLjYwIEMgNDQuOTYgMTguOTMsIDQ1LjY4IDE2LjMyLCA0Ni42NCAxNC44MCBDIDQ3LjYwIDEzLjI4LCA0OS40NCAxMi4wNSwgNTAuMDAgMTEuNTAgWiIvPgogIDxwYXRoIGZpbGw9IiMxMGI5ODEiIGQ9Ik0gNTAuMDAgMzMuMDAgTCA2NC43MiA0MS41MCBMIDY0LjcyIDU4LjUwIEwgNTAuMDAgNjcuMDAgTCAzNS4yOCA1OC41MCBMIDM1LjI4IDQxLjUwIFoiLz4KPC9zdmc+Cg==" alt="V4 Construction Diagram" class="mark-img"/></p>
+<ul>
+<li><strong>Unit grid:</strong> 5 u — every coordinate on the 5-grid.</li>
+<li><strong>Construction hex:</strong> pointy-top, circumradius 36, center <code>(50, 50)</code> — the invisible hexagonal grid the mark is built on.</li>
+<li><strong>Tip circle:</strong> radius <code>38.5</code> through all three head tips.</li>
+<li><strong>Core hex:</strong> circumradius <code>17</code>, inscribed on the tip circle's inner harmonic.</li>
+<li><strong>120° spokes:</strong> from the center through each head tip.</li>
+</ul>
+<h2 id="63-head-path-master">6.3 Head Path (Master)</h2>
+<p>The single master serpent-head path (head 0, pointing up):</p>
+<pre><code class="language-text">M 50.00 11.50
+C 50.56 12.05, 52.20 13.55, 53.36 14.80
+C 54.52 16.05, 55.68 17.37, 56.96 19.00
+C 58.24 20.63, 60.44 22.73, 61.04 24.60
+C 61.64 26.47, 60.84 28.40, 60.56 30.20
+C 60.28 32.00, 59.53 34.02, 59.36 35.40
+C 59.19 36.78, 59.50 37.98, 59.52 38.50
+L 50.00 33.00
+L 40.48 38.50
+C 40.50 37.98, 40.77 36.78, 40.64 35.40
+C 40.51 34.02, 39.40 31.97, 39.68 30.20
+C 39.96 28.43, 41.56 26.40, 42.32 24.80
+C 43.08 23.20, 43.52 22.27, 44.24 20.60
+C 44.96 18.93, 45.68 16.32, 46.64 14.80
+C 47.60 13.28, 49.44 12.05, 50.00 11.50 Z
+</code></pre>
+<h2 id="64-core-path-hexagon">6.4 Core Path (Hexagon)</h2>
+<pre><code class="language-text">M 50.00 33.00
+L 64.72 41.50
+L 64.72 58.50
+L 50.00 67.00
+L 35.28 58.50
+L 35.28 41.50 Z
+</code></pre>
+<h2 id="65-key-measurements">6.5 Key Measurements</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wedge / head flare</td>
+<td><strong>57.5°</strong> per head</td>
+<td>Target 55–60° — heads read as serpent hoods, not rotor blades</td>
+</tr>
+<tr>
+<td>Tangency</td>
+<td><strong>0.0°</strong></td>
+<td>Crown / throat / neck joints tangent-clean</td>
+</tr>
+<tr>
+<td>Frame coverage</td>
+<td><strong>85.5% × 78.0%</strong></td>
+<td>Optical center at canvas center</td>
+</tr>
+<tr>
+<td>16 px ink coverage</td>
+<td><strong>42%</strong></td>
+<td>Per-120° lobe ink 31/39/37 — three balanced heads</td>
+</tr>
+<tr>
+<td>Core visibility at 16 px</td>
+<td>Visible</td>
+<td>Body reads, not fan</td>
+</tr>
+<tr>
+<td>Size gain vs V2 frame</td>
+<td><strong>~40%</strong></td>
+<td>Reframed <code>0 0 100 100</code> → <code>11 2.94 78 78</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="7-construction">7. Construction</h1>
+<h2 id="71-the-four-paths">7.1 The Four Paths</h2>
+<p>The mark is <strong>four paths, never merged</strong>:</p>
+<ol>
+<li><code>hydra-head-0</code> — the master head (up), full path data.</li>
+<li><code>hydra-head-1</code> — the master head rotated <code>rotate(120 50 50)</code> (down-left → Motion Design).</li>
+<li><code>hydra-head-2</code> — the master head rotated <code>rotate(240 50 50)</code> (down-right → Voice Over).</li>
+<li><code>hydra-core</code> — the R17 pointy-top hexagon (the one body).</li>
+</ol>
+<p>No path merging — the three heads stay separate from the hex core so stroke-drawing and per-class styling remain possible.</p>
+<h2 id="72-build-order">7.2 Build Order</h2>
+<ol>
+<li>Draw the <strong>pointy-top hexagonal grid</strong> (construction hex circumradius 36).</li>
+<li>Inscribe the <strong>head tip circle</strong> (radius 38.5).</li>
+<li>Place the master serpent-head path with its tip at <code>(50, 11.50)</code> and its V-base junction at <code>(50, 33.00)</code>.</li>
+<li>Replicate in exact 3-fold rotational symmetry about <code>(50, 50)</code>.</li>
+<li>Seat the R17 <strong>hexagon core</strong> so the three neck waists flare into it — the heads merge into the body.</li>
+</ol>
+<h2 id="73-class-contract">7.3 Class Contract</h2>
+<pre><code class="language-html">&lt;path class=&quot;hydra-head hydra-head-0&quot; d=&quot;…&quot; pathLength={1} /&gt;
+&lt;path class=&quot;hydra-head hydra-head-1&quot; d=&quot;…&quot; transform=&quot;rotate(120 50 50)&quot; pathLength={1} /&gt;
+&lt;path class=&quot;hydra-head hydra-head-2&quot; d=&quot;…&quot; transform=&quot;rotate(240 50 50)&quot; pathLength={1} /&gt;
+&lt;path class=&quot;hydra-core&quot; d=&quot;…&quot; pathLength={1} /&gt;
+</code></pre>
+<p>The classes are stable and public — CSS and Framer Motion target them for stroke drawing, glow, pulse, and hover without mutating path data.</p>
+<h2 id="74-construction-rules">7.4 Construction Rules</h2>
+<ol>
+<li>Never reshape <code>d</code>; only rotate/scale the certified paths.</li>
+<li>No text, initials, borders, or gradients inside the mark.</li>
+<li>Glow/reflections live in CSS (<code>.hydra-mark-glow</code>), never in the SVG.</li>
+<li>Rotation animation is forbidden (<code>.hydra-mark-spin</code> retired).</li>
+</ol>
+<hr />
+<h1 id="8-hexagonal-grid-system">8. Hexagonal Grid System</h1>
+<h2 id="81-the-invisible-construction-grid">8.1 The Invisible Construction Grid</h2>
+<p>The logo is engineered on a <strong>pointy-top hexagonal grid</strong> — the same system used by the review pipeline to validate angles, intersections, and optical balance. Nothing is random:</p>
+<ul>
+<li><strong>Hexagonal proportions</strong> — every form relates to the hex.</li>
+<li><strong>Geometric alignment</strong> — vertices, junctions, and spokes land on grid coordinates.</li>
+<li><strong>Symmetry</strong> — exact 3-fold rotational symmetry about the optical center.</li>
+<li><strong>Consistent spacing</strong> — one clear-space module (one head height, 21.5 u).</li>
+<li><strong>Balanced visual weight</strong> — center-dominated, equally weighted around the center.</li>
+<li><strong>Controlled negative space</strong> — the deep concave throat notches carve entirely through negative space.</li>
+</ul>
+<h2 id="82-grid-hierarchy">8.2 Grid Hierarchy</h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Radius / size</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construction hex</td>
+<td>circumradius 36</td>
+<td>Invisible building grid</td>
+</tr>
+<tr>
+<td>Tip circle</td>
+<td>radius 38.5</td>
+<td>Through the three head tips</td>
+</tr>
+<tr>
+<td>Core hex</td>
+<td>circumradius 17</td>
+<td>The one body — structural anchor</td>
+</tr>
+<tr>
+<td>Head module</td>
+<td>21.5 u high</td>
+<td>Serpent head + clear-space module</td>
+</tr>
+</tbody>
+</table>
+<h2 id="83-pointy-top-vs-flat-top">8.3 Pointy-Top vs Flat-Top</h2>
+<p>The core is a <strong>pointy-top</strong> hexagon (vertices at top and bottom), matching the head-up orientation of head 0. V2's core was circumradius 14.5; V4 enlarged it to 17 so the solid core anchors the form and kills the rotor / spinner read while preserving the outer silhouette.</p>
+<h2 id="84-weight-distribution">8.4 Weight Distribution</h2>
+<p>Mass was redistributed from the arm stems into the center (<strong>~+20% optical weight</strong>, center-dominated). Heads are bolder (~13–14 units) with a clear neck constriction (~8 units); the solid core anchors the mark. The outer silhouette retains ≥80% overlap with V1; snout radius and flank extent are unchanged.</p>
+<hr />
+<h1 id="9-optical-corrections">9. Optical Corrections</h1>
+<p>The V4 refinement was driven entirely by measured optical defects from the first review.</p>
+<h2 id="91-frame-re-balance-p1-1">9.1 Frame Re-Balance (P1-1)</h2>
+<p><strong>Before:</strong> shared <code>0 0 100 100</code> canvas, mark occupying y 11.5–69.9, ~30% dead space below, floating high.</p>
+<p><strong>After:</strong> shared optical frame <code>viewBox="11 2.94 78 78"</code>.</p>
+<ul>
+<li>Frame coverage <strong>85.5% × 78.0%</strong> (≥75% gate).</li>
+<li>Optical center placed at canvas center.</li>
+<li>Mark <strong>~40% larger</strong> in every fixed UI slot.</li>
+</ul>
+<h2 id="92-favicon-at-16-px-p1-2">9.2 Favicon at 16 px (P1-2)</h2>
+<p>The 16 px render previously merged into a blob. Post-refinement:</p>
+<ul>
+<li>Three distinct head masses + a <strong>visible center core</strong>.</li>
+<li>Ink coverage <strong>42%</strong>; per-120° lobe ink 31/39/37 (balanced).</li>
+<li>Optically centered at <strong>85.4% × 78.1%</strong> of the tile (≥75% gate).</li>
+</ul>
+<h2 id="93-perceptual-category-p1-3">9.3 Perceptual Category (P1-3)</h2>
+<p>Head flare tightened to a <strong>57.5° wedge</strong> (target 55–60°) with bold crown/hood, a deep concave throat notch, and visible neck waists. The mark now reads <em>serpent heads on one body</em> — not a rotor, drone, or fan. The forbidden continuous-rotation cue was retired.</p>
+<h2 id="94-tangency-repair-p1-4">9.4 Tangency Repair (P1-4)</h2>
+<p>Rebuilt head path (two open Catmull-Rom chains + V-base) is <strong>tangent-continuous</strong> — <strong>0.0°</strong> across crown, throat, and neck joints. No corners, no visible angles at any zoom; one continuous serpentine curve.</p>
+<h2 id="95-opengraph-rebuild-p1-5">9.5 OpenGraph Rebuild (P1-5)</h2>
+<p><code>public/hydra_logo.jpg</code> rebuilt 1024×1024: abyssal <code>#060c09</code> field, emerald <code>#10b981</code> mark, centered at <strong>84.6% × 77.1%</strong> coverage — the real emerald mark, not the old steel-blue asset.</p>
+<h2 id="96-legacy-cleanup-p1-6-p2">9.6 Legacy Cleanup (P1-6 / P2)</h2>
+<ul>
+<li>Teal / violet / warm logo rasters <strong>retired</strong> from <code>src/assets/images/</code> (kept <code>hydra_samo.webp</code> portrait).</li>
+<li><code>.hydra-mark-spin</code> <strong>removed</strong> from CSS, keyframes, and reduced-motion references.</li>
+<li>Unused <code>animated</code> component prop removed.</li>
+<li>Outline-variant interior leak <strong>fixed</strong> — no interior tail strokes cross the transparent hexagon.</li>
+</ul>
+<hr />
+<h1 id="10-symbol-meaning">10. Symbol Meaning</h1>
+<h2 id="101-three-heads-one-body">10.1 Three Heads, One Body</h2>
+<p>Each of the three forms is a serpent head in profile — pointed snout, bold crown/hood, and a deep concave throat notch carved entirely through negative space:</p>
+<table>
+<thead>
+<tr>
+<th>Head</th>
+<th>Position</th>
+<th>Discipline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Head 0 (up)</td>
+<td><code>0°</code></td>
+<td><strong>Video Editing</strong></td>
+</tr>
+<tr>
+<td>Head 1 (down-left)</td>
+<td><code>120°</code></td>
+<td><strong>Motion Design</strong></td>
+</tr>
+<tr>
+<td>Head 2 (down-right)</td>
+<td><code>240°</code></td>
+<td><strong>Voice Over</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Each head overhangs a distinct neck waist that flares back out into the solid hexagon core: <strong>one body, three heads</strong>.</p>
+<h2 id="102-the-hidden-hydra">10.2 The Hidden Hydra</h2>
+<p>At a glance the mark reads as a clean, engineered tri-sym emblem. On closer inspection the hydra appears. The discovery is intentional — the logo rewards attention without relying on obvious creature details.</p>
+<h2 id="103-the-one-body">10.3 The One Body</h2>
+<p>The hexagon core is a <strong>genuine structural anchor</strong> the three necks flow into — not a hub or dot. It is the "one unified vision" from which all three disciplines grow.</p>
+<h2 id="104-the-emblem-read">10.4 The Emblem Read</h2>
+<p>The mark is monochrome-true: it reads as a compact <strong>triangular-hex emblem</strong> even at 16 px, where the internal throat-notch detail naturally dissolves into a clean silhouette.</p>
+<hr />
+<h1 id="11-typography">11. Typography</h1>
+<h2 id="111-font-stacks">11.1 Font Stacks</h2>
+<p>Canonical tokens in <code>src/index.css</code> <code>@theme</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Font</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--font-sans</code></td>
+<td><strong>Manrope</strong></td>
+<td>EN/FR body (400), UI labels (500), buttons/CTAs (600)</td>
+</tr>
+<tr>
+<td><code>--font-display</code></td>
+<td><strong>Space Grotesk</strong></td>
+<td>Wordmark (700), hero (700), primary section titles (600), secondary headings (500)</td>
+</tr>
+<tr>
+<td><code>--font-arabic</code></td>
+<td><strong>IBM Plex Sans Arabic</strong></td>
+<td>Arabic headings (600, 500 secondary) and body (400), applied via <code>html.lang-ar</code> overrides</td>
+</tr>
+<tr>
+<td><code>--font-mono</code></td>
+<td><strong>JetBrains Mono</strong></td>
+<td>Code and technical readouts only (400, 600 emphasis)</td>
+</tr>
+</tbody>
+</table>
+<p>Wired from Google Fonts with deliberately limited weights for performance:</p>
+<pre><code class="language-text">Space+Grotesk:wght@500;600;700
+Manrope:wght@400;500;600
+IBM+Plex+Sans+Arabic:wght@400;500;600;700
+JetBrains+Mono:wght@400;600
+</code></pre>
+<h2 id="112-type-hierarchy">11.2 Type Hierarchy</h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logo wordmark</td>
+<td>Space Grotesk 700, uppercase; tracking <code>-0.02em</code> (nav / pre-splash), <code>-0.03em</code> (splash title)</td>
+</tr>
+<tr>
+<td>Hero display</td>
+<td>Space Grotesk 700, <code>text-4xl → lg:text-7xl</code>, <code>tracking-tight</code>, <code>leading-[1.02]</code></td>
+</tr>
+<tr>
+<td>Primary section titles (h2)</td>
+<td>Space Grotesk 600, <code>text-3xl → md:text-5xl</code>, uppercase, max 1–2 words in Mythic Emerald</td>
+</tr>
+<tr>
+<td>Secondary headings (h3/h4)</td>
+<td>Space Grotesk 500</td>
+</tr>
+<tr>
+<td>Body (EN/FR)</td>
+<td>Manrope 400, <code>leading-relaxed</code></td>
+</tr>
+<tr>
+<td>UI labels &amp; eyebrows</td>
+<td>Manrope 500, <code>text-xs</code>/<code>text-sm</code>, uppercase, <code>tracking-widest</code> — <strong>not mono</strong></td>
+</tr>
+<tr>
+<td>Buttons &amp; CTAs</td>
+<td>Manrope 600, uppercase, <code>tracking-wider</code></td>
+</tr>
+<tr>
+<td>Arabic</td>
+<td>IBM Plex Sans Arabic 600 headings / 400 body via <code>html.lang-ar</code></td>
+</tr>
+<tr>
+<td>Code / technical meta</td>
+<td>JetBrains Mono — software-stack pills, timestamps, video overlay badges, metric readouts, literal code refs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="113-mono-technical-only">11.3 Mono = Technical Only</h2>
+<p>JetBrains Mono is reserved for code and data readouts. Every prose eyebrow, form label, and menu label renders in Manrope 500. The <code>// SECTION</code> mono-eyebrow pattern stays banned.</p>
+<h2 id="114-responsive-scale">11.4 Responsive Scale</h2>
+<ul>
+<li>Fluid step-up per breakpoint — no single-size headings.</li>
+<li>Arabic: <code>html.lang-ar</code> scales text steps ~+30% (<code>.text-xs</code> → 15px … <code>.text-7xl</code> → 88px) and zeroes letter-spacing — Arabic reads smaller and breaks apart under wide tracking.</li>
+</ul>
+<h2 id="115-accessibility">11.5 Accessibility</h2>
+<ul>
+<li>Contrast-driven palette: off-white <code>#f3f4f6</code> titles, muted <code>#94a3b8</code> body, emerald <code>#10b981</code> accents on abyssal <code>#060c09</code> — AA-friendly for large/bold type.</li>
+<li>Interactive text never smaller than <code>text-xs</code>/<code>text-sm</code> with <code>min-h-[44px]</code> touch targets.</li>
+<li><code>prefers-reduced-motion</code> skips the splash letter-spacing reveal.</li>
+<li>px-based Tailwind utilities scale cleanly under browser zoom (200%).</li>
+</ul>
+<hr />
+<h1 id="12-color-system">12. Color System</h1>
+<h2 id="121-certified-palette">12.1 Certified Palette</h2>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NjAgMTUwIj4KICA8c3R5bGU+CiAgICB0ZXh0IHsgZm9udC1mYW1pbHk6IG1vbm9zcGFjZTsgfQogIDwvc3R5bGU+CiAgPGc+CiAgICA8cmVjdCB4PSIxMCIgeT0iMTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iOTAiIHJ4PSI4IiBmaWxsPSIjMTBiOTgxIi8+CiAgICA8cmVjdCB4PSIyMjAiIHk9IjEwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjkwIiByeD0iOCIgZmlsbD0iIzA1OTY2OSIvPgogICAgPHJlY3QgeD0iMzMwIiB5PSIxMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI5MCIgcng9IjgiIGZpbGw9IiMzNGQzOTkiLz4KICAgIDxyZWN0IHg9IjQ0MCIgeT0iMTAiIHdpZHRoPSIxMDAiIGhlaWdodD0iOTAiIHJ4PSI4IiBmaWxsPSIjMDYwYzA5IiBzdHJva2U9IiMzNGQzOTkiIHN0cm9rZS1vcGFjaXR5PSIwLjM1Ii8+CiAgICA8cmVjdCB4PSI1NTAiIHk9IjEwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjkwIiByeD0iOCIgZmlsbD0iI2YzZjRmNiIvPgogIDwvZz4KICA8ZyBmaWxsPSIjOTRhM2I4IiBmb250LXNpemU9IjEzIj4KICAgIDx0ZXh0IHg9IjExMCIgeT0iMTI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NeXRoaWMgRW1lcmFsZDwvdGV4dD4KICAgIDx0ZXh0IHg9IjExMCIgeT0iMTQ0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZjNmNGY2Ij4jMTBiOTgxPC90ZXh0PgogICAgPHRleHQgeD0iMjcwIiB5PSIxMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRlZXAgSmFkZTwvdGV4dD4KICAgIDx0ZXh0IHg9IjI3MCIgeT0iMTQ0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZjNmNGY2Ij4jMDU5NjY5PC90ZXh0PgogICAgPHRleHQgeD0iMzgwIiB5PSIxMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNvZnQgTWludDwvdGV4dD4KICAgIDx0ZXh0IHg9IjM4MCIgeT0iMTQ0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZjNmNGY2Ij4jMzRkMzk5PC90ZXh0PgogICAgPHRleHQgeD0iNDkwIiB5PSIxMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFieXNzYWwgU2xhdGU8L3RleHQ+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE0NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2YzZjRmNiI+IzA2MGMwOTwvdGV4dD4KICAgIDx0ZXh0IHg9IjYwMCIgeT0iMTI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDYwYzA5Ij5Cb25lPC90ZXh0PgogICAgPHRleHQgeD0iNjAwIiB5PSIxNDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwNjBjMDkiPiNmM2Y0ZjY8L3RleHQ+CiAgPC9nPgo8L3N2Zz4K" alt="HYDRA SAMO Palette" class="mark-img"/></p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Hex</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mythic Emerald</strong></td>
+<td><code>#10b981</code></td>
+<td><strong>Primary brand accent</strong> — default mark color, all surfaces</td>
+</tr>
+<tr>
+<td><strong>Deep Jade</strong></td>
+<td><code>#059669</code></td>
+<td>Secondary accent — depth, hovers, secondary detail</td>
+</tr>
+<tr>
+<td><strong>Soft Mint</strong></td>
+<td><code>#34d399</code></td>
+<td>Ambient glow / highlight</td>
+</tr>
+<tr>
+<td><strong>Abyssal Slate</strong></td>
+<td><code>#060c09</code></td>
+<td>Primary canvas (dark mode)</td>
+</tr>
+<tr>
+<td><strong>Bone</strong></td>
+<td><code>#f3f4f6</code></td>
+<td>Typography primary (off-white)</td>
+</tr>
+<tr>
+<td><strong>Slate Muted</strong></td>
+<td><code>#94a3b8</code></td>
+<td>Typography muted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="122-monochrome-modes">12.2 Monochrome Modes</h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Color</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>White mono</td>
+<td><code>#ffffff</code></td>
+<td>Mark on dark surfaces (canvas, images, embossing)</td>
+</tr>
+<tr>
+<td>Black mono</td>
+<td><code>#000000</code></td>
+<td>Mark on light surfaces (light print paper, etching)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="123-forbidden-colors">12.3 Forbidden Colors</h2>
+<ul>
+<li><strong>No neon cyan</strong> (<code>#00FFCC</code>, <code>#00F0FF</code>, <code>#00E5FF</code>) — explicitly banned.</li>
+<li><strong>No cyan/blue gradients</strong> or bright blue accents.</li>
+<li><strong>No legacy colorways</strong> (teal/violet/warm retired at certification).</li>
+<li><strong>No out-of-palette hex drift</strong> — verify hex values against the approved table before export.</li>
+<li>Historical design-brief recolor candidates (Neon Green <code>#39FF14</code>, Electric Cyan <code>#00E5FF</code>) are <strong>not certified</strong> and must not be used.</li>
+</ul>
+<h2 id="124-print-color">12.4 Print Color</h2>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Hex</th>
+<th>CMYK approx</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mythic Emerald</td>
+<td><code>#10b981</code></td>
+<td>C 84 / M 0 / Y 55 / K 7</td>
+<td>Spot-foil match; rich emerald</td>
+</tr>
+<tr>
+<td>Deep Jade</td>
+<td><code>#059669</code></td>
+<td>C 88 / M 0 / Y 60 / K 18</td>
+<td>Depth accents</td>
+</tr>
+<tr>
+<td>Soft Mint</td>
+<td><code>#34d399</code></td>
+<td>C 68 / M 0 / Y 50 / K 0</td>
+<td>Highlight (print rarely uses)</td>
+</tr>
+<tr>
+<td>Abyssal Slate</td>
+<td><code>#060c09</code></td>
+<td>C 80 / M 55 / Y 70 / K 95</td>
+<td>Dark canvases</td>
+</tr>
+<tr>
+<td>Bone</td>
+<td><code>#f3f4f6</code></td>
+<td>C 3 / M 2 / Y 3 / K 0</td>
+<td>Off-white text</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>CMYK values are process approximations. For exact brand color use a single <strong>spot emerald</strong> (<code>HYDRA EMERALD</code>) — PMS 16-6340-class green, confirm the chip with the printer — or emerald foil. Never mix the mark from CMYK tints of two inks.</p>
+</blockquote>
+<hr />
+<h1 id="13-iconography">13. Iconography</h1>
+<h2 id="131-favicon-16-px">13.1 Favicon (16 px)</h2>
+<p>The smallest and most demanding surface. Certified gates:</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Requirement</th>
+<th>Measured</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16 px legibility</td>
+<td>Three distinct head masses + visible center core; no merged blob</td>
+<td>✅ 42% ink; lobe ink 31/39/37</td>
+</tr>
+<tr>
+<td>Optical centering</td>
+<td>Mark optically centered in tile</td>
+<td>✅ bbox 85.4% × 78.1% (≥75%)</td>
+</tr>
+<tr>
+<td>Contrast</td>
+<td>Silhouette legible on light + dark browser UIs</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="132-app-icons">13.2 App Icons</h2>
+<p>Generated per <code>11_EXPORT_PIPELINE.md</code>: 16–2048 px PNG/WEBP, maskable 512, Apple Touch 180, Android Chrome 192/512, macOS/Windows/Linux/Electron sets (see Chapter 26). All derive from the certified master — never upscale from a smaller copy.</p>
+<h2 id="133-favicon-set-web">13.3 Favicon Set (Web)</h2>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>File</th>
+<th>Size</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Browser favicon (SVG)</td>
+<td><code>/hydra-mark.svg</code> (served)</td>
+<td>vector</td>
+<td><code>%BASE_URL%hydra-mark.svg</code> in <code>index.html</code></td>
+</tr>
+<tr>
+<td>Browser favicon (ICO)</td>
+<td><code>favicon.ico</code></td>
+<td>16/24/32/48/64 (+256)</td>
+<td>Optional legacy fallback</td>
+</tr>
+<tr>
+<td>Safari mask icon</td>
+<td><code>safari-pinned-tab.svg</code></td>
+<td>vector</td>
+<td>Monochrome silhouette; black fill</td>
+</tr>
+<tr>
+<td>Apple touch icon</td>
+<td><code>apple-touch-icon.png</code></td>
+<td>180×180</td>
+<td>Emerald fill, solid tile</td>
+</tr>
+<tr>
+<td>Android Chrome</td>
+<td><code>android-chrome-192/512.png</code></td>
+<td>192 / 512</td>
+<td>Emerald fill</td>
+</tr>
+<tr>
+<td>PWA manifest</td>
+<td><code>manifest.webmanifest</code></td>
+<td>—</td>
+<td>References 192/512 icons</td>
+</tr>
+</tbody>
+</table>
+<h2 id="134-opengraph-social-card">13.4 OpenGraph / Social Card</h2>
+<ul>
+<li>File: <code>public/hydra_logo.jpg</code> — 1024×1024 JPEG.</li>
+<li>Field: abyssal <code>#060c09</code>; mark emerald <code>#10b981</code>, centered, dominant (84.6% × 77.1% coverage).</li>
+<li>Injected via <code>metadata.json</code> → <code>src/hooks/useOpenGraph.ts</code>, resolved through Vite base path for GitHub Pages subpath deploys.</li>
+<li>Twitter card: <code>summary_large_image</code>.</li>
+</ul>
+<hr />
+<h1 id="14-motion-system">14. Motion System</h1>
+<h2 id="141-animation-principles">14.1 Animation Principles</h2>
+<ol>
+<li><strong>Identity before effect.</strong> Every animation preserves the "three heads, one body" read.</li>
+<li><strong>Settle, don't loop.</strong> Approved intros reveal and settle. The only approved continuous treatment is the low-key pulse (loading).</li>
+<li><strong>External lighting only.</strong> Glow, shadow, and bloom live in CSS utilities, never inside the SVG.</li>
+<li><strong>Motion is opt-in by size.</strong> Heavy effects are for display sizes (≥96 px); at ≤32 px restrict to opacity/glow.</li>
+<li><strong>Reduced motion wins.</strong> Every animation honors <code>prefers-reduced-motion: reduce</code>.</li>
+</ol>
+<blockquote>
+<p><strong>Hard rule:</strong> continuous rotation (<code>.hydra-mark-spin</code>) is retired and <strong>forbidden</strong> — the 3-fold mark is rotationally self-similar, so spinning reads as a generic fan and re-opens the rotor defect closed at certification.</p>
+</blockquote>
+<h2 id="142-approved-effects">14.2 Approved Effects</h2>
+<table>
+<thead>
+<tr>
+<th>Effect</th>
+<th>Duration</th>
+<th>Easing</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stroke Reveal</td>
+<td>900–1400 ms</td>
+<td><code>cubic-bezier(0.65, 0, 0.35, 1)</code></td>
+<td>Heads then core; settle to full opacity fill</td>
+</tr>
+<tr>
+<td>Outline Trace</td>
+<td>700–1000 ms</td>
+<td>ease-out</td>
+<td>Outline variant only; may linger, then fill-in</td>
+</tr>
+<tr>
+<td>Idle Animation</td>
+<td>—</td>
+<td>—</td>
+<td>Static by default; no idle motion on the primary mark</td>
+</tr>
+<tr>
+<td>Hover</td>
+<td>150–250 ms</td>
+<td>ease-out</td>
+<td>Opacity/scale ≤1.05, or glow on; no rotation</td>
+</tr>
+<tr>
+<td>Glow Layer</td>
+<td>300–600 ms</td>
+<td>ease-in-out</td>
+<td><code>.hydra-mark-glow</code>; follows <code>currentColor</code></td>
+</tr>
+<tr>
+<td>Pulse</td>
+<td>3.2 s loop</td>
+<td>ease-in-out</td>
+<td>Loading only; opacity 1→0.55, scale 1→0.9</td>
+</tr>
+<tr>
+<td>Rotation</td>
+<td>—</td>
+<td>—</td>
+<td><strong>FORBIDDEN</strong></td>
+</tr>
+<tr>
+<td>Loading Loop</td>
+<td>single-shot or ≤3 repeats</td>
+<td>—</td>
+<td>Reveal + settle; never an infinite busy spinner</td>
+</tr>
+</tbody>
+</table>
+<h2 id="143-technique-layers">14.3 Technique Layers</h2>
+<ul>
+<li><strong>SVG animation:</strong> all paths carry <code>pathLength={1}</code> — <code>stroke-dasharray: 1; stroke-dashoffset: 1 → 0</code> per path reveals heads and core. Draw order: heads (0, 1, 2) first, then the core.</li>
+<li><strong>CSS animation:</strong> <code>.hydra-mark-glow</code> (drop-shadow 0 0 6px / 0 0 16px <code>currentColor</code>) and <code>.hydra-mark-pulse</code>. New utilities live in <code>src/index.css</code> under the mark block and respect reduced motion. Prefer <code>opacity</code> / <code>filter</code> / small <code>scale</code>.</li>
+<li><strong>Framer Motion:</strong> the site motion runtime. Animate the wrapper/motion element — <strong>never</strong> mutate <code>HydraLogo</code> path data or per-head transforms at runtime. Gate via <code>useReducedMotion()</code>.</li>
+</ul>
+<h2 id="144-toolchain">14.4 Toolchain</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Role</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>After Effects</td>
+<td>Video / OG / marketing animations</td>
+<td>Export from the master SVG; never re-trace; emerald family only</td>
+</tr>
+<tr>
+<td>Lottie</td>
+<td>Lightweight web animation</td>
+<td>Via bodymovin from AE; honor <code>Lottie.setReducedMotionHook</code></td>
+</tr>
+<tr>
+<td>Rive</td>
+<td>Interactive web states</td>
+<td>Import master paths; single <code>currentColor</code>-equivalent palette</td>
+</tr>
+<tr>
+<td>Blender</td>
+<td>3D / depth treatments</td>
+<td>Extrude/bevel only from the certified 2D silhouette</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cross-tool rule:</strong> every motion asset starts from <code>hydra-mark.svg</code> (or the identical <code>HydraLogo.tsx</code> geometry); exported vectors are re-imported and diffed for drift before release.</p>
+<h2 id="145-timing-amp-rhythm">14.5 Timing &amp; Rhythm</h2>
+<ul>
+<li>Micro-interactions: 140–240 ms; reveals: 600–1400 ms; pulse loop: 3.2 s.</li>
+<li>Stagger: 60–90 ms offsets; the mark reveals before its supporting text.</li>
+<li>Loading sequences keep a total budget under <strong>1600 ms</strong>.</li>
+</ul>
+<h2 id="146-restrictions">14.6 Restrictions</h2>
+<ol>
+<li>No continuous rotation. 2. No per-head independent motion. 3. No color-shifting flashes. 4. No morphing paths. 5. No baked lighting. 6. No busy looping. 7. Reduced motion always honored.</li>
+</ol>
+<hr />
+<h1 id="15-website-integration">15. Website Integration</h1>
+<h2 id="151-surface-map">15.1 Surface Map</h2>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Component / Location</th>
+<th>Implementation</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navbar</td>
+<td><code>src/components/Navigation.tsx</code></td>
+<td><code>HydraLogo</code></td>
+<td>Emerald <code>#10b981</code> via <code>text-accent</code></td>
+</tr>
+<tr>
+<td>Hero</td>
+<td><code>src/components/Hero.tsx</code></td>
+<td><code>HydraLogo</code></td>
+<td>Emerald <code>#10b981</code></td>
+</tr>
+<tr>
+<td>Footer</td>
+<td>Footer (existing layout)</td>
+<td><code>HydraLogo</code> (or favicon raster fallback)</td>
+<td>Muted emerald / white mono</td>
+</tr>
+<tr>
+<td>Loading</td>
+<td><code>src/components/PlymouthSplash.tsx</code></td>
+<td><code>HydraLogo</code> + <code>.hydra-mark-pulse</code></td>
+<td>Emerald</td>
+</tr>
+<tr>
+<td>Splash</td>
+<td><code>src/components/PreSplashSelector.tsx</code></td>
+<td><code>HydraLogo</code> selection tile</td>
+<td>Emerald</td>
+</tr>
+<tr>
+<td>Watermark</td>
+<td>Full-page / section watermark</td>
+<td><code>HydraLogo</code> at ≈8–14% opacity</td>
+<td>Low-opacity mono</td>
+</tr>
+<tr>
+<td>OpenGraph</td>
+<td><code>public/hydra_logo.jpg</code> via <code>useOpenGraph.ts</code></td>
+<td>1024×1024 raster</td>
+<td>Emerald on Abyssal</td>
+</tr>
+<tr>
+<td>Manifest icons</td>
+<td><code>/manifest</code> icons</td>
+<td>192 + 512 px</td>
+<td>Emerald fill</td>
+</tr>
+<tr>
+<td>Safari mask icon</td>
+<td><code>safari-pinned-tab.svg</code></td>
+<td>Monochrome silhouette</td>
+<td>Black fill</td>
+</tr>
+<tr>
+<td>Dark mode</td>
+<td><code>html.dark</code> + <code>localStorage['hydra-theme']</code></td>
+<td>Emerald on Abyssal <code>#060c09</code></td>
+<td>Emerald</td>
+</tr>
+<tr>
+<td>Light mode</td>
+<td>default canvas <code>#f8faf9</code></td>
+<td>Emerald on light canvas</td>
+<td>Emerald (black mono in print)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="152-navbar">15.2 Navbar</h2>
+<ul>
+<li>Mark size 24–28 px rendered height (never below 24 px).</li>
+<li>Color <code>#10b981</code>, inherited via <code>text-current</code>.</li>
+<li>Lockup: mark + wordmark (typography only). No text inside the mark SVG.</li>
+<li>Clear space: one hex-core radius (17 u ≈ one head-height) on every side.</li>
+<li>Hover: optional <code>.hydra-mark-glow</code>; no scale beyond 1.05×; no rotation.</li>
+</ul>
+<h2 id="153-hero">15.3 Hero</h2>
+<ul>
+<li>Mark size display scale, 96–160 px rendered height.</li>
+<li>Placement: optically centered relative to the headline, shared optical axis.</li>
+<li>Motion: static by default; pulse permitted on loading only; rotation forbidden.</li>
+<li>Reduced motion must freeze all mark animation.</li>
+</ul>
+<h2 id="154-loading-amp-splash">15.4 Loading &amp; Splash</h2>
+<ul>
+<li>PlymouthSplash: <code>HydraLogo</code> + <code>.hydra-mark-pulse</code> (<code>hydra-pulse 3.2s ease-in-out infinite</code>, opacity 1→0.55, scale 1→0.9), reduced-motion safe.</li>
+<li>PreSplashSelector: mark as selectable identity tile; emerald fill, glassmorphic tile.</li>
+<li>Approved loading treatment is the <strong>pulse</strong>, never a spin; a stroke-draw reveal may accompany intros but must complete and settle.</li>
+</ul>
+<h2 id="155-watermark">15.5 Watermark</h2>
+<p>8–14% opacity of <code>currentColor</code> (never above 20%); white or emerald mono; up to 60–80% of section height; static, slow fade-in on scroll permitted.</p>
+<h2 id="156-dark-light-mode">15.6 Dark / Light Mode</h2>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Dark (<code>html.dark</code>)</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canvas</td>
+<td><code>#060c09</code> (Abyssal Slate)</td>
+<td><code>#f8faf9</code></td>
+</tr>
+<tr>
+<td>Mark</td>
+<td>Emerald <code>#10b981</code></td>
+<td>Emerald <code>#10b981</code></td>
+</tr>
+<tr>
+<td>Monochrome fallback</td>
+<td>White mono for overlays</td>
+<td>Black mono for print/light-critical</td>
+</tr>
+<tr>
+<td>Glass layer</td>
+<td><code>rgba(255,255,255,0.04)</code> + <code>backdrop-blur-md</code></td>
+<td>keep translucent</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="16-development-architecture">16. Development Architecture</h1>
+<h2 id="161-stack">16.1 Stack</h2>
+<ul>
+<li><strong>React + Vite</strong> (TypeScript), Tailwind v4 CSS-first config in <code>src/index.css</code> (<code>@import "tailwindcss"</code>).</li>
+<li>Dark mode is class-based (<code>html.dark</code>), controlled by <code>App.tsx</code> and <code>localStorage['hydra-theme']</code>.</li>
+<li>Class logic always through <code>cn()</code> from <code>src/lib/utils.ts</code>.</li>
+<li><strong>Relative imports only</strong> (<code>../components/...</code>) — the <code>@</code> alias points to root, never <code>src/</code>.</li>
+<li>Motion: Framer Motion + Lenis smooth scroll.</li>
+<li>Package name: <code>react-example</code>.</li>
+</ul>
+<h2 id="162-scripts">16.2 Scripts</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm run dev</code></td>
+<td>Dev server on port 3000 (host 0.0.0.0), not Vite's default 5173</td>
+</tr>
+<tr>
+<td><code>npm run lint</code></td>
+<td><code>tsc --noEmit</code></td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>Production build</td>
+</tr>
+<tr>
+<td><code>npm run clean</code></td>
+<td>Removes <code>dist/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="163-content-architecture">16.3 Content Architecture</h2>
+<ul>
+<li>All content from <code>src/data/portfolioData.ts</code>.</li>
+<li><code>PROJECTS</code> is deliberately empty — <code>WorkGallery</code> must retain its empty-state handler.</li>
+<li><code>VOICE_TRACKS</code> playback relies on <code>audioUrl</code> in <code>/public/audio/</code>.</li>
+<li><code>DISCIPLINES</code> IDs are strictly <code>'video' | 'motion' | 'voice'</code>.</li>
+<li>Metadata handled client-side via <code>src/hooks/useOpenGraph.ts</code> pointing to <code>/hydra_logo.jpg</code>.</li>
+<li>Contact form uses <code>VITE_FORM_ENDPOINT</code> / <code>VITE_FORM_ACCESS_KEY</code>; unconfigured warning state is kept.</li>
+</ul>
+<h2 id="164-device-tier-performance-budget">16.4 Device-Tier Performance Budget</h2>
+<p>Source of truth: <code>src/hooks/useDeviceTier.ts</code> detects <code>low | medium | high</code> once per session (CPU cores, deviceMemory, effectiveType, saveData, coarse pointer) and mirrors it onto <code>&lt;html data-quality="low|medium|high"&gt;</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Experience</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Low</strong></td>
+<td>No Lenis (native scroll — anchors need <code>[id] { scroll-margin-top: 96px }</code>), 1 static ambient blob, no aurora/spotlight/drift, no backdrop-blur on glass, no blur entrances, every other waveform bar</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>Lenis at 0.95s, 2 ambient blobs, reduced <code>blur(9px)</code> glass, no spotlight</td>
+</tr>
+<tr>
+<td><strong>High</strong></td>
+<td>Full experience — Lenis 1.2s, 3 blobs + drift + aurora + spotlight, <code>blur(12px)</code> glass</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>JS animation gated with <code>cheapMotion = isCoarse || tier === 'low'</code>; CSS compositing gated via <code>html[data-quality]</code> selectors.</li>
+</ul>
+<h2 id="165-content-security-policy">16.5 Content Security Policy</h2>
+<p><code>index.html</code> ships a CSP meta tag with <strong>no <code>unsafe-eval</code></strong> — required for Electron to clear its "Insecure Content-Security-Policy" warning. <code>script-src 'unsafe-inline'</code> is kept for Vite dev; do not add <code>unsafe-eval</code> back.</p>
+<hr />
+<h1 id="17-svg-engineering">17. SVG Engineering</h1>
+<h2 id="171-the-master-file">17.1 The Master File</h2>
+<p><code>public/hydra-mark.svg</code> — the canonical static SVG (favicon, downloads, static tools), generated from the same geometry as <code>src/components/HydraLogo.tsx</code>:</p>
+<pre><code class="language-xml">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;11 2.94 78 78&quot;&gt;
+  &lt;path fill=&quot;#10b981&quot; d=&quot;M 50.00 11.50 C … Z&quot; /&gt;
+  &lt;path fill=&quot;#10b981&quot; transform=&quot;rotate(120 50 50)&quot; d=&quot;M 50.00 11.50 C … Z&quot; /&gt;
+  &lt;path fill=&quot;#10b981&quot; transform=&quot;rotate(240 50 50)&quot; d=&quot;M 50.00 11.50 C … Z&quot; /&gt;
+  &lt;path fill=&quot;#10b981&quot; d=&quot;M 50.00 33.00 L … Z&quot; /&gt;
+&lt;/svg&gt;
+</code></pre>
+<h2 id="172-engineering-standards">17.2 Engineering Standards</h2>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>Certified V4; identical across all variants (single unique head-path hash)</td>
+</tr>
+<tr>
+<td>Frame</td>
+<td><code>viewBox="11 2.94 78 78"</code> on all production variants</td>
+</tr>
+<tr>
+<td>Paths</td>
+<td>Exactly 4; never merged; only the certified <code>rotate(120/240 50 50)</code> transforms</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>Pure <code>currentColor</code> fills/strokes — recolorable to any certified colorway with no geometry change</td>
+</tr>
+<tr>
+<td>Decoration</td>
+<td>No gradients, glow, shadows, reflections, or <code>&lt;defs&gt;</code> lighting in the SVG</td>
+</tr>
+<tr>
+<td>Motion-readiness</td>
+<td><code>pathLength={1}</code> on every path for draw/trace math</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td><code>aria-hidden="true"</code>, <code>focusable="false"</code>, <code>data-hydra-mark</code></td>
+</tr>
+<tr>
+<td>Optimization</td>
+<td>Coordinate rounding / markup hygiene permitted only with zero visual change</td>
+</tr>
+</tbody>
+</table>
+<h2 id="173-single-source-of-truth">17.3 Single Source of Truth</h2>
+<ul>
+<li><code>src/components/HydraLogo.tsx</code> — live geometry used by every UI surface.</li>
+<li><code>public/hydra-mark.svg</code> — canonical static SVG (favicon, downloads, static tools), generated from the same geometry.</li>
+<li><code>public/hydra_logo.jpg</code> — derived OpenGraph / Twitter card (1024×1024).</li>
+</ul>
+<blockquote>
+<p><strong>Rule:</strong> every raster, icon, social asset, print file, or motion asset MUST be generated from the certified geometry. It is forbidden to re-draw, re-trace, or re-imagine the mark for any export. Re-export only, never re-create.</p>
+</blockquote>
+<h2 id="174-integrity">17.4 Integrity</h2>
+<ul>
+<li>Master SHA-256 <code>f12de4fdd94c2dbd155b0c4a23c80cdbb6420bd394a601492ade20d23380c1fa</code>.</li>
+<li>Any file whose checksum diverges from the recorded value on a released version is NOT the certified master and must be quarantined.</li>
+<li>Verified: fresh rsvg render of the master is byte-identical to the shipped <code>PNG/hydra-mark-emerald-256px.png</code>.</li>
+</ul>
+<hr />
+<h1 id="18-component-implementation">18. Component Implementation</h1>
+<h2 id="181-hydralogotsx">18.1 <code>HydraLogo.tsx</code></h2>
+<pre><code class="language-tsx">import React from 'react';
+import { cn } from '../lib/utils';
+
+interface HydraLogoProps {
+  className?: string;
+  variant?: 'fill' | 'outline';
+}
+
+const HEAD_PATH =
+  'M 50.00 11.50 C 50.56 12.05, 52.20 13.55, 53.36 14.80 … Z';
+
+const CORE_PATH =
+  'M 50.00 33.00 L 64.72 41.50 L 64.72 58.50 L 50.00 67.00 L 35.28 58.50 L 35.28 41.50 Z';
+
+export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
+  className,
+  variant = 'fill',
+}) =&gt; {
+  const isOutline = variant === 'outline';
+
+  return (
+    &lt;svg
+      viewBox=&quot;11 2.94 78 78&quot;
+      data-hydra-mark
+      aria-hidden=&quot;true&quot;
+      focusable=&quot;false&quot;
+      className={cn('hydra-mark block text-current', className)}
+    &gt;
+      &lt;g
+        className=&quot;hydra-heads&quot;
+        fill={isOutline ? 'none' : 'currentColor'}
+        stroke={isOutline ? 'currentColor' : 'none'}
+        strokeWidth={isOutline ? 3 : undefined}
+        strokeLinecap=&quot;round&quot;
+        strokeLinejoin=&quot;round&quot;
+      &gt;
+        &lt;path className=&quot;hydra-head hydra-head-0&quot; d={HEAD_PATH} pathLength={1} /&gt;
+        &lt;path className=&quot;hydra-head hydra-head-1&quot; d={HEAD_PATH}
+          transform=&quot;rotate(120 50 50)&quot; pathLength={1} /&gt;
+        &lt;path className=&quot;hydra-head hydra-head-2&quot; d={HEAD_PATH}
+          transform=&quot;rotate(240 50 50)&quot; pathLength={1} /&gt;
+        &lt;path className=&quot;hydra-core&quot; d={CORE_PATH} pathLength={1} /&gt;
+      &lt;/g&gt;
+    &lt;/svg&gt;
+  );
+};
+</code></pre>
+<h2 id="182-usage">18.2 Usage</h2>
+<pre><code class="language-tsx">&lt;HydraLogo className=&quot;h-7 w-7 text-accent&quot; /&gt;                                    {/* navbar */}
+&lt;HydraLogo className=&quot;h-16 w-16 sm:h-20 sm:w-20 text-accent/70 hydra-mark-glow&quot; /&gt; {/* hero */}
+&lt;HydraLogo className=&quot;h-16 w-16 sm:h-20 sm:w-20 text-[#34d399] hydra-mark-glow hydra-mark-pulse&quot; /&gt; {/* loading */}
+&lt;HydraLogo variant=&quot;outline&quot; className=&quot;h-10 w-10 text-accent&quot; /&gt;                {/* outline / technical */}
+</code></pre>
+<h2 id="183-css-utilities">18.3 CSS Utilities</h2>
+<pre><code class="language-css">.hydra-mark-glow {
+  filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 16px currentColor);
+}
+
+.hydra-mark-pulse {
+  animation: hydra-pulse 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hydra-mark-pulse {
+    animation: none;
+  }
+}
+</code></pre>
+<h2 id="184-component-rules">18.4 Component Rules</h2>
+<ul>
+<li>Always pass class strings through <code>cn()</code>.</li>
+<li>The component renders decorative-only (<code>aria-hidden</code>); visible brand text carries meaning.</li>
+<li>Animate the wrapper, never the path data or per-head transforms.</li>
+<li>No baked gradients/glow in the component — all lighting via CSS utilities.</li>
+</ul>
+<hr />
+<h1 id="19-asset-pipeline">19. Asset Pipeline</h1>
+<h2 id="191-export-matrix">19.1 Export Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Ext</th>
+<th>Use</th>
+<th>Resolution/Vector</th>
+<th>Transparency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SVG</td>
+<td><code>.svg</code></td>
+<td>Master, web, favicon, vector editing, motion</td>
+<td>Vector</td>
+<td>Yes (native)</td>
+</tr>
+<tr>
+<td>PNG</td>
+<td><code>.png</code></td>
+<td>Raster web assets, favicons, social, print raster</td>
+<td>16–2048 px</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>WEBP</td>
+<td><code>.webp</code></td>
+<td>Compressed web delivery</td>
+<td>512–2048 px</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ICO</td>
+<td><code>.ico</code></td>
+<td>Windows browser favicon</td>
+<td>Multi-res (16–64 px, +256)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>PDF</td>
+<td><code>.pdf</code></td>
+<td>Vector print / client deliverables</td>
+<td>Vector</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>EPS</td>
+<td><code>.eps</code></td>
+<td>Legacy vector print (Illustrator)</td>
+<td>Vector</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>AI</td>
+<td><code>.ai</code></td>
+<td>Editable Illustrator master for print partners</td>
+<td>Vector</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>FIG</td>
+<td><code>.fig</code></td>
+<td>Figma brand library / site UI token</td>
+<td>Vector</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="192-required-raster-sizes">19.2 Required Raster Sizes</h2>
+<p>16 (favicon minimum) · 24 (UI inline) · 32 (favicon/window) · 48 (app icon grid) · 64 (browser icon) · 128 (standard avatar) · 256 (app icon/storefront) · 512 (PWA/maskable) · 1024 (OG/social, App Store) · 2048 (print raster, retina canvas).</p>
+<h2 id="193-naming-convention">19.3 Naming Convention</h2>
+<pre><code class="language-text">hydra-{asset}-{colorway}-{variant}-{size}px.{ext}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Allowed values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>asset</code></td>
+<td><code>mark</code>, <code>favicon</code>, <code>og</code>, <code>avatar</code>, <code>appicon</code>, <code>mask</code>, <code>touch</code>, <code>logo</code></td>
+</tr>
+<tr>
+<td><code>colorway</code></td>
+<td><code>emerald</code>, <code>jade</code>, <code>mint</code>, <code>white</code>, <code>black</code></td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td><code>fill</code>, <code>outline</code></td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>16</code> … <code>2048</code> (vector formats omit)</td>
+</tr>
+<tr>
+<td><code>ext</code></td>
+<td><code>svg</code>, <code>png</code>, <code>webp</code>, <code>ico</code>, <code>pdf</code>, <code>eps</code>, <code>ai</code>, <code>fig</code></td>
+</tr>
+</tbody>
+</table>
+<p>Examples: <code>hydra-mark-emerald-fill-512px.png</code> · <code>hydra-favicon-emerald-fill-32px.ico</code> · <code>hydra-og-emerald-fill-1024px.webp</code> · <code>hydra-mark-emerald-fill-master.pdf</code>.</p>
+<p><strong>Rules:</strong> lowercase, kebab-case, no spaces; version tag only on MASTER assets; never include author initials, dates, or "final/final2".</p>
+<h2 id="194-variant-specification">19.4 Variant Specification</h2>
+<ul>
+<li><strong>Transparent:</strong> fully transparent canvas, no matte baked in.</li>
+<li><strong>Monochrome:</strong> <code>white_fill</code> (<code>#ffffff</code>) for dark surfaces; <code>black_fill</code> (<code>#000000</code>) for light surfaces. The mark is monochrome-true.</li>
+<li><strong>Outline:</strong> emerald stroke <code>#10b981</code>, width 3 units at source scale, <code>stroke-linecap="round"</code>, transparent core, <strong>no interior tail strokes</strong>. For technical/annotation contexts only — not a substitute for the fill mark.</li>
+</ul>
+<h2 id="195-quality-gates">19.5 Quality Gates</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>Generated from master only; no re-drawing</td>
+</tr>
+<tr>
+<td>Geometry</td>
+<td>Unchanged — diff the SVG path data before/after export</td>
+</tr>
+<tr>
+<td>Colors</td>
+<td>Match approved palette (no hex drift)</td>
+</tr>
+<tr>
+<td>Transparency</td>
+<td>Alpha correct; no halo/background leak</td>
+</tr>
+<tr>
+<td>Legibility</td>
+<td>16 px shows three head masses + visible core (42% ink gate)</td>
+</tr>
+<tr>
+<td>Naming</td>
+<td>Conforms to the template</td>
+</tr>
+<tr>
+<td>Checksum</td>
+<td>Master checksum recorded in the release manifest</td>
+</tr>
+<tr>
+<td>QA</td>
+<td>Each batch passes the relevant items of Chapter 21</td>
+</tr>
+</tbody>
+</table>
+<h2 id="196-retry-re-export-policy">19.6 Retry / Re-export Policy</h2>
+<p>Re-exports are free and encouraged; <strong>re-creations are prohibited</strong>. If a tool introduces a rendering artifact, correct the tooling, never the mark.</p>
+<hr />
+<h1 id="20-production-workflow">20. Production Workflow</h1>
+<h2 id="201-the-production-pipeline">20.1 The Production Pipeline</h2>
+<pre><code class="language-text">01 MASTER ASSET ──► 02 PRODUCTION QA ──► 03 COMPLETION ──► 04 RELEASE PACKAGING ──► 05 FINAL SIGN-OFF
+   (12 packages,        (221/221 checks,     (158 assets +      (14 folders,         (STATUS: COMPLETE)
+    147 files)           100/100 score)       SOURCE +          178 files, zip
+                                             UNSUPPORTED)       27 MB / 205 entries)
+</code></pre>
+<h2 id="202-step-01-asset-production">20.2 Step 01 — Asset Production</h2>
+<p>12 packages, <strong>147 files</strong> in <code>ASSETS/</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MASTER</td>
+<td>8</td>
+</tr>
+<tr>
+<td>SVG</td>
+<td>5</td>
+</tr>
+<tr>
+<td>PNG</td>
+<td>17</td>
+</tr>
+<tr>
+<td>FAVICON</td>
+<td>15</td>
+</tr>
+<tr>
+<td>WEB</td>
+<td>23</td>
+</tr>
+<tr>
+<td>SOCIAL</td>
+<td>15</td>
+</tr>
+<tr>
+<td>MOTION</td>
+<td>9</td>
+</tr>
+<tr>
+<td>PRINT</td>
+<td>10</td>
+</tr>
+<tr>
+<td>APP</td>
+<td>29</td>
+</tr>
+<tr>
+<td>SOURCE</td>
+<td>9</td>
+</tr>
+<tr>
+<td>DEVELOPMENT</td>
+<td>7</td>
+</tr>
+<tr>
+<td>README.md</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Plus <code>UNSUPPORTED/</code> documenting proprietary formats. All generated from the certified master; geometry preserved exactly across all 13 master/production SVG variants (single unique head-path hash).</p>
+<h2 id="203-step-02-production-qa">20.3 Step 02 — Production QA</h2>
+<p>All <strong>147 files</strong> inspected: XML + namespace + viewBox + path count for every SVG; dimensions, alpha, centering, clipping for every raster. <strong>221 of 221 checks passed, score 100/100, zero warnings.</strong> Details in Chapter 21.</p>
+<h2 id="204-step-03-completion-audit">20.4 Step 03 — Completion Audit</h2>
+<p>Resolved every fixable QA issue, generated every supported missing asset, archived legacy assets, documented unsupported proprietary formats (<code>.ai/.fig/.aep/.riv</code>) with READMEs rather than fabricating files. Repository became internally consistent. <strong>STATUS: READY FOR RELEASE.</strong></p>
+<h2 id="205-step-04-release-packaging">20.5 Step 04 — Release Packaging</h2>
+<p>QA-passed tree packaged into <code>RELEASE/HYDRA_SAMO_BRAND_v1.0/</code> — <strong>14 folders</strong> (11 asset packages + DOCUMENTATION + LICENSE + REPORTS), <strong>178 files</strong>, enhanced <code>ASSET_MANIFEST.md</code>, release README, informational usage terms (no invented legal language), and archive <code>HYDRA_SAMO_BRAND_v1.0.zip</code> (<strong>27 MB, 205 entries</strong>, integrity test passed). Master checksum matches certified master byte-for-byte.</p>
+<h2 id="206-step-05-final-sign-off">20.6 Step 05 — Final Sign-Off</h2>
+<p>Official project closure: <strong>STATUS: COMPLETE</strong> — the HYDRA SAMO Brand Identity System v1.0. Full lifecycle complete, visual identity officially frozen, repository approved for production deployment, archival, maintenance, and future brand applications.</p>
+<hr />
+<h1 id="21-qa-process">21. QA Process</h1>
+<h2 id="211-validation-categories">21.1 Validation Categories</h2>
+<p>The QA validation checklist (<code>OUTPUT/18_QA_VALIDATION.md</code>) defines PASS criteria, FAIL criteria, and verification methods across 12 categories:</p>
+<ol>
+<li><strong>SVG Integrity</strong> — geometry unchanged, class contract intact, no baked decoration, checksum matches.</li>
+<li><strong>Favicon Readability</strong> — 16 px legibility, optical centering, contrast.</li>
+<li><strong>Website Integration</strong> — one mark on all surfaces, favicon wired (<code>%BASE_URL%</code>), OG wired, build clean.</li>
+<li><strong>Motion Compatibility</strong> — stroke-draw readiness, no spin, motion settles, reduced motion.</li>
+<li><strong>Print Readiness</strong> — vector files, spot color named, minimum sizes, line widths.</li>
+<li><strong>Responsive Scaling</strong> — 16→2048 px legibility, retina, uniform aspect.</li>
+<li><strong>Retina Displays</strong> — 2× assets present, alpha preserved.</li>
+<li><strong>Accessibility</strong> — decorative mark, reduced motion, contrast.</li>
+<li><strong>Animation Consistency</strong> — one motion language, stagger order, color consistency.</li>
+<li><strong>Folder Consistency</strong> — hierarchy exists, MASTER immutable, ARCHIVE read-only.</li>
+<li><strong>Naming Consistency</strong> — convention followed, no version stamps in EXPORTS.</li>
+<li><strong>Documentation Completeness</strong> — all phase docs present, cross-references resolve, manifest up to date.</li>
+</ol>
+<h2 id="212-result-recording">21.2 Result Recording</h2>
+<ul>
+<li><strong>All PASS:</strong> production-ready; proceed to Final Release.</li>
+<li><strong>Any FAIL:</strong> block release; fix at the source, re-export, re-run the failed items, then re-run the full checklist.</li>
+</ul>
+<h2 id="213-verified-result">21.3 Verified Result</h2>
+<p>The production QA run on 2026-08-05 audited <code>ASSETS/</code> (12 packages, 147 files) with automated scripts + manual spot checks (xmllint, ImageMagick, rsvg, sha256sum):</p>
+<ul>
+<li><strong>221 / 221 checks passed</strong> — score <strong>100 / 100</strong>.</li>
+<li>Geometry preserved exactly across all 13 master/production SVG variants.</li>
+<li>All rasters derive from the certified vector; all motion respects the frozen motion system (no rotation).</li>
+<li>Favicon set: 16/32/48 PNG, apple-touch 180, android 192/512, mask-icon, <code>site.webmanifest</code>, <code>browserconfig.xml</code>, mstile 70/150/310 + wide 310×150 — all present, readable, centered.</li>
+<li>Print: vector PDF (v1.7) + EPS (DSC 3.0) + SVG confirmed vector; CMYK TIFF in CMYK colorspace; spot colors documented for vendor.</li>
+<li>App: 29 icons across Android, iOS, Windows, macOS, Linux, PWA, Electron, Chrome, Firefox, Safari.</li>
+<li>Unsupported proprietary formats (<code>.ai/.fig/.aep/.riv</code>) documented, not fabricated.</li>
+<li>No corrupted, missing, or misnamed assets.</li>
+</ul>
+<hr />
+<h1 id="22-certification">22. Certification</h1>
+<h2 id="221-final-certification">22.1 Final Certification</h2>
+<p><strong>Logo Version:</strong> V4 — refinement of V2: locked serpent-head geometry + R17 hex core, shared optical frame <code>viewBox="11 2.94 78 78"</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Certification date</td>
+<td>2026-08-05</td>
+</tr>
+<tr>
+<td>Overall score</td>
+<td>59 / 100 (V2 consensus baseline, 4-reviewer pipeline)</td>
+</tr>
+<tr>
+<td>Final verdict</td>
+<td>✅ <strong>CERTIFIED</strong></td>
+</tr>
+<tr>
+<td>Review cycle</td>
+<td>First Review → REFINE → V4 Implementation → Final Validation</td>
+</tr>
+<tr>
+<td>Basis</td>
+<td>Full closure of all review findings by measured V4 verification; all acceptance gates PASS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="222-certification-statement">22.2 Certification Statement</h2>
+<p>The V4 refinement converted every review finding into a verified, measurable correction without abandoning the original identity:</p>
+<ul>
+<li><strong>Perceptual category corrected</strong> — 57.5° wedge (target 55–60°), 0.0° tangency; serpent heads on one body, not a rotor.</li>
+<li><strong>Smallest surface repaired</strong> — 16×16 favicon shows three distinct head masses with a visible core, optically centered at 85.4% × 78.1%.</li>
+<li><strong>Optical frame corrected</strong> — reframed to <code>11 2.94 78 78</code>; ~40% larger in every fixed slot.</li>
+<li><strong>Construction validated</strong> — tangent-continuous head path; R17 core anchors the form; outline variant renders with no interior leak.</li>
+<li><strong>Single-identity discipline restored</strong> — OG asset rebuilt from emerald source; legacy colorways retired.</li>
+<li><strong>Engineering standards upheld</strong> — <code>currentColor</code>, <code>pathLength</code>, unmerged paths, stable classes, external CSS lighting, <code>aria-hidden</code>; lint + build clean.</li>
+</ul>
+<h2 id="223-production-readiness-checklist">22.3 Production Readiness Checklist</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brand identity validated</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Hidden Hydra concept preserved</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Rotor interpretation eliminated</td>
+<td>✅ (57.5° wedge, spin retired)</td>
+</tr>
+<tr>
+<td>Geometry finalized</td>
+<td>✅ (wedge 57.5°, tangency 0.0°)</td>
+</tr>
+<tr>
+<td>SVG engineering approved</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Website integration approved</td>
+<td>✅ (lint + build clean, call sites unchanged)</td>
+</tr>
+<tr>
+<td>Animation compatibility approved</td>
+<td>✅ (pathLength, stroke-drawing ready; spin removed)</td>
+</tr>
+<tr>
+<td>Favicon approved</td>
+<td>✅ (3 head masses + visible core at 16px)</td>
+</tr>
+<tr>
+<td>Scalability approved</td>
+<td>✅ (16px through 512px+)</td>
+</tr>
+<tr>
+<td>Commercial usage approved</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="23-brand-freeze">23. Brand Freeze</h1>
+<h2 id="231-freeze-declaration">23.1 Freeze Declaration</h2>
+<p>The HYDRA SAMO logo has entered <strong>permanent production status</strong>. Effective immediately, future visual redesigns are prohibited. The V4 mark as certified is the brand's identity on every surface and in every derived asset.</p>
+<p><strong>Locked and may not be altered:</strong></p>
+<ul>
+<li>Head path geometry and the 57.5° wedge / 0.0° tangency construction.</li>
+<li>Hexagon core (circumradius 17, pointy-top orientation).</li>
+<li>Shared optical frame <code>viewBox="11 2.94 78 78"</code>.</li>
+<li>3-fold rotational symmetry about <code>(50, 50)</code> and the <code>hydra-head-0/1/2</code> + <code>hydra-core</code> class contract.</li>
+<li>Monochrome-true, <code>currentColor</code> rendering with external CSS lighting only.</li>
+<li>The retired continuous-rotation cue (<code>.hydra-mark-spin</code>) — remains forbidden.</li>
+</ul>
+<h2 id="232-permitted-modifications">23.2 Permitted Modifications</h2>
+<ul>
+<li>SVG optimization (path size, coordinate rounding, markup hygiene) with <strong>no visual change</strong>.</li>
+<li>Export optimization; asset generation derived from the single source.</li>
+<li>Additional file formats; technical bug fixes (rendering, accessibility, packaging).</li>
+<li>Documentation updates.</li>
+</ul>
+<p><strong>No geometry changes may be made unless a future official rebranding initiative is approved by the brand owner.</strong></p>
+<h2 id="233-freeze-record">23.3 Freeze Record</h2>
+<ul>
+<li>Logo version: <strong>V4</strong> · Freeze date: <strong>2026-08-05</strong> · Approved by: brand owner.</li>
+<li>Status: 🟢 <strong>LOCKED — Permanent production identity</strong>.</li>
+<li>This freeze supersedes all prior review-stage flexibility.</li>
+</ul>
+<hr />
+<h1 id="24-governance">24. Governance</h1>
+<h2 id="241-clear-space">24.1 Clear Space</h2>
+<p>Keep an exclusion zone equal to <strong>one hex-core unit</strong> (17 units ≈ one head-height ≈ the mark's inner radius) clear on all four sides. At 24 px mark height → 24 px clear space; at 100 px → 100 px. Applies to text, other logos, image edges, crop marks, decorative elements, and watermarks. Clear space is the minimum, never the target.</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yNiAtMjggMTMwIDEzMCI+CiAgPHJlY3QgeD0iLTI2IiB5PSItMjgiIHdpZHRoPSIxMzAiIGhlaWdodD0iMTMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzNGQzOTkiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2UtZGFzaGFycmF5PSI0IDMiIHN0cm9rZS1vcGFjaXR5PSIwLjUiLz4KICA8dGV4dCB4PSIwIiB5PSItMzYiIGZpbGw9IiM5NGEzYjgiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iNyI+U0FGRSBaT05FID0gb25lIGhlYWQgaGVpZ2h0ICgyMS41IHUpIHBlciBzaWRlPC90ZXh0PgogIDx0ZXh0IHg9Ii0yNSIgeT0iNjYiIGZpbGw9IiMzNGQzOTkiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIC0yNSA2NikiPjIxLjU8L3RleHQ+CiAgPHRleHQgeD0iMTA4IiB5PSI2NiIgZmlsbD0iIzM0ZDM5OSIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSI3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB0cmFuc2Zvcm09InJvdGF0ZSg5MCAxMDggNjYpIj4yMS41PC90ZXh0PgogIDxwYXRoIGZpbGw9IiMxMGI5ODEiIGQ9Ik0gNTAuMDAgMTEuNTAgQyA1MC41NiAxMi4wNSwgNTIuMjAgMTMuNTUsIDUzLjM2IDE0LjgwIEMgNTQuNTIgMTYuMDUsIDU1LjY4IDE3LjM3LCA1Ni45NiAxOS4wMCBDIDU4LjI0IDIwLjYzLCA2MC40NCAyMi43MywgNjEuMDQgMjQuNjAgQyA2MS42NCAyNi40NywgNjAuODQgMjguNDAsIDYwLjU2IDMwLjIwIEMgNjAuMjggMzIuMDAsIDU5LjUzIDM0LjAyLCA1OS4zNiAzNS40MCBDIDU5LjE5IDM2Ljc4LCA1OS41MCAzNy45OCwgNTkuNTIgMzguNTAgTCA1MC4wMCAzMy4wMCBMIDQwLjQ4IDM4LjUwIEMgNDAuNTAgMzcuOTgsIDQwLjc3IDM2Ljc4LCA0MC42NCAzNS40MCBDIDQwLjUxIDM0LjAyLCAzOS40MCAzMS45NywgMzkuNjggMzAuMjAgQyAzOS45NiAyOC40MywgNDEuNTYgMjYuNDAsIDQyLjMyIDI0LjgwIEMgNDMuMDggMjMuMjAsIDQzLjUyIDIyLjI3LCA0NC4yNCAyMC42MCBDIDQ0Ljk2IDE4LjkzLCA0NS42OCAxNi4zMiwgNDYuNjQgMTQuODAgQyA0Ny42MCAxMy4yOCwgNDkuNDQgMTIuMDUsIDUwLjAwIDExLjUwIFoiLz4KICA8cGF0aCBmaWxsPSIjMTBiOTgxIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjAgNTAgNTApIiBkPSJNIDUwLjAwIDExLjUwIEMgNTAuNTYgMTIuMDUsIDUyLjIwIDEzLjU1LCA1My4zNiAxNC44MCBDIDU0LjUyIDE2LjA1LCA1NS42OCAxNy4zNywgNTYuOTYgMTkuMDAgQyA1OC4yNCAyMC42MywgNjAuNDQgMjIuNzMsIDYxLjA0IDI0LjYwIEMgNjEuNjQgMjYuNDcsIDYwLjg0IDI4LjQwLCA2MC41NiAzMC4yMCBDIDYwLjI4IDMyLjAwLCA1OS41MyAzNC4wMiwgNTkuMzYgMzUuNDAgQyA1OS4xOSAzNi43OCwgNTkuNTAgMzcuOTgsIDU5LjUyIDM4LjUwIEwgNTAuMDAgMzMuMDAgTCA0MC40OCAzOC41MCBDIDQwLjUwIDM3Ljk4LCA0MC43NyAzNi43OCwgNDAuNjQgMzUuNDAgQyA0MC41MSAzNC4wMiwgMzkuNDAgMzEuOTcsIDM5LjY4IDMwLjIwIEMgMzkuOTYgMjguNDMsIDQxLjU2IDI2LjQwLCA0Mi4zMiAyNC44MCBDIDQzLjA4IDIzLjIwLCA0My41MiAyMi4yNywgNDQuMjQgMjAuNjAgQyA0NC45NiAxOC45MywgNDUuNjggMTYuMzIsIDQ2LjY0IDE0LjgwIEMgNDcuNjAgMTMuMjgsIDQ5LjQ0IDEyLjA1LCA1MC4wMCAxMS41MCBaIi8+CiAgPHBhdGggZmlsbD0iIzEwYjk4MSIgdHJhbnNmb3JtPSJyb3RhdGUoMjQwIDUwIDUwKSIgZD0iTSA1MC4wMCAxMS41MCBDIDUwLjU2IDEyLjA1LCA1Mi4yMCAxMy41NSwgNTMuMzYgMTQuODAgQyA1NC41MiAxNi4wNSwgNTUuNjggMTcuMzcsIDU2Ljk2IDE5LjAwIEMgNTguMjQgMjAuNjMsIDYwLjQ0IDIyLjczLCA2MS4wNCAyNC42MCBDIDYxLjY0IDI2LjQ3LCA2MC44NCAyOC40MCwgNjAuNTYgMzAuMjAgQyA2MC4yOCAzMi4wMCwgNTkuNTMgMzQuMDIsIDU5LjM2IDM1LjQwIEMgNTkuMTkgMzYuNzgsIDU5LjUwIDM3Ljk4LCA1OS41MiAzOC41MCBMIDUwLjAwIDMzLjAwIEwgNDAuNDggMzguNTAgQyA0MC41MCAzNy45OCwgNDAuNzcgMzYuNzgsIDQwLjY0IDM1LjQwIEMgNDAuNTEgMzQuMDIsIDM5LjQwIDMxLjk3LCAzOS42OCAzMC4yMCBDIDM5Ljk2IDI4LjQzLCA0MS41NiAyNi40MCwgNDIuMzIgMjQuODAgQyA0My4wOCAyMy4yMCwgNDMuNTIgMjIuMjcsIDQ0LjI0IDIwLjYwIEMgNDQuOTYgMTguOTMsIDQ1LjY4IDE2LjMyLCA0Ni42NCAxNC44MCBDIDQ3LjYwIDEzLjI4LCA0OS40NCAxMi4wNSwgNTAuMDAgMTEuNTAgWiIvPgogIDxwYXRoIGZpbGw9IiMxMGI5ODEiIGQ9Ik0gNTAuMDAgMzMuMDAgTCA2NC43MiA0MS41MCBMIDY0LjcyIDU4LjUwIEwgNTAuMDAgNjcuMDAgTCAzNS4yOCA1OC41MCBMIDM1LjI4IDQxLjUwIFoiLz4KPC9zdmc+Cg==" alt="Spacing Diagram" class="mark-img"/></p>
+<h2 id="242-minimum-size">24.2 Minimum Size</h2>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Minimum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Favicon / browser</td>
+<td>16 px</td>
+</tr>
+<tr>
+<td>UI (navbar, inline)</td>
+<td>24 px</td>
+</tr>
+<tr>
+<td>App icon / avatar</td>
+<td>48 px</td>
+</tr>
+<tr>
+<td>Social avatar</td>
+<td>128 px (512 px source)</td>
+</tr>
+<tr>
+<td>Print (ink)</td>
+<td>12 mm mark height</td>
+</tr>
+<tr>
+<td>Print (embroidery)</td>
+<td>45 mm</td>
+</tr>
+<tr>
+<td>Vector</td>
+<td>no limit</td>
+</tr>
+</tbody>
+</table>
+<p>Below the minimum, do not render the mark — use the wordmark/name in type instead.</p>
+<h2 id="243-allowed-colors">24.3 Allowed Colors</h2>
+<table>
+<thead>
+<tr>
+<th>Colorway</th>
+<th>Hex</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mythic Emerald</td>
+<td><code>#10b981</code></td>
+<td>Primary everywhere</td>
+</tr>
+<tr>
+<td>Deep Jade</td>
+<td><code>#059669</code></td>
+<td>Secondary accents, depth</td>
+</tr>
+<tr>
+<td>Soft Mint</td>
+<td><code>#34d399</code></td>
+<td>Glow / highlight treatments</td>
+</tr>
+<tr>
+<td>White mono</td>
+<td><code>#ffffff</code></td>
+<td>Dark surfaces, imagery overlays, embossing</td>
+</tr>
+<tr>
+<td>Black mono</td>
+<td><code>#000000</code></td>
+<td>Light surfaces, light print, etching</td>
+</tr>
+</tbody>
+</table>
+<h2 id="244-background-rules">24.4 Background Rules</h2>
+<table>
+<thead>
+<tr>
+<th>Background</th>
+<th>Mark color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abyssal <code>#060c09</code> (default)</td>
+<td>Emerald <code>#10b981</code></td>
+</tr>
+<tr>
+<td>Any dark image</td>
+<td>Emerald with <code>.hydra-mark-glow</code>, or white mono</td>
+</tr>
+<tr>
+<td>Light canvas / paper</td>
+<td>Black mono (or emerald if contrast ≥ 4.5:1 on that surface)</td>
+</tr>
+<tr>
+<td>Mid-tone photography</td>
+<td>White mono with soft drop shadow, or emerald in a glass chip</td>
+</tr>
+<tr>
+<td>Anything busy</td>
+<td>Keep the mark in a glass/abyssal tile</td>
+</tr>
+</tbody>
+</table>
+<h2 id="245-incorrect-usage-never">24.5 Incorrect Usage (never)</h2>
+<ol>
+<li>Re-draw, re-trace, re-interpret, or simplify the mark.</li>
+<li>Stretch, squash, skew, or distort proportions.</li>
+<li>Rotate the mark (continuous or any non-certified fixed placement without approval).</li>
+<li>Add text, initials, slogan, borders, or badges inside/around the mark SVG.</li>
+<li>Apply gradients, glow, shadows, or reflections inside the SVG.</li>
+<li>Recolor to any forbidden color.</li>
+<li>Place on a clashing background or below minimum size.</li>
+<li>Animate with the retired spin treatment or any busy looping spinner.</li>
+<li>Mirror/flip the mark or break the 3-fold symmetry.</li>
+<li>Use a legacy raster or a screenshot as the brand asset.</li>
+</ol>
+<h2 id="246-accessibility-amp-contrast">24.6 Accessibility &amp; Contrast</h2>
+<ul>
+<li>All mark animation honors <code>prefers-reduced-motion: reduce</code>.</li>
+<li>The <code>HydraLogo</code> component renders <code>aria-hidden="true"</code> and <code>focusable="false"</code>; brand name lives in visible text.</li>
+<li>Emerald mark must maintain <strong>≥ 3:1 contrast</strong> against any background (WCAG AA for graphical objects); body text ≥ 4.5:1, large text ≥ 3:1.</li>
+</ul>
+<h2 id="247-vector-amp-raster-rules">24.7 Vector &amp; Raster Rules</h2>
+<ul>
+<li>Single source only; keep viewBox, <code>currentColor</code>, <code>pathLength</code>, unmerged paths, and the class contract.</li>
+<li>Generate rasters at 2× target (or 4× for ≤32 px) and downscale with LANCZOS; never upscale.</li>
+<li>Preserve alpha; no background matte in transparent exports.</li>
+<li>Store masters at the highest size (≥1024 px) and derive smaller sizes from the master raster.</li>
+</ul>
+<h2 id="248-rotation-amp-distortion-policy">24.8 Rotation &amp; Distortion Policy</h2>
+<ul>
+<li><strong>Continuous rotation: forbidden</strong> (<code>.hydra-mark-spin</code> retired).</li>
+<li><strong>Static placement:</strong> upright as certified; non-upright tilts limited to ≤15° and must be approved by the brand owner per asset.</li>
+<li><strong>Distortion:</strong> never stretched, squashed, reflected, or mirrored. Aspect ratio locked at 1:1; scale always uniform.</li>
+</ul>
+<hr />
+<h1 id="25-repository-structure">25. Repository Structure</h1>
+<h2 id="251-top-level-repository">25.1 Top-Level Repository</h2>
+<pre><code class="language-text">hydra-review/
+├── src/                      # Application source
+│   ├── components/           # HydraLogo, Navigation, Hero, WorkGallery, …
+│   ├── data/portfolioData.ts # All content (single source)
+│   ├── hooks/                # useOpenGraph, useDeviceTier, …
+│   ├── lib/utils.ts          # cn()
+│   └── index.css             # Tailwind v4 + design tokens + mark utilities
+├── public/                   # hydra-mark.svg, hydra_logo.jpg, audio/, images/
+├── ASSETS/                   # Production asset packages (12 packages, 147 files)
+├── OUTPUT/                   # Complete documentation series (01–27)
+├── RELEASE/                  # HYDRA_SAMO_BRAND_v1.0/ + release archive
+├── REVIEWS/                  # Review pipeline materials
+├── DOCUMENTATION/            # This Brand Book (md/html/pdf + TOC)
+├── DESIGN.md                 # System design specification
+├── AGENTS.md                 # Project + brand governance
+├── BRAND_ASSET_PIPELINE.md   # Pipeline overview
+├── index.html                # Shell, fonts, CSP, favicon link
+├── package.json              # Scripts + deps
+├── vite.config.ts            # Vite config (server block locked)
+└── metadata.json             # OG metadata source
+</code></pre>
+<h2 id="252-repository-brand-drive-mapping">25.2 Repository ↔ Brand Drive Mapping</h2>
+<table>
+<thead>
+<tr>
+<th>Repo path</th>
+<th>Brand drive path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public/hydra-mark.svg</code></td>
+<td><code>brand/MASTER/vector/hydra-mark_v4.svg</code></td>
+</tr>
+<tr>
+<td><code>src/components/HydraLogo.tsx</code></td>
+<td><code>brand/MASTER/component/HydraLogo.tsx</code></td>
+</tr>
+<tr>
+<td><code>public/hydra_logo.jpg</code></td>
+<td><code>brand/MASTER/social_card/hydra_logo_v4.jpg</code></td>
+</tr>
+<tr>
+<td><code>OUTPUT/10_MASTER_ASSET.md</code> … <code>19_FINAL_RELEASE.md</code></td>
+<td><code>brand/GUIDELINES/</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="26-asset-library">26. Asset Library</h1>
+<h2 id="261-package-overview">26.1 Package Overview</h2>
+<p><code>ASSETS/</code> — 12 packages, <strong>147 files</strong>, all QA-passed:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Files</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MASTER</td>
+<td>8</td>
+<td><code>hydra-mark_v4_*.svg</code> (master, fill, outline, black, white, currentcolor, print, web) + README</td>
+</tr>
+<tr>
+<td>SVG</td>
+<td>5</td>
+<td>Emerald/black/white/currentcolor fill + emerald outline</td>
+</tr>
+<tr>
+<td>PNG</td>
+<td>17</td>
+<td>Emerald fill 16–2048 px (Lanczos-downscaled)</td>
+</tr>
+<tr>
+<td>FAVICON</td>
+<td>15</td>
+<td>favicon.ico (4 sizes), favicon.svg, 16/32/48 PNG, apple-touch 180, android 192/512, mask-icon, manifest, browserconfig, mstile set</td>
+</tr>
+<tr>
+<td>WEB</td>
+<td>23</td>
+<td>Navbar/hero/footer/loading/splash/watermark, OG + twitter (PNG &amp; WEBP 1024×1024), favicon set</td>
+</tr>
+<tr>
+<td>SOCIAL</td>
+<td>15</td>
+<td>Avatars / banners / covers per platform (e.g. YT banner 2560×1440)</td>
+</tr>
+<tr>
+<td>MOTION</td>
+<td>9</td>
+<td>Stroke-reveal, outline-trace, loading-loop, idle-pulse, hover SVGs + spec/notes</td>
+</tr>
+<tr>
+<td>PRINT</td>
+<td>10</td>
+<td>Vector PDF + EPS + SVG, CMYK TIFF, RGB/black/white/laser/outline 3000 px previews, README (spot colors to vendor)</td>
+</tr>
+<tr>
+<td>APP</td>
+<td>29</td>
+<td>Android/iOS/Windows/macOS/Linux/PWA/Electron/Chrome/Firefox/Safari icons</td>
+</tr>
+<tr>
+<td>SOURCE</td>
+<td>9</td>
+<td>Construction/spacing/palette/editable/currentcolor/web SVGs + export-spec, designer-notes, version-metadata, geometry-sheet</td>
+</tr>
+<tr>
+<td>DEVELOPMENT</td>
+<td>7</td>
+<td>HydraLogo.tsx, cn helper, design tokens, tailwind tokens, usage examples, README, a11y notes</td>
+</tr>
+<tr>
+<td>README.md</td>
+<td>1</td>
+<td>Package documentation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="262-unsupported-proprietary-formats">26.2 Unsupported Proprietary Formats</h2>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.ai</code></td>
+<td>Documented — vector PDF/EPS/SVG shipped</td>
+</tr>
+<tr>
+<td><code>.fig</code></td>
+<td>Documented — SVG interchange</td>
+</tr>
+<tr>
+<td><code>.aep</code></td>
+<td>Documented — MOTION SVG + spec as reference</td>
+</tr>
+<tr>
+<td><code>.riv</code></td>
+<td>Documented — standard SVG geometry</td>
+</tr>
+</tbody>
+</table>
+<p>Documented unsupported formats do not fail QA. Create the destination folder, generate README.md, explain why automatic generation is unavailable, and how to manually create the asset from the certified SVG.</p>
+<h2 id="263-integrity">26.3 Integrity</h2>
+<ul>
+<li>Master SHA-256 <code>f12de4fd…1fa</code> byte-identical to <code>public/hydra-mark.svg</code>.</li>
+<li>Fresh rsvg render of the master is byte-identical to shipped <code>PNG/hydra-mark-emerald-256px.png</code>.</li>
+</ul>
+<hr />
+<h1 id="27-print-system">27. Print System</h1>
+<h2 id="271-print-surfaces">27.1 Print Surfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Key spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Business cards</td>
+<td>85×55 mm; mark ≥12 mm height; ≥300 gsm matte/soft-touch; spot-UV, black-on-black deboss, or emerald foil</td>
+</tr>
+<tr>
+<td>Letterheads</td>
+<td>A4; mark 18–22 mm; 0.4 pt hairline rule in Deep Jade or 20% emerald tint</td>
+</tr>
+<tr>
+<td>Invoices</td>
+<td>A4; mark 16–18 mm; watermark ≤8% opacity</td>
+</tr>
+<tr>
+<td>Contracts</td>
+<td>A4; cover mark 28–32 mm; running footer 10 mm</td>
+</tr>
+<tr>
+<td>Slides</td>
+<td>16:9 (1920×1080); corner 24–32 px; title-slide center 96–128 px</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>Mark ≥20 mm; never on a fold line or &gt;3 mm from an edge</td>
+</tr>
+<tr>
+<td>Merchandise</td>
+<td>Chest 60–80 mm; sleeve 35–45 mm; mug 45–55 mm; die-cut stickers ≥25 mm</td>
+</tr>
+</tbody>
+</table>
+<h2 id="272-specialty-processes">27.2 Specialty Processes</h2>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Minimum</th>
+<th>Key constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embroidery</td>
+<td>45 mm height</td>
+<td>Min stitch 2 mm; one color max; throat notch needs ≥4 mm to read</td>
+</tr>
+<tr>
+<td>Laser engraving</td>
+<td>12 mm height</td>
+<td>Min line 0.3 mm; filled silhouette best</td>
+</tr>
+<tr>
+<td>Foil stamping</td>
+<td>15 mm height</td>
+<td>Min line 0.25 mm (engraved die); emerald foil preferred</td>
+</tr>
+<tr>
+<td>Vinyl cutting</td>
+<td>40 mm height</td>
+<td>Min bridge 1.5 mm between islands</td>
+</tr>
+</tbody>
+</table>
+<h2 id="273-minimum-line-widths">27.3 Minimum Line Widths</h2>
+<p>Offset/digital print 0.1 pt (rules 0.4 pt) · laser 0.3 mm · foil 0.25 mm · vinyl 1.5 mm bridge · embroidery 1.5–2 mm.</p>
+<h2 id="274-color-in-print">27.4 Color in Print</h2>
+<ul>
+<li>Spot <code>HYDRA EMERALD</code> (PMS 16-6340-class green, confirm chip with printer) or emerald foil for logo-critical print.</li>
+<li>CMYK approximations in Chapter 12. Never mix the mark from CMYK tints of two inks.</li>
+<li>Vector files carry no fonts and no placed rasters unless intended; raster print ≥2048 px at 300 DPI final size.</li>
+</ul>
+<hr />
+<h1 id="28-social-system">28. Social System</h1>
+<h2 id="281-shared-rules">28.1 Shared Rules</h2>
+<ul>
+<li><strong>Avatar:</strong> mark alone — no text, initials, ring, or background pattern. Emerald fill on abyssal tile (or white mono on dark tile).</li>
+<li><strong>Banner/cover:</strong> emerald mark on abyssal field; brand name in typography only.</li>
+<li><strong>Thumbnail:</strong> mark ≥ 60% of the frame's shorter side.</li>
+<li><strong>Safe area:</strong> mark within center 60%; live text within center 80%.</li>
+<li><strong>Cropping:</strong> avatars crop hard to circles or rounded squares — leave ≥ one head-height margin between the mark's bounding box and the tile edge.</li>
+</ul>
+<h2 id="282-platform-matrix">28.2 Platform Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Avatar</th>
+<th>Banner / Cover</th>
+<th>Thumbnail / PFP</th>
+<th>Safe area</th>
+<th>Crop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instagram</td>
+<td>320×320</td>
+<td>—</td>
+<td>Post 1080×1080</td>
+<td>center 60%</td>
+<td>circle avatar</td>
+</tr>
+<tr>
+<td>Behance</td>
+<td>300×300</td>
+<td>1600×400</td>
+<td>1200×900</td>
+<td>center 60%</td>
+<td>avatar square</td>
+</tr>
+<tr>
+<td>LinkedIn</td>
+<td>400×400</td>
+<td>1584×396</td>
+<td>—</td>
+<td>center 60%</td>
+<td>circle PFP</td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td>512×512</td>
+<td>—</td>
+<td>1280×640 social</td>
+<td>center 60%</td>
+<td>circle avatar</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>800×800</td>
+<td>2560×1440 (safe 1546×423)</td>
+<td>1280×720</td>
+<td>center safe area</td>
+<td>circle PFP</td>
+</tr>
+<tr>
+<td>Discord</td>
+<td>512×512</td>
+<td>960×540</td>
+<td>128×128 emoji</td>
+<td>center 60%</td>
+<td>circle avatar</td>
+</tr>
+<tr>
+<td>X (Twitter)</td>
+<td>400×400</td>
+<td>1500×500 (safe 1280×360)</td>
+<td>1200×675 card</td>
+<td>center 60%</td>
+<td>circle photo</td>
+</tr>
+<tr>
+<td>Portfolio</td>
+<td>800×800</td>
+<td>320×240</td>
+<td>1024×1024 OG</td>
+<td>center 60%</td>
+<td>varies</td>
+</tr>
+</tbody>
+</table>
+<h2 id="283-generation-notes">28.3 Generation Notes</h2>
+<ul>
+<li>Generate avatars at 512 px (or higher) from the master and downscale; never upscale.</li>
+<li>Avatar tiles square, mark optically centered at ≥75% tile coverage.</li>
+<li>One shared banner pattern — recreate per platform dimensions, never resize one banner across platforms.</li>
+<li>No location/geo badges anywhere in social assets.</li>
+<li>Platform crop fields change over time; re-verify before each release.</li>
+</ul>
+<hr />
+<h1 id="29-motion-deliverables">29. Motion Deliverables</h1>
+<p><code>ASSETS/MOTION/</code> (9 files) — all valid SVG with <code>pathLength="1"</code>, all honoring <code>prefers-reduced-motion</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stroke-reveal</td>
+<td>Heads then core draw over 900–1400 ms; settles to full fill</td>
+</tr>
+<tr>
+<td>Outline-trace</td>
+<td>700–1000 ms; may linger as outline, then fill-in</td>
+</tr>
+<tr>
+<td>Loading-loop</td>
+<td>Pulse loop (3.2 s), single-shot or ≤3 repeats, then settle</td>
+</tr>
+<tr>
+<td>Idle-pulse</td>
+<td>Loading only; opacity 1→0.55, scale 1→0.9</td>
+</tr>
+<tr>
+<td>Hover</td>
+<td>150–250 ms; opacity/scale ≤1.05 or glow</td>
+</tr>
+<tr>
+<td>Spec docs</td>
+<td><code>rotation-forbidden.md</code>, <code>motion-spec.md</code>, <code>developer-motion-notes.md</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verified:</strong> no rotate/spin animation exists anywhere (keyframe scan); all effects honor reduced motion.</p>
+<hr />
+<h1 id="30-website-assets">30. Website Assets</h1>
+<p><code>ASSETS/WEB/</code> (23 files) + the live site assets:</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>File</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Live geometry</td>
+<td><code>src/components/HydraLogo.tsx</code></td>
+<td>✅ live</td>
+</tr>
+<tr>
+<td>Standalone SVG</td>
+<td><code>public/hydra-mark.svg</code></td>
+<td>✅ live</td>
+</tr>
+<tr>
+<td>Social card</td>
+<td><code>public/hydra_logo.jpg</code> (1024×1024)</td>
+<td>✅ live</td>
+</tr>
+<tr>
+<td>Favicon set</td>
+<td><code>favicon.ico</code>, <code>apple-touch-icon.png</code>, <code>safari-pinned-tab.svg</code>, manifest icons</td>
+<td>✅ generated</td>
+</tr>
+<tr>
+<td>WEB package</td>
+<td>Navbar/hero/footer/loading/splash/watermark + OG/twitter PNG &amp; WEBP</td>
+<td>✅ generated</td>
+</tr>
+</tbody>
+</table>
+<p>All generated from the master per the export pipeline and validated per QA. Favicon wired as <code>%BASE_URL%hydra-mark.svg</code>; OG resolved through Vite base path so GitHub Pages subpath deploys work.</p>
+<hr />
+<h1 id="31-developer-guide">31. Developer Guide</h1>
+<h2 id="311-getting-started">31.1 Getting Started</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm install</code></td>
+<td>Install dependencies</td>
+</tr>
+<tr>
+<td><code>npm run dev</code></td>
+<td>Dev server on port 3000 (host 0.0.0.0)</td>
+</tr>
+<tr>
+<td><code>npm run lint</code></td>
+<td>TypeScript check (<code>tsc --noEmit</code>)</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>Production build</td>
+</tr>
+<tr>
+<td><code>npm run clean</code></td>
+<td>Remove <code>dist/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="312-conventions">31.2 Conventions</h2>
+<ul>
+<li><strong>Relative imports only</strong> (<code>../components/...</code>) — never <code>@/components/</code>.</li>
+<li>Pass all class strings through <code>cn()</code> from <code>src/lib/utils.ts</code>.</li>
+<li>Use Tailwind v4 CSS-first config; dark mode via <code>html.dark</code> + <code>localStorage['hydra-theme']</code>.</li>
+<li>Do not modify the <code>server</code> block or <code>DISABLE_HMR</code> logic in <code>vite.config.ts</code>.</li>
+<li>Do not add <code>unsafe-eval</code> to the CSP in <code>index.html</code>.</li>
+</ul>
+<h2 id="313-using-the-mark">31.3 Using the Mark</h2>
+<pre><code class="language-tsx">import { HydraLogo } from '../components/HydraLogo';
+
+&lt;HydraLogo className=&quot;h-7 w-7 text-accent&quot; /&gt;
+&lt;HydraLogo variant=&quot;outline&quot; className=&quot;h-10 w-10 text-accent&quot; /&gt;
+</code></pre>
+<ul>
+<li>Fill is the default variant; outline is for technical/annotation contexts.</li>
+<li>All lighting via CSS utilities (<code>.hydra-mark-glow</code>, <code>.hydra-mark-pulse</code>) — never inside the SVG.</li>
+<li>Animation: reveal + settle; pulse for loading only; <strong>no rotation</strong>.</li>
+</ul>
+<h2 id="314-environment-variables">31.4 Environment Variables</h2>
+<ul>
+<li><code>VITE_FORM_ENDPOINT</code> / <code>VITE_FORM_ACCESS_KEY</code> — contact form (unconfigured warning state kept).</li>
+<li><code>.env.example</code> documents all variables.</li>
+</ul>
+<h2 id="315-content">31.5 Content</h2>
+<ul>
+<li>All content in <code>src/data/portfolioData.ts</code>. <code>PROJECTS</code> is deliberately empty — keep <code>WorkGallery</code>'s empty-state handler. Audio relies on <code>/public/audio/</code>. <code>DISCIPLINES</code> IDs: <code>'video' | 'motion' | 'voice'</code>.</li>
+</ul>
+<hr />
+<h1 id="32-file-structure">32. File Structure</h1>
+<h2 id="321-production-hierarchy">32.1 Production Hierarchy</h2>
+<p>The production archive layout under the brand asset root (<code>brand/</code> at the repository root or a managed drive):</p>
+<pre><code class="language-text">brand/
+├── MASTER/                  # Certified, immutable source assets + manifest
+│   ├── vector/              # hydra-mark_v4*.svg (fill, outline, white/black mono, …)
+│   ├── component/           # HydraLogo.tsx (live geometry mirror)
+│   ├── social_card/         # hydra_logo_v4.jpg (1024×1024 OG/Twitter)
+│   └── MANIFEST.md          # checksums, owners, freeze record
+├── EXPORTS/                 # Every generated format/size (disposable — regenerate any time)
+│   ├── svg/ png/ webp/ ico/ pdf/ eps/ ai/ fig/
+│   │   └── (emerald_fill/ emerald_outline/ white_fill/ black_fill/
+│   │        size folders 16/…/2048 as needed)
+├── WEBSITE/                 # favicon/, manifest/, og/, ui/
+├── SOCIAL/                  # instagram/ behance/ linkedin/ github/ youtube/ discord/ x/ portfolio/
+├── PRINT/                   # business-cards/ letterheads/ invoices/ contracts/ slides/
+│                            # packaging/ merchandise/ process-specs/
+├── MOTION/                  # ae/ lottie/ rive/ blender/ renders/
+├── GUIDELINES/              # OUTPUT 10–19 production docs (mirror)
+├── ARCHIVE/                 # v1/ v2/ retired-colorways/ (read-only)
+└── RELEASES/                # v4.0.0/ (tagged release snapshots)
+</code></pre>
+<h2 id="322-directory-rules">32.2 Directory Rules</h2>
+<ol>
+<li><strong>MASTER/ is immutable</strong> — writes require brand-owner approval.</li>
+<li><strong>EXPORTS/ is disposable</strong> — regenerate any time; never hand-edit an export.</li>
+<li><strong>ARCHIVE/ is read-only</strong> — retired assets kept for provenance, never reused.</li>
+<li><strong>GUIDELINES/ mirrors <code>OUTPUT/</code></strong> — the repo is the source of truth; the brand drive copy is a mirror.</li>
+<li><strong>RELEASES/</strong> holds a frozen snapshot per release tag so the brand can be reproduced from any release.</li>
+<li><strong>Naming</strong> everywhere follows the export-pipeline template; no version stamps inside EXPORTS (the folder path carries it).</li>
+</ol>
+<hr />
+<h1 id="33-version-history">33. Version History</h1>
+<h2 id="331-brand-releases">33.1 Brand Releases</h2>
+<table>
+<thead>
+<tr>
+<th>Release</th>
+<th>Date</th>
+<th>Contents</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brand v4.0.0 — "One Body, Three Heads"</td>
+<td>2026-08-05</td>
+<td>Production Asset Ecosystem — full pipeline</td>
+<td>✅ PRODUCTION-READY</td>
+</tr>
+<tr>
+<td>Brand Identity System v1.0</td>
+<td>2026-08-05</td>
+<td>Repository closure + this Brand Book</td>
+<td>✅ COMPLETE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="332-logo-versions">33.2 Logo Versions</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V1</td>
+<td>Superseded (original concept)</td>
+</tr>
+<tr>
+<td>V2</td>
+<td>Superseded (pre-refinement baseline, 59/100)</td>
+</tr>
+<tr>
+<td>V4</td>
+<td>✅ CERTIFIED — permanent production identity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="333-versioning-policy">33.3 Versioning Policy</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vX.0.0</code></td>
+<td>Brand identity release (geometry/palette change — requires rebranding approval)</td>
+<td><code>v5.0.0</code> — not anticipated</td>
+</tr>
+<tr>
+<td><code>vX.Y.0</code></td>
+<td>Asset-system release (new exports, formats, platforms)</td>
+<td><code>v4.1.0</code></td>
+</tr>
+<tr>
+<td><code>vX.Y.Z</code></td>
+<td>Maintenance release (optimization, bug fixes, docs)</td>
+<td><code>v4.0.1</code></td>
+</tr>
+</tbody>
+</table>
+<p>The version numbering is independent of the logo <code>V{n}</code> label (the logo stays V4 unless a rebranding is approved). Every release updates the release doc, the asset manifest, and the checksum record.</p>
+<hr />
+<h1 id="34-future-versioning">34. Future Versioning</h1>
+<h2 id="341-future-work-scope">34.1 Future Work Scope</h2>
+<p>Future work is limited to:</p>
+<ul>
+<li><strong>Asset generation</strong> — creating specified EXPORTS/, SOCIAL/, PRINT/, MOTION/ deliverables from the certified master.</li>
+<li><strong>Technical maintenance</strong> — rendering/accessibility/packaging bug fixes; SVG optimization with zero visual change.</li>
+<li><strong>Export optimization</strong> — new formats/sizes derived from the master.</li>
+<li><strong>Documentation updates</strong> — keeping the production docs current.</li>
+<li><strong>Versioned releases</strong> — tagging releases per the versioning policy.</li>
+</ul>
+<p><strong>Out of scope:</strong> visual redesign, geometry changes, palette changes, or reinterpretation. Any such request is a rebranding initiative requiring explicit brand-owner approval.</p>
+<h2 id="342-version-11-development">34.2 Version 1.1 Development</h2>
+<ul>
+<li>Assigned to the Versioning Policy: <code>v1.1</code>, <code>v1.2</code> for asset-system additions; <code></code> only via an approved redesign initiative.</li>
+<li>Repository is structured for version control, GitHub archival, future maintenance, professional client delivery, internal design-system usage, developer onboarding, and future website integration.</li>
+</ul>
+<h2 id="343-archive-policy">34.3 Archive Policy</h2>
+<ul>
+<li>Every release snapshots its assets and manifest into ARCHIVE/ and RELEASES/.</li>
+<li>Superseded versions are read-only, preserved for provenance, never reused for production.</li>
+<li>The certified MASTER/ is never archived or overwritten — only versioned alongside new releases.</li>
+</ul>
+<hr />
+<h1 id="35-final-release">35. Final Release</h1>
+<h2 id="351-release-record">35.1 Release Record</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brand release</td>
+<td><strong>v4.0.0</strong> — "One Body, Three Heads"</td>
+</tr>
+<tr>
+<td>Logo version</td>
+<td>V4</td>
+</tr>
+<tr>
+<td>Release name</td>
+<td>Production Asset Ecosystem</td>
+</tr>
+<tr>
+<td>System status</td>
+<td>🟢 <strong>PRODUCTION-READY</strong></td>
+</tr>
+<tr>
+<td>Release date</td>
+<td>2026-08-05</td>
+</tr>
+<tr>
+<td>Certification</td>
+<td><code>OUTPUT/08</code> — ✅ CERTIFIED</td>
+</tr>
+<tr>
+<td>Freeze</td>
+<td><code>OUTPUT/09</code> — 🟢 LOCKED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="352-release-notes">35.2 Release Notes</h2>
+<ul>
+<li>Phases 01–10 documentation complete (master asset, export pipeline, website assets, motion, social, print, governance, file structure, QA, release).</li>
+<li>Production pipeline executed end-to-end: 147 assets → 221/221 QA → 158-asset completion → 178-file release package → final sign-off.</li>
+<li><strong>What stayed untouched:</strong> all SVG, source code, and the certified geometry. No redesign, no reinterpretation, no path modification.</li>
+</ul>
+<h2 id="353-known-limitations">35.3 Known Limitations</h2>
+<ol>
+<li>Print spot color chip must be confirmed with the print partner before the first print run.</li>
+<li>Social platform dimensions change over time; re-verify against each platform before publishing.</li>
+<li>Legacy history (V1/V2, retired colorways) exists only in ARCHIVE/ and git history — not production assets.</li>
+</ol>
+<h2 id="354-release-package">35.4 Release Package</h2>
+<p><code>RELEASE/HYDRA_SAMO_BRAND_v1.0/</code> — 14 folders, 178 files, plus archive <code>HYDRA_SAMO_BRAND_v1.0.zip</code> (27 MB, 205 entries, integrity-tested). Master checksum matches certified master byte-for-byte. Release README documents brand overview, folder structure, per-discipline usage, and maintenance.</p>
+<hr />
+<h1 id="36-appendix">36. Appendix</h1>
+<h2 id="361-review-scores-detail">36.1 Review Scores Detail</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Reviewer</th>
+<th>V2 Baseline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creative Direction</td>
+<td>Creative Director</td>
+<td>63 / 100</td>
+</tr>
+<tr>
+<td>Construction</td>
+<td>Senior Logo Designer</td>
+<td>67 / 100</td>
+</tr>
+<tr>
+<td>Brand Recognition</td>
+<td>Brand Recognition Specialist</td>
+<td>53 / 100</td>
+</tr>
+<tr>
+<td>Risk / Gatekeeping</td>
+<td>Devil's Advocate</td>
+<td>54 / 100</td>
+</tr>
+<tr>
+<td><strong>Consensus Overall</strong></td>
+<td><strong>All reviewers</strong></td>
+<td><strong>59 / 100</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Post-validation: all seven critical + five minor findings closed by measured V4 verification → ✅ CERTIFIED.</p>
+<h2 id="362-glossary">36.2 Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mark</strong></td>
+<td>The certified V4 SVG brand icon</td>
+</tr>
+<tr>
+<td><strong>Master</strong></td>
+<td>The single certified source geometry (<code>hydra-mark.svg</code> / <code>HydraLogo.tsx</code>)</td>
+</tr>
+<tr>
+<td><strong>Lockup</strong></td>
+<td>Mark + wordmark in typography (never inside the SVG)</td>
+</tr>
+<tr>
+<td><strong>Clear space</strong></td>
+<td>Exclusion zone of one hex-core unit per side</td>
+</tr>
+<tr>
+<td><strong>Core</strong></td>
+<td>The R17 pointy-top hexagon — the one body</td>
+</tr>
+<tr>
+<td><strong>Wedge</strong></td>
+<td>The 57.5° angular flare of each head at its base</td>
+</tr>
+<tr>
+<td><strong>Tangency</strong></td>
+<td>0.0° — tangent-continuous construction joints</td>
+</tr>
+<tr>
+<td><strong>Colorway</strong></td>
+<td>Approved palette member (emerald, jade, mint, white, black)</td>
+</tr>
+<tr>
+<td><strong>Spin</strong></td>
+<td>Retired continuous-rotation treatment — forbidden</td>
+</tr>
+<tr>
+<td><strong>Rebranding initiative</strong></td>
+<td>The only authorized path to geometry/palette change</td>
+</tr>
+</tbody>
+</table>
+<h2 id="363-source-documents-index">36.3 Source Documents Index</h2>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DESIGN.md</code></td>
+<td>System design specification</td>
+</tr>
+<tr>
+<td><code>AGENTS.md</code></td>
+<td>Project + brand governance</td>
+</tr>
+<tr>
+<td><code>BRAND_ASSET_PIPELINE.md</code></td>
+<td>Pipeline overview</td>
+</tr>
+<tr>
+<td><code>OUTPUT/01</code>–<code>07</code></td>
+<td>Review pipeline (reports, plan, changelog)</td>
+</tr>
+<tr>
+<td><code>OUTPUT/08</code>–<code>09</code></td>
+<td>Certification + freeze</td>
+</tr>
+<tr>
+<td><code>OUTPUT/10</code>–<code>19</code></td>
+<td>Production documentation series</td>
+</tr>
+<tr>
+<td><code>OUTPUT/20</code>–<code>25</code> (+ reports)</td>
+<td>Asset production, QA, completion, packaging, sign-off, execution</td>
+</tr>
+<tr>
+<td><code>OUTPUT/26</code>–<code>27</code></td>
+<td>Complete brand system + this book</td>
+</tr>
+<tr>
+<td><code>ASSETS/SOURCE/geometry-sheet.md</code></td>
+<td>Certified geometry record</td>
+</tr>
+<tr>
+<td><code>ASSETS/DEVELOPMENT/</code></td>
+<td>HydraLogo.tsx, tokens, usage examples, a11y notes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="364-master-checksum">36.4 Master Checksum</h2>
+<pre><code class="language-text">SHA-256 (public/hydra-mark.svg)
+f12de4fdd94c2dbd155b0c4a23c80cdbb6420bd394a601492ade20d23380c1fa
+</code></pre>
+<hr />
+<h1 id="final-declaration">Final Declaration</h1>
+<h2 id="status-complete">STATUS: COMPLETE</h2>
+<p>This <strong>HYDRA SAMO Brand Book (Version 1.0)</strong> is the definitive reference manual for the HYDRA SAMO Brand Identity System.</p>
+<p>This publication <strong>supersedes the individual engineering documents for reading purposes</strong>, providing one coherent, professional narrative of the complete brand lifecycle — while the original documents in the repository are <strong>preserved as the official source files</strong> and remain the authoritative records for governance and audit.</p>
+<p>The HYDRA SAMO Brand Identity System is hereby declared:</p>
+<ul>
+<li>✅ <strong>Certified</strong> — logo V4, permanently frozen.</li>
+<li>✅ <strong>Production-ready</strong> — release v4.0.0 "One Body, Three Heads".</li>
+<li>✅ <strong>Complete</strong> — full lifecycle closed 2026-08-05.</li>
+</ul>
+<p>The brand is maintained through the semantic versioning policy; core logo geometry shall not be modified outside an approved rebranding initiative.</p>
+<blockquote>
+<p><em>"One body, three heads. One engine, three crafts. Many heads, one unified vision."</em></p>
+</blockquote>
+</div>
+</body>
+</html>

@@ -27,6 +27,7 @@ export const AboutSection: React.FC = () => {
                 src={aboutPortrait} 
                 alt="Bendali Issam Eddine - Hydra Samo" 
                 loading="lazy"
+                decoding="async"
                 className="w-full aspect-square object-cover object-top rounded-2xl transition-transform duration-700 transform group-hover:scale-[1.02]"
               />
             </div>
@@ -41,7 +42,7 @@ export const AboutSection: React.FC = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="w-full lg:w-1/2"
         >
-          <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-3 font-medium">
+          <span className="text-accent text-xs uppercase tracking-widest block mb-3 font-medium">
             {t('about.eyebrow')}
           </span>
 
@@ -80,7 +81,7 @@ export const AboutSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="flex items-center gap-3 font-semibold text-xs uppercase tracking-wider text-[var(--text-main)]"
+                className="flex items-center gap-3 font-medium text-xs uppercase tracking-wider text-[var(--text-main)]"
               >
                 <CheckCircle2 size={18} className="text-accent shrink-0" />
                 <span>{adv}</span>

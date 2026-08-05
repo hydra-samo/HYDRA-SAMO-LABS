@@ -3,6 +3,7 @@ import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { HydraLogo } from './HydraLogo';
 import { useCoarsePointer } from '../hooks/useCoarsePointer';
+import { useDeviceTier } from '../hooks/useDeviceTier';
 
 /* Staggered, blur-in reveal for the hero typography. The blur filter is a
    full-screen compositing cost on low-end GPUs, so touch devices get the same
@@ -36,9 +37,12 @@ const heroItemFlat: Variants = {
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
   const isCoarse = useCoarsePointer();
+  const tier = useDeviceTier();
   const reduceMotion = useReducedMotion();
 
-  const heroItem: Variants = isCoarse ? heroItemFlat : heroItemBlur;
+  // Low-tier devices skip the entrance blur — the fade + rise stays kinetic
+  // without the filter compositing cost on weak GPUs.
+  const heroItem: Variants = isCoarse || tier === 'low' ? heroItemFlat : heroItemBlur;
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-28 sm:pt-32 pb-16 text-center overflow-hidden text-[var(--text-main)] transition-colors duration-300">
@@ -48,15 +52,21 @@ export const Hero: React.FC = () => {
         animate="show"
         className="max-w-3xl mx-auto w-full flex flex-col items-center"
       >
-        {/* Brand mark */}
-        <motion.div variants={heroItem} className="mb-7">
-          <HydraLogo className="h-12 w-12 sm:h-14 sm:w-14 text-accent/70 mx-auto hydra-mark-glow" />
+        {/* Brand mark — standalone, larger, grows on hover/tap */}
+        <motion.div
+          variants={heroItem}
+          whileHover={reduceMotion ? undefined : { scale: 1.1 }}
+          whileTap={reduceMotion ? undefined : { scale: 0.94 }}
+          transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+          className="mb-8 group"
+        >
+          <HydraLogo className="h-16 w-16 sm:h-20 sm:w-20 text-accent/70 mx-auto hydra-mark-glow transition-all duration-300 group-hover:text-accent group-hover:drop-shadow-[0_0_26px_rgba(16,185,129,0.6)]" />
         </motion.div>
 
         {/* Main Title */}
         <motion.h1
           variants={heroItem}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] mb-6 font-display text-[var(--text-main)]"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02] mb-6 font-display text-[var(--text-main)]"
         >
           {t('hero.headingVideo')}
           <br />

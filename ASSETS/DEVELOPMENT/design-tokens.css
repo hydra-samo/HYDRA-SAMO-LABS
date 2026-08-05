@@ -1,0 +1,44 @@
+/* HYDRA SAMO — Design Tokens (excerpt of src/index.css)
+ * Canonical site file: src/index.css — edits belong there; this file is a
+ * frozen snapshot for the ASSETS/DEVELOPMENT package.
+ */
+:root {
+  /* Light Mode (Clean Editorial Minimal) */
+  --bg-canvas: #f8faf9;
+  --text-main: #0f1715;
+  --text-muted: #475569;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --border-color: rgba(16, 185, 129, 0.2);
+  --blob-moss: rgba(16, 185, 129, 0.26);
+  --blob-jade: rgba(5, 150, 105, 0.2);
+  --blob-lichen: rgba(52, 211, 153, 0.16);
+  --spot-glow: rgba(16, 185, 129, 0.14);
+}
+
+html.dark {
+  /* Dark Mode (Mythic Abyssal Emerald) */
+  --bg-canvas: #060c09;
+  --text-main: #f3f4f6;
+  --text-muted: #94a3b8;
+  --card-bg: rgba(18, 21, 30, 0.6);
+  --border-color: rgba(16, 185, 129, 0.25);
+  --blob-moss: rgba(16, 185, 129, 0.38);
+  --blob-jade: rgba(5, 150, 105, 0.3);
+  --blob-lichen: rgba(52, 211, 153, 0.22);
+  --spot-glow: rgba(16, 185, 129, 0.18);
+}
+
+/* Hydra mark utilities (glow lives here, never in the SVG) */
+.hydra-mark-glow {
+  filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 16px currentColor);
+}
+.hydra-mark-pulse {
+  animation: hydra-pulse 3.2s ease-in-out infinite;
+}
+@keyframes hydra-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.9); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hydra-mark-pulse { animation: none; }
+}

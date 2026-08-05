@@ -8,18 +8,21 @@ import { ProcessSection } from './components/ProcessSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { VideoModal } from './components/VideoModal';
-import { PlymouthSplash } from './components/PlymouthSplash';
+import { LoadingSplash } from './components/LoadingSplash';
 import { PreSplashSelector } from './components/PreSplashSelector';
 import { AmbientBackground } from './components/AmbientBackground';
 import { Project } from './types';
 import { useOpenGraph } from './hooks/useOpenGraph';
 import { useLenis } from './hooks/useLenis';
 import { useCoarsePointer } from './hooks/useCoarsePointer';
+import { useDeviceTier } from './hooks/useDeviceTier';
 import { useLanguage } from './i18n/LanguageContext';
 
 export default function App() {
   const { t } = useLanguage();
   const isCoarse = useCoarsePointer();
+  const tier = useDeviceTier();
+  const cheapMotion = isCoarse || tier === 'low';
 
   const lenisRef = useLenis();
 
@@ -150,8 +153,8 @@ export default function App() {
             }}
           />
         ) : showSplash ? (
-          <PlymouthSplash
-            key="plymouth-splash"
+          <LoadingSplash
+            key="loading-splash"
             onComplete={() => setShowSplash(false)}
           />
         ) : !isExiting ? (
@@ -162,7 +165,7 @@ export default function App() {
             exit={{
               opacity: 0,
               y: -25,
-              ...(isCoarse ? {} : { scale: 0.98, filter: 'blur(12px)' }),
+              ...(cheapMotion ? {} : { scale: 0.98, filter: 'blur(12px)' }),
               transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
             }}
             className="text-[var(--text-main)] min-h-screen font-sans selection:bg-accent selection:text-black relative transition-colors duration-300"
@@ -180,9 +183,7 @@ export default function App() {
               onOpenReel={() => setIsOpenReelModal(true)}
             />
 
-            <VoiceOverSection
-              onOpenBrief={() => setIsOpenBriefModal(true)}
-            />
+            <VoiceOverSection />
 
             <ProcessSection />
 
@@ -218,7 +219,7 @@ export default function App() {
             className="fixed inset-0 z-[100] bg-[var(--bg-canvas)] text-[var(--text-main)] flex flex-col items-center justify-center gap-4 text-center p-6"
           >
             <div className="w-12 h-12 rounded-full border-2 border-accent border-t-transparent animate-spin" />
-            <span className="text-xs font-mono uppercase tracking-widest text-accent font-bold">
+            <span className="text-xs uppercase tracking-widest text-accent font-medium">
               {t('app.redirecting')}
             </span>
           </motion.div>

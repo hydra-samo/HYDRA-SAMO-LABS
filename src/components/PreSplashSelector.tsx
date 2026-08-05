@@ -7,6 +7,7 @@ import { cn } from '../lib/utils';
 import { MagneticButton } from './MagneticButton';
 import { HydraLogo } from './HydraLogo';
 import { useCoarsePointer } from '../hooks/useCoarsePointer';
+import { useDeviceTier } from '../hooks/useDeviceTier';
 
 interface PreSplashSelectorProps {
   theme: 'dark' | 'light';
@@ -52,11 +53,13 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
   const { lang, setLang, t, dir } = useLanguage();
   const reduceMotion = useReducedMotion();
   const isCoarse = useCoarsePointer();
+  const tier = useDeviceTier();
   const isRTL = dir === 'rtl';
 
   // Touch devices skip the blur filter — the stagger + fade still run, so the
   // entrance stays kinetic without rasterizing a blurred panel on mobile GPUs.
-  const itemVariants = isCoarse ? itemFlatVariants : itemBlurVariants;
+  const cheapMotion = isCoarse || tier === 'low';
+  const itemVariants = cheapMotion ? itemFlatVariants : itemBlurVariants;
 
   return (
     <motion.div
@@ -66,22 +69,27 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
       exit={{
         opacity: 0,
         scale: 0.97,
-        ...(isCoarse ? {} : { filter: 'blur(10px)' }),
+        ...(cheapMotion ? {} : { filter: 'blur(10px)' }),
         transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
       }}
       className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto p-4 sm:p-6 bg-[var(--bg-canvas)] text-[var(--text-main)] select-none transition-colors duration-300"
     >
-      {/* Ambient glow blobs */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-[18vh] -left-[14vw] h-[55vw] w-[55vw] rounded-full"
-        style={{ background: 'var(--blob-moss)', filter: 'blur(90px)', opacity: 0.35 }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[22vh] -right-[10vw] h-[48vw] w-[48vw] rounded-full"
-        style={{ background: 'var(--blob-jade)', filter: 'blur(80px)', opacity: 0.3 }}
-      />
+      {/* Ambient glow blobs — dropped on low tier: the first painted screen
+          should not rasterize two giant 80–90px blurs on a weak GPU. */}
+      {tier !== 'low' && (
+        <>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-[18vh] -left-[14vw] h-[55vw] w-[55vw] rounded-full"
+            style={{ background: 'var(--blob-moss)', filter: 'blur(90px)', opacity: 0.35 }}
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-[22vh] -right-[10vw] h-[48vw] w-[48vw] rounded-full"
+            style={{ background: 'var(--blob-jade)', filter: 'blur(80px)', opacity: 0.3 }}
+          />
+        </>
+      )}
 
       {/* Glass panel */}
       <motion.div
@@ -98,7 +106,7 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
         {/* Brand wordmark */}
         <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-10 flex flex-col items-center gap-3.5">
           <HydraLogo className="h-10 w-10 sm:h-11 sm:w-11 text-accent hydra-mark-glow" />
-          <span className="font-semibold tracking-tight text-base sm:text-lg uppercase text-[var(--text-main)] block leading-tight">
+          <span className="font-display font-bold tracking-[-0.02em] text-base sm:text-lg uppercase text-[var(--text-main)] block leading-tight">
             HYDRA SAMO
           </span>
         </motion.div>
@@ -109,7 +117,7 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
             initial={reduceMotion ? { letterSpacing: '0.2em' } : { opacity: 0, letterSpacing: '0.5em' }}
             animate={{ opacity: 1, letterSpacing: '0.2em' }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-accent font-medium"
+            className="text-xs sm:text-sm uppercase tracking-[0.2em] text-accent font-medium"
           >
             {t('pre.eyebrow')}
           </motion.span>
@@ -117,7 +125,7 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
 
         {/* Language selector */}
         <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
-          <label className="block text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-[var(--text-muted)] mb-3 text-center">
+          <label className="block text-xs sm:text-sm uppercase tracking-[0.2em] text-[var(--text-muted)] mb-3 text-center">
             {t('lang.label')}
           </label>
           <div
@@ -153,7 +161,7 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
 
         {/* Theme selector */}
         <motion.div variants={itemVariants} className="mb-8 sm:mb-10">
-          <label className="block text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-[var(--text-muted)] mb-3 text-center">
+          <label className="block text-xs sm:text-sm uppercase tracking-[0.2em] text-[var(--text-muted)] mb-3 text-center">
             {t('theme.interfaceTheme')}
           </label>
           <div
@@ -200,7 +208,7 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
             className={cn(
               'group w-full min-h-[48px] px-8 py-3.5 rounded-[16px] sm:rounded-[18px]',
               'border border-emerald-500/40 bg-accent/10 dark:bg-white/[0.04]',
-              'text-[var(--text-main)] font-bold text-sm uppercase tracking-[0.2em]',
+              'text-[var(--text-main)] font-semibold text-sm uppercase tracking-[0.2em]',
               'hover:border-emerald-500/60 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)]',
               'transition-shadow duration-300',
               'flex items-center justify-center gap-2.5'
@@ -218,7 +226,7 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="text-xs sm:text-sm font-mono uppercase tracking-[0.18em] text-[var(--text-muted)]/60 text-center"
+            className="text-xs sm:text-sm uppercase tracking-[0.18em] text-[var(--text-muted)]/60 text-center"
           >
             {t('pre.hint')}
           </motion.span>

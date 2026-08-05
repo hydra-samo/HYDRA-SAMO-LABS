@@ -10,10 +10,15 @@
   --color-accent-soft: #34d399;
   --color-accent-dark: #059669;
 
-  /* Editorial type stack — wired from Google Fonts in index.html */
-  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Bricolage Grotesque', 'Geist', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+  /* Editorial type stack — wired from Google Fonts in index.html
+     Space Grotesk 700 → wordmark / hero · 600 → primary titles · 500 → secondary
+     Manrope 400 → EN/FR body · 500 → UI labels · 600 → buttons
+     IBM Plex Sans Arabic → Arabic (lang-ar overrides below)
+     JetBrains Mono 400 → code, timestamps, technical meta only */
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 }
 
 @layer base {
@@ -57,10 +62,11 @@
     /* Clean, legible Arabic everywhere — overrides every Tailwind font stack
        (sans/display/mono) so mono labels and display headings never fall back
        to an unstyled system Arabic font. */
-    font-family: 'Cairo', ui-sans-serif, system-ui, sans-serif;
-    --font-sans: 'Cairo', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Cairo', 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
-    --font-mono: 'Cairo', 'Geist Mono', ui-monospace, monospace;
+    font-family: 'IBM Plex Sans Arabic', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'IBM Plex Sans Arabic', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'IBM Plex Sans Arabic', 'Space Grotesk', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-arabic: 'IBM Plex Sans Arabic', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'IBM Plex Sans Arabic', 'JetBrains Mono', ui-monospace, monospace;
   }
 }
 
@@ -186,6 +192,37 @@
   .hydra-mark-pulse {
     animation: none;
   }
+}
+
+/* ---------------------------------------------------------------------------
+ * Device-tier rendering budget — html[data-quality] is set once by the
+ * useDeviceTier hook. Low-tier devices (weak phones) get a static backdrop
+ * with no backdrop-filter compositing; medium gets a lighter glass blur with
+ * the blobs frozen. Everything here is a one-time style — no per-frame cost.
+ * ------------------------------------------------------------------------- */
+html[data-quality='low'] .ambient-blob,
+html[data-quality='medium'] .ambient-blob {
+  animation: none;
+}
+
+html[data-quality='low'] .cursor-spotlight {
+  display: none;
+}
+
+html[data-quality='low'] .glass-card {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html[data-quality='medium'] .glass-card {
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+/* Native anchor fallback for low-tier devices (Lenis is skipped there) —
+   clears the floating nav when the browser jumps to #work/#voice/#process/#about. */
+[id] {
+  scroll-margin-top: 96px;
 }
 
 /* ---------------------------------------------------------------------------

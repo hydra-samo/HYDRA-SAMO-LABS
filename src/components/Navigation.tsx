@@ -6,6 +6,7 @@ import { Lang } from '../i18n/translations';
 import { cn } from '../lib/utils';
 import { HydraLogo } from './HydraLogo';
 import { useCoarsePointer } from '../hooks/useCoarsePointer';
+import { useDeviceTier } from '../hooks/useDeviceTier';
 
 interface NavigationProps {
   onOpenBrief: () => void;
@@ -97,9 +98,10 @@ export const Navigation: React.FC<NavigationProps> = ({
 
   const { lang, setLang, t } = useLanguage();
   const isCoarse = useCoarsePointer();
+  const tier = useDeviceTier();
   const reduceMotion = useReducedMotion();
 
-  const navItemVariants = isCoarse ? navItemFlatVariants : navItemBlurVariants;
+  const navItemVariants = isCoarse || tier === 'low' ? navItemFlatVariants : navItemBlurVariants;
 
   const navLinks = [
     { name: t('nav.work'), href: '#work' },
@@ -114,11 +116,17 @@ export const Navigation: React.FC<NavigationProps> = ({
     <nav className="fixed top-[calc(0.75rem+env(safe-area-inset-top,0px))] md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl">
       <div className="bg-[var(--card-bg)]/90 backdrop-blur-xl border border-[var(--border-color)] rounded-[24px] px-4 sm:px-6 py-3 flex items-center justify-between shadow-md dark:shadow-none transition-colors duration-300">
         
-        {/* Brand wordmark */}
-        <a href="#" className="flex items-center gap-2.5 sm:gap-3 min-h-[44px] group">
-          <HydraLogo className="h-6 w-6 sm:h-7 sm:w-7 text-accent group-hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.6)] transition-[filter]" />
-          <span className="font-semibold tracking-tight text-sm sm:text-base uppercase text-[var(--text-main)] group-hover:text-accent transition-colors leading-tight">
-            HYDRA SAMO
+        {/* Brand lockup — full frozen mark beside the wordmark on desktop, stacked on mobile */}
+        <a href="#" className="flex items-center group py-0.5">
+          <span className="flex flex-col items-center md:flex-row md:items-center md:gap-2.5 min-h-[44px] justify-center">
+            <span className="md:inline-block">
+              <HydraLogo className="h-7 w-7 sm:h-8 sm:w-8 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
+            </span>
+            <span className="flex flex-col items-center leading-none md:items-start">
+              <span className="font-display font-bold tracking-[-0.02em] text-xs md:text-[15px] uppercase text-[var(--text-main)] group-hover:text-accent transition-colors">
+                HYDRA SAMO
+              </span>
+            </span>
           </span>
         </a>
 
@@ -224,7 +232,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             <div className="flex flex-col gap-4">
               {/* Language Selector in Drawer */}
               <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-white/10">
-                <span className="text-xs font-mono uppercase tracking-widest text-slate-500 dark:text-white/50">
+                <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/50">
                   {t('lang.label')}
                 </span>
                 <LanguageSwitcher
@@ -237,7 +245,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 
               {/* Theme Selector Pill in Drawer */}
               <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-white/10">
-                <span className="text-xs font-mono uppercase tracking-widest text-slate-500 dark:text-white/50">
+                <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/50">
                   {t('theme.interfaceTheme')}
                 </span>
                 <button

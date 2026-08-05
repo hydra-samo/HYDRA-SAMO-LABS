@@ -1,0 +1,12 @@
+/* HYDRA SAMO — Tailwind v4 tokens (canonical source: src/index.css @theme) */
+@theme {
+  /* Brand accent — Mythic Emerald / Toxic Jade */
+  --color-accent: #10b981;
+  --color-accent-soft: #34d399;
+  --color-accent-dark: #059669;
+
+  /* Editorial type stack */
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+}

@@ -6,6 +6,7 @@ import { Project } from '../types';
 import { useLanguage } from '../i18n/LanguageContext';
 import { TiltCard } from './TiltCard';
 import { useCoarsePointer } from '../hooks/useCoarsePointer';
+import { useDeviceTier } from '../hooks/useDeviceTier';
 import { cn } from '../lib/utils';
 
 interface WorkGalleryProps {
@@ -56,12 +57,14 @@ export const ProjectCard: React.FC<{
 
   const { t } = useLanguage();
   const isCoarse = useCoarsePointer();
+  const tier = useDeviceTier();
   const reduceMotion = useReducedMotion();
 
   // The media entry blurs in on desktop but drops the filter on touch — the
   // fade/scale stays, so cards still feel alive on phones without the GPU cost.
-  const mediaInitial = isCoarse ? { opacity: 0 } : { opacity: 0, filter: 'blur(8px)' };
-  const mediaAnimate = isCoarse ? { opacity: 1 } : { opacity: 1, filter: 'blur(0px)' };
+  const cheapMotion = isCoarse || tier === 'low';
+  const mediaInitial = cheapMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(8px)' };
+  const mediaAnimate = cheapMotion ? { opacity: 1 } : { opacity: 1, filter: 'blur(0px)' };
 
   return (
     <motion.div
@@ -98,7 +101,7 @@ export const ProjectCard: React.FC<{
               <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 flex items-center justify-center">
                 <Film size={16} className="text-accent/50" />
               </div>
-              <span className="text-xs font-mono text-slate-400 dark:text-white/30 uppercase tracking-widest">
+              <span className="text-xs text-slate-400 dark:text-white/30 uppercase tracking-widest font-medium">
                 {t('work.streaming')}
               </span>
             </motion.div>
@@ -117,6 +120,7 @@ export const ProjectCard: React.FC<{
                 alt={project.title}
                 referrerPolicy="no-referrer"
                 loading="lazy"
+                decoding="async"
                 onLoad={() => setImageLoaded(true)}
                 className={cn(
                   'w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-active:scale-105 transform-gpu will-change-transform filter grayscale-[15%] group-hover:grayscale-0',
@@ -133,7 +137,7 @@ export const ProjectCard: React.FC<{
 
               {/* Top Badge Info */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                <span className="px-3 py-1 rounded-full bg-slate-900/80 dark:bg-[var(--card-bg)]/80 backdrop-blur-md border border-white/10 text-xs font-mono text-accent font-bold uppercase tracking-widest">
+                <span className="px-3 py-1 rounded-full bg-slate-900/80 dark:bg-[var(--card-bg)]/80 backdrop-blur-md border border-white/10 text-xs text-accent font-medium uppercase tracking-widest">
                   {project.tag}
                 </span>
                 <span className="px-2.5 py-1 rounded-md bg-black/60 text-xs font-mono text-white/90">
@@ -156,10 +160,10 @@ export const ProjectCard: React.FC<{
       <div className="p-6 relative z-10">
         <div className="flex items-center justify-between text-xs sm:text-sm font-mono text-slate-500 dark:text-white/50 mb-2">
           <span>{t('work.client')} {project.client.toUpperCase()}</span>
-          <span className="text-accent font-bold">{t('work.caseStudy')}</span>
+          <span className="text-accent font-semibold">{t('work.caseStudy')}</span>
         </div>
 
-        <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-[var(--text-main)] group-hover:text-accent transition-colors mb-2 uppercase">
+        <h3 className="text-xl sm:text-2xl font-display font-medium tracking-tight text-[var(--text-main)] group-hover:text-accent transition-colors mb-2 uppercase">
           {project.title}
         </h3>
 
@@ -180,7 +184,7 @@ export const ProjectCard: React.FC<{
             ))}
           </div>
 
-          <div className="flex items-center gap-1 text-xs font-bold text-accent transition-colors">
+          <div className="flex items-center gap-1 text-xs font-semibold text-accent transition-colors">
             <span>{t('work.inspect')}</span>
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </div>
@@ -267,7 +271,7 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({ onSelectProject, onOpe
                 <span className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-accent/15 text-accent flex items-center justify-center">
                   <Film size={22} />
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-main)] uppercase">
+                <h3 className="text-xl sm:text-2xl font-display font-medium text-[var(--text-main)] uppercase">
                   {t('work.emptyTitle')}
                 </h3>
                 <p className="max-w-md text-sm text-slate-600 dark:text-white/60 leading-relaxed font-normal">

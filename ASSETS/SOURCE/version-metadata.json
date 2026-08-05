@@ -1,0 +1,32 @@
+{
+  "brand": "Hydra Samo",
+  "mark": "hydra-mark",
+  "version": "v4",
+  "certified": "2026-08-05",
+  "viewBox": "11 2.94 78 78",
+  "pathCount": 4,
+  "origin": { "x": 50, "y": 50 },
+  "rotations": [0, 120, 240],
+  "core": "hexagon",
+  "headHeightUnits": 21.5,
+  "coreBoundingBox": { "minX": 35.28, "minY": 11.5, "maxX": 64.72, "maxY": 67.0 },
+  "fullMarkExtent": { "minX": 16.65, "minY": 11.5, "maxX": 83.35, "maxY": 72.2 },
+  "coreCircumradius": 16,
+  "tipCircleRadius": 38.5,
+  "palette": {
+    "emerald": "#10b981",
+    "jade": "#059669",
+    "mint": "#34d399",
+    "abyssal": "#060c09",
+    "text": "#f3f4f6",
+    "muted": "#94a3b8"
+  },
+  "forbidden": {
+    "colors": ["#00FFCC", "#00F0FF"],
+    "motion": ["continuous-rotation", "hydra-mark-spin"],
+    "tropes": ["location-badges", "numbered-saas-badges", "agency-vs-hydra-tables"]
+  },
+  "iconOnly": true,
+  "masterPath": "ASSETS/MASTER/hydra-mark_v4_master.svg",
+  "siteComponent": "src/components/HydraLogo.tsx"
+}

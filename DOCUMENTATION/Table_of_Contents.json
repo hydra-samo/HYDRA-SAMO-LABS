@@ -1,0 +1,922 @@
+{
+  "book": "HYDRA_SAMO_Brand_Book_v1.0",
+  "version": "1.0",
+  "publication_date": "2026-08-05",
+  "entries": [
+    {
+      "title": "HYDRA SAMO",
+      "anchor": "hydra-samo",
+      "level": 1
+    },
+    {
+      "title": "Brand Identity System \u2014 Engineering Documentation \u2014 Production Handbook",
+      "anchor": "brand-identity-system-engineering-documentation-production-handbook",
+      "level": 2
+    },
+    {
+      "title": "Table of Contents",
+      "anchor": "table-of-contents",
+      "level": 1
+    },
+    {
+      "title": "1. Introduction",
+      "anchor": "1-introduction",
+      "level": 1
+    },
+    {
+      "title": "1.1 The Brand",
+      "anchor": "11-the-brand",
+      "level": 2
+    },
+    {
+      "title": "1.2 Purpose of This Book",
+      "anchor": "12-purpose-of-this-book",
+      "level": 2
+    },
+    {
+      "title": "1.3 How to Read This Book",
+      "anchor": "13-how-to-read-this-book",
+      "level": 2
+    },
+    {
+      "title": "1.4 Lifecycle Summary",
+      "anchor": "14-lifecycle-summary",
+      "level": 2
+    },
+    {
+      "title": "2. Brand Philosophy",
+      "anchor": "2-brand-philosophy",
+      "level": 1
+    },
+    {
+      "title": "2.1 One Body, Three Heads",
+      "anchor": "21-one-body-three-heads",
+      "level": 2
+    },
+    {
+      "title": "2.2 The Hidden Hydra Principle",
+      "anchor": "22-the-hidden-hydra-principle",
+      "level": 2
+    },
+    {
+      "title": "2.3 Aesthetic: Bio-Organic Dark Editorial",
+      "anchor": "23-aesthetic-bio-organic-dark-editorial",
+      "level": 2
+    },
+    {
+      "title": "2.4 Banned Anti-Patterns",
+      "anchor": "24-banned-anti-patterns",
+      "level": 2
+    },
+    {
+      "title": "2.5 Communication Values",
+      "anchor": "25-communication-values",
+      "level": 2
+    },
+    {
+      "title": "3. Creative Vision",
+      "anchor": "3-creative-vision",
+      "level": 1
+    },
+    {
+      "title": "3.1 The Design Brief",
+      "anchor": "31-the-design-brief",
+      "level": 2
+    },
+    {
+      "title": "3.2 Vision Statements",
+      "anchor": "32-vision-statements",
+      "level": 2
+    },
+    {
+      "title": "3.3 The Concept Is Approved",
+      "anchor": "33-the-concept-is-approved",
+      "level": 2
+    },
+    {
+      "title": "4. Design Principles",
+      "anchor": "4-design-principles",
+      "level": 1
+    },
+    {
+      "title": "4.1 Core Principles",
+      "anchor": "41-core-principles",
+      "level": 2
+    },
+    {
+      "title": "4.2 What the Mark Must Do",
+      "anchor": "42-what-the-mark-must-do",
+      "level": 2
+    },
+    {
+      "title": "4.3 What the Mark Must Never Do",
+      "anchor": "43-what-the-mark-must-never-do",
+      "level": 2
+    },
+    {
+      "title": "5. Logo Evolution",
+      "anchor": "5-logo-evolution",
+      "level": 1
+    },
+    {
+      "title": "5.1 Timeline",
+      "anchor": "51-timeline",
+      "level": 2
+    },
+    {
+      "title": "5.2 Review Cycle 2026-08-05 (First Review)",
+      "anchor": "52-review-cycle-2026-08-05-first-review",
+      "level": 2
+    },
+    {
+      "title": "5.3 Refinement Plan (Priority 1)",
+      "anchor": "53-refinement-plan-priority-1",
+      "level": 2
+    },
+    {
+      "title": "5.4 V4 Implementation (Same Day)",
+      "anchor": "54-v4-implementation-same-day",
+      "level": 2
+    },
+    {
+      "title": "6. Geometry",
+      "anchor": "6-geometry",
+      "level": 1
+    },
+    {
+      "title": "6.1 Certified Parameters",
+      "anchor": "61-certified-parameters",
+      "level": 2
+    },
+    {
+      "title": "6.2 The Construction Grid",
+      "anchor": "62-the-construction-grid",
+      "level": 2
+    },
+    {
+      "title": "6.3 Head Path (Master)",
+      "anchor": "63-head-path-master",
+      "level": 2
+    },
+    {
+      "title": "6.4 Core Path (Hexagon)",
+      "anchor": "64-core-path-hexagon",
+      "level": 2
+    },
+    {
+      "title": "6.5 Key Measurements",
+      "anchor": "65-key-measurements",
+      "level": 2
+    },
+    {
+      "title": "7. Construction",
+      "anchor": "7-construction",
+      "level": 1
+    },
+    {
+      "title": "7.1 The Four Paths",
+      "anchor": "71-the-four-paths",
+      "level": 2
+    },
+    {
+      "title": "7.2 Build Order",
+      "anchor": "72-build-order",
+      "level": 2
+    },
+    {
+      "title": "7.3 Class Contract",
+      "anchor": "73-class-contract",
+      "level": 2
+    },
+    {
+      "title": "7.4 Construction Rules",
+      "anchor": "74-construction-rules",
+      "level": 2
+    },
+    {
+      "title": "8. Hexagonal Grid System",
+      "anchor": "8-hexagonal-grid-system",
+      "level": 1
+    },
+    {
+      "title": "8.1 The Invisible Construction Grid",
+      "anchor": "81-the-invisible-construction-grid",
+      "level": 2
+    },
+    {
+      "title": "8.2 Grid Hierarchy",
+      "anchor": "82-grid-hierarchy",
+      "level": 2
+    },
+    {
+      "title": "8.3 Pointy-Top vs Flat-Top",
+      "anchor": "83-pointy-top-vs-flat-top",
+      "level": 2
+    },
+    {
+      "title": "8.4 Weight Distribution",
+      "anchor": "84-weight-distribution",
+      "level": 2
+    },
+    {
+      "title": "9. Optical Corrections",
+      "anchor": "9-optical-corrections",
+      "level": 1
+    },
+    {
+      "title": "9.1 Frame Re-Balance (P1-1)",
+      "anchor": "91-frame-re-balance-p1-1",
+      "level": 2
+    },
+    {
+      "title": "9.2 Favicon at 16 px (P1-2)",
+      "anchor": "92-favicon-at-16-px-p1-2",
+      "level": 2
+    },
+    {
+      "title": "9.3 Perceptual Category (P1-3)",
+      "anchor": "93-perceptual-category-p1-3",
+      "level": 2
+    },
+    {
+      "title": "9.4 Tangency Repair (P1-4)",
+      "anchor": "94-tangency-repair-p1-4",
+      "level": 2
+    },
+    {
+      "title": "9.5 OpenGraph Rebuild (P1-5)",
+      "anchor": "95-opengraph-rebuild-p1-5",
+      "level": 2
+    },
+    {
+      "title": "9.6 Legacy Cleanup (P1-6 / P2)",
+      "anchor": "96-legacy-cleanup-p1-6-p2",
+      "level": 2
+    },
+    {
+      "title": "10. Symbol Meaning",
+      "anchor": "10-symbol-meaning",
+      "level": 1
+    },
+    {
+      "title": "10.1 Three Heads, One Body",
+      "anchor": "101-three-heads-one-body",
+      "level": 2
+    },
+    {
+      "title": "10.2 The Hidden Hydra",
+      "anchor": "102-the-hidden-hydra",
+      "level": 2
+    },
+    {
+      "title": "10.3 The One Body",
+      "anchor": "103-the-one-body",
+      "level": 2
+    },
+    {
+      "title": "10.4 The Emblem Read",
+      "anchor": "104-the-emblem-read",
+      "level": 2
+    },
+    {
+      "title": "11. Typography",
+      "anchor": "11-typography",
+      "level": 1
+    },
+    {
+      "title": "11.1 Font Stacks",
+      "anchor": "111-font-stacks",
+      "level": 2
+    },
+    {
+      "title": "11.2 Type Hierarchy",
+      "anchor": "112-type-hierarchy",
+      "level": 2
+    },
+    {
+      "title": "11.3 Mono = Technical Only",
+      "anchor": "113-mono-technical-only",
+      "level": 2
+    },
+    {
+      "title": "11.4 Responsive Scale",
+      "anchor": "114-responsive-scale",
+      "level": 2
+    },
+    {
+      "title": "11.5 Accessibility",
+      "anchor": "115-accessibility",
+      "level": 2
+    },
+    {
+      "title": "12. Color System",
+      "anchor": "12-color-system",
+      "level": 1
+    },
+    {
+      "title": "12.1 Certified Palette",
+      "anchor": "121-certified-palette",
+      "level": 2
+    },
+    {
+      "title": "12.2 Monochrome Modes",
+      "anchor": "122-monochrome-modes",
+      "level": 2
+    },
+    {
+      "title": "12.3 Forbidden Colors",
+      "anchor": "123-forbidden-colors",
+      "level": 2
+    },
+    {
+      "title": "12.4 Print Color",
+      "anchor": "124-print-color",
+      "level": 2
+    },
+    {
+      "title": "13. Iconography",
+      "anchor": "13-iconography",
+      "level": 1
+    },
+    {
+      "title": "13.1 Favicon (16 px)",
+      "anchor": "131-favicon-16-px",
+      "level": 2
+    },
+    {
+      "title": "13.2 App Icons",
+      "anchor": "132-app-icons",
+      "level": 2
+    },
+    {
+      "title": "13.3 Favicon Set (Web)",
+      "anchor": "133-favicon-set-web",
+      "level": 2
+    },
+    {
+      "title": "13.4 OpenGraph / Social Card",
+      "anchor": "134-opengraph-social-card",
+      "level": 2
+    },
+    {
+      "title": "14. Motion System",
+      "anchor": "14-motion-system",
+      "level": 1
+    },
+    {
+      "title": "14.1 Animation Principles",
+      "anchor": "141-animation-principles",
+      "level": 2
+    },
+    {
+      "title": "14.2 Approved Effects",
+      "anchor": "142-approved-effects",
+      "level": 2
+    },
+    {
+      "title": "14.3 Technique Layers",
+      "anchor": "143-technique-layers",
+      "level": 2
+    },
+    {
+      "title": "14.4 Toolchain",
+      "anchor": "144-toolchain",
+      "level": 2
+    },
+    {
+      "title": "14.5 Timing &amp; Rhythm",
+      "anchor": "145-timing-amp-rhythm",
+      "level": 2
+    },
+    {
+      "title": "14.6 Restrictions",
+      "anchor": "146-restrictions",
+      "level": 2
+    },
+    {
+      "title": "15. Website Integration",
+      "anchor": "15-website-integration",
+      "level": 1
+    },
+    {
+      "title": "15.1 Surface Map",
+      "anchor": "151-surface-map",
+      "level": 2
+    },
+    {
+      "title": "15.2 Navbar",
+      "anchor": "152-navbar",
+      "level": 2
+    },
+    {
+      "title": "15.3 Hero",
+      "anchor": "153-hero",
+      "level": 2
+    },
+    {
+      "title": "15.4 Loading &amp; Splash",
+      "anchor": "154-loading-amp-splash",
+      "level": 2
+    },
+    {
+      "title": "15.5 Watermark",
+      "anchor": "155-watermark",
+      "level": 2
+    },
+    {
+      "title": "15.6 Dark / Light Mode",
+      "anchor": "156-dark-light-mode",
+      "level": 2
+    },
+    {
+      "title": "16. Development Architecture",
+      "anchor": "16-development-architecture",
+      "level": 1
+    },
+    {
+      "title": "16.1 Stack",
+      "anchor": "161-stack",
+      "level": 2
+    },
+    {
+      "title": "16.2 Scripts",
+      "anchor": "162-scripts",
+      "level": 2
+    },
+    {
+      "title": "16.3 Content Architecture",
+      "anchor": "163-content-architecture",
+      "level": 2
+    },
+    {
+      "title": "16.4 Device-Tier Performance Budget",
+      "anchor": "164-device-tier-performance-budget",
+      "level": 2
+    },
+    {
+      "title": "16.5 Content Security Policy",
+      "anchor": "165-content-security-policy",
+      "level": 2
+    },
+    {
+      "title": "17. SVG Engineering",
+      "anchor": "17-svg-engineering",
+      "level": 1
+    },
+    {
+      "title": "17.1 The Master File",
+      "anchor": "171-the-master-file",
+      "level": 2
+    },
+    {
+      "title": "17.2 Engineering Standards",
+      "anchor": "172-engineering-standards",
+      "level": 2
+    },
+    {
+      "title": "17.3 Single Source of Truth",
+      "anchor": "173-single-source-of-truth",
+      "level": 2
+    },
+    {
+      "title": "17.4 Integrity",
+      "anchor": "174-integrity",
+      "level": 2
+    },
+    {
+      "title": "18. Component Implementation",
+      "anchor": "18-component-implementation",
+      "level": 1
+    },
+    {
+      "title": "18.1 HydraLogo.tsx",
+      "anchor": "181-hydralogotsx",
+      "level": 2
+    },
+    {
+      "title": "18.2 Usage",
+      "anchor": "182-usage",
+      "level": 2
+    },
+    {
+      "title": "18.3 CSS Utilities",
+      "anchor": "183-css-utilities",
+      "level": 2
+    },
+    {
+      "title": "18.4 Component Rules",
+      "anchor": "184-component-rules",
+      "level": 2
+    },
+    {
+      "title": "19. Asset Pipeline",
+      "anchor": "19-asset-pipeline",
+      "level": 1
+    },
+    {
+      "title": "19.1 Export Matrix",
+      "anchor": "191-export-matrix",
+      "level": 2
+    },
+    {
+      "title": "19.2 Required Raster Sizes",
+      "anchor": "192-required-raster-sizes",
+      "level": 2
+    },
+    {
+      "title": "19.3 Naming Convention",
+      "anchor": "193-naming-convention",
+      "level": 2
+    },
+    {
+      "title": "19.4 Variant Specification",
+      "anchor": "194-variant-specification",
+      "level": 2
+    },
+    {
+      "title": "19.5 Quality Gates",
+      "anchor": "195-quality-gates",
+      "level": 2
+    },
+    {
+      "title": "19.6 Retry / Re-export Policy",
+      "anchor": "196-retry-re-export-policy",
+      "level": 2
+    },
+    {
+      "title": "20. Production Workflow",
+      "anchor": "20-production-workflow",
+      "level": 1
+    },
+    {
+      "title": "20.1 The Production Pipeline",
+      "anchor": "201-the-production-pipeline",
+      "level": 2
+    },
+    {
+      "title": "20.2 Step 01 \u2014 Asset Production",
+      "anchor": "202-step-01-asset-production",
+      "level": 2
+    },
+    {
+      "title": "20.3 Step 02 \u2014 Production QA",
+      "anchor": "203-step-02-production-qa",
+      "level": 2
+    },
+    {
+      "title": "20.4 Step 03 \u2014 Completion Audit",
+      "anchor": "204-step-03-completion-audit",
+      "level": 2
+    },
+    {
+      "title": "20.5 Step 04 \u2014 Release Packaging",
+      "anchor": "205-step-04-release-packaging",
+      "level": 2
+    },
+    {
+      "title": "20.6 Step 05 \u2014 Final Sign-Off",
+      "anchor": "206-step-05-final-sign-off",
+      "level": 2
+    },
+    {
+      "title": "21. QA Process",
+      "anchor": "21-qa-process",
+      "level": 1
+    },
+    {
+      "title": "21.1 Validation Categories",
+      "anchor": "211-validation-categories",
+      "level": 2
+    },
+    {
+      "title": "21.2 Result Recording",
+      "anchor": "212-result-recording",
+      "level": 2
+    },
+    {
+      "title": "21.3 Verified Result",
+      "anchor": "213-verified-result",
+      "level": 2
+    },
+    {
+      "title": "22. Certification",
+      "anchor": "22-certification",
+      "level": 1
+    },
+    {
+      "title": "22.1 Final Certification",
+      "anchor": "221-final-certification",
+      "level": 2
+    },
+    {
+      "title": "22.2 Certification Statement",
+      "anchor": "222-certification-statement",
+      "level": 2
+    },
+    {
+      "title": "22.3 Production Readiness Checklist",
+      "anchor": "223-production-readiness-checklist",
+      "level": 2
+    },
+    {
+      "title": "23. Brand Freeze",
+      "anchor": "23-brand-freeze",
+      "level": 1
+    },
+    {
+      "title": "23.1 Freeze Declaration",
+      "anchor": "231-freeze-declaration",
+      "level": 2
+    },
+    {
+      "title": "23.2 Permitted Modifications",
+      "anchor": "232-permitted-modifications",
+      "level": 2
+    },
+    {
+      "title": "23.3 Freeze Record",
+      "anchor": "233-freeze-record",
+      "level": 2
+    },
+    {
+      "title": "24. Governance",
+      "anchor": "24-governance",
+      "level": 1
+    },
+    {
+      "title": "24.1 Clear Space",
+      "anchor": "241-clear-space",
+      "level": 2
+    },
+    {
+      "title": "24.2 Minimum Size",
+      "anchor": "242-minimum-size",
+      "level": 2
+    },
+    {
+      "title": "24.3 Allowed Colors",
+      "anchor": "243-allowed-colors",
+      "level": 2
+    },
+    {
+      "title": "24.4 Background Rules",
+      "anchor": "244-background-rules",
+      "level": 2
+    },
+    {
+      "title": "24.5 Incorrect Usage (never)",
+      "anchor": "245-incorrect-usage-never",
+      "level": 2
+    },
+    {
+      "title": "24.6 Accessibility &amp; Contrast",
+      "anchor": "246-accessibility-amp-contrast",
+      "level": 2
+    },
+    {
+      "title": "24.7 Vector &amp; Raster Rules",
+      "anchor": "247-vector-amp-raster-rules",
+      "level": 2
+    },
+    {
+      "title": "24.8 Rotation &amp; Distortion Policy",
+      "anchor": "248-rotation-amp-distortion-policy",
+      "level": 2
+    },
+    {
+      "title": "25. Repository Structure",
+      "anchor": "25-repository-structure",
+      "level": 1
+    },
+    {
+      "title": "25.1 Top-Level Repository",
+      "anchor": "251-top-level-repository",
+      "level": 2
+    },
+    {
+      "title": "25.2 Repository \u2194 Brand Drive Mapping",
+      "anchor": "252-repository-brand-drive-mapping",
+      "level": 2
+    },
+    {
+      "title": "26. Asset Library",
+      "anchor": "26-asset-library",
+      "level": 1
+    },
+    {
+      "title": "26.1 Package Overview",
+      "anchor": "261-package-overview",
+      "level": 2
+    },
+    {
+      "title": "26.2 Unsupported Proprietary Formats",
+      "anchor": "262-unsupported-proprietary-formats",
+      "level": 2
+    },
+    {
+      "title": "26.3 Integrity",
+      "anchor": "263-integrity",
+      "level": 2
+    },
+    {
+      "title": "27. Print System",
+      "anchor": "27-print-system",
+      "level": 1
+    },
+    {
+      "title": "27.1 Print Surfaces",
+      "anchor": "271-print-surfaces",
+      "level": 2
+    },
+    {
+      "title": "27.2 Specialty Processes",
+      "anchor": "272-specialty-processes",
+      "level": 2
+    },
+    {
+      "title": "27.3 Minimum Line Widths",
+      "anchor": "273-minimum-line-widths",
+      "level": 2
+    },
+    {
+      "title": "27.4 Color in Print",
+      "anchor": "274-color-in-print",
+      "level": 2
+    },
+    {
+      "title": "28. Social System",
+      "anchor": "28-social-system",
+      "level": 1
+    },
+    {
+      "title": "28.1 Shared Rules",
+      "anchor": "281-shared-rules",
+      "level": 2
+    },
+    {
+      "title": "28.2 Platform Matrix",
+      "anchor": "282-platform-matrix",
+      "level": 2
+    },
+    {
+      "title": "28.3 Generation Notes",
+      "anchor": "283-generation-notes",
+      "level": 2
+    },
+    {
+      "title": "29. Motion Deliverables",
+      "anchor": "29-motion-deliverables",
+      "level": 1
+    },
+    {
+      "title": "30. Website Assets",
+      "anchor": "30-website-assets",
+      "level": 1
+    },
+    {
+      "title": "31. Developer Guide",
+      "anchor": "31-developer-guide",
+      "level": 1
+    },
+    {
+      "title": "31.1 Getting Started",
+      "anchor": "311-getting-started",
+      "level": 2
+    },
+    {
+      "title": "31.2 Conventions",
+      "anchor": "312-conventions",
+      "level": 2
+    },
+    {
+      "title": "31.3 Using the Mark",
+      "anchor": "313-using-the-mark",
+      "level": 2
+    },
+    {
+      "title": "31.4 Environment Variables",
+      "anchor": "314-environment-variables",
+      "level": 2
+    },
+    {
+      "title": "31.5 Content",
+      "anchor": "315-content",
+      "level": 2
+    },
+    {
+      "title": "32. File Structure",
+      "anchor": "32-file-structure",
+      "level": 1
+    },
+    {
+      "title": "32.1 Production Hierarchy",
+      "anchor": "321-production-hierarchy",
+      "level": 2
+    },
+    {
+      "title": "32.2 Directory Rules",
+      "anchor": "322-directory-rules",
+      "level": 2
+    },
+    {
+      "title": "33. Version History",
+      "anchor": "33-version-history",
+      "level": 1
+    },
+    {
+      "title": "33.1 Brand Releases",
+      "anchor": "331-brand-releases",
+      "level": 2
+    },
+    {
+      "title": "33.2 Logo Versions",
+      "anchor": "332-logo-versions",
+      "level": 2
+    },
+    {
+      "title": "33.3 Versioning Policy",
+      "anchor": "333-versioning-policy",
+      "level": 2
+    },
+    {
+      "title": "34. Future Versioning",
+      "anchor": "34-future-versioning",
+      "level": 1
+    },
+    {
+      "title": "34.1 Future Work Scope",
+      "anchor": "341-future-work-scope",
+      "level": 2
+    },
+    {
+      "title": "34.2 Version 1.1 Development",
+      "anchor": "342-version-11-development",
+      "level": 2
+    },
+    {
+      "title": "34.3 Archive Policy",
+      "anchor": "343-archive-policy",
+      "level": 2
+    },
+    {
+      "title": "35. Final Release",
+      "anchor": "35-final-release",
+      "level": 1
+    },
+    {
+      "title": "35.1 Release Record",
+      "anchor": "351-release-record",
+      "level": 2
+    },
+    {
+      "title": "35.2 Release Notes",
+      "anchor": "352-release-notes",
+      "level": 2
+    },
+    {
+      "title": "35.3 Known Limitations",
+      "anchor": "353-known-limitations",
+      "level": 2
+    },
+    {
+      "title": "35.4 Release Package",
+      "anchor": "354-release-package",
+      "level": 2
+    },
+    {
+      "title": "36. Appendix",
+      "anchor": "36-appendix",
+      "level": 1
+    },
+    {
+      "title": "36.1 Review Scores Detail",
+      "anchor": "361-review-scores-detail",
+      "level": 2
+    },
+    {
+      "title": "36.2 Glossary",
+      "anchor": "362-glossary",
+      "level": 2
+    },
+    {
+      "title": "36.3 Source Documents Index",
+      "anchor": "363-source-documents-index",
+      "level": 2
+    },
+    {
+      "title": "36.4 Master Checksum",
+      "anchor": "364-master-checksum",
+      "level": 2
+    },
+    {
+      "title": "Final Declaration",
+      "anchor": "final-declaration",
+      "level": 1
+    },
+    {
+      "title": "STATUS: COMPLETE",
+      "anchor": "status-complete",
+      "level": 2
+    }
+  ]
+}

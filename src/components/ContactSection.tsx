@@ -103,7 +103,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
             <CheckCircle2 size={40} />
           </div>
 
-          <h3 className="text-2xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)] mb-4">
+          <h3 className="text-2xl font-medium tracking-tight uppercase font-display text-[var(--text-main)] mb-4">
             {t('contact.successTitle')}
           </h3>
 
@@ -126,7 +126,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
           
           {/* Services Selector */}
           <div>
-            <label className="text-sm font-mono uppercase text-accent tracking-widest block mb-3 font-semibold">
+            <label className="text-sm uppercase text-accent tracking-widest block mb-3 font-medium">
               {t('contact.labelServices')}
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -159,7 +159,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
           {/* Contact Details */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelName')}
               </label>
               <input
@@ -173,7 +173,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
             </div>
 
             <div>
-              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelEmail')}
               </label>
               <input
@@ -187,7 +187,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
             </div>
 
             <div>
-              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelCompany')}
               </label>
               <input
@@ -203,7 +203,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
           {/* Budget & Timeline Selectors */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelBudget')}
               </label>
               <select
@@ -219,7 +219,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
             </div>
 
             <div>
-              <label className="text-sm font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
                 {t('contact.labelTimeline')}
               </label>
               <select
@@ -237,7 +237,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
 
           {/* Project Overview */}
           <div>
-            <label className="text-xs font-mono uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
+            <label className="text-xs uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
               {t('contact.labelProject')}
             </label>
             <textarea
@@ -272,7 +272,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
             <MagneticButton
               type="submit"
               disabled={isSubmitting || !isFormConfigured}
-              className="w-full py-5 min-h-[48px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-extrabold text-base sm:text-lg uppercase tracking-wider rounded-2xl transition-all hover:shadow-[0_0_25px_rgba(16,185,129,0.2)] flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-5 min-h-[48px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-semibold text-base sm:text-lg uppercase tracking-wider rounded-2xl transition-all hover:shadow-[0_0_25px_rgba(16,185,129,0.2)] flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <span>{t('btn.transmitting')}</span>

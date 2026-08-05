@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <rect x="0" y="0" width="400" height="200" fill="#060c09"/>
+  <text x="16" y="24" fill="#f3f4f6" font-family="monospace" font-size="10">Hydra Samo — Color Palette · V4</text>
+  <rect x="20" y="44" width="48" height="48" fill="#10b981"/>
+  <text x="20" y="106" fill="#94a3b8" font-family="monospace" font-size="7">Emerald</text>
+  <text x="20" y="116" fill="#f3f4f6" font-family="monospace" font-size="7">#10b981</text>
+  <rect x="82" y="44" width="48" height="48" fill="#059669"/>
+  <text x="82" y="106" fill="#94a3b8" font-family="monospace" font-size="7">Jade</text>
+  <text x="82" y="116" fill="#f3f4f6" font-family="monospace" font-size="7">#059669</text>
+  <rect x="144" y="44" width="48" height="48" fill="#34d399"/>
+  <text x="144" y="106" fill="#94a3b8" font-family="monospace" font-size="7">Mint</text>
+  <text x="144" y="116" fill="#f3f4f6" font-family="monospace" font-size="7">#34d399</text>
+  <rect x="206" y="44" width="48" height="48" fill="#060c09" stroke="#1f2937"/>
+  <text x="206" y="106" fill="#94a3b8" font-family="monospace" font-size="7">Abyssal</text>
+  <text x="206" y="116" fill="#f3f4f6" font-family="monospace" font-size="7">#060c09</text>
+  <rect x="268" y="44" width="48" height="48" fill="#f3f4f6"/>
+  <text x="268" y="106" fill="#94a3b8" font-family="monospace" font-size="7">Text</text>
+  <text x="268" y="116" fill="#f3f4f6" font-family="monospace" font-size="7">#f3f4f6</text>
+  <rect x="330" y="44" width="48" height="48" fill="#94a3b8"/>
+  <text x="330" y="106" fill="#94a3b8" font-family="monospace" font-size="7">Muted</text>
+  <text x="330" y="116" fill="#f3f4f6" font-family="monospace" font-size="7">#94a3b8</text>
+  <text x="16" y="150" fill="#94a3b8" font-family="monospace" font-size="8">Forbidden: neon cyan (#00FFCC/#00F0FF), bright blue gradients, SaaS chrome.</text>
+</svg>
