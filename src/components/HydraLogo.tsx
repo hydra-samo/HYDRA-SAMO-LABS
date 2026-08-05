@@ -4,26 +4,27 @@ import { cn } from '../lib/utils';
 interface HydraLogoProps {
   className?: string;
   variant?: 'fill' | 'outline';
-  animated?: boolean;
 }
 
 const HEAD_PATH =
-  'M 50 11 C 53 15, 56 19, 57.8 24 C 59.5 28.5, 56.5 38, 54 45 C 53.2 47, 52.6 48, 52 48.6 C 48.5 49.4, 47 48.6, 46.6 44 C 45.8 36, 44.8 30, 45.5 26 C 46.5 21, 47.8 16, 50 11 Z';
+  'M 50.00 11.50 C 50.56 12.05, 52.20 13.55, 53.36 14.80 C 54.52 16.05, 55.68 17.37, 56.96 19.00 C 58.24 20.63, 60.44 22.73, 61.04 24.60 C 61.64 26.47, 60.84 28.40, 60.56 30.20 C 60.28 32.00, 59.53 34.02, 59.36 35.40 C 59.19 36.78, 59.50 37.98, 59.52 38.50 L 50.00 33.00 L 40.48 38.50 C 40.50 37.98, 40.77 36.78, 40.64 35.40 C 40.51 34.02, 39.40 31.97, 39.68 30.20 C 39.96 28.43, 41.56 26.40, 42.32 24.80 C 43.08 23.20, 43.52 22.27, 44.24 20.60 C 44.96 18.93, 45.68 16.32, 46.64 14.80 C 47.60 13.28, 49.44 12.05, 50.00 11.50 Z';
+
+const CORE_PATH =
+  'M 50.00 33.00 L 64.72 41.50 L 64.72 58.50 L 50.00 67.00 L 35.28 58.50 L 35.28 41.50 Z';
 
 export const HydraLogo: React.FC<HydraLogoProps> = ({
   className,
   variant = 'fill',
-  animated = false,
 }) => {
   const isOutline = variant === 'outline';
 
   return (
     <svg
-      viewBox="0 0 100 100"
+      viewBox="11 2.94 78 78"
       data-hydra-mark
       aria-hidden="true"
       focusable="false"
-      className={cn('hydra-mark block text-current', animated && 'hydra-mark-spin', className)}
+      className={cn('hydra-mark block text-current', className)}
     >
       <g
         className="hydra-heads"
@@ -46,6 +47,7 @@ export const HydraLogo: React.FC<HydraLogoProps> = ({
           transform="rotate(240 50 50)"
           pathLength={1}
         />
+        <path className="hydra-core" d={CORE_PATH} pathLength={1} />
       </g>
     </svg>
   );

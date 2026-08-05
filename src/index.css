@@ -121,7 +121,7 @@
 
   /*
    * Hydra mark — the logo itself stays a pure vector (no inline lighting or
-   * decoration). All glow, pulse, and rotation live here, in the CSS layer,
+   * decoration). All glow and pulse live here, in the CSS layer,
    * so the raw geometry remains crisp and color-agnostic. Glow follows the
    * mark's currentColor so it adapts to any recolor (emerald, white, etc.).
    */
@@ -134,9 +134,6 @@
   .hydra-mark-pulse {
     animation: hydra-pulse 3.2s ease-in-out infinite;
   }
-  .hydra-mark-spin {
-    animation: hydra-spin 24s linear infinite;
-  }
 }
 
 @keyframes ambient-drift {
@@ -148,11 +145,6 @@
 @keyframes hydra-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.55; transform: scale(0.9); }
-}
-
-@keyframes hydra-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
 }
 
 /* ---------------------------------------------------------------------------
@@ -183,8 +175,7 @@
   .ambient-blob {
     animation: none;
   }
-  .hydra-mark-pulse,
-  .hydra-mark-spin {
+  .hydra-mark-pulse {
     animation: none;
   }
 }
