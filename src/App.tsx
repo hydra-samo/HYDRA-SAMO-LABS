@@ -14,10 +14,12 @@ import { AmbientBackground } from './components/AmbientBackground';
 import { Project } from './types';
 import { useOpenGraph } from './hooks/useOpenGraph';
 import { useLenis } from './hooks/useLenis';
+import { useCoarsePointer } from './hooks/useCoarsePointer';
 import { useLanguage } from './i18n/LanguageContext';
 
 export default function App() {
   const { t } = useLanguage();
+  const isCoarse = useCoarsePointer();
 
   const lenisRef = useLenis();
 
@@ -160,8 +162,7 @@ export default function App() {
             exit={{
               opacity: 0,
               y: -25,
-              scale: 0.98,
-              filter: 'blur(12px)',
+              ...(isCoarse ? {} : { scale: 0.98, filter: 'blur(12px)' }),
               transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
             }}
             className="text-[var(--text-main)] min-h-screen font-sans selection:bg-accent selection:text-black relative transition-colors duration-300"

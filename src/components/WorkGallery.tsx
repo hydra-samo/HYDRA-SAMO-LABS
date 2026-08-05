@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Play, ArrowRight, Film } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import { Project } from '../types';
 import { useLanguage } from '../i18n/LanguageContext';
 import { TiltCard } from './TiltCard';
+import { useCoarsePointer } from '../hooks/useCoarsePointer';
 import { cn } from '../lib/utils';
 
 interface WorkGalleryProps {
@@ -54,19 +55,26 @@ export const ProjectCard: React.FC<{
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const { t } = useLanguage();
+  const isCoarse = useCoarsePointer();
+  const reduceMotion = useReducedMotion();
+
+  // The media entry blurs in on desktop but drops the filter on touch — the
+  // fade/scale stays, so cards still feel alive on phones without the GPU cost.
+  const mediaInitial = isCoarse ? { opacity: 0 } : { opacity: 0, filter: 'blur(8px)' };
+  const mediaAnimate = isCoarse ? { opacity: 1 } : { opacity: 1, filter: 'blur(0px)' };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 45, scale: 0.96 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{
         duration: 0.55,
         delay: (index % 2) * 0.12,
         ease: [0.22, 1, 0.36, 1],
       }}
-      whileHover={{ scale: 1.02, y: -2 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={reduceMotion ? undefined : { scale: 1.02, y: -2 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.98 }}
       onViewportEnter={() => setIsInView(true)}
       className="group relative"
     >
@@ -98,8 +106,8 @@ export const ProjectCard: React.FC<{
             /* Content rendered once threshold met */
             <motion.div
               key="media-content"
-              initial={{ opacity: 0, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, filter: 'blur(0px)' }}
+              initial={mediaInitial}
+              animate={mediaAnimate}
               transition={{ duration: 0.5 }}
               className="w-full h-full relative"
             >

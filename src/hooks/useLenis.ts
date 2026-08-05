@@ -16,6 +16,11 @@ export function useLenis() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Section navigation lands faster on touch devices — 1.2s of eased travel
+    // feels heavy when you're swiping; native touch scroll is untouched (Lenis
+    // only smooths wheel input), so this just tunes the anchor ride.
+    const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -34,7 +39,10 @@ export function useLenis() {
       if (!target) return;
 
       e.preventDefault();
-      lenis.scrollTo(target as HTMLElement, { offset: -80, duration: 1.2 });
+      lenis.scrollTo(target as HTMLElement, {
+        offset: -80,
+        duration: isCoarse ? 0.85 : 1.2,
+      });
     };
 
     document.addEventListener('click', onClick);

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion, type Variants } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { Lang } from '../i18n/translations';
 import { cn } from '../lib/utils';
 import { HydraLogo } from './HydraLogo';
+import { useCoarsePointer } from '../hooks/useCoarsePointer';
 
 interface NavigationProps {
   onOpenBrief: () => void;
@@ -23,12 +24,25 @@ const navContainerVariants: Variants = {
   },
 };
 
-const navItemVariants: Variants = {
+const navItemBlurVariants: Variants = {
   hidden: { opacity: 0, y: -10, filter: 'blur(4px)' },
   visible: {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
+    transition: {
+      type: 'spring',
+      stiffness: 140,
+      damping: 14,
+    },
+  },
+};
+
+const navItemFlatVariants: Variants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: {
+    opacity: 1,
+    y: 0,
     transition: {
       type: 'spring',
       stiffness: 140,
@@ -82,6 +96,10 @@ export const Navigation: React.FC<NavigationProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const { lang, setLang, t } = useLanguage();
+  const isCoarse = useCoarsePointer();
+  const reduceMotion = useReducedMotion();
+
+  const navItemVariants = isCoarse ? navItemFlatVariants : navItemBlurVariants;
 
   const navLinks = [
     { name: t('nav.work'), href: '#work' },
@@ -107,7 +125,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         {/* Desktop Links with Framer Motion Staggered Entrance */}
         <motion.div 
           variants={navContainerVariants}
-          initial="hidden"
+          initial={reduceMotion ? false : 'hidden'}
           animate="visible"
           className="hidden md:flex items-center gap-6 lg:gap-8 text-xs sm:text-sm font-medium uppercase tracking-[0.15em] text-slate-600 dark:text-white/50"
         >

@@ -168,6 +168,14 @@
   .ambient-blob {
     filter: blur(60px);
   }
+
+  /* The single biggest mobile GPU cost is stacking many 16px backdrop filters
+     across every glass-card at once — soften the surface on phones while the
+     hairline border + shadow keep the frosted look. */
+  .glass-card {
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
 }
 
 /* Respect reduced-motion: freeze the ambient drift entirely. */

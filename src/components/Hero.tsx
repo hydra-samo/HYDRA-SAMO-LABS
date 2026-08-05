@@ -1,9 +1,12 @@
 import React from 'react';
-import { motion, type Variants } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { HydraLogo } from './HydraLogo';
+import { useCoarsePointer } from '../hooks/useCoarsePointer';
 
-/* Staggered, blur-in reveal for the hero typography. */
+/* Staggered, blur-in reveal for the hero typography. The blur filter is a
+   full-screen compositing cost on low-end GPUs, so touch devices get the same
+   kinetic fade+rise without it — the motion stays, the filter goes. */
 const heroContainer: Variants = {
   hidden: {},
   show: {
@@ -11,7 +14,7 @@ const heroContainer: Variants = {
   },
 };
 
-const heroItem: Variants = {
+const heroItemBlur: Variants = {
   hidden: { opacity: 0, y: 28, filter: 'blur(10px)' },
   show: {
     opacity: 1,
@@ -21,14 +24,27 @@ const heroItem: Variants = {
   },
 };
 
+const heroItemFlat: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const isCoarse = useCoarsePointer();
+  const reduceMotion = useReducedMotion();
+
+  const heroItem: Variants = isCoarse ? heroItemFlat : heroItemBlur;
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-28 sm:pt-32 pb-16 text-center overflow-hidden text-[var(--text-main)] transition-colors duration-300">
       <motion.div
         variants={heroContainer}
-        initial="hidden"
+        initial={reduceMotion ? false : 'hidden'}
         animate="show"
         className="max-w-3xl mx-auto w-full flex flex-col items-center"
       >

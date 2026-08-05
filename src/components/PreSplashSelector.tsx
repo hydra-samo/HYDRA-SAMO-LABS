@@ -6,6 +6,7 @@ import { Lang } from '../i18n/translations';
 import { cn } from '../lib/utils';
 import { MagneticButton } from './MagneticButton';
 import { HydraLogo } from './HydraLogo';
+import { useCoarsePointer } from '../hooks/useCoarsePointer';
 
 interface PreSplashSelectorProps {
   theme: 'dark' | 'light';
@@ -24,12 +25,21 @@ const containerVariants: Variants = {
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.18 } },
 };
 
-const itemVariants: Variants = {
+const itemBlurVariants: Variants = {
   hidden: { opacity: 0, y: 14, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
+    transition: { type: 'spring' as const, stiffness: 160, damping: 18 },
+  },
+};
+
+const itemFlatVariants: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
     transition: { type: 'spring' as const, stiffness: 160, damping: 18 },
   },
 };
@@ -41,7 +51,12 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
 }) => {
   const { lang, setLang, t, dir } = useLanguage();
   const reduceMotion = useReducedMotion();
+  const isCoarse = useCoarsePointer();
   const isRTL = dir === 'rtl';
+
+  // Touch devices skip the blur filter — the stagger + fade still run, so the
+  // entrance stays kinetic without rasterizing a blurred panel on mobile GPUs.
+  const itemVariants = isCoarse ? itemFlatVariants : itemBlurVariants;
 
   return (
     <motion.div
@@ -51,7 +66,7 @@ export const PreSplashSelector: React.FC<PreSplashSelectorProps> = ({
       exit={{
         opacity: 0,
         scale: 0.97,
-        filter: 'blur(10px)',
+        ...(isCoarse ? {} : { filter: 'blur(10px)' }),
         transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
       }}
       className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto p-4 sm:p-6 bg-[var(--bg-canvas)] text-[var(--text-main)] select-none transition-colors duration-300"

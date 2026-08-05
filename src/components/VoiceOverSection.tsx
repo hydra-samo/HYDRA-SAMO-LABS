@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Pause, Volume2, VolumeX, Mic, MicOff, FileText } from 'lucide-react';
 import { VOICE_TRACKS } from '../data/portfolioData';
@@ -91,6 +91,23 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
       setActiveTrack(track);
     }
   };
+
+  // Stable per-track keyframes. Each "bar" picks a fixed random dip so the
+  // loop animates between the same three heights — recomputing Math.random()
+  // on every render (currentTime ticks ~4x/sec while playing) was retargeting
+  // every bar constantly and stuttering on low-end phones.
+  const waveKeyframes = useMemo(
+    () =>
+      activeTrackLocal.waveform.map((val) => {
+        const base = val / 100;
+        return [
+          Math.max(0.15, base * 0.3),
+          Math.min(1, base * (Math.random() * 0.8 + 0.4)),
+          Math.max(0.2, base * 0.5),
+        ];
+      }),
+    [activeTrack.id]
+  );
 
   const toggleMainPlay = () => {
     if (!hasAudio || !audioRef.current) return;
@@ -220,18 +237,13 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
 
 
             {/* Waveform Bars */}
-            <div className="flex items-center justify-center gap-1 sm:gap-1.5 h-28 my-6 px-4 bg-slate-200/80 dark:bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)] overflow-hidden">
+            <div className="flex items-end justify-center gap-1 sm:gap-1.5 h-28 my-6 px-4 bg-slate-200/80 dark:bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)] overflow-hidden">
               {activeTrackLocal.waveform.map((val, idx) => (
                 <motion.div
                   key={idx}
+                  style={{ height: '100%', transformOrigin: 'bottom' }}
                   animate={{
-                    height: isPlaying
-                      ? [
-                          `${Math.max(15, val * 0.3)}%`,
-                          `${Math.min(100, val * (Math.random() * 0.8 + 0.4))}%`,
-                          `${Math.max(20, val * 0.5)}%`,
-                        ]
-                      : `${val}%`,
+                    scaleY: isPlaying ? waveKeyframes[idx] : val / 100,
                   }}
                   transition={{
                     repeat: isPlaying ? Infinity : 0,
@@ -273,7 +285,7 @@ export const VoiceOverSection: React.FC<VoiceOverSectionProps> = ({ onOpenBrief 
                 key={track.id}
                 initial={{ opacity: 0, y: 35, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: false, amount: 0.15 }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { HydraLogo } from './HydraLogo';
+import { useCoarsePointer } from '../hooks/useCoarsePointer';
 
 interface PlymouthSplashProps {
   onComplete: () => void;
@@ -14,6 +15,7 @@ interface PlymouthSplashProps {
  */
 export const PlymouthSplash: React.FC<PlymouthSplashProps> = ({ onComplete }) => {
   const { t } = useLanguage();
+  const isCoarse = useCoarsePointer();
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -24,6 +26,13 @@ export const PlymouthSplash: React.FC<PlymouthSplashProps> = ({ onComplete }) =>
     const timer = window.setTimeout(onComplete, 1100);
     return () => window.clearTimeout(timer);
   }, [onComplete]);
+
+  // The entrance blur is dropped on touch devices — the scale + letter-spacing
+  // beats stay, only the filter goes (it's the expensive part on mobile GPUs).
+  const logoInitial = isCoarse ? { opacity: 0, scale: 0.85 } : { opacity: 0, scale: 0.85, filter: 'blur(8px)' };
+  const logoAnimate = isCoarse ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1, filter: 'blur(0px)' };
+  const titleInitial = isCoarse ? { opacity: 0, y: 16 } : { opacity: 0, y: 16, filter: 'blur(12px)' };
+  const titleAnimate = isCoarse ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' };
 
   return (
     <motion.div
@@ -40,8 +49,8 @@ export const PlymouthSplash: React.FC<PlymouthSplashProps> = ({ onComplete }) =>
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center select-none overflow-hidden cursor-pointer bg-[#060c09] text-white"
     >
       <motion.div
-        initial={{ opacity: 0, scale: 0.85, filter: 'blur(8px)' }}
-        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+        initial={logoInitial}
+        animate={logoAnimate}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className="mb-6"
       >
@@ -58,8 +67,8 @@ export const PlymouthSplash: React.FC<PlymouthSplashProps> = ({ onComplete }) =>
       </motion.span>
 
       <motion.h1
-        initial={{ opacity: 0, y: 16, filter: 'blur(12px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        initial={titleInitial}
+        animate={titleAnimate}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className="px-6 text-center font-display text-5xl sm:text-7xl font-black uppercase tracking-[0.18em] leading-none"
       >

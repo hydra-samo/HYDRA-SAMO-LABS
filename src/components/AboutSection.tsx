@@ -15,7 +15,7 @@ export const AboutSection: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 40, scale: 0.96 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="w-full lg:w-1/2 max-w-md mx-auto lg:max-w-none"
         >
@@ -78,7 +78,7 @@ export const AboutSection: React.FC = () => {
                 key={adv}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
                 className="flex items-center gap-3 font-semibold text-xs uppercase tracking-wider text-[var(--text-main)]"
               >
