@@ -1239,13 +1239,12 @@ HYDRA SAMO LABS/
 │   └── index.css             # Tailwind v4 + design tokens + mark utilities
 ├── public/                   # hydra-mark.svg, hydra_logo.jpg, audio/, images/
 ├── ASSETS/                   # Production asset packages (12 packages, 147 files)
-├── OUTPUT/                   # Complete documentation series (01–28)
+├── OUTPUT/                   # Complete documentation series (01–28) + BRAND_ASSET_PIPELINE.md
 ├── RELEASE/                  # HYDRA_SAMO_BRAND_v1.0/ + release archive
-├── REVIEWS/                  # Review pipeline materials
-├── DOCUMENTATION/            # This Brand Book (md/html/pdf + TOC)
+├── REVIEWS/                  # Review pipeline materials (orchestrator, plans, reviews)
+├── DOCUMENTATION/            # This Brand Book (md/html/pdf + TOC) + certified PDFs
 ├── DESIGN.md                 # System design specification
 ├── AGENTS.md                 # Project + brand governance
-├── BRAND_ASSET_PIPELINE.md   # Pipeline overview
 ├── index.html                # Shell, fonts, CSP, favicon link
 ├── package.json              # Scripts + deps
 ├── vite.config.ts            # Vite config (server block locked)
@@ -1626,7 +1625,7 @@ Post-validation: all seven critical + five minor findings closed by measured V4 
 |---|---|
 | `DESIGN.md` | System design specification |
 | `AGENTS.md` | Project + brand governance |
-| `BRAND_ASSET_PIPELINE.md` | Pipeline overview |
+| `OUTPUT/BRAND_ASSET_PIPELINE.md` | Pipeline overview |
 | `OUTPUT/01`–`07` | Review pipeline (reports, plan, changelog) |
 | `OUTPUT/08`–`09` | Certification + freeze |
 | `OUTPUT/10`–`19` | Production documentation series |
