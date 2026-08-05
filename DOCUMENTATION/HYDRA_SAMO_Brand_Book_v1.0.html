@@ -1424,8 +1424,8 @@ JetBrains+Mono:wght@400;600
 </tr>
 <tr>
 <td>Loading</td>
-<td><code>src/components/PlymouthSplash.tsx</code></td>
-<td><code>HydraLogo</code> + <code>.hydra-mark-pulse</code></td>
+<td><code>src/components/LoadingSplash.tsx</code></td>
+<td><code>HydraLogo</code> + wordmark + emerald progress bar</td>
 <td>Emerald</td>
 </tr>
 <tr>
@@ -1489,7 +1489,9 @@ JetBrains+Mono:wght@400;600
 </ul>
 <h2 id="154-loading-amp-splash">15.4 Loading &amp; Splash</h2>
 <ul>
-<li>PlymouthSplash: <code>HydraLogo</code> + <code>.hydra-mark-pulse</code> (<code>hydra-pulse 3.2s ease-in-out infinite</code>, opacity 1→0.55, scale 1→0.9), reduced-motion safe.</li>
+<li>LoadingSplash: <code>HydraLogo</code> + "HYDRA SAMO" wordmark + a thin emerald gradient progress bar (≈1.9 s) with a live <code>{percent}%</code> counter — the counter is the only text under the bar (no status/progress caption).</li>
+<li>The splash surface is <strong>transparent</strong>: the fixed <code>AmbientBackground</code> shows through, so the abyssal emerald glow reads as one living backdrop from first paint.</li>
+<li>The mark gently pulses via a motion wrapper (opacity 0.15→1→0.15, 2.6 s loop, <code>easeInOut</code>); clicking skips; reduced-motion users jump straight to content.</li>
 <li>PreSplashSelector: mark as selectable identity tile; emerald fill, glassmorphic tile.</li>
 <li>Approved loading treatment is the <strong>pulse</strong>, never a spin; a stroke-draw reveal may accompany intros but must complete and settle.</li>
 </ul>
@@ -1573,6 +1575,8 @@ JetBrains+Mono:wght@400;600
 <li><code>DISCIPLINES</code> IDs are strictly <code>'video' | 'motion' | 'voice'</code>.</li>
 <li>Metadata handled client-side via <code>src/hooks/useOpenGraph.ts</code> pointing to <code>/hydra_logo.jpg</code>.</li>
 <li>Contact form uses <code>VITE_FORM_ENDPOINT</code> / <code>VITE_FORM_ACCESS_KEY</code>; unconfigured warning state is kept.</li>
+<li>UI glyphs come from <code>lucide-react</code> — stock components only (<code>Play</code>, <code>Pause</code>, <code>Volume2</code>, <code>VolumeX</code>, <code>Mic</code>, <code>MicOff</code>, <code>FileText</code>, <code>Film</code>, <code>Layers</code>, <code>X</code>, <code>Check</code>, <code>CheckCircle2</code>, <code>ArrowRight</code>); no hand-rolled SVG glyph sets.</li>
+<li><code>VoiceOverSection</code> renders a "coming soon" placeholder (no audio-player content), mirroring the <code>WorkGallery</code> empty-state pattern.</li>
 </ul>
 <h2 id="164-device-tier-performance-budget">16.4 Device-Tier Performance Budget</h2>
 <p>Source of truth: <code>src/hooks/useDeviceTier.ts</code> detects <code>low | medium | high</code> once per session (CPU cores, deviceMemory, effectiveType, saveData, coarse pointer) and mirrors it onto <code>&lt;html data-quality="low|medium|high"&gt;</code>.</p>
@@ -1725,7 +1729,7 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 <h2 id="182-usage">18.2 Usage</h2>
 <pre><code class="language-tsx">&lt;HydraLogo className=&quot;h-7 w-7 text-accent&quot; /&gt;                                    {/* navbar */}
 &lt;HydraLogo className=&quot;h-16 w-16 sm:h-20 sm:w-20 text-accent/70 hydra-mark-glow&quot; /&gt; {/* hero */}
-&lt;HydraLogo className=&quot;h-16 w-16 sm:h-20 sm:w-20 text-[#34d399] hydra-mark-glow hydra-mark-pulse&quot; /&gt; {/* loading */}
+&lt;HydraLogo className=&quot;h-12 w-12 sm:h-14 sm:w-14 text-[#f3f4f6] hydra-mark-glow&quot; /&gt;            {/* splash: pulse via motion wrapper */}
 &lt;HydraLogo variant=&quot;outline&quot; className=&quot;h-10 w-10 text-accent&quot; /&gt;                {/* outline / technical */}
 </code></pre>
 <h2 id="183-css-utilities">18.3 CSS Utilities</h2>
@@ -2292,7 +2296,7 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 <hr />
 <h1 id="25-repository-structure">25. Repository Structure</h1>
 <h2 id="251-top-level-repository">25.1 Top-Level Repository</h2>
-<pre><code class="language-text">hydra-review/
+<pre><code class="language-text">HYDRA SAMO LABS/
 ├── src/                      # Application source
 │   ├── components/           # HydraLogo, Navigation, Hero, WorkGallery, …
 │   ├── data/portfolioData.ts # All content (single source)
@@ -2301,7 +2305,7 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 │   └── index.css             # Tailwind v4 + design tokens + mark utilities
 ├── public/                   # hydra-mark.svg, hydra_logo.jpg, audio/, images/
 ├── ASSETS/                   # Production asset packages (12 packages, 147 files)
-├── OUTPUT/                   # Complete documentation series (01–27)
+├── OUTPUT/                   # Complete documentation series (01–28)
 ├── RELEASE/                  # HYDRA_SAMO_BRAND_v1.0/ + release archive
 ├── REVIEWS/                  # Review pipeline materials
 ├── DOCUMENTATION/            # This Brand Book (md/html/pdf + TOC)
@@ -2742,6 +2746,7 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 <li><strong>Relative imports only</strong> (<code>../components/...</code>) — never <code>@/components/</code>.</li>
 <li>Pass all class strings through <code>cn()</code> from <code>src/lib/utils.ts</code>.</li>
 <li>Use Tailwind v4 CSS-first config; dark mode via <code>html.dark</code> + <code>localStorage['hydra-theme']</code>.</li>
+<li>UI icons via <code>lucide-react</code> stock components — never hand-rolled replacement SVG glyphs.</li>
 <li>Do not modify the <code>server</code> block or <code>DISABLE_HMR</code> logic in <code>vite.config.ts</code>.</li>
 <li>Do not add <code>unsafe-eval</code> to the CSP in <code>index.html</code>.</li>
 </ul>
@@ -2764,6 +2769,7 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 <h2 id="315-content">31.5 Content</h2>
 <ul>
 <li>All content in <code>src/data/portfolioData.ts</code>. <code>PROJECTS</code> is deliberately empty — keep <code>WorkGallery</code>'s empty-state handler. Audio relies on <code>/public/audio/</code>. <code>DISCIPLINES</code> IDs: <code>'video' | 'motion' | 'voice'</code>.</li>
+<li><code>VoiceOverSection</code> is a "coming soon" placeholder — do not restore the removed audio-player content unless approved.</li>
 </ul>
 <hr />
 <h1 id="32-file-structure">32. File Structure</h1>
@@ -2822,6 +2828,18 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 <td>Repository closure + this Brand Book</td>
 <td>✅ COMPLETE</td>
 </tr>
+<tr>
+<td>Brand Book v1.0 — maintenance r2</td>
+<td>2026-08-05</td>
+<td>Sync: LoadingSplash, lucide iconography, voice placeholder</td>
+<td>✅ COMPLETE</td>
+</tr>
+<tr>
+<td>Brand Book v1.0 — maintenance r3</td>
+<td>2026-08-06</td>
+<td>Sync: repository optimization (STEP 28)</td>
+<td>✅ COMPLETE</td>
+</tr>
 </tbody>
 </table>
 <h2 id="332-logo-versions">33.2 Logo Versions</h2>
@@ -2875,6 +2893,19 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 </tbody>
 </table>
 <p>The version numbering is independent of the logo <code>V{n}</code> label (the logo stays V4 unless a rebranding is approved). Every release updates the release doc, the asset manifest, and the checksum record.</p>
+<h2 id="334-repository-optimization-step-28-2026-08-06">33.4 Repository Optimization (STEP 28, 2026-08-06)</h2>
+<p>Engineering-only optimization per <code>OUTPUT/28_REPOSITORY_OPTIMIZATION.md</code> — "Optimize, Never Rewrite". No brand-visible change.</p>
+<ul>
+<li><strong>Removed:</strong> <code>bun.lock</code> (npm-only project); <code>pdf-forge-exports/.../extracted-text.txt</code> (temporary artifact); empty gitignored <code>assets/</code> leftover (Phase 03 — <code>ASSETS/</code> remains the canonical brand archive).</li>
+<li><strong>Dependencies:</strong> removed <code>motion</code> (duplicate of <code>framer-motion</code>), <code>autoprefixer</code>, <code>esbuild</code>, <code>tsx</code>; reclassified <code>vite</code>, <code>@tailwindcss/vite</code>, <code>@vitejs/plugin-react</code> to devDependencies. 0 vulnerabilities.</li>
+<li><strong>Dead code:</strong> removed 47 unused translation keys × 3 locales + <code>localizeDisciplines</code>/<code>localizeVoiceTracks</code> helpers (−180 lines in <code>src/i18n/translations.ts</code>).</li>
+<li><strong>Performance:</strong> main JS <code>495.88 kB → 472.35 kB</code> raw (<code>154.81 → 150.15 kB</code> gzip); <code>VideoModal</code> (8.5 kB) and <code>ContactSection</code> (10.7 kB) lazy-loaded via <code>React.lazy</code> + <code>Suspense</code> (≈19 kB off the critical path). Adaptive performance system (device tier → <code>html[data-quality]</code> + reduced-motion CSS) verified intact.</li>
+<li><strong>Accessibility:</strong> state-aware localized <code>aria-label</code> on close/play/pause/mute controls and grade slider; <code>role="dialog"</code> + <code>aria-modal</code> on both modals; localized alt text on grade comparison images (5 new keys × 3 locales).</li>
+<li><strong>Identity (Phase 13):</strong> repository migrated to <code>HYDRA SAMO/HYDRA SAMO LABS/</code> (workspace <code>HYDRA SAMO</code>); git remote already <code>github.com/hydra-samo/HYDRA-SAMO-LABS</code>; <code>MOTION_DIFF_REPORT.md</code> reference synchronized; this Brand Book's repo-structure diagram updated.</li>
+<li><strong>Untouched:</strong> certified logo geometry, master SVGs, palette, typography, routes, <code>DESIGN.md</code>, <code>AGENTS.md</code>, governance docs, <code>RELEASE/</code> archive, <code>ASSETS/</code>.</li>
+<li><strong>Validation:</strong> <code>npm run lint</code> ✅, <code>npm run build</code> ✅, production-preview smoke test ✅ (all assets HTTP 200), responsive/asset audits clean.</li>
+<li><strong>Status:</strong> <code>REPOSITORY STATUS: OPTIMIZED</code> — approved for long-term maintenance and production deployment.</li>
+</ul>
 <hr />
 <h1 id="34-future-versioning">34. Future Versioning</h1>
 <h2 id="341-future-work-scope">34.1 Future Work Scope</h2>

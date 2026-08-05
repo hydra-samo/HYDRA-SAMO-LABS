@@ -12,6 +12,12 @@ Thumbs.db
 # Local AI Studio / scratch folders — not part of the public source
 assets/
 
+# Package-manager lockfile drift (npm is canonical) — kept on disk, not tracked
+bun.lock
+
+# Temporary PDF text-extraction export — kept on disk, not tracked
+pdf-forge-exports/
+
 # Secrets & local config — NEVER commit real values
 .env
 .env.*

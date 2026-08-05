@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Suspense, useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
@@ -6,8 +6,6 @@ import { WorkGallery } from './components/WorkGallery';
 import { VoiceOverSection } from './components/VoiceOverSection';
 import { ProcessSection } from './components/ProcessSection';
 import { AboutSection } from './components/AboutSection';
-import { ContactSection } from './components/ContactSection';
-import { VideoModal } from './components/VideoModal';
 import { LoadingSplash } from './components/LoadingSplash';
 import { PreSplashSelector } from './components/PreSplashSelector';
 import { AmbientBackground } from './components/AmbientBackground';
@@ -17,6 +15,19 @@ import { useLenis } from './hooks/useLenis';
 import { useCoarsePointer } from './hooks/useCoarsePointer';
 import { useDeviceTier } from './hooks/useDeviceTier';
 import { useLanguage } from './i18n/LanguageContext';
+
+const VideoModal = React.lazy(() =>
+  import('./components/VideoModal').then((m) => ({ default: m.VideoModal }))
+);
+const ContactSection = React.lazy(() =>
+  import('./components/ContactSection').then((m) => ({ default: m.ContactSection }))
+);
+
+const ModalFallback = () => (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 dark:bg-black/95 backdrop-blur-2xl">
+    <div className="w-12 h-12 rounded-full border-2 border-accent border-t-transparent animate-spin" />
+  </div>
+);
 
 export default function App() {
   const { t } = useLanguage();
@@ -189,25 +200,27 @@ export default function App() {
 
             <AboutSection />
 
-            {(selectedProject || isOpenReelModal) && (
-              <VideoModal
-                project={selectedProject}
-                isOpenReel={isOpenReelModal}
-                onClose={() => {
-                  setSelectedProject(null);
-                  setIsOpenReelModal(false);
-                }}
-                onOpenBrief={() => {
-                  setSelectedProject(null);
-                  setIsOpenReelModal(false);
-                  setIsOpenBriefModal(true);
-                }}
-              />
-            )}
+            <Suspense fallback={<ModalFallback />}>
+              {(selectedProject || isOpenReelModal) && (
+                <VideoModal
+                  project={selectedProject}
+                  isOpenReel={isOpenReelModal}
+                  onClose={() => {
+                    setSelectedProject(null);
+                    setIsOpenReelModal(false);
+                  }}
+                  onOpenBrief={() => {
+                    setSelectedProject(null);
+                    setIsOpenReelModal(false);
+                    setIsOpenBriefModal(true);
+                  }}
+                />
+              )}
 
-            {isOpenBriefModal && (
-              <ContactSection onCloseModal={() => setIsOpenBriefModal(false)} />
-            )}
+              {isOpenBriefModal && (
+                <ContactSection onCloseModal={() => setIsOpenBriefModal(false)} />
+              )}
+            </Suspense>
           </motion.div>
         ) : (
           <motion.div

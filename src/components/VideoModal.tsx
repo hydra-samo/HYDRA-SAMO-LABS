@@ -54,7 +54,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 dark:bg-black/95 backdrop-blur-2xl overflow-y-auto" data-lenis-prevent>
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 dark:bg-black/95 backdrop-blur-2xl overflow-y-auto" data-lenis-prevent role="dialog" aria-modal="true" aria-label={modalTitle}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -98,6 +98,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
               <button
                 onClick={onClose}
+                aria-label={t('modal.close')}
                 className="p-2.5 min-w-[44px] min-h-[44px] rounded-full bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-white/70 hover:text-slate-950 dark:hover:text-white flex items-center justify-center"
               >
                 <X size={20} />
@@ -124,6 +125,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
                   <button
                     onClick={togglePlay}
+                    aria-label={isPlaying ? t('modal.pause') : t('modal.play')}
                     className="p-2.5 rounded-full bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 hover:scale-105 transition-transform"
                   >
                     {isPlaying ? <Pause size={18} className="text-accent" /> : <Play size={18} className="text-accent" />}
@@ -132,6 +134,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                   <div className="flex items-center gap-3">
                     <button
                       onClick={toggleMute}
+                      aria-label={isMuted ? t('modal.unmute') : t('modal.mute')}
                       className="p-2 rounded-lg bg-black/60 text-white/80 hover:text-white"
                     >
                       {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
@@ -145,7 +148,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 {/* After Image */}
                 <img
                   src={project?.afterGradeImg}
-                  alt="After Grade"
+                  alt={t('modal.grade')}
                   referrerPolicy="no-referrer"
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover"
@@ -158,7 +161,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 >
                   <img
                     src={project?.beforeGradeImg}
-                    alt="Before Grade"
+                    alt={t('modal.raw')}
                     referrerPolicy="no-referrer"
                     decoding="async"
                     className="absolute inset-0 w-full h-full object-cover max-w-none"
@@ -180,6 +183,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                   max="100"
                   value={gradingProgress}
                   onChange={(e) => setGradingProgress(Number(e.target.value))}
+                  aria-label={t('modal.grading')}
                   className="absolute inset-x-0 bottom-6 mx-auto w-3/4 accent-accent cursor-pointer"
                 />
               </div>

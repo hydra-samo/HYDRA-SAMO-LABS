@@ -292,10 +292,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
   );
 
   return (
-    <div data-lenis-prevent className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-slate-950/80 dark:bg-black/90 backdrop-blur-xl overflow-y-auto">
+    <div data-lenis-prevent className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-slate-950/80 dark:bg-black/90 backdrop-blur-xl overflow-y-auto" role="dialog" aria-modal="true" aria-label={t('contact.headingLet')}>
       <div data-lenis-prevent className="relative bg-[var(--bg-canvas)] border border-[var(--border-color)] rounded-3xl p-6 sm:p-10 w-full max-w-4xl my-auto max-h-[90vh] overflow-y-auto shadow-2xl">
         <button
           onClick={onCloseModal}
+          aria-label={t('modal.close')}
           className="absolute top-6 right-6 p-2.5 min-w-[44px] min-h-[44px] rounded-full bg-slate-200 dark:bg-white/5 border border-[var(--border-color)] text-slate-700 dark:text-white/70 hover:text-slate-950 dark:hover:text-white flex items-center justify-center"
         >
           <X size={20} />

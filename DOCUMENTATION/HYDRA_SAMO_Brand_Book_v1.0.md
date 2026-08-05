@@ -695,7 +695,7 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 | Navbar | `src/components/Navigation.tsx` | `HydraLogo` | Emerald `#10b981` via `text-accent` |
 | Hero | `src/components/Hero.tsx` | `HydraLogo` | Emerald `#10b981` |
 | Footer | Footer (existing layout) | `HydraLogo` (or favicon raster fallback) | Muted emerald / white mono |
-| Loading | `src/components/PlymouthSplash.tsx` | `HydraLogo` + `.hydra-mark-pulse` | Emerald |
+| Loading | `src/components/LoadingSplash.tsx` | `HydraLogo` + wordmark + emerald progress bar | Emerald |
 | Splash | `src/components/PreSplashSelector.tsx` | `HydraLogo` selection tile | Emerald |
 | Watermark | Full-page / section watermark | `HydraLogo` at ≈8–14% opacity | Low-opacity mono |
 | OpenGraph | `public/hydra_logo.jpg` via `useOpenGraph.ts` | 1024×1024 raster | Emerald on Abyssal |
@@ -721,7 +721,9 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 
 ## 15.4 Loading & Splash
 
-- PlymouthSplash: `HydraLogo` + `.hydra-mark-pulse` (`hydra-pulse 3.2s ease-in-out infinite`, opacity 1→0.55, scale 1→0.9), reduced-motion safe.
+- LoadingSplash: `HydraLogo` + "HYDRA SAMO" wordmark + a thin emerald gradient progress bar (≈1.9 s) with a live `{percent}%` counter — the counter is the only text under the bar (no status/progress caption).
+- The splash surface is **transparent**: the fixed `AmbientBackground` shows through, so the abyssal emerald glow reads as one living backdrop from first paint.
+- The mark gently pulses via a motion wrapper (opacity 0.15→1→0.15, 2.6 s loop, `easeInOut`); clicking skips; reduced-motion users jump straight to content.
 - PreSplashSelector: mark as selectable identity tile; emerald fill, glassmorphic tile.
 - Approved loading treatment is the **pulse**, never a spin; a stroke-draw reveal may accompany intros but must complete and settle.
 
@@ -768,6 +770,8 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 - `DISCIPLINES` IDs are strictly `'video' | 'motion' | 'voice'`.
 - Metadata handled client-side via `src/hooks/useOpenGraph.ts` pointing to `/hydra_logo.jpg`.
 - Contact form uses `VITE_FORM_ENDPOINT` / `VITE_FORM_ACCESS_KEY`; unconfigured warning state is kept.
+- UI glyphs come from `lucide-react` — stock components only (`Play`, `Pause`, `Volume2`, `VolumeX`, `Mic`, `MicOff`, `FileText`, `Film`, `Layers`, `X`, `Check`, `CheckCircle2`, `ArrowRight`); no hand-rolled SVG glyph sets.
+- `VoiceOverSection` renders a "coming soon" placeholder (no audio-player content), mirroring the `WorkGallery` empty-state pattern.
 
 ## 16.4 Device-Tier Performance Budget
 
@@ -889,7 +893,7 @@ export const HydraLogo: React.FC<HydraLogoProps> = ({
 ```tsx
 <HydraLogo className="h-7 w-7 text-accent" />                                    {/* navbar */}
 <HydraLogo className="h-16 w-16 sm:h-20 sm:w-20 text-accent/70 hydra-mark-glow" /> {/* hero */}
-<HydraLogo className="h-16 w-16 sm:h-20 sm:w-20 text-[#34d399] hydra-mark-glow hydra-mark-pulse" /> {/* loading */}
+<HydraLogo className="h-12 w-12 sm:h-14 sm:w-14 text-[#f3f4f6] hydra-mark-glow" />            {/* splash: pulse via motion wrapper */}
 <HydraLogo variant="outline" className="h-10 w-10 text-accent" />                {/* outline / technical */}
 ```
 
@@ -1226,7 +1230,7 @@ Below the minimum, do not render the mark — use the wordmark/name in type inst
 ## 25.1 Top-Level Repository
 
 ```text
-hydra-review/
+HYDRA SAMO LABS/
 ├── src/                      # Application source
 │   ├── components/           # HydraLogo, Navigation, Hero, WorkGallery, …
 │   ├── data/portfolioData.ts # All content (single source)
@@ -1235,7 +1239,7 @@ hydra-review/
 │   └── index.css             # Tailwind v4 + design tokens + mark utilities
 ├── public/                   # hydra-mark.svg, hydra_logo.jpg, audio/, images/
 ├── ASSETS/                   # Production asset packages (12 packages, 147 files)
-├── OUTPUT/                   # Complete documentation series (01–27)
+├── OUTPUT/                   # Complete documentation series (01–28)
 ├── RELEASE/                  # HYDRA_SAMO_BRAND_v1.0/ + release archive
 ├── REVIEWS/                  # Review pipeline materials
 ├── DOCUMENTATION/            # This Brand Book (md/html/pdf + TOC)
@@ -1416,6 +1420,7 @@ All generated from the master per the export pipeline and validated per QA. Favi
 - **Relative imports only** (`../components/...`) — never `@/components/`.
 - Pass all class strings through `cn()` from `src/lib/utils.ts`.
 - Use Tailwind v4 CSS-first config; dark mode via `html.dark` + `localStorage['hydra-theme']`.
+- UI icons via `lucide-react` stock components — never hand-rolled replacement SVG glyphs.
 - Do not modify the `server` block or `DISABLE_HMR` logic in `vite.config.ts`.
 - Do not add `unsafe-eval` to the CSP in `index.html`.
 
@@ -1440,6 +1445,7 @@ import { HydraLogo } from '../components/HydraLogo';
 ## 31.5 Content
 
 - All content in `src/data/portfolioData.ts`. `PROJECTS` is deliberately empty — keep `WorkGallery`'s empty-state handler. Audio relies on `/public/audio/`. `DISCIPLINES` IDs: `'video' | 'motion' | 'voice'`.
+- `VoiceOverSection` is a "coming soon" placeholder — do not restore the removed audio-player content unless approved.
 
 ---
 
@@ -1489,6 +1495,8 @@ brand/
 |---|---|---|---|
 | Brand v4.0.0 — "One Body, Three Heads" | 2026-08-05 | Production Asset Ecosystem — full pipeline | ✅ PRODUCTION-READY |
 | Brand Identity System v1.0 | 2026-08-05 | Repository closure + this Brand Book | ✅ COMPLETE |
+| Brand Book v1.0 — maintenance r2 | 2026-08-05 | Sync: LoadingSplash, lucide iconography, voice placeholder | ✅ COMPLETE |
+| Brand Book v1.0 — maintenance r3 | 2026-08-06 | Sync: repository optimization (STEP 28) | ✅ COMPLETE |
 
 ## 33.2 Logo Versions
 
@@ -1507,6 +1515,20 @@ brand/
 | `vX.Y.Z` | Maintenance release (optimization, bug fixes, docs) | `v4.0.1` |
 
 The version numbering is independent of the logo `V{n}` label (the logo stays V4 unless a rebranding is approved). Every release updates the release doc, the asset manifest, and the checksum record.
+
+## 33.4 Repository Optimization (STEP 28, 2026-08-06)
+
+Engineering-only optimization per `OUTPUT/28_REPOSITORY_OPTIMIZATION.md` — "Optimize, Never Rewrite". No brand-visible change.
+
+- **Removed:** `bun.lock` (npm-only project); `pdf-forge-exports/.../extracted-text.txt` (temporary artifact); empty gitignored `assets/` leftover (Phase 03 — `ASSETS/` remains the canonical brand archive).
+- **Dependencies:** removed `motion` (duplicate of `framer-motion`), `autoprefixer`, `esbuild`, `tsx`; reclassified `vite`, `@tailwindcss/vite`, `@vitejs/plugin-react` to devDependencies. 0 vulnerabilities.
+- **Dead code:** removed 47 unused translation keys × 3 locales + `localizeDisciplines`/`localizeVoiceTracks` helpers (−180 lines in `src/i18n/translations.ts`).
+- **Performance:** main JS `495.88 kB → 472.35 kB` raw (`154.81 → 150.15 kB` gzip); `VideoModal` (8.5 kB) and `ContactSection` (10.7 kB) lazy-loaded via `React.lazy` + `Suspense` (≈19 kB off the critical path). Adaptive performance system (device tier → `html[data-quality]` + reduced-motion CSS) verified intact.
+- **Accessibility:** state-aware localized `aria-label` on close/play/pause/mute controls and grade slider; `role="dialog"` + `aria-modal` on both modals; localized alt text on grade comparison images (5 new keys × 3 locales).
+- **Identity (Phase 13):** repository migrated to `HYDRA SAMO/HYDRA SAMO LABS/` (workspace `HYDRA SAMO`); git remote already `github.com/hydra-samo/HYDRA-SAMO-LABS`; `MOTION_DIFF_REPORT.md` reference synchronized; this Brand Book's repo-structure diagram updated.
+- **Untouched:** certified logo geometry, master SVGs, palette, typography, routes, `DESIGN.md`, `AGENTS.md`, governance docs, `RELEASE/` archive, `ASSETS/`.
+- **Validation:** `npm run lint` ✅, `npm run build` ✅, production-preview smoke test ✅ (all assets HTTP 200), responsive/asset audits clean.
+- **Status:** `REPOSITORY STATUS: OPTIMIZED` — approved for long-term maintenance and production deployment.
 
 ---
 
