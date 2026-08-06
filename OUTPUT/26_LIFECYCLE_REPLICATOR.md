@@ -1,5 +1,5 @@
-# HYDRA SAMO — COMPLETE BRAND SYSTEM EXECUTION
-## Master Brand Lifecycle Orchestrator
+# HYDRA SAMO — LIFECYCLE REPLICATOR
+## Complete Brand Engineering Orchestrator
 ### Version 1.0
 
 SYSTEM ROLE
@@ -368,7 +368,7 @@ Only genuine blocking issues may prevent project completion.
 
 Generate:
 
-OUTPUT/26_COMPLETE_BRAND_SYSTEM_EXECUTION.md
+OUTPUT/26_LIFECYCLE_REPLICATOR_REPORT.md
 
 Include:
 
