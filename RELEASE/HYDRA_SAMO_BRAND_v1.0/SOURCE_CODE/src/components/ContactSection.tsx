@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle2, X, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle2, X, AlertCircle, ChevronDown } from 'lucide-react';
 import { BriefFormData } from '../types';
 import { useLanguage } from '../i18n/LanguageContext';
 import { MagneticButton } from './MagneticButton';
@@ -41,6 +41,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+
+  // Esc closes the brief; tapping the backdrop closes it too (see the overlay
+  // onClick below). The panel itself stops propagation so taps inside never
+  // dismiss the window.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onCloseModal();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onCloseModal]);
 
   const buildPayload = () => ({
     ...formData,
@@ -89,8 +100,37 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
   const glassInput =
     'w-full bg-[#fffdf5]/60 dark:bg-white/5 border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl px-4 py-3.5 text-base text-[var(--text-main)] outline-none transition-all shadow-sm dark:shadow-none backdrop-blur-md placeholder:text-slate-400 dark:placeholder:text-white/30';
 
+  const glassSelect = cn(glassInput, 'appearance-none cursor-pointer pr-10');
+
   const fieldLabel =
     'block text-xs uppercase tracking-widest text-slate-600 dark:text-white/50 mb-2 font-medium';
+
+  /* Styled selection — a native select wrapped with a soft emerald chevron so
+     the package/budget/timeline pickers read as concept-blended controls
+     rather than bare browser dropdowns. */
+  const SelectField: React.FC<{
+    value: string;
+    onChange: (value: string) => void;
+    options: { value: string; label: string }[];
+  }> = ({ value, onChange, options }) => (
+    <div className="relative">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={glassSelect}
+      >
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+      <ChevronDown
+        size={16}
+        className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+      />
+    </div>
+  );
 
   const FormContent = (
     <div className="w-full">
@@ -127,16 +167,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
           {/* Scope — merged services as a single selection box */}
           <div>
             <label className={fieldLabel}>{t('contact.labelService')}</label>
-            <select
+            <SelectField
               value={formData.services[0]}
-              onChange={(e) => setFormData((prev) => ({ ...prev, services: [e.target.value] }))}
-              className={cn(glassInput, 'appearance-none cursor-pointer')}
-            >
-              <option value="video">{t('contact.service.video')}</option>
-              <option value="motion">{t('contact.service.motion')}</option>
-              <option value="voice">{t('contact.service.voice')}</option>
-              <option value="full">{t('contact.service.full')}</option>
-            </select>
+              onChange={(v) => setFormData((prev) => ({ ...prev, services: [v] }))}
+              options={[
+                { value: 'video', label: t('contact.service.video') },
+                { value: 'motion', label: t('contact.service.motion') },
+                { value: 'voice', label: t('contact.service.voice') },
+                { value: 'full', label: t('contact.service.full') },
+              ]}
+            />
           </div>
 
           {/* Contact — name/company merged into one field */}
@@ -170,30 +210,30 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label className={fieldLabel}>{t('contact.labelBudget')}</label>
-              <select
+              <SelectField
                 value={formData.budget}
-                onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                className={cn(glassInput, 'appearance-none cursor-pointer')}
-              >
-                <option value="< $1,000">{t('contact.budget.under1k')}</option>
-                <option value="$1,000 - $3,000">{t('contact.budget.1to3')}</option>
-                <option value="$3,000 - $7,000">{t('contact.budget.3to7')}</option>
-                <option value="$7,000+">{t('contact.budget.7plus')}</option>
-              </select>
+                onChange={(v) => setFormData({ ...formData, budget: v })}
+                options={[
+                  { value: '< $1,000', label: t('contact.budget.under1k') },
+                  { value: '$1,000 - $3,000', label: t('contact.budget.1to3') },
+                  { value: '$3,000 - $7,000', label: t('contact.budget.3to7') },
+                  { value: '$7,000+', label: t('contact.budget.7plus') },
+                ]}
+              />
             </div>
 
             <div>
               <label className={fieldLabel}>{t('contact.labelTimeline')}</label>
-              <select
+              <SelectField
                 value={formData.timeline}
-                onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                className={cn(glassInput, 'appearance-none cursor-pointer')}
-              >
-                <option value="ASAP (< 7 Days)">{t('contact.timeline.asap')}</option>
-                <option value="1-2 Weeks">{t('contact.timeline.1to2')}</option>
-                <option value="3-4 Weeks">{t('contact.timeline.3to4')}</option>
-                <option value="Flexible">{t('contact.timeline.flexible')}</option>
-              </select>
+                onChange={(v) => setFormData({ ...formData, timeline: v })}
+                options={[
+                  { value: 'ASAP (< 7 Days)', label: t('contact.timeline.asap') },
+                  { value: '1-2 Weeks', label: t('contact.timeline.1to2') },
+                  { value: '3-4 Weeks', label: t('contact.timeline.3to4') },
+                  { value: 'Flexible', label: t('contact.timeline.flexible') },
+                ]}
+              />
             </div>
           </div>
 
@@ -254,14 +294,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
   return (
     <div
       data-lenis-prevent
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-canvas)]/55 dark:bg-black/55 backdrop-blur-2xl overflow-y-auto"
+      onClick={onCloseModal}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-canvas)]/35 dark:bg-black/40 backdrop-blur-md overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-label={t('contact.headingLet')}
     >
       <div
         data-lenis-prevent
-        className="relative glass-modal rounded-[28px] p-6 sm:p-8 w-full max-w-2xl my-auto max-h-[92vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+        className="relative glass-modal glass-modal--blend rounded-[28px] p-6 sm:p-8 w-full max-w-2xl my-auto max-h-[92vh] overflow-y-auto"
       >
         <button
           onClick={onCloseModal}

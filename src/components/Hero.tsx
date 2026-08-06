@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { HydraLogo } from './HydraLogo';
 import { useCoarsePointer } from '../hooks/useCoarsePointer';
 import { useDeviceTier } from '../hooks/useDeviceTier';
 
@@ -52,17 +51,6 @@ export const Hero = React.memo(function Hero() {
         animate="show"
         className="max-w-3xl mx-auto w-full flex flex-col items-center"
       >
-        {/* Brand mark — standalone, larger, grows on hover/tap */}
-        <motion.div
-          variants={heroItem}
-          whileHover={reduceMotion ? undefined : { scale: 1.1 }}
-          whileTap={reduceMotion ? undefined : { scale: 0.94 }}
-          transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-          className="mb-8 group"
-        >
-          <HydraLogo className="h-16 w-16 sm:h-20 sm:w-20 text-accent/70 mx-auto hydra-mark-glow transition-all duration-300 group-hover:text-accent group-hover:drop-shadow-[0_0_26px_rgba(16,185,129,0.6)]" />
-        </motion.div>
-
         {/* Main Title */}
         <motion.h1
           variants={heroItem}

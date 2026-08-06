@@ -693,7 +693,7 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 | Surface | Component / Location | Implementation | Color |
 |---|---|---|---|
 | Navbar | `src/components/Navigation.tsx` | `HydraLogo` | Emerald `#10b981` via `text-accent` |
-| Hero | `src/components/Hero.tsx` | `HydraLogo` | Emerald `#10b981` |
+| Hero | `src/components/Hero.tsx` | Typography-led hero — **no standalone mark** on any device; the identity is anchored by the nav lockup and the loading/splash surfaces | — |
 | Footer | Footer (existing layout) | `HydraLogo` (or favicon raster fallback) | Muted emerald / white mono |
 | Loading | `src/components/LoadingSplash.tsx` | `HydraLogo` + wordmark + emerald progress bar | Emerald |
 | Splash | `src/components/PreSplashSelector.tsx` | `HydraLogo` selection tile | Emerald |
@@ -702,7 +702,7 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 | Manifest icons | `/manifest` icons | 192 + 512 px | Emerald fill |
 | Safari mask icon | `safari-pinned-tab.svg` | Monochrome silhouette | Black fill |
 | Dark mode | `html.dark` + `localStorage['hydra-theme']` | Emerald on Abyssal `#060c09` | Emerald |
-| Light mode | default canvas `#f8faf9` | Emerald on light canvas | Emerald (black mono in print) |
+| Light mode | warm ivory canvas `#f4f2ea` | Emerald on warm ivory (soft yellow eye-comfort cast) | Emerald (black mono in print) |
 
 ## 15.2 Navbar
 
@@ -714,10 +714,12 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 
 ## 15.3 Hero
 
-- Mark size display scale, 96–160 px rendered height.
-- Placement: optically centered relative to the headline, shared optical axis.
-- Motion: static by default; pulse permitted on loading only; rotation forbidden.
-- Reduced motion must freeze all mark animation.
+- Typography-led by design: the hero carries **no standalone mark** on any
+  device — the identity is anchored by the nav lockup above and the
+  loading/splash surfaces before it.
+- The headline is the hero's only focal element (display type, see 13.2).
+- Mark motion rules (pulse / rotation / reduced-motion) apply to the nav
+  lockup and loading surfaces instead.
 
 ## 15.4 Loading & Splash
 
@@ -770,7 +772,8 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 - `DISCIPLINES` IDs are strictly `'video' | 'motion' | 'voice'`.
 - Metadata handled client-side via `src/hooks/useOpenGraph.ts` pointing to `/hydra_logo.jpg`.
 - Contact form uses `VITE_FORM_ENDPOINT` / `VITE_FORM_ACCESS_KEY`; unconfigured warning state is kept.
-- UI glyphs come from `lucide-react` — stock components only (`Play`, `Pause`, `Volume2`, `VolumeX`, `Mic`, `MicOff`, `FileText`, `Film`, `Layers`, `X`, `Check`, `CheckCircle2`, `ArrowRight`); no hand-rolled SVG glyph sets.
+- The brief window **blends into the section content behind it** — a soft gradient-mask glass pane over a light backdrop tint (no flat modal look). It closes on **Esc**, on **tapping the backdrop**, or via the close button; the services package picker is a concept-blended styled select with an emerald chevron.
+- UI glyphs come from `lucide-react` — stock components only (`Play`, `Pause`, `Volume2`, `VolumeX`, `Mic`, `MicOff`, `FileText`, `Film`, `Layers`, `X`, `Check`, `CheckCircle2`, `ArrowRight`, `ChevronDown`); no hand-rolled SVG glyph sets.
 - `VoiceOverSection` renders a "coming soon" placeholder (no audio-player content), mirroring the `WorkGallery` empty-state pattern.
 
 ## 16.4 Device-Tier Performance Budget

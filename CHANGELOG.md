@@ -18,6 +18,8 @@ The mobile experience reached release maturity.
 
 ### Changed
 - **Light-mode eye comfort (all devices)** — warm ivory canvas with a soft yellow cast, warm-green ink, deepened emerald accent (`#059669`, WCAG AA on light), lichen-amber ambient under-glow.
+- **Hero is typography-led (all devices)** — the standalone brand mark was removed from the hero; the identity lives in the nav lockup and loading/splash surfaces only.
+- **Brief window blends into the page** — soft gradient-mask glass pane over a light backdrop tint; closes on Esc, backdrop tap, or the close button; package picker is a concept-blended styled select with an emerald chevron.
 - **Richer-but-optimized mobile motion** — 500ms slide-in with a soft overshoot settle + rising dock (transform/opacity only); low-tier trims to 320ms; reduced-motion disables.
 - **Switcher retune** — theme Sun/Moon crossfade to 300ms ease; compact language pills widened/tallered with tuned 300ms press feedback.
 - Dock Work label → **VE & MD** (video editing & motion design); Arabic reads **مونتاج & موشن**.
@@ -30,6 +32,7 @@ The mobile experience reached release maturity.
 ### Infrastructure
 - GitHub Release `v1.1.0` with mobile changelog + brand zip asset; post-release polish pushed to `main` and the release asset refreshed in place (no v1.1.1 tag).
 - Repo description, topics, and README refreshed; brand system docs intact in `RELEASE/`.
+- Brand Book (`DOCUMENTATION/HYDRA_SAMO_Brand_Book_v1.0.{pdf,html,md}`) re-synced — hero mark governance, light-mode canvas, and brief-window behavior now match the site.
 
 ## [v1.0.0] — Brand Release — 2026-08-05
 

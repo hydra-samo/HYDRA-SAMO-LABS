@@ -203,6 +203,50 @@
   }
 
   /*
+   * Brief window blend — the contact pane melts into the section content
+   * behind it instead of reading as a separate flat view: a soft gradient
+   * mask fades the top/bottom edges into the backdrop, and the backdrop tint
+   * is kept light so the section below stays visible through the glass.
+   */
+  .glass-modal--blend {
+    border-color: rgba(16, 185, 129, 0.14);
+    box-shadow:
+      0 24px 70px -32px rgba(5, 150, 105, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 28px,
+      #000 calc(100% - 28px),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 28px,
+      #000 calc(100% - 28px),
+      transparent 100%
+    );
+  }
+  .dark .glass-modal--blend {
+    border-color: rgba(16, 185, 129, 0.12);
+    box-shadow:
+      0 24px 80px -32px rgba(0, 0, 0, 0.65),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Concept-blended native dropdowns — the open option list matches the
+     canvas + ink so the package/budget/timeline pickers stay in the palette. */
+  .glass-modal select option {
+    background-color: var(--bg-canvas);
+    color: var(--text-main);
+  }
+  .glass-modal select option:checked {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /*
    * Emerald hover glow — lifted lift, border, and bloom. Border/shadow only,
    * so it never fights the Framer Motion transforms on the same element.
    */

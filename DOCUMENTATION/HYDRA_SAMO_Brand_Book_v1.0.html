@@ -1413,8 +1413,8 @@ JetBrains+Mono:wght@400;600
 <tr>
 <td>Hero</td>
 <td><code>src/components/Hero.tsx</code></td>
-<td><code>HydraLogo</code></td>
-<td>Emerald <code>#10b981</code></td>
+<td>Typography-led hero — <strong>no standalone mark</strong> on any device; the identity is anchored by the nav lockup and the loading/splash surfaces</td>
+<td>—</td>
 </tr>
 <tr>
 <td>Footer</td>
@@ -1466,8 +1466,8 @@ JetBrains+Mono:wght@400;600
 </tr>
 <tr>
 <td>Light mode</td>
-<td>default canvas <code>#f8faf9</code></td>
-<td>Emerald on light canvas</td>
+<td>warm ivory canvas <code>#f4f2ea</code></td>
+<td>Emerald on warm ivory (soft yellow eye-comfort cast)</td>
 <td>Emerald (black mono in print)</td>
 </tr>
 </tbody>
@@ -1482,10 +1482,9 @@ JetBrains+Mono:wght@400;600
 </ul>
 <h2 id="153-hero">15.3 Hero</h2>
 <ul>
-<li>Mark size display scale, 96–160 px rendered height.</li>
-<li>Placement: optically centered relative to the headline, shared optical axis.</li>
-<li>Motion: static by default; pulse permitted on loading only; rotation forbidden.</li>
-<li>Reduced motion must freeze all mark animation.</li>
+<li>Typography-led by design: the hero carries <strong>no standalone mark</strong> on any device — the identity is anchored by the nav lockup above and the loading/splash surfaces before it.</li>
+<li>The headline is the hero's only focal element (display type, see 13.2).</li>
+<li>Mark motion rules (pulse / rotation / reduced-motion) apply to the nav lockup and loading surfaces instead.</li>
 </ul>
 <h2 id="154-loading-amp-splash">15.4 Loading &amp; Splash</h2>
 <ul>
@@ -1575,7 +1574,8 @@ JetBrains+Mono:wght@400;600
 <li><code>DISCIPLINES</code> IDs are strictly <code>'video' | 'motion' | 'voice'</code>.</li>
 <li>Metadata handled client-side via <code>src/hooks/useOpenGraph.ts</code> pointing to <code>/hydra_logo.jpg</code>.</li>
 <li>Contact form uses <code>VITE_FORM_ENDPOINT</code> / <code>VITE_FORM_ACCESS_KEY</code>; unconfigured warning state is kept.</li>
-<li>UI glyphs come from <code>lucide-react</code> — stock components only (<code>Play</code>, <code>Pause</code>, <code>Volume2</code>, <code>VolumeX</code>, <code>Mic</code>, <code>MicOff</code>, <code>FileText</code>, <code>Film</code>, <code>Layers</code>, <code>X</code>, <code>Check</code>, <code>CheckCircle2</code>, <code>ArrowRight</code>); no hand-rolled SVG glyph sets.</li>
+<li>The brief window <strong>blends into the section content behind it</strong> — a soft gradient-mask glass pane over a light backdrop tint (no flat modal look). It closes on <strong>Esc</strong>, on <strong>tapping the backdrop</strong>, or via the close button; the services package picker is a concept-blended styled select with an emerald chevron.</li>
+<li>UI glyphs come from <code>lucide-react</code> — stock components only (<code>Play</code>, <code>Pause</code>, <code>Volume2</code>, <code>VolumeX</code>, <code>Mic</code>, <code>MicOff</code>, <code>FileText</code>, <code>Film</code>, <code>Layers</code>, <code>X</code>, <code>Check</code>, <code>CheckCircle2</code>, <code>ArrowRight</code>, <code>ChevronDown</code>); no hand-rolled SVG glyph sets.</li>
 <li><code>VoiceOverSection</code> renders a "coming soon" placeholder (no audio-player content), mirroring the <code>WorkGallery</code> empty-state pattern.</li>
 </ul>
 <h2 id="164-device-tier-performance-budget">16.4 Device-Tier Performance Budget</h2>
