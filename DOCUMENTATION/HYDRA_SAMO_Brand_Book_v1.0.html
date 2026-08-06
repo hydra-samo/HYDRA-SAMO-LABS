@@ -2308,6 +2308,7 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 ├── OUTPUT/                   # Complete documentation series (01–28) + BRAND_ASSET_PIPELINE.md
 ├── RELEASE/                  # HYDRA_SAMO_BRAND_v1.0/ + release archive
 ├── REVIEWS/                  # Review pipeline materials (orchestrator, plans, reviews)
+├── PROJECT_HISTORY/          # Legacy archive inventory (ARCHIVES/ is git-ignored)
 ├── DOCUMENTATION/            # This Brand Book (md/html/pdf + TOC) + certified PDFs
 ├── DESIGN.md                 # System design specification
 ├── AGENTS.md                 # Project + brand governance
@@ -3129,6 +3130,77 @@ export const HydraLogo: React.FC&lt;HydraLogoProps&gt; = ({
 <pre><code class="language-text">SHA-256 (public/hydra-mark.svg)
 f12de4fdd94c2dbd155b0c4a23c80cdbb6420bd394a601492ade20d23380c1fa
 </code></pre>
+<hr />
+<h1 id="37-project-history-legacy-archive">37. Project History &amp; Legacy Archive</h1>
+<h2 id="371-repository-history">37.1 Repository History</h2>
+<p>The HYDRA SAMO brand was not built in a single pass. Its development produced
+several generations of work — project builds, build prompts, pre-release
+screenshots, and first-generation visual assets — that predate the certified
+V4 identity and the current <code>HYDRA SAMO LABS</code> repository.</p>
+<p>These legacy artifacts are recovered, preserved, and organized inside the
+repository under <code>PROJECT_HISTORY/</code>, grouped by flag:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Meaning</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Project history</strong></td>
+<td>Outdated/legacy project builds (<code>hydra-samo-portfolio-fixed</code>, <code>hydra-samo-portfolio-audit-fixed</code>, stray governance notes)</td>
+<td><code>PROJECT_HISTORY/ARCHIVES/00_PROJECT_HISTORY/</code></td>
+</tr>
+<tr>
+<td><strong>1st concept</strong></td>
+<td>The original master build prompts and planning documents used to conceive the first version of the site</td>
+<td><code>PROJECT_HISTORY/ARCHIVES/01_1ST_CONCEPT/</code></td>
+</tr>
+<tr>
+<td><strong>Website preview</strong></td>
+<td>Pre-release full-page screenshots of the site (Apex captures)</td>
+<td><code>PROJECT_HISTORY/ARCHIVES/02_WEBSITE_PREVIEW/</code></td>
+</tr>
+<tr>
+<td><strong>Previous 1st assets</strong></td>
+<td>First-generation visual assets (ChatGPT-generated portrait concepts, <code>hydra_samo_portrait.png</code>) superseded by the certified V4 asset library</td>
+<td><code>PROJECT_HISTORY/ARCHIVES/03_PREVIOUS_1ST_ASSETS/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="372-governance">37.2 Governance</h2>
+<ul>
+<li>The archive is <strong>historical only</strong> — no archived file is part of the active source, build, configuration, or release pipeline.</li>
+<li>The archive is intentionally <strong>git-ignored</strong> (<code>.gitignore</code> → <code>PROJECT_HISTORY/ARCHIVES/</code>) to avoid committing large legacy binaries; it is kept on disk for traceability and audit.</li>
+<li>The full inventory — every archived file with size, source location, and date — is documented in <code>PROJECT_HISTORY/RELEASE_HISTORY_ASSETS.md</code>.</li>
+<li>Legacy names (<code>hydra-review</code>, <code>hydra-samo-portfolio-fixed</code>, <code>hydra-samo-portfolio-audit-fixed</code>) remain as historical records only and do not resolve anywhere in active code, configs, or build paths.</li>
+</ul>
+<h2 id="373-supersession">37.3 Supersession</h2>
+<p>The following first-generation assets were replaced by certified production assets and are preserved as history only:</p>
+<table>
+<thead>
+<tr>
+<th>Legacy asset</th>
+<th>Superseded by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hydra_samo_portrait.png</code> / ChatGPT portrait (12_45_56 AM)</td>
+<td><code>src/assets/images/hydra_samo.webp</code></td>
+</tr>
+<tr>
+<td>ChatGPT secondary concept (03_15_56 AM)</td>
+<td>Certified V4 asset library (<code>ASSETS/</code>)</td>
+</tr>
+<tr>
+<td>Legacy project builds</td>
+<td>Current <code>HYDRA SAMO LABS</code> repository</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h1 id="final-declaration">Final Declaration</h1>
 <h2 id="status-complete">STATUS: COMPLETE</h2>

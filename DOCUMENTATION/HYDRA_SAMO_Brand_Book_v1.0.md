@@ -1242,6 +1242,7 @@ HYDRA SAMO LABS/
 ├── OUTPUT/                   # Complete documentation series (01–28) + BRAND_ASSET_PIPELINE.md
 ├── RELEASE/                  # HYDRA_SAMO_BRAND_v1.0/ + release archive
 ├── REVIEWS/                  # Review pipeline materials (orchestrator, plans, reviews)
+├── PROJECT_HISTORY/          # Legacy archive inventory (ARCHIVES/ is git-ignored)
 ├── DOCUMENTATION/            # This Brand Book (md/html/pdf + TOC) + certified PDFs
 ├── DESIGN.md                 # System design specification
 ├── AGENTS.md                 # Project + brand governance
@@ -1640,6 +1641,51 @@ Post-validation: all seven critical + five minor findings closed by measured V4 
 SHA-256 (public/hydra-mark.svg)
 f12de4fdd94c2dbd155b0c4a23c80cdbb6420bd394a601492ade20d23380c1fa
 ```
+
+---
+
+# 37. Project History & Legacy Archive
+
+## 37.1 Repository History
+
+The HYDRA SAMO brand was not built in a single pass. Its development produced
+several generations of work — project builds, build prompts, pre-release
+screenshots, and first-generation visual assets — that predate the certified
+V4 identity and the current `HYDRA SAMO LABS` repository.
+
+These legacy artifacts are recovered, preserved, and organized inside the
+repository under `PROJECT_HISTORY/`, grouped by flag:
+
+| Flag | Meaning | Location |
+| --- | --- | --- |
+| **Project history** | Outdated/legacy project builds (`hydra-samo-portfolio-fixed`, `hydra-samo-portfolio-audit-fixed`, stray governance notes) | `PROJECT_HISTORY/ARCHIVES/00_PROJECT_HISTORY/` |
+| **1st concept** | The original master build prompts and planning documents used to conceive the first version of the site | `PROJECT_HISTORY/ARCHIVES/01_1ST_CONCEPT/` |
+| **Website preview** | Pre-release full-page screenshots of the site (Apex captures) | `PROJECT_HISTORY/ARCHIVES/02_WEBSITE_PREVIEW/` |
+| **Previous 1st assets** | First-generation visual assets (ChatGPT-generated portrait concepts, `hydra_samo_portrait.png`) superseded by the certified V4 asset library | `PROJECT_HISTORY/ARCHIVES/03_PREVIOUS_1ST_ASSETS/` |
+
+## 37.2 Governance
+
+- The archive is **historical only** — no archived file is part of the active
+  source, build, configuration, or release pipeline.
+- The archive is intentionally **git-ignored** (`.gitignore` →
+  `PROJECT_HISTORY/ARCHIVES/`) to avoid committing large legacy binaries; it is
+  kept on disk for traceability and audit.
+- The full inventory — every archived file with size, source location, and date —
+  is documented in `PROJECT_HISTORY/RELEASE_HISTORY_ASSETS.md`.
+- Legacy names (`hydra-review`, `hydra-samo-portfolio-fixed`,
+  `hydra-samo-portfolio-audit-fixed`) remain as historical records only and do
+  not resolve anywhere in active code, configs, or build paths.
+
+## 37.3 Supersession
+
+The following first-generation assets were replaced by certified production
+assets and are preserved as history only:
+
+| Legacy asset | Superseded by |
+| --- | --- |
+| `hydra_samo_portrait.png` / ChatGPT portrait (12_45_56 AM) | `src/assets/images/hydra_samo.webp` |
+| ChatGPT secondary concept (03_15_56 AM) | Certified V4 asset library (`ASSETS/`) |
+| Legacy project builds | Current `HYDRA SAMO LABS` repository |
 
 ---
 

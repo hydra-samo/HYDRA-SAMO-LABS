@@ -18,6 +18,10 @@ bun.lock
 # Temporary PDF text-extraction export — kept on disk, not tracked
 pdf-forge-exports/
 
+# Legacy project-history archive — large binaries kept on disk, not tracked.
+# The inventory is documented in PROJECT_HISTORY/RELEASE_HISTORY_ASSETS.md
+PROJECT_HISTORY/ARCHIVES/
+
 # Secrets & local config — NEVER commit real values
 .env
 .env.*
