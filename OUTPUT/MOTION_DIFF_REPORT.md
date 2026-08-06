@@ -2,8 +2,8 @@
 
 **Date:** 2026-08-04
 **Compared:**
-- `A` = `/home/hydrasamo/Downloads/hydra-samo-portfolio-fixed/hydra-review 1` (older snapshot)
-- `B` = `/home/hydrasamo/Downloads/HYDRA SAMO/HYDRA SAMO LABS` (**this repo, current**)
+- `A` = `PROJECT_HISTORY/ARCHIVES/00_PROJECT_HISTORY/hydra-samo-portfolio-fixed/hydra-review 1` (older snapshot, archived)
+- `B` = `/home/hydrasamo/Projects HYDRA/HYDRA SAMO LABS` (**this repo, current**)
 
 ---
 

@@ -161,7 +161,7 @@ The official repository identity is now in force:
 | --- | --- |
 | Workspace name | **HYDRA SAMO** |
 | Repository name | **HYDRA SAMO LABS** |
-| Canonical path | `~/Downloads/HYDRA SAMO/HYDRA SAMO LABS/` |
+| Canonical path | `~/Projects HYDRA/HYDRA SAMO LABS/` |
 | Git remote | `https://github.com/hydra-samo/HYDRA-SAMO-LABS.git` (unchanged) |
 
 Migration executed safely (Linux-safe `mv`, git + node_modules + all assets intact):
