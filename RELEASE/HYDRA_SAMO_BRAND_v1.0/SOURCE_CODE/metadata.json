@@ -1,0 +1,16 @@
+{
+  "name": "HYDRA SAMO Portfolio",
+  "description": "Official editorial dark-mode portfolio for Bendali Issam Eddine (Hydra Samo) showcasing video editing, motion graphics, and voice-over artistry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [],
+  "openGraph": {
+    "title": "HYDRA SAMO — Bendali Issam Eddine | Solo Creative Architecture",
+    "description": "High-end video editing, 3D motion graphics, and professional voice-over narration by Bendali Issam Eddine (Hydra Samo).",
+    "type": "website",
+    "image": "/hydra_logo.jpg",
+    "siteName": "HYDRA SAMO",
+    "locale": "en_US",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@hydrasamo"
+  }
+}

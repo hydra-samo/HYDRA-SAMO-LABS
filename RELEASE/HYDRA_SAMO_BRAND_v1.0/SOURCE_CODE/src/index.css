@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+/* Class-based dark mode driven by the `dark` class on <html> (App.tsx toggles it) */
+/* stylelint-disable-next-line at-rule-no-unknown */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Brand accent — Mythic Emerald / Toxic Jade */
+  --color-accent: #10b981;
+  --color-accent-soft: #34d399;
+  --color-accent-dark: #059669;
+
+  /* Editorial type stack — wired from Google Fonts in index.html
+     Space Grotesk 700 → wordmark / hero · 600 → primary titles · 500 → secondary
+     Manrope 400 → EN/FR body · 500 → UI labels · 600 → buttons
+     IBM Plex Sans Arabic → Arabic (lang-ar overrides below)
+     JetBrains Mono 400 → code, timestamps, technical meta only */
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+}
+
+@layer base {
+  :root {
+    /* Light Mode (Clean Editorial Minimal) */
+    color-scheme: light;
+    --bg-canvas: #f8faf9;
+    --text-main: #0f1715;
+    --text-muted: #475569;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --border-color: rgba(16, 185, 129, 0.2);
+
+    /* Ambient background palettes (light) */
+    --blob-moss: rgba(16, 185, 129, 0.26);
+    --blob-jade: rgba(5, 150, 105, 0.2);
+    --blob-lichen: rgba(52, 211, 153, 0.16);
+    --spot-glow: rgba(16, 185, 129, 0.14);
+  }
+
+  html.dark {
+    /* Dark Mode (Mythic Abyssal Emerald) */
+    color-scheme: dark;
+    --bg-canvas: #060c09;
+    --text-main: #f3f4f6;
+    --text-muted: #94a3b8;
+    --card-bg: rgba(18, 21, 30, 0.6);
+    --border-color: rgba(16, 185, 129, 0.25);
+
+    /* Ambient background palettes (dark) */
+    --blob-moss: rgba(16, 185, 129, 0.38);
+    --blob-jade: rgba(5, 150, 105, 0.3);
+    --blob-lichen: rgba(52, 211, 153, 0.22);
+    --spot-glow: rgba(16, 185, 129, 0.18);
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /*
+   * Theme switch — cohesive color crossfade across every section.
+   *
+   * App.tsx drops `.theme-transition` on <html> for the ~450 ms of a theme
+   * toggle and removes it afterwards. While present, the color-bearing
+   * properties on EVERY element are promoted to a single shared transition,
+   * so the whole page — glass cards, borders, text, shadows, logos — crosses
+   * over together instead of popping at different moments. Custom properties
+   * themselves never transition; this makes their consumers do.
+   *
+   * Deliberately excluded: transform / opacity / filter / backdrop-filter
+   * (Framer Motion's domain) and gradients (not cheaply animatable). The
+   * switch is therefore a paint-only crossfade with zero compositing cost.
+   *
+   * `!important` is required so the shared list also governs elements that
+   * carry Tailwind transition utilities (and any inline transition styles).
+   * Reduced-motion users get an instant switch; low-tier devices get a fast
+   * 160 ms fade (minimal animation per the rendering budget).
+   */
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition-property: background-color, color, border-color, fill, stroke,
+      box-shadow, text-decoration-color !important;
+    transition-duration: 350ms !important;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transition-delay: 0s !important;
+  }
+
+  html[data-quality='low'].theme-transition,
+  html[data-quality='low'].theme-transition *,
+  html[data-quality='low'].theme-transition *::before,
+  html[data-quality='low'].theme-transition *::after {
+    transition-duration: 160ms !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.theme-transition,
+    html.theme-transition *,
+    html.theme-transition *::before,
+    html.theme-transition *::after {
+      transition-duration: 0ms !important;
+    }
+  }
+
+  html.lang-ar {
+    /* Clean, legible Arabic everywhere — overrides every Tailwind font stack
+       (sans/display/mono) so mono labels and display headings never fall back
+       to an unstyled system Arabic font. */
+    font-family: 'IBM Plex Sans Arabic', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'IBM Plex Sans Arabic', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'IBM Plex Sans Arabic', 'Space Grotesk', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-arabic: 'IBM Plex Sans Arabic', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'IBM Plex Sans Arabic', 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+@layer components {
+  /*
+   * Ambient background — living organic backdrop. Restored: the drifting
+   * blur-blobs, cursor spotlight, and their keyframes were stripped during
+   * the token standardization pass, which flattened AmbientBackground.tsx.
+   */
+  .ambient-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    opacity: 0.55;
+    will-change: transform;
+    animation: ambient-drift 20s ease-in-out infinite alternate;
+    transform: translateZ(0);
+  }
+  .ambient-blob--a { animation-duration: 24s; }
+  .ambient-blob--b { animation-duration: 30s; animation-delay: -8s; }
+  .ambient-blob--c { animation-duration: 36s; animation-delay: -16s; }
+
+  /* Low-frequency cursor spotlight — dampened by the springs in the hook */
+  .cursor-spotlight {
+    pointer-events: none;
+    filter: blur(70px);
+    opacity: 0.5;
+  }
+
+  /*
+   * Dark obsidian glass surface — restores the backdrop blur, fine white
+   * hairline border and soft elevation that the theme-token pass flattened.
+   */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(16, 185, 129, 0.22);
+    box-shadow: 0 20px 45px -24px rgba(15, 23, 42, 0.32);
+  }
+  .dark .glass-card {
+    background: rgba(11, 20, 16, 0.55);
+    border-color: rgba(16, 185, 129, 0.12);
+    box-shadow: 0 24px 60px -28px rgba(16, 185, 129, 0.25);
+  }
+
+  /*
+   * Emerald hover glow — lifted lift, border, and bloom. Border/shadow only,
+   * so it never fights the Framer Motion transforms on the same element.
+   */
+  .glass-hover {
+    transition: border-color 300ms ease-out, box-shadow 300ms ease-out;
+  }
+  .glass-hover:hover {
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+  }
+
+  /*
+   * Hydra mark — the logo itself stays a pure vector (no inline lighting or
+   * decoration). All glow and pulse live here, in the CSS layer,
+   * so the raw geometry remains crisp and color-agnostic. Glow follows the
+   * mark's currentColor so it adapts to any recolor (emerald, white, etc.).
+   */
+  .hydra-mark-glow {
+    filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 16px currentColor);
+  }
+  .hydra-mark {
+    color: currentColor;
+  }
+  .hydra-mark-pulse {
+    animation: hydra-pulse 3.2s ease-in-out infinite;
+  }
+}
+
+@keyframes ambient-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(6vw, -4vh, 0) scale(1.12); }
+  100% { transform: translate3d(-5vw, 5vh, 0) scale(0.94); }
+}
+
+@keyframes hydra-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.9); }
+}
+
+/* ---------------------------------------------------------------------------
+ * Touch-first & mobile performance
+ * ------------------------------------------------------------------------- */
+
+/* Coarse pointers (phones & tablets): the cursor spotlight is meaningless and
+   hover-only states do not exist, so hide the spotlight and keep blobs quiet. */
+@media (pointer: coarse) {
+  .cursor-spotlight {
+    display: none;
+  }
+  .ambient-blob {
+    opacity: 0.4;
+  }
+}
+
+/* Small screens: a lighter blur keeps the drifting backdrop cheap on mobile
+   GPUs while the scroll-driven gradient carries the motion instead. */
+@media (max-width: 640px) {
+  .ambient-blob {
+    filter: blur(60px);
+  }
+
+  /* The single biggest mobile GPU cost is stacking many 16px backdrop filters
+     across every glass-card at once — soften the surface on phones while the
+     hairline border + shadow keep the frosted look. */
+  .glass-card {
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
+}
+
+/* Respect reduced-motion: freeze the ambient drift entirely. */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-blob {
+    animation: none;
+  }
+  .hydra-mark-pulse {
+    animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Device-tier rendering budget — html[data-quality] is set once by the
+ * useDeviceTier hook. Low-tier devices (weak phones) get a static backdrop
+ * with no backdrop-filter compositing; medium gets a lighter glass blur with
+ * the blobs frozen. Everything here is a one-time style — no per-frame cost.
+ * ------------------------------------------------------------------------- */
+html[data-quality='low'] .ambient-blob,
+html[data-quality='medium'] .ambient-blob {
+  animation: none;
+}
+
+html[data-quality='low'] .cursor-spotlight {
+  display: none;
+}
+
+html[data-quality='low'] .glass-card {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html[data-quality='medium'] .glass-card {
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+/* Native anchor fallback for low-tier devices (Lenis is skipped there) —
+   clears the floating nav when the browser jumps to #work/#voice/#process/#about. */
+[id] {
+  scroll-margin-top: 96px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Arabic (RTL) readability
+ * ------------------------------------------------------------------------- */
+
+/* Arabic script reads smaller than Latin at the same px size and breaks apart
+   under wide letter-spacing, so scale type up and neutralize tracking that was
+   tuned for uppercase Latin. `!important` is deliberate: it must beat both the
+   Tailwind utility classes and the framer-motion inline letterSpacing values. */
+html.lang-ar * {
+  letter-spacing: 0 !important;
+}
+
+/* Arabic glyphs have taller ascenders/descenders — give headings breathing room
+   instead of the tight Latin leading. */
+html.lang-ar h1,
+html.lang-ar h2,
+html.lang-ar h3,
+html.lang-ar h4 {
+  line-height: 1.3 !important;
+}
+
+/* Roughly +30% vs the Latin equivalents so Arabic reads clearly everywhere. */
+html.lang-ar .text-xs { font-size: 15px; }
+html.lang-ar .text-sm { font-size: 17px; }
+html.lang-ar .text-base { font-size: 20px; }
+html.lang-ar .text-lg { font-size: 22px; }
+html.lang-ar .text-xl { font-size: 24px; }
+html.lang-ar .text-2xl { font-size: 30px; }
+html.lang-ar .text-3xl { font-size: 36px; }
+html.lang-ar .text-4xl { font-size: 44px; }
+html.lang-ar .text-5xl { font-size: 60px; }
+html.lang-ar .text-6xl { font-size: 72px; }
+html.lang-ar .text-7xl { font-size: 88px; }

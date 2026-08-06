@@ -19,7 +19,7 @@ Release of the certified Hydra Samo brand identity (mark V4).
 | `MASTER/hydra-mark_v4_master.svg` | `f12de4fdd94c2dbd155b0c4a23c80cdbb6420bd394a601492ade20d23380c1fa` |
 | `MASTER/hydra-mark_v4_master.svg` vs site | byte-identical to `public/hydra-mark.svg` |
 
-## Complete Asset Inventory (158 files, 13 folders)
+## Complete Asset Inventory (221 files, 15 folders)
 
 | Folder | Count | Description |
 | --- | --- | --- |
@@ -34,6 +34,7 @@ Release of the certified Hydra Samo brand identity (mark V4).
 | `APP/` | 30 | Android, iOS, Windows, macOS, Linux, PWA, Electron, Chrome, Firefox, Safari + README |
 | `SOURCE/` | 11 | construction/spacing/palette sheets, editable SVGs, geometry/export specs, version metadata + README |
 | `DEVELOPMENT/` | 7 | HydraLogo.tsx, cn helper, tokens, usage examples, dev README, a11y notes |
+| `SOURCE_CODE/` | 38 | Full website source: `src/` (components/hooks/data/i18n), `public/`, `index.html`, `package.json`, `package-lock.json`, `vite.config.ts`, `tsconfig.json`, `metadata.json`, `.env.example`, repo README + SOURCE_CODE README |
 | `DOCUMENTATION/` | 17 | DESIGN.md, AGENTS.md, pipeline docs, freeze/certification/governance docs |
 | `REPORTS/` | 4 | 20/21/22 production reports + review package PDF |
 | Root | `README.md`, `ASSET_MANIFEST.md`, `LICENSE/usage-terms.md` | |

@@ -24,6 +24,7 @@ HYDRA_SAMO_BRAND_v1.0/
   APP/           platform icon packages
   SOURCE/        designer construction/geometry/color sheets
   DEVELOPMENT/   React component + tokens + usage examples
+  SOURCE_CODE/   full website source (src/, public/, build configs) — see its README
   DOCUMENTATION/ governance, freeze, certification, pipeline docs
   REPORTS/       production / QA / completion reports
   LICENSE/       usage terms (informational)
@@ -35,6 +36,9 @@ HYDRA_SAMO_BRAND_v1.0/
 
 - **Web**: `DEVELOPMENT/HydraLogo.tsx` (site component) + `WEB/` assets. Glow is
   external CSS (`.hydra-mark-glow`), never baked into SVG.
+- **Full site**: `SOURCE_CODE/` ships the complete React + Vite + Tailwind v4
+  source. `npm ci && npm run dev` (port 3000) or `npm run build`. See
+  `SOURCE_CODE/README.md`.
 - **Favicons / app icons**: use the platform folders; transparent versions have
   alpha, tile versions are full-bleed abyssal `#060c09`.
 - **Print**: always start from `PRINT/hydra-mark_v4_print.svg` (or .pdf/.eps);
