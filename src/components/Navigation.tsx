@@ -79,8 +79,9 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ lang, onSelect, lab
           onClick={() => onSelect(code)}
           className={cn(
             'px-2.5 py-1.5 min-h-[36px] rounded-full text-xs font-semibold uppercase tracking-widest transition-all',
+            compact && 'px-1.5 sm:px-2.5 py-1 min-h-[32px] text-[10px] sm:text-xs',
             lang === code
-              ? 'bg-accent text-black shadow-sm'
+              ? 'bg-accent text-white dark:text-black shadow-sm'
               : 'text-slate-500 dark:text-white/50 hover:text-slate-800 dark:hover:text-white'
           )}
           aria-pressed={lang === code}
@@ -114,31 +115,21 @@ export const Navigation: React.FC<NavigationProps> = ({
 
   if (compact) {
     return (
-      <nav className="relative z-20 px-4 sm:px-6 pt-[calc(env(safe-area-inset-top,0px)+0.75rem)]">
-        <div className="flex items-center justify-between gap-2 bg-[var(--card-bg)]/90 backdrop-blur-xl border border-[var(--border-color)] rounded-full px-3 sm:px-4 py-2 shadow-md dark:shadow-none transition-colors duration-300">
-          {/* Brand lockup — mark with the wordmark beside it on sm+, mark only below */}
-          <a href="#" className="flex items-center gap-2 group py-0.5" aria-label="Hydra Samo — Home">
-            <span className="flex items-center gap-2.5 min-h-[44px]">
-              <HydraLogo className="h-7 w-7 sm:h-8 sm:w-8 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
-              <span className="hidden sm:inline font-display font-bold tracking-[-0.02em] text-xs md:text-[15px] uppercase text-[var(--text-main)] group-hover:text-accent transition-colors">
-                HYDRA SAMO
-              </span>
-            </span>
-          </a>
-
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* Dark / Light Mode Toggle */}
+      <nav className="relative z-20 px-3 sm:px-6 pt-[calc(env(safe-area-inset-top,0px)+0.75rem)]">
+        <div className="relative flex items-center justify-between gap-2 bg-[var(--card-bg)]/90 backdrop-blur-xl border border-[var(--border-color)] rounded-full px-3 sm:px-4 py-2 shadow-md dark:shadow-none transition-colors duration-300">
+          {/* Left — theme + language switchers */}
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
             <motion.button
               whileTap={{ scale: 0.92 }}
               onClick={onToggleTheme}
-              className="relative p-2.5 min-w-[44px] min-h-[44px] rounded-full border border-slate-200 dark:border-white/15 bg-slate-100/90 dark:bg-white/5 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all flex items-center justify-center shadow-sm dark:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card-bg)]"
+              className="relative p-2.5 min-w-[40px] min-h-[44px] rounded-full border border-slate-200 dark:border-white/15 bg-slate-100/90 dark:bg-white/5 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all flex items-center justify-center shadow-sm dark:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card-bg)]"
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
               {theme === 'dark' ? (
-                <Sun size={18} className="text-accent" />
+                <Sun size={17} className="text-accent" />
               ) : (
-                <Moon size={18} className="text-slate-800" />
+                <Moon size={17} className="text-slate-800" />
               )}
             </motion.button>
 
@@ -148,15 +139,29 @@ export const Navigation: React.FC<NavigationProps> = ({
               label={t('lang.selectAria')}
               compact
             />
-
-            {/* Start Project */}
-            <button
-              onClick={onOpenBrief}
-              className="flex items-center gap-1 px-3 sm:px-4 py-2.5 min-h-[44px] rounded-full bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 text-xs font-semibold uppercase tracking-wider transition-all transform hover:scale-105 active:scale-95"
-            >
-              <span>{t('btn.startProject')}</span> <ArrowUpRight size={14} />
-            </button>
           </div>
+
+          {/* Center — vertically stacked brand lockup, dead-center of the bar.
+              The wordmark tucks in on very narrow screens (<380px) so the mark
+              never collides with the left/right zones. */}
+          <a
+            href="#"
+            aria-label="Hydra Samo — Home"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-0.5 group"
+          >
+            <HydraLogo className="h-6 w-6 sm:h-7 sm:w-7 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
+            <span className="hidden min-[380px]:inline font-display font-bold tracking-[0.22em] text-[9px] uppercase text-[var(--text-main)] group-hover:text-accent transition-colors whitespace-nowrap">
+              HYDRA SAMO
+            </span>
+          </a>
+
+          {/* Right — Start Project */}
+          <button
+            onClick={onOpenBrief}
+            className="flex items-center gap-1 px-3 sm:px-4 py-2.5 min-h-[44px] rounded-full bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 text-xs font-semibold uppercase tracking-wider transition-all transform hover:scale-105 active:scale-95"
+          >
+            <span>{t('btn.startProject')}</span> <ArrowUpRight size={14} />
+          </button>
         </div>
       </nav>
     );

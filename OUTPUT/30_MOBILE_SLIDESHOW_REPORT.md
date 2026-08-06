@@ -83,3 +83,110 @@ Bundle growth vs previous pass is +2.6 kB raw main JS (+0.6 kB gzip) — the cos
 - Changed files mirrored into `RELEASE/HYDRA_SAMO_BRAND_v1.0/SOURCE_CODE/` (see git commit).
 - `RELEASE/HYDRA_SAMO_BRAND_v1.0.zip` regenerated to include `MobileDock.tsx`.
 - Committed and pushed to `origin/main` (deploy workflow auto-runs).
+
+---
+
+# Addendum — v1.1 (Mobile Section Polish + Comfort Pass)
+
+Second mobile-section update, executed on top of the v1.0 slideshow.
+
+| Field | Value |
+| --- | --- |
+| Status | **SHIPPED — v1.1** |
+| Orchestrator | Same `OUTPUT/30_MOBILE_SLIDESHOW.md` (constraints re-applied: desktop intact, no rewrites, brand governance, no forbidden tropes, lucide-only, release sync) |
+| Scope | Light-mode eye comfort (all devices), compact-nav lockup centering (mobile), dock `VE & MD` label (mobile), glassmorphic minimal brief (all devices) |
+
+## 1. Light Mode Eye Comfort — all devices
+
+The light palette was tuned for reading comfort without touching brand identity
+(all values stay inside the approved Mythic Emerald family):
+
+- **Warm sage canvas** `--bg-canvas: #f1f4f1` (was stark `#f8faf9`) — kills the
+  pure-white glare.
+- **Deep soft-green ink** `--text-main: #16201b` (was near-black `#0f1715`),
+  muted text warmed to `#56635c` — softer, warmer contrast.
+- **Deepened emerald accent** `--color-accent: #059669` in light mode (dark
+  mode keeps `#10b981`) — text/icons now clear the WCAG AA bar on light
+  surfaces. Light selection ink flips to white for legibility.
+- **Quieter ambient bloom** — light blob alphas dropped ~40%
+  (`0.16/0.12/0.09/0.07`), glass-card surface softened
+  (`rgba(251,253,252,0.7)`) and shadow weight reduced.
+- Implemented purely via the CSS custom-property layer in `src/index.css` —
+  no component touched, so every device and every theme toggle picks it up.
+
+## 2. Compact Nav Lockup — mobile only
+
+The compact top bar in the home slide now reads: **switchers left, brand dead
+center, Start Project right**.
+
+- The lockup (Hydra mark stacked over the `HYDRA SAMO` wordmark) is
+  `absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2` — vertically
+  centered in the bar.
+- Left zone: theme toggle + compact language switcher (tighter pills —
+  `min-h-[32px]`, `text-[10px]`, `px-1.5`).
+- Right zone: Start Project button unchanged.
+- The wordmark tucks away below `380px` (`min-[380px]:inline`) so the centered
+  mark never collides with the side zones on very narrow screens; the frozen
+  V4 mark itself is never cropped or rescaled.
+- Desktop nav untouched (still `hidden md:block` from v1.0).
+
+## 3. Dock Label — `VE & MD` (mobile only)
+
+The dock's Work item now reads **VE & MD** (video editing & motion design) in
+EN/FR and **مونتاج & موشن** in Arabic. Implemented via a new `nav.workShort`
+key used only by `MobileDock`; the desktop nav still uses `nav.work`, so the
+desktop flow is unchanged. Bonus a11y fix: the dock landmark's `aria-label` no
+longer reuses the language-switcher label (`lang.selectAria`) — it now reads
+`nav.dockAria` ("Primary" / "Navigation principale" / "التنقل الرئيسي").
+
+## 4. Glassmorphic Minimal Brief — all devices
+
+`ContactSection` was reworked from a heavy dark overlay + card grid into a
+single frosted pane blended into the page:
+
+- **Glass surface** — new `.glass-modal` class (`src/index.css`): translucent
+  gradient pane, `backdrop-blur(28px) saturate(140%)`, hairline light border,
+  soft emerald ambient glow. The backdrop overlay is now
+  `bg-[var(--bg-canvas)]/55 dark:bg-black/55 backdrop-blur-2xl`, so the site
+  bleeds through instead of being blacked out.
+- **Minimal form — sections merged into each other:**
+  - The four service **cards collapsed into a single selection box**
+    (`<select>`, stored as a 1-element `services` array so the type/payload
+    contract is unchanged).
+  - **Name + Company merged into one field** ("Name / Company"), trimming the
+    contact row from three inputs to two.
+  - Budget + Timeline share a single row; only scope, contact, plan and brief
+    remain — six inputs total.
+- Submit flow, Web3Forms/Formspree wiring and the unconfigured-warning state
+  are byte-for-byte unchanged.
+
+## Files Changed (v1.1)
+
+| File | Change |
+| --- | --- |
+| `src/index.css` | Light-mode comfort palette, `.glass-modal`, light selection ink, softer glass-card |
+| `src/components/Navigation.tsx` | Compact bar: centered stacked lockup, switchers left, Start Project right, tighter lang pills |
+| `src/components/MobileDock.tsx` | `nav.workShort` label + `nav.dockAria` landmark label |
+| `src/components/ContactSection.tsx` | Glassmorphic minimal brief (service select, merged name/company) |
+| `src/i18n/translations.ts` | `nav.workShort`, `nav.dockAria`, `contact.labelService`, `contact.labelNameCompany`, `contact.phNameCompany` × en/fr/ar |
+| `index.html` | Brand favicon set (16/32 png, apple-touch-icon) + `site.webmanifest` |
+| `public/` | `favicon-16/32.png`, `apple-touch-icon.png`, `android-chrome-192/512.png`, `site.webmanifest` |
+
+## Validation (v1.1)
+
+| Check | Result |
+| --- | --- |
+| `npm run lint` (`tsc --noEmit`) | Clean |
+| `npm run build` | Clean, 2103 modules; main JS 477.04 kB (gzip 151.43) |
+| CSS `index-*.css` | 74.60 kB (gzip 12.30); `@media(min-width:48rem)` + `.mobile-slide` inert reset present |
+| Light-mode overrides | `#059669`/`#f1f4f1` present after `@theme` in built CSS; `html.dark` restores `#10b981` |
+| Contact chunk | Lazy `ContactSection-*.js` 8.30 kB (gzip 2.78) |
+
+## Release Sync (v1.1)
+
+- Changed files mirrored into `RELEASE/HYDRA_SAMO_BRAND_v1.0/SOURCE_CODE/`.
+- `RELEASE/HYDRA_SAMO_BRAND_v1.0.zip` regenerated.
+- GitHub Release **v1.1.0 — Mobile Section** created with the mobile changelog;
+  repo description/topics updated; README + `CHANGELOG.md` refreshed; brand
+  favicon set shipped in the site.
+

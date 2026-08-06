@@ -22,7 +22,7 @@ export const MobileDock: React.FC<MobileDockProps> = ({ active, onSelect }) => {
 
   const items: { key: SlideKey; label: string; icon: React.ReactNode }[] = [
     { key: 'home', label: t('nav.home'), icon: <Home size={20} /> },
-    { key: 'work', label: t('nav.work'), icon: <Film size={20} /> },
+    { key: 'work', label: t('nav.workShort'), icon: <Film size={20} /> },
     { key: 'voice', label: t('nav.voice'), icon: <Mic size={20} /> },
     { key: 'process', label: t('nav.process'), icon: <Layers size={20} /> },
     { key: 'about', label: t('nav.origin'), icon: <User size={20} /> },
@@ -31,7 +31,7 @@ export const MobileDock: React.FC<MobileDockProps> = ({ active, onSelect }) => {
   return (
     <nav
       className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-[calc(0.6rem+env(safe-area-inset-bottom,0px))] px-3 pointer-events-none"
-      aria-label={t('lang.selectAria')}
+      aria-label={t('nav.dockAria')}
     >
       <div className="pointer-events-auto flex items-center gap-0.5 rounded-full bg-[var(--card-bg)]/90 border border-[var(--border-color)] px-1.5 py-1.5 backdrop-blur-xl shadow-[0_18px_40px_-18px_rgba(0,0,0,0.5)] dark:shadow-none transition-colors duration-300">
         {items.map((item) => {

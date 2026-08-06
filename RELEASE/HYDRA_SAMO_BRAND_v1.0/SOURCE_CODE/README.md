@@ -32,6 +32,12 @@ npm run lint    # tsc --noEmit (must stay clean)
   `App.tsx` + `localStorage['hydra-theme']`. Theme switches animate via the
   `.theme-transition` sentinel in `src/index.css` (350 ms paint-only crossfade;
   160 ms on low-tier devices; instant under `prefers-reduced-motion`).
+- **Mobile (< md)**: slideshow navigation — `MobileDock.tsx` bottom dock
+  crossfades full-viewport `.mobile-slide` sections (inert at `48rem+`);
+  `Navigation.tsx` `compact` bar centers the lockup with switchers left;
+  Lenis is skipped below `md`.
+- **Brief screen**: `ContactSection.tsx` renders as a glassmorphic `.glass-modal`
+  pane (service selection box + merged name/company).
 - **i18n**: `src/i18n/` — EN/FR/AR, RTL handled on `<html>`.
 - **Metadata**: client-side Open Graph via `src/hooks/useOpenGraph.ts`
   (`/hydra_logo.jpg`).

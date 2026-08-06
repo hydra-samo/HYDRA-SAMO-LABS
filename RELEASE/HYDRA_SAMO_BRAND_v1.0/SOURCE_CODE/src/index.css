@@ -24,19 +24,24 @@
 
 @layer base {
   :root {
-    /* Light Mode (Clean Editorial Minimal) */
+    /* Light Mode (Soft Editorial Comfort) — eye-friendly: warm sage canvas,
+       deep soft-green ink, translucent cards, calmer ambient bloom, and the
+       emerald accent deepened to its approved dark end (#059669) so text and
+       icons clear the WCAG AA contrast bar on light surfaces. */
     color-scheme: light;
-    --bg-canvas: #f8faf9;
-    --text-main: #0f1715;
-    --text-muted: #475569;
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --border-color: rgba(16, 185, 129, 0.2);
+    --bg-canvas: #f1f4f1;
+    --text-main: #16201b;
+    --text-muted: #56635c;
+    --card-bg: rgba(255, 255, 255, 0.66);
+    --border-color: rgba(16, 185, 129, 0.18);
+    --color-accent: #059669;
+    --color-accent-soft: #10b981;
 
-    /* Ambient background palettes (light) */
-    --blob-moss: rgba(16, 185, 129, 0.26);
-    --blob-jade: rgba(5, 150, 105, 0.2);
-    --blob-lichen: rgba(52, 211, 153, 0.16);
-    --spot-glow: rgba(16, 185, 129, 0.14);
+    /* Ambient background palettes (light, quieted for comfort) */
+    --blob-moss: rgba(16, 185, 129, 0.16);
+    --blob-jade: rgba(5, 150, 105, 0.12);
+    --blob-lichen: rgba(52, 211, 153, 0.09);
+    --spot-glow: rgba(16, 185, 129, 0.07);
   }
 
   html.dark {
@@ -47,6 +52,8 @@
     --text-muted: #94a3b8;
     --card-bg: rgba(18, 21, 30, 0.6);
     --border-color: rgba(16, 185, 129, 0.25);
+    --color-accent: #10b981;
+    --color-accent-soft: #34d399;
 
     /* Ambient background palettes (dark) */
     --blob-moss: rgba(16, 185, 129, 0.38);
@@ -59,6 +66,14 @@
     background-color: var(--bg-canvas);
     color: var(--text-main);
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Light mode: the deepened emerald selection needs white ink to stay legible
+     (the App container pairs `selection:bg-accent` with black text, tuned for
+     the bright #10b981 — the comfortable #059669 reads better with white). */
+  .light ::selection {
+    color: #fff;
+    background-color: var(--color-accent);
   }
 
   /*
@@ -150,16 +165,39 @@
    * hairline border and soft elevation that the theme-token pass flattened.
    */
   .glass-card {
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(251, 253, 252, 0.7);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(16, 185, 129, 0.22);
-    box-shadow: 0 20px 45px -24px rgba(15, 23, 42, 0.32);
+    border: 1px solid rgba(16, 185, 129, 0.16);
+    box-shadow: 0 16px 40px -22px rgba(15, 23, 42, 0.18);
   }
   .dark .glass-card {
     background: rgba(11, 20, 16, 0.55);
     border-color: rgba(16, 185, 129, 0.12);
     box-shadow: 0 24px 60px -28px rgba(16, 185, 129, 0.25);
+  }
+
+  /*
+   * Glassmorphic modal surface — the brief screen blends into the page
+   * behind it instead of reading as a flat card: a translucent frosted pane
+   * with a heavy backdrop blur, hairline light border and a soft emerald
+   * ambient glow. Used by ContactSection.
+   */
+  .glass-modal {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(247, 250, 248, 0.7));
+    backdrop-filter: blur(28px) saturate(140%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow:
+      0 30px 80px -30px rgba(5, 150, 105, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  }
+  .dark .glass-modal {
+    background: linear-gradient(180deg, rgba(15, 23, 20, 0.82), rgba(9, 15, 12, 0.72));
+    border: 1px solid rgba(16, 185, 129, 0.18);
+    box-shadow:
+      0 30px 90px -30px rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
   /*

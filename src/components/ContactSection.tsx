@@ -19,6 +19,12 @@ interface ContactSectionProps {
   onCloseModal: () => void;
 }
 
+/**
+ * Glassmorphic minimal brief — a single frosted pane blended into the page
+ * behind it. Sections were merged into each other rather than card grids: the
+ * four service cards collapsed into one selection box, and name/company
+ * combined into a single field. Only the essential scope survives.
+ */
 export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) => {
   const { t } = useLanguage();
 
@@ -35,17 +41,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
-
-  const toggleService = (service: string) => {
-    setFormData((prev) => {
-      if (prev.services.includes(service)) {
-        if (prev.services.length === 1) return prev; // keep at least 1
-        return { ...prev, services: prev.services.filter((s) => s !== service) };
-      } else {
-        return { ...prev, services: [...prev.services, service] };
-      }
-    });
-  };
 
   const buildPayload = () => ({
     ...formData,
@@ -91,13 +86,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
     }
   };
 
+  const glassInput =
+    'w-full bg-white/60 dark:bg-white/5 border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl px-4 py-3.5 text-base text-[var(--text-main)] outline-none transition-all shadow-sm dark:shadow-none backdrop-blur-md placeholder:text-slate-400 dark:placeholder:text-white/30';
+
+  const fieldLabel =
+    'block text-xs uppercase tracking-widest text-slate-600 dark:text-white/50 mb-2 font-medium';
+
   const FormContent = (
     <div className="w-full">
       {submitted ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="glass-card p-8 sm:p-12 rounded-3xl text-center max-w-2xl mx-auto shadow-xl dark:shadow-2xl"
+          className="glass-modal rounded-[24px] p-8 sm:p-10 text-center max-w-xl mx-auto"
         >
           <div className="w-20 h-20 rounded-full bg-emerald-100 dark:bg-accent/20 text-accent flex items-center justify-center mx-auto mb-6 border border-emerald-500 dark:border-accent">
             <CheckCircle2 size={40} />
@@ -122,94 +123,57 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
           </MagneticButton>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-8 max-w-4xl mx-auto">
-          
-          {/* Services Selector */}
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Scope — merged services as a single selection box */}
           <div>
-            <label className="text-sm uppercase text-accent tracking-widest block mb-3 font-medium">
-              {t('contact.labelServices')}
-            </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {[
-                { id: 'video', label: t('contact.service.video') },
-                { id: 'motion', label: t('contact.service.motion') },
-                { id: 'voice', label: t('contact.service.voice') },
-                { id: 'full', label: t('contact.service.full') },
-              ].map((s) => (
-                <button
-                  type="button"
-                  key={s.id}
-                  onClick={() => toggleService(s.id)}
-                  className={cn(
-                    'p-3.5 min-h-[44px] rounded-xl border text-sm font-semibold text-left transition-all',
-                    formData.services.includes(s.id)
-                      ? 'bg-accent border-accent text-black shadow-sm'
-                      : 'bg-white dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-700 dark:text-white/60 hover:text-slate-950 dark:hover:text-white'
-                  )}
-                >
-                  <div className="flex items-center justify-between mb-1">
-                    <span>{s.label}</span>
-                    {formData.services.includes(s.id) && <CheckCircle2 size={14} />}
-                  </div>
-                </button>
-              ))}
-            </div>
+            <label className={fieldLabel}>{t('contact.labelService')}</label>
+            <select
+              value={formData.services[0]}
+              onChange={(e) => setFormData((prev) => ({ ...prev, services: [e.target.value] }))}
+              className={cn(glassInput, 'appearance-none cursor-pointer')}
+            >
+              <option value="video">{t('contact.service.video')}</option>
+              <option value="motion">{t('contact.service.motion')}</option>
+              <option value="voice">{t('contact.service.voice')}</option>
+              <option value="full">{t('contact.service.full')}</option>
+            </select>
           </div>
 
-          {/* Contact Details */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Contact — name/company merged into one field */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
-                {t('contact.labelName')}
-              </label>
+              <label className={fieldLabel}>{t('contact.labelNameCompany')} *</label>
               <input
                 type="text"
                 required
-                placeholder={t('contact.phName')}
+                placeholder={t('contact.phNameCompany')}
                 value={formData.clientName}
                 onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
-                className="w-full bg-[var(--card-bg)] border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl p-4 text-base text-[var(--text-main)] outline-none transition-colors shadow-sm dark:shadow-none backdrop-blur-md"
+                className={glassInput}
               />
             </div>
 
             <div>
-              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
-                {t('contact.labelEmail')}
-              </label>
+              <label className={fieldLabel}>{t('contact.labelEmail')} *</label>
               <input
                 type="email"
                 required
                 placeholder={t('contact.phEmail')}
                 value={formData.clientEmail}
                 onChange={(e) => setFormData({ ...formData, clientEmail: e.target.value })}
-                className="w-full bg-[var(--card-bg)] border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl p-4 text-base text-[var(--text-main)] outline-none transition-colors shadow-sm dark:shadow-none backdrop-blur-md"
-              />
-            </div>
-
-            <div>
-              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
-                {t('contact.labelCompany')}
-              </label>
-              <input
-                type="text"
-                placeholder={t('contact.phCompany')}
-                value={formData.companyName}
-                onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                className="w-full bg-[var(--card-bg)] border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl p-4 text-base text-[var(--text-main)] outline-none transition-colors shadow-sm dark:shadow-none backdrop-blur-md"
+                className={glassInput}
               />
             </div>
           </div>
 
-          {/* Budget & Timeline Selectors */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Plan — budget & timeline share one row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
-                {t('contact.labelBudget')}
-              </label>
+              <label className={fieldLabel}>{t('contact.labelBudget')}</label>
               <select
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                className="w-full bg-[var(--card-bg)] border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl p-4 text-base text-[var(--text-main)] outline-none transition-colors shadow-sm dark:shadow-none backdrop-blur-md"
+                className={cn(glassInput, 'appearance-none cursor-pointer')}
               >
                 <option value="< $1,000">{t('contact.budget.under1k')}</option>
                 <option value="$1,000 - $3,000">{t('contact.budget.1to3')}</option>
@@ -219,13 +183,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
             </div>
 
             <div>
-              <label className="text-sm uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
-                {t('contact.labelTimeline')}
-              </label>
+              <label className={fieldLabel}>{t('contact.labelTimeline')}</label>
               <select
                 value={formData.timeline}
                 onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                className="w-full bg-[var(--card-bg)] border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl p-4 text-base text-[var(--text-main)] outline-none transition-colors shadow-sm dark:shadow-none backdrop-blur-md"
+                className={cn(glassInput, 'appearance-none cursor-pointer')}
               >
                 <option value="ASAP (< 7 Days)">{t('contact.timeline.asap')}</option>
                 <option value="1-2 Weeks">{t('contact.timeline.1to2')}</option>
@@ -235,17 +197,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
             </div>
           </div>
 
-          {/* Project Overview */}
+          {/* Project overview */}
           <div>
-            <label className="text-xs uppercase text-slate-600 dark:text-white/50 tracking-widest block mb-2 font-medium">
-              {t('contact.labelProject')}
-            </label>
+            <label className={fieldLabel}>{t('contact.labelProject')}</label>
             <textarea
               rows={4}
               placeholder={t('contact.phProject')}
               value={formData.projectOverview}
               onChange={(e) => setFormData({ ...formData, projectOverview: e.target.value })}
-              className="w-full bg-[var(--card-bg)] border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl p-4 text-base text-[var(--text-main)] outline-none transition-colors shadow-sm dark:shadow-none"
+              className={cn(glassInput, 'resize-none')}
             />
           </div>
 
@@ -292,17 +252,26 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
   );
 
   return (
-    <div data-lenis-prevent className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-slate-950/80 dark:bg-black/90 backdrop-blur-xl overflow-y-auto" role="dialog" aria-modal="true" aria-label={t('contact.headingLet')}>
-      <div data-lenis-prevent className="relative bg-[var(--bg-canvas)] border border-[var(--border-color)] rounded-3xl p-6 sm:p-10 w-full max-w-4xl my-auto max-h-[90vh] overflow-y-auto shadow-2xl">
+    <div
+      data-lenis-prevent
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-canvas)]/55 dark:bg-black/55 backdrop-blur-2xl overflow-y-auto"
+      role="dialog"
+      aria-modal="true"
+      aria-label={t('contact.headingLet')}
+    >
+      <div
+        data-lenis-prevent
+        className="relative glass-modal rounded-[28px] p-6 sm:p-8 w-full max-w-2xl my-auto max-h-[92vh] overflow-y-auto"
+      >
         <button
           onClick={onCloseModal}
           aria-label={t('modal.close')}
-          className="absolute top-6 right-6 p-2.5 min-w-[44px] min-h-[44px] rounded-full bg-slate-200 dark:bg-white/5 border border-[var(--border-color)] text-slate-700 dark:text-white/70 hover:text-slate-950 dark:hover:text-white flex items-center justify-center"
+          className="absolute top-5 right-5 p-2.5 min-w-[44px] min-h-[44px] rounded-full bg-white/70 dark:bg-white/5 border border-[var(--border-color)] text-slate-700 dark:text-white/70 hover:text-slate-950 dark:hover:text-white flex items-center justify-center backdrop-blur-md"
         >
           <X size={20} />
         </button>
 
-        <div className="mb-8">
+        <div className="mb-6 pr-10">
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)]">
             {t('contact.headingLet')} <span className="text-accent">{t('contact.headingTogether')}</span>
           </h2>
