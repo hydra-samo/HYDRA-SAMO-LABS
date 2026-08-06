@@ -22,6 +22,9 @@ export function useLenis() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     if (tier === 'low') return; // native scroll, no virtual-scroll overhead
+    // Mobile (<md) runs the slideshow — sections are isolated 100dvh slides
+    // with native scroll, no page scrolling to smooth.
+    if (!window.matchMedia('(min-width: 48rem)').matches) return;
 
     // Section navigation lands faster on touch devices — 1.2s of eased travel
     // feels heavy when you're swiping; native touch scroll is untouched (Lenis

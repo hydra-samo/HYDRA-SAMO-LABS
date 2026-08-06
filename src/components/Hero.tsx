@@ -45,7 +45,7 @@ export const Hero = React.memo(function Hero() {
   const heroItem: Variants = isCoarse || tier === 'low' ? heroItemFlat : heroItemBlur;
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-28 sm:pt-32 pb-16 text-center overflow-hidden text-[var(--text-main)] transition-colors duration-300">
+    <section className="relative min-h-0 md:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-10 md:pt-32 pb-16 text-center overflow-hidden text-[var(--text-main)] transition-colors duration-300">
       <motion.div
         variants={heroContainer}
         initial={reduceMotion ? false : 'hidden'}

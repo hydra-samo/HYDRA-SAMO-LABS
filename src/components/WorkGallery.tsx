@@ -210,7 +210,7 @@ export const WorkGallery = React.memo(function WorkGallery({ onSelectProject, on
   });
 
   return (
-    <section id="work" className="py-16 sm:py-24 px-4 sm:px-6 relative transition-colors duration-300">
+    <section id="work" className="py-8 sm:py-10 md:py-24 px-4 sm:px-6 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -219,7 +219,7 @@ export const WorkGallery = React.memo(function WorkGallery({ onSelectProject, on
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-6 md:mb-12 gap-6 md:gap-8"
         >
           <div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)]">
@@ -271,11 +271,11 @@ export const WorkGallery = React.memo(function WorkGallery({ onSelectProject, on
             ))}
 
             {filteredProjects.length === 0 && (
-              <div className="md:col-span-2 p-12 sm:p-16 glass-card rounded-3xl text-center flex flex-col items-center gap-4">
+              <div className="md:col-span-2 p-6 sm:p-8 md:p-16 glass-card rounded-3xl text-center flex flex-col items-center gap-3 md:gap-4">
                 <span className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-accent/15 text-accent flex items-center justify-center">
                   <Film size={22} />
                 </span>
-                <h3 className="text-xl sm:text-2xl font-display font-medium text-[var(--text-main)] uppercase">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-display font-medium text-[var(--text-main)] uppercase">
                   {t('work.emptyTitle')}
                 </h3>
                 <p className="max-w-md text-sm text-slate-600 dark:text-white/60 leading-relaxed font-normal">

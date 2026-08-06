@@ -296,6 +296,55 @@ html[data-quality='low'] .animate-pulse {
   animation: none;
 }
 
+/* ---------------------------------------------------------------------------
+ * Mobile slideshow — phones (< md) render the sections as full-viewport
+ * slides navigated by the bottom dock; each slide scrolls internally only as
+ * a safety fallback. md+ renders the wrappers inert (height auto, overflow
+ * visible) so the desktop flow is byte-for-byte unchanged. Visibility is
+ * toggled by Tailwind (`hidden md:block` / `block`) in App.tsx.
+ * ------------------------------------------------------------------------- */
+.mobile-slide {
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  /* Clearance for the fixed bottom dock — extra scrollable space so the last
+     bit of a section never hides behind it. */
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5.5rem);
+}
+
+.mobile-slide-enter {
+  animation: mobile-slide-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes mobile-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 48rem) {
+  .mobile-slide {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .mobile-slide-enter {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-slide-enter {
+    animation: none;
+  }
+}
+
 /* Native anchor fallback for low-tier devices (Lenis is skipped there) —
    clears the floating nav when the browser jumps to #work/#voice/#process/#about. */
 [id] {

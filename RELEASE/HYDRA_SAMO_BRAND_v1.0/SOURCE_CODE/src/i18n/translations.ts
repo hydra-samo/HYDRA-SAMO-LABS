@@ -8,6 +8,7 @@ export type Dict = Record<string, string>;
  */
 export const UI: Record<Lang, Dict> = {
   en: {
+    'nav.home': 'Home',
     'nav.work': 'Work',
     'nav.voice': 'Voice',
     'nav.process': 'Process',
@@ -132,6 +133,7 @@ export const UI: Record<Lang, Dict> = {
   },
 
   fr: {
+    'nav.home': 'Accueil',
     'nav.work': 'Travaux',
     'nav.voice': 'Voix',
     'nav.process': 'Processus',
@@ -255,6 +257,7 @@ export const UI: Record<Lang, Dict> = {
   },
 
   ar: {
+    'nav.home': 'الرئيسية',
     'nav.work': 'الأعمال',
     'nav.voice': 'الصوت',
     'nav.process': 'المنهجية',

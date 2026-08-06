@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence, useReducedMotion, type Variants } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
+import { ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { Lang } from '../i18n/translations';
 import { cn } from '../lib/utils';
@@ -12,6 +12,9 @@ interface NavigationProps {
   onOpenBrief: () => void;
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
+  /** Compact static top bar — rendered inside the mobile home slide only.
+      Shows the logo, theme, language and Start Project; no links, no menu. */
+  compact?: boolean;
 }
 
 const navContainerVariants: Variants = {
@@ -93,9 +96,8 @@ export const Navigation: React.FC<NavigationProps> = ({
   onOpenBrief,
   theme,
   onToggleTheme,
+  compact = false,
 }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const { lang, setLang, t } = useLanguage();
   const isCoarse = useCoarsePointer();
   const tier = useDeviceTier();
@@ -110,7 +112,55 @@ export const Navigation: React.FC<NavigationProps> = ({
     { name: t('nav.origin'), href: '#about' },
   ];
 
-  const languageOptions: Lang[] = ['en', 'fr', 'ar'];
+  if (compact) {
+    return (
+      <nav className="relative z-20 px-4 sm:px-6 pt-[calc(env(safe-area-inset-top,0px)+0.75rem)]">
+        <div className="flex items-center justify-between gap-2 bg-[var(--card-bg)]/90 backdrop-blur-xl border border-[var(--border-color)] rounded-full px-3 sm:px-4 py-2 shadow-md dark:shadow-none transition-colors duration-300">
+          {/* Brand lockup — mark with the wordmark beside it on sm+, mark only below */}
+          <a href="#" className="flex items-center gap-2 group py-0.5" aria-label="Hydra Samo — Home">
+            <span className="flex items-center gap-2.5 min-h-[44px]">
+              <HydraLogo className="h-7 w-7 sm:h-8 sm:w-8 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
+              <span className="hidden sm:inline font-display font-bold tracking-[-0.02em] text-xs md:text-[15px] uppercase text-[var(--text-main)] group-hover:text-accent transition-colors">
+                HYDRA SAMO
+              </span>
+            </span>
+          </a>
+
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {/* Dark / Light Mode Toggle */}
+            <motion.button
+              whileTap={{ scale: 0.92 }}
+              onClick={onToggleTheme}
+              className="relative p-2.5 min-w-[44px] min-h-[44px] rounded-full border border-slate-200 dark:border-white/15 bg-slate-100/90 dark:bg-white/5 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all flex items-center justify-center shadow-sm dark:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card-bg)]"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? (
+                <Sun size={18} className="text-accent" />
+              ) : (
+                <Moon size={18} className="text-slate-800" />
+              )}
+            </motion.button>
+
+            <LanguageSwitcher
+              lang={lang}
+              onSelect={setLang}
+              label={t('lang.selectAria')}
+              compact
+            />
+
+            {/* Start Project */}
+            <button
+              onClick={onOpenBrief}
+              className="flex items-center gap-1 px-3 sm:px-4 py-2.5 min-h-[44px] rounded-full bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 text-xs font-semibold uppercase tracking-wider transition-all transform hover:scale-105 active:scale-95"
+            >
+              <span>{t('btn.startProject')}</span> <ArrowUpRight size={14} />
+            </button>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className="fixed top-[calc(0.75rem+env(safe-area-inset-top,0px))] md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl">
@@ -191,115 +241,15 @@ export const Navigation: React.FC<NavigationProps> = ({
             label={t('lang.selectAria')}
           />
 
-          {/* Desktop Brief CTA Button */}
+          {/* Brief CTA Button */}
           <button 
             onClick={onOpenBrief}
             className="hidden sm:flex items-center gap-1.5 px-4 lg:px-5 py-2.5 min-h-[44px] rounded-full bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 text-xs font-semibold uppercase tracking-wider transition-all transform hover:scale-105 active:scale-95"
           >
             <span>{t('btn.startProject')}</span> <ArrowUpRight size={14} />
           </button>
-
-          {/* Mobile Hamburger Menu Toggle */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-menu"
-            className="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-800 dark:text-white/80 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={{
-              hidden: { opacity: 0, y: -10, scale: 0.98 },
-              visible: { 
-                opacity: 1, 
-                y: 0, 
-                scale: 1,
-                transition: { staggerChildren: 0.06, delayChildren: 0.05 }
-              }
-            }}
-            className="md:hidden mt-2.5 bg-[var(--card-bg)]/95 border border-[var(--border-color)] rounded-3xl p-6 shadow-2xl backdrop-blur-2xl max-h-[70vh] overflow-y-auto overscroll-contain transition-colors duration-300"
-            data-lenis-prevent
-            id="mobile-menu"
-          >
-            <div className="flex flex-col gap-4">
-              {/* Language Selector in Drawer */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-white/10">
-                <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/50">
-                  {t('lang.label')}
-                </span>
-                <LanguageSwitcher
-                  lang={lang}
-                  onSelect={setLang}
-                  label={t('lang.selectAria')}
-                  compact
-                />
-              </div>
-
-              {/* Theme Selector Pill in Drawer */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-white/10">
-                <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/50">
-                  {t('theme.interfaceTheme')}
-                </span>
-                <button
-                  onClick={onToggleTheme}
-                  className="px-4 py-2 rounded-full border border-slate-200 dark:border-white/15 bg-slate-100 dark:bg-white/5 text-xs font-semibold uppercase tracking-wider text-slate-800 dark:text-white flex items-center gap-2 min-h-[44px]"
-                >
-                  {theme === 'dark' ? (
-                    <>
-                      <Moon size={15} className="text-accent" />
-                      <span>{t('theme.darkMode')}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Sun size={15} className="text-accent" />
-                      <span>{t('theme.lightMode')}</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
-              {navLinks.map((link) => (
-                <motion.a
-                  key={link.name}
-                  variants={{
-                    hidden: { opacity: 0, x: -12 },
-                    visible: { opacity: 1, x: 0 }
-                  }}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-semibold tracking-tight text-[var(--text-main)] hover:text-accent transition-colors py-2.5 border-b border-slate-100 dark:border-white/5 flex items-center justify-between min-h-[44px]"
-                >
-                  <span>{link.name}</span>
-                  <ArrowUpRight size={16} className="text-slate-400 dark:text-white/40" />
-                </motion.a>
-              ))}
-
-              <div className="pt-2 flex flex-col gap-3">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenBrief();
-                  }}
-                  className="w-full py-3.5 min-h-[44px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-semibold text-xs uppercase tracking-wider rounded-2xl flex items-center justify-center gap-2"
-                >
-                  {t('btn.startProjectShort')} <ArrowUpRight size={16} />
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };

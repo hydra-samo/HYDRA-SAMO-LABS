@@ -11,7 +11,7 @@ export const ProcessSection = React.memo(function ProcessSection() {
   const comparison = localizeComparison(COMPARISON_MATRIX, lang);
 
   return (
-    <section id="process" className="py-16 sm:py-24 px-4 sm:px-6 text-[var(--text-main)] relative transition-colors duration-300">
+    <section id="process" className="py-8 sm:py-10 md:py-24 px-4 sm:px-6 text-[var(--text-main)] relative transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
@@ -20,7 +20,7 @@ export const ProcessSection = React.memo(function ProcessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-12"
+          className="mb-6 md:mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight uppercase font-display text-[var(--text-main)] mb-6">
             {t('process.how')} <span className="text-accent">{t('process.operates')}</span>
@@ -31,7 +31,7 @@ export const ProcessSection = React.memo(function ProcessSection() {
         </motion.div>
 
         {/* 5-Step Workflow Cards — no SaaS badges, soft emerald hover */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 mb-8 md:mb-16">
           {steps.map((step, idx) => (
             <motion.div
               key={step.number}
@@ -39,7 +39,7 @@ export const ProcessSection = React.memo(function ProcessSection() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group glass-card glass-hover p-6 rounded-2xl flex flex-col justify-between"
+              className="group glass-card glass-hover p-4 md:p-6 rounded-2xl flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-2.5 mb-4">

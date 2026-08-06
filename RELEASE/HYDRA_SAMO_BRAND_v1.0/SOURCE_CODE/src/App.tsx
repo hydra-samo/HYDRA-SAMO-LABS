@@ -1,6 +1,7 @@
 import React, { Suspense, useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import { Navigation } from './components/Navigation';
+import { MobileDock, type SlideKey } from './components/MobileDock';
 import { Hero } from './components/Hero';
 import { WorkGallery } from './components/WorkGallery';
 import { VoiceOverSection } from './components/VoiceOverSection';
@@ -15,6 +16,7 @@ import { useLenis } from './hooks/useLenis';
 import { useCoarsePointer } from './hooks/useCoarsePointer';
 import { useDeviceTier } from './hooks/useDeviceTier';
 import { useLanguage } from './i18n/LanguageContext';
+import { cn } from './lib/utils';
 
 const VideoModal = React.lazy(() =>
   import('./components/VideoModal').then((m) => ({ default: m.VideoModal }))
@@ -28,6 +30,39 @@ const ModalFallback = () => (
     <div className="w-12 h-12 rounded-full border-2 border-accent border-t-transparent animate-spin" />
   </div>
 );
+
+/**
+ * Slide wrapper used for every section. Below md the sections behave as
+ * full-viewport slides — only the active one is visible and fades in (the
+ * bottom dock navigates, no scrolling); each slide still scrolls internally
+ * as a safety fallback. md+ the wrapper is inert (height auto, overflow
+ * visible) so the desktop flow stays exactly as it was.
+ */
+function MobileSlide({ slideKey, active, children }: {
+  slideKey: SlideKey;
+  active: SlideKey;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (active === slideKey) {
+      ref.current?.scrollTo({ top: 0 });
+    }
+  }, [active, slideKey]);
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'mobile-slide',
+        active === slideKey ? 'block mobile-slide-enter' : 'hidden md:block'
+      )}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function App() {
   const { t } = useLanguage();
@@ -50,6 +85,10 @@ export default function App() {
   const [isOpenReelModal, setIsOpenReelModal] = useState<boolean>(false);
   const [isOpenBriefModal, setIsOpenBriefModal] = useState<boolean>(false);
   const [isExiting, setIsExiting] = useState<boolean>(false);
+
+  // Mobile-only slideshow state — the dock fades between sections instead of
+  // scrolling. Ignored by the desktop layout (all slides always visible).
+  const [activeSlide, setActiveSlide] = useState<SlideKey>('home');
 
   const pendingNavRef = useRef<{ url: string; newTab: boolean } | null>(null);
 
@@ -200,24 +239,49 @@ export default function App() {
             }}
             className="text-[var(--text-main)] min-h-screen font-sans selection:bg-accent selection:text-black relative transition-colors duration-300"
           >
-            <Navigation
-              onOpenBrief={handleOpenBrief}
-              theme={theme}
-              onToggleTheme={handleToggleTheme}
-            />
+            {/* Desktop / tablet floating nav — unchanged, hidden on mobile */}
+            <div className="hidden md:block">
+              <Navigation
+                onOpenBrief={handleOpenBrief}
+                theme={theme}
+                onToggleTheme={handleToggleTheme}
+              />
+            </div>
 
-            <Hero />
+            {/* Single section stack. md+: normal scroll flow (desktop intact).
+                <md: full-viewport slides — the bottom dock fades between them. */}
+            <MobileSlide slideKey="home" active={activeSlide}>
+              <div className="md:hidden">
+                <Navigation
+                  compact
+                  onOpenBrief={handleOpenBrief}
+                  theme={theme}
+                  onToggleTheme={handleToggleTheme}
+                />
+              </div>
+              <Hero />
+            </MobileSlide>
 
-            <WorkGallery
-              onSelectProject={handleSelectProject}
-              onOpenReel={handleOpenReel}
-            />
+            <MobileSlide slideKey="work" active={activeSlide}>
+              <WorkGallery
+                onSelectProject={handleSelectProject}
+                onOpenReel={handleOpenReel}
+              />
+            </MobileSlide>
 
-            <VoiceOverSection />
+            <MobileSlide slideKey="voice" active={activeSlide}>
+              <VoiceOverSection />
+            </MobileSlide>
 
-            <ProcessSection />
+            <MobileSlide slideKey="process" active={activeSlide}>
+              <ProcessSection />
+            </MobileSlide>
 
-            <AboutSection />
+            <MobileSlide slideKey="about" active={activeSlide}>
+              <AboutSection />
+            </MobileSlide>
+
+            <MobileDock active={activeSlide} onSelect={setActiveSlide} />
 
             <Suspense fallback={<ModalFallback />}>
               {(selectedProject || isOpenReelModal) && (

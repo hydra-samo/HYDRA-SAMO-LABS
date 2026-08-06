@@ -8,8 +8,8 @@ export const AboutSection = React.memo(function AboutSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 text-[var(--text-main)] relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+    <section id="about" className="py-8 sm:py-10 md:py-24 px-4 sm:px-6 text-[var(--text-main)] relative overflow-hidden transition-colors duration-300">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-6 lg:gap-16">
         
         {/* Portrait Image Column */}
         <motion.div 
@@ -17,7 +17,7 @@ export const AboutSection = React.memo(function AboutSection() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full lg:w-1/2 max-w-md mx-auto lg:max-w-none"
+          className="w-40 sm:w-56 md:w-full lg:w-1/2 max-w-md mx-auto lg:max-w-none"
         >
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/25 via-accent-soft/15 to-accent/30 dark:from-accent/25 dark:via-accent/15 dark:to-accent/30 opacity-10 dark:opacity-25 blur-2xl group-hover:opacity-25 dark:group-hover:opacity-45 transition-opacity duration-700 rounded-3xl" />
@@ -46,14 +46,14 @@ export const AboutSection = React.memo(function AboutSection() {
             {t('about.eyebrow')}
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-8 font-display text-[var(--text-main)] uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 sm:mb-8 font-display text-[var(--text-main)] uppercase">
             {t('about.headingOne')} <br />
             <span className="text-accent">
               {t('about.headingTwo')}
             </span>
           </h2>
 
-          <div className="space-y-6 text-base sm:text-lg text-[var(--text-muted)] leading-relaxed font-normal">
+          <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-[var(--text-muted)] leading-relaxed font-normal">
             <p>
               {t('about.p1a')} <strong className="text-[var(--text-main)] font-semibold">{t('about.badgeName')}</strong>{t('about.p1b')} <strong className="text-accent font-semibold">Hydra Samo</strong>{t('about.p1c')}
             </p>
@@ -68,7 +68,7 @@ export const AboutSection = React.memo(function AboutSection() {
           </div>
 
           {/* Key Advantages Grid */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-slate-200 dark:border-white/10">
+          <div className="mt-4 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-slate-200 dark:border-white/10">
             {[
               t('about.adv1'),
               t('about.adv2'),
