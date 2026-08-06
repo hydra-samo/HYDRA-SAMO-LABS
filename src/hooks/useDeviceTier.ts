@@ -19,6 +19,10 @@ interface DeviceInfo {
   deviceMemory?: number;
   effectiveType?: string;
   saveData?: boolean;
+  connection?: {
+    addEventListener: (type: 'change', cb: () => void) => void;
+    removeEventListener: (type: 'change', cb: () => void) => void;
+  };
 }
 
 let cachedTier: DeviceTier | null = null;
@@ -29,6 +33,9 @@ function detectTier(): DeviceTier {
   const nav = navigator as Navigator & DeviceInfo;
   const cores = nav.hardwareConcurrency ?? 8;
   const memory = nav.deviceMemory ?? 4;
+
+  // 2GB or weaker RAM is a hard low-end floor regardless of CPU/pointer.
+  if (typeof memory === 'number' && memory <= 2) return 'low';
 
   // Weak CPU + touchscreen is the classic low-end phone.
   if (cores <= 4 && window.matchMedia('(pointer: coarse)').matches) return 'low';
@@ -43,7 +50,8 @@ function detectTier(): DeviceTier {
   else score += 3;
 
   const eff = nav.effectiveType;
-  if (eff === 'slow-2g' || eff === '2g') score -= 1;
+  // 3g is the mobile norm, not a free pass — subtract for any throttled class.
+  if (eff === 'slow-2g' || eff === '2g' || eff === '3g') score -= 1;
   if (nav.saveData) score = Math.min(score, 2);
 
   if (score <= 2) return 'low';
@@ -65,6 +73,26 @@ export function useDeviceTier(): DeviceTier {
     return () => {
       delete el.dataset.quality;
     };
+  }, [tier]);
+
+  // Downgrade-only runtime re-detection. When the network class degrades mid
+  // session (4g -> 3g/2g, or save-data switches on) the tier re-evaluates and
+  // falls back to `low` with a full reload so every animation state starts
+  // cold — mutating a running Lenis/hero timeline is more fragile than a fresh
+  // paint. Upgrades are ignored: never bounce the user back to a heavier tier.
+  useEffect(() => {
+    const conn = (navigator as Navigator & DeviceInfo).connection;
+    if (!conn || tier === 'low') return;
+
+    const onConnectionChange = () => {
+      if (cachedTier !== 'low' && detectTier() === 'low') {
+        cachedTier = 'low';
+        window.location.reload();
+      }
+    };
+
+    conn.addEventListener('change', onConnectionChange);
+    return () => conn.removeEventListener('change', onConnectionChange);
   }, [tier]);
 
   return tier;

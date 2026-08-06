@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { WorkGallery } from './components/WorkGallery';
@@ -169,7 +169,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <MotionConfig reducedMotion={cheapMotion ? 'always' : 'user'}>
       <AmbientBackground />
       <AnimatePresence mode="wait" onExitComplete={handleExitComplete}>
         {showPreSplash ? (
@@ -257,6 +257,6 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </MotionConfig>
   );
 }

@@ -113,8 +113,9 @@ export const AmbientBackground: React.FC = () => {
         />
       )}
 
-      {/* Fixed film-grain plate so the glow reads as film stock, not digital */}
-      <svg className="absolute inset-0 h-full w-full opacity-[0.04] mix-blend-overlay">
+      {/* Fixed film-grain plate so the glow reads as film stock, not digital.
+          Dropped entirely on low tier via html[data-quality='low'] .film-grain. */}
+      <svg className="film-grain absolute inset-0 h-full w-full opacity-[0.04] mix-blend-overlay">
         <filter id="hydra-film-grain">
           <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
         </filter>

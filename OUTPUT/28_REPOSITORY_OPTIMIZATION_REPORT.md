@@ -246,4 +246,84 @@ On every theme toggle the whole section tree used to re-render. Static sections 
 | A11y fixes applied | 2 (focus ring, menu ARIA) |
 | Build | lint ✅ / build ✅ / preview ✅ |
 
+## Addendum — Low-End Device Pass (follow-up)
+
+A second follow-up pass targeted the worst-case environment: ~2 GB RAM, 3G/slow-4G bandwidth, weak GPU/CPU. Entrance and progress motions are kept for capable devices; the pass strips runtime cost and bandwidth on the existing low tier and makes detection stricter so low-end hardware actually lands on the reduced experience. No redesign, no feature removal, and no protected-asset change was made.
+
+### 1. Tier detection — stronger low-end floor (Phase 04 / 07)
+
+`src/hooks/useDeviceTier.ts` previously only scored `2g`/`slow-2g` as a penalty, so a 2 GB phone on 3G with 4+ cores could score `medium`. Two fixes:
+
+| Change | Effect |
+| --- | --- |
+| `deviceMemory <= 2` is now a hard `low` floor (checked before scoring) | 2 GB devices always get the reduced experience regardless of CPU/pointer. |
+| `effectiveType === '3g'` now also subtracts 1 point (3G is the mobile norm, not a free pass) | A 4-core / 2–4 GB / 3G device scores `low` instead of drifting to `medium`. |
+
+### 2. Runtime downgrade — network degradation mid-session
+
+Tier was cached once and never re-evaluated. `useDeviceTier` now listens to `navigator.connection` `change` events:
+
+- When the class degrades (4G → 3G/2G, or save-data switches on) and the re-scored tier is `low`, it triggers a **full reload** so every animation state (Lenis, hero timeline, splash) starts cold. Mutating a running timeline is more fragile than a fresh paint.
+- **Downgrade-only**: upgrades are ignored — a user who moves to WiFi never bounces back to a heavier tier. The listener detaches once `low` (max one reload).
+- No-op where `navigator.connection` is unsupported (typed safely, guarded).
+
+### 3. Global motion budget — `MotionConfig` (Phase 07)
+
+`src/App.tsx` now wraps the whole tree in `MotionConfig reducedMotion={cheapMotion ? 'always' : 'user'}`.
+
+- **Low tier / coarse pointer** → `reducedMotion="always"`: Framer disables every transform/layout animation (tilt, shine sweeps, slide-exits) while opacity fades still run, so the site stays legible, not frozen.
+- **Everything else** → `reducedMotion="user"`: respects the OS-level preference.
+- Bonus: `LoadingSplash` reads this via `useReducedMotion()`, so low-tier users **skip the loading splash entirely** and land straight on content.
+
+### 4. Low-tier GPU strip (CSS, zero per-frame cost)
+
+New rules under the `html[data-quality='low']` block in `src/index.css`:
+
+| Rule | What it disables |
+| --- | --- |
+| `.film-grain { display: none }` (class added to the grain SVG in `AmbientBackground`) | The full-screen `feTurbulence` plate re-rasterizes on every repaint — the single most expensive idle element on weak GPUs. |
+| `:is(.backdrop-blur-sm, .backdrop-blur-md, .backdrop-blur-xl, .backdrop-blur-2xl) { backdrop-filter: none }` | No backdrop compositing anywhere on low tier (extends the existing `.glass-card` gate to Tailwind utilities — nav pill, badges, overlays). |
+| `.ambient-blob { filter: blur(45px); opacity: 0.32 }` | Lighter blur + dimmer blobs while scrolling (they were already frozen). |
+| `.hydra-mark-pulse { animation: none }` | Defensive — no pulse work on low tier. |
+| `.animate-pulse { animation: none }` | Static image placeholder skeleton. |
+
+### 5. Interaction physics off on low tier
+
+`TiltCard` and `MagneticButton` already disabled on coarse pointers; they now also gate on `tier === 'low'` (weak-laptop case) and skip the motion values entirely (no `style`/`className` transform hooks), so idle springs cost nothing.
+
+### 6. Bandwidth — font reduction
+
+- Dropped **JetBrains Mono** from the Google Fonts CSS2 URL in `index.html` (mono is used ~10× for timestamps/labels/tech meta only). `--font-mono` now falls back to `ui-monospace`/system mono — a deliberate trade-off documented in `src/index.css`. Removes ~2 font files from the low-tier download budget.
+- Space Grotesk (500/600/700), Manrope (400/500/600), IBM Plex Sans Arabic (400/500/600/700) kept — brand editorial stack untouched.
+
+### 7. Build results
+
+| Check | Result |
+| --- | --- |
+| `npm run lint` (`tsc --noEmit`) | ✅ PASS (0 errors) |
+| `npm run build` (`vite build`) | ✅ PASS — 2102 modules, built in 4.82 s |
+| Main JS | 473.62 kB (gzip 150.54) |
+| CSS | 68.95 kB (gzip 11.33) — new low-tier gates present in compiled output |
+| Lazy chunks | `VideoModal` 8.53 kB / `ContactSection` 10.65 kB (unchanged) |
+
+### 8. Release sync
+
+- `RELEASE/HYDRA_SAMO_BRAND_v1.0/SOURCE_CODE/` re-synced with the 7 modified files (`src/` tree only).
+- Stray untracked root-level copies in `SOURCE_CODE/` (`App.tsx`, `index.css`, etc.) were removed — they referenced nonexistent sibling modules, broke `tsc`, and were never part of the shipped zip.
+- `RELEASE/HYDRA_SAMO_BRAND_v1.0.zip` regenerated (221 entries, 26 MB).
+
+### 9. Optimization statistics (low-end pass)
+
+| Metric | Value |
+| --- | --- |
+| Detection hardening | 2 GB hard floor + 3G penalty |
+| Runtime downgrade | network `change` → reload once, downgrade-only |
+| MotionConfig | `reducedMotion` always-on low tier / coarse, `user` otherwise |
+| Loading splash | skipped on low tier (via `useReducedMotion`) |
+| GPU elements removed on low tier | film grain, all backdrop-blurs, mark pulse, skeleton pulse, lighter blobs |
+| Physics components gated | 2 (`TiltCard`, `MagneticButton`) |
+| Google Fonts families | 4 → 3 (JetBrains Mono dropped; fallback documented) |
+| Build | lint ✅ / build ✅ |
+
+
 **REPOSITORY STATUS: OPTIMIZED** (follow-up pass complete — no regression, no protected asset touched).

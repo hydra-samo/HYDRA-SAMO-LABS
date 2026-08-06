@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { cn } from '../lib/utils';
 import { useCoarsePointer } from '../hooks/useCoarsePointer';
+import { useDeviceTier } from '../hooks/useDeviceTier';
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -19,7 +20,8 @@ interface MagneticButtonProps {
  * on leave). Used on primary CTAs to make the interface feel tactile.
  *
  * On touch devices (coarse pointer) the pull is disabled — there is no cursor
- * to track — and the button behaves as a plain tap target.
+ * to track — and the button behaves as a plain tap target. Low-tier devices
+ * skip the spring physics the same way, so the button is always static there.
  */
 export const MagneticButton: React.FC<MagneticButtonProps> = ({
   children,
@@ -33,11 +35,12 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const isCoarse = useCoarsePointer();
+  const isLowTier = useDeviceTier() === 'low';
   const x = useSpring(useMotionValue(0), { stiffness: 150, damping: 15, mass: 0.7 });
   const y = useSpring(useMotionValue(0), { stiffness: 150, damping: 15, mass: 0.7 });
 
   const onMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (isCoarse) return;
+    if (isCoarse || isLowTier) return;
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     x.set((e.clientX - (rect.left + rect.width / 2)) * strength);
@@ -45,7 +48,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   };
 
   const reset = () => {
-    if (isCoarse) return;
+    if (isCoarse || isLowTier) return;
     x.set(0);
     y.set(0);
   };
@@ -60,8 +63,8 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       onMouseLeave={reset}
       title={title}
       aria-label={ariaLabel}
-      style={{ x, y }}
-      className={cn('transform-gpu will-change-transform', className)}
+      style={isLowTier ? undefined : { x, y }}
+      className={cn(isLowTier ? undefined : 'transform-gpu will-change-transform', className)}
     >
       {children}
     </motion.button>
