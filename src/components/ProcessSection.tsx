@@ -5,7 +5,7 @@ import { PROCESS_STEPS, COMPARISON_MATRIX } from '../data/portfolioData';
 import { useLanguage } from '../i18n/LanguageContext';
 import { localizeProcessSteps, localizeComparison } from '../i18n/translations';
 
-export const ProcessSection: React.FC = () => {
+export const ProcessSection = React.memo(function ProcessSection() {
   const { lang, t } = useLanguage();
   const steps = localizeProcessSteps(PROCESS_STEPS, lang);
   const comparison = localizeComparison(COMPARISON_MATRIX, lang);
@@ -132,4 +132,4 @@ export const ProcessSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});

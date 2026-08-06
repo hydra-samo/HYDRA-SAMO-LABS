@@ -34,7 +34,7 @@ const heroItemFlat: Variants = {
   },
 };
 
-export const Hero: React.FC = () => {
+export const Hero = React.memo(function Hero() {
   const { t } = useLanguage();
   const isCoarse = useCoarsePointer();
   const tier = useDeviceTier();
@@ -86,4 +86,4 @@ export const Hero: React.FC = () => {
       </motion.div>
     </section>
   );
-};
+});

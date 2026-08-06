@@ -24,6 +24,7 @@
 @layer base {
   :root {
     /* Light Mode (Clean Editorial Minimal) */
+    color-scheme: light;
     --bg-canvas: #f8faf9;
     --text-main: #0f1715;
     --text-muted: #475569;
@@ -39,6 +40,7 @@
 
   html.dark {
     /* Dark Mode (Mythic Abyssal Emerald) */
+    color-scheme: dark;
     --bg-canvas: #060c09;
     --text-main: #f3f4f6;
     --text-muted: #94a3b8;
@@ -56,6 +58,52 @@
     background-color: var(--bg-canvas);
     color: var(--text-main);
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /*
+   * Theme switch — cohesive color crossfade across every section.
+   *
+   * App.tsx drops `.theme-transition` on <html> for the ~450 ms of a theme
+   * toggle and removes it afterwards. While present, the color-bearing
+   * properties on EVERY element are promoted to a single shared transition,
+   * so the whole page — glass cards, borders, text, shadows, logos — crosses
+   * over together instead of popping at different moments. Custom properties
+   * themselves never transition; this makes their consumers do.
+   *
+   * Deliberately excluded: transform / opacity / filter / backdrop-filter
+   * (Framer Motion's domain) and gradients (not cheaply animatable). The
+   * switch is therefore a paint-only crossfade with zero compositing cost.
+   *
+   * `!important` is required so the shared list also governs elements that
+   * carry Tailwind transition utilities (and any inline transition styles).
+   * Reduced-motion users get an instant switch; low-tier devices get a fast
+   * 160 ms fade (minimal animation per the rendering budget).
+   */
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition-property: background-color, color, border-color, fill, stroke,
+      box-shadow, text-decoration-color !important;
+    transition-duration: 350ms !important;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transition-delay: 0s !important;
+  }
+
+  html[data-quality='low'].theme-transition,
+  html[data-quality='low'].theme-transition *,
+  html[data-quality='low'].theme-transition *::before,
+  html[data-quality='low'].theme-transition *::after {
+    transition-duration: 160ms !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.theme-transition,
+    html.theme-transition *,
+    html.theme-transition *::before,
+    html.theme-transition *::after {
+      transition-duration: 0ms !important;
+    }
   }
 
   html.lang-ar {

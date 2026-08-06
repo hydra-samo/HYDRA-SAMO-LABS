@@ -155,7 +155,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           <motion.button
             whileTap={{ scale: 0.92 }}
             onClick={onToggleTheme}
-            className="relative p-2.5 min-w-[44px] min-h-[44px] rounded-full border border-slate-200 dark:border-white/15 bg-slate-100/90 dark:bg-white/5 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all flex items-center justify-center shadow-sm dark:shadow-none focus:outline-none"
+            className="relative p-2.5 min-w-[44px] min-h-[44px] rounded-full border border-slate-200 dark:border-white/15 bg-slate-100/90 dark:bg-white/5 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all flex items-center justify-center shadow-sm dark:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card-bg)]"
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
@@ -202,6 +202,8 @@ export const Navigation: React.FC<NavigationProps> = ({
           {/* Mobile Hamburger Menu Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
             className="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-800 dark:text-white/80 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10"
             aria-label="Toggle menu"
           >
@@ -228,6 +230,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             }}
             className="md:hidden mt-2.5 bg-[var(--card-bg)]/95 border border-[var(--border-color)] rounded-3xl p-6 shadow-2xl backdrop-blur-2xl max-h-[70vh] overflow-y-auto overscroll-contain transition-colors duration-300"
             data-lenis-prevent
+            id="mobile-menu"
           >
             <div className="flex flex-col gap-4">
               {/* Language Selector in Drawer */}

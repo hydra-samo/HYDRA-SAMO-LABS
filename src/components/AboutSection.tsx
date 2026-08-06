@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 import aboutPortrait from '../assets/images/hydra_samo.webp';
 import { useLanguage } from '../i18n/LanguageContext';
 
-export const AboutSection: React.FC = () => {
+export const AboutSection = React.memo(function AboutSection() {
   const { t } = useLanguage();
 
   return (
@@ -90,8 +90,8 @@ export const AboutSection: React.FC = () => {
           </div>
 
         </motion.div>
-
       </div>
+
     </section>
   );
-};
+});

@@ -47,11 +47,15 @@ const itemVariants = {
   },
 };
 
-export const ProjectCard: React.FC<{
+export const ProjectCard = React.memo(function ProjectCard({
+  project,
+  index,
+  onSelectProject,
+}: {
   project: Project;
   index: number;
   onSelectProject: (project: Project) => void;
-}> = ({ project, index, onSelectProject }) => {
+}) {
   const [isInView, setIsInView] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -193,9 +197,9 @@ export const ProjectCard: React.FC<{
       </TiltCard>
     </motion.div>
   );
-};
+});
 
-export const WorkGallery: React.FC<WorkGalleryProps> = ({ onSelectProject, onOpenReel }) => {
+export const WorkGallery = React.memo(function WorkGallery({ onSelectProject, onOpenReel }: WorkGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<'all' | 'video' | 'motion' | 'direction'>('all');
 
   const { t } = useLanguage();
@@ -291,4 +295,4 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({ onSelectProject, onOpe
       </div>
     </section>
   );
-};
+});

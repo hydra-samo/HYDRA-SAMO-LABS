@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect, useRef } from 'react';
+import React, { Suspense, useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
@@ -53,6 +53,10 @@ export default function App() {
 
   const pendingNavRef = useRef<{ url: string; newTab: boolean } | null>(null);
 
+  // Holds the theme that was last applied, so the sentinel only animates the
+  // switch, never the first paint (stored theme is applied instantly).
+  const appliedThemeRef = useRef(theme);
+
   useOpenGraph(
     selectedProject
       ? {
@@ -65,14 +69,23 @@ export default function App() {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    } else {
-      root.classList.add('light');
-      root.classList.remove('dark');
+    const isToggle = appliedThemeRef.current !== theme;
+
+    if (isToggle) {
+      // Real toggle: enable the cohesive crossfade for the duration of the
+      // change, then remove it so idle rendering stays transition-free.
+      root.classList.add('theme-transition');
     }
+
+    root.classList.toggle('dark', theme === 'dark');
+    root.classList.toggle('light', theme === 'light');
     localStorage.setItem('hydra-theme', theme);
+    appliedThemeRef.current = theme;
+
+    if (isToggle) {
+      const timer = window.setTimeout(() => root.classList.remove('theme-transition'), 450);
+      return () => window.clearTimeout(timer);
+    }
   }, [theme]);
 
   useEffect(() => {
@@ -93,9 +106,15 @@ export default function App() {
     };
   }, [showPreSplash, showSplash, selectedProject, isOpenReelModal, isOpenBriefModal, lenisRef]);
 
-  const handleToggleTheme = () => {
+  const handleToggleTheme = useCallback(() => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+  }, []);
+
+  const handleSelectProject = useCallback((proj: Project) => setSelectedProject(proj), []);
+
+  const handleOpenReel = useCallback(() => setIsOpenReelModal(true), []);
+
+  const handleOpenBrief = useCallback(() => setIsOpenBriefModal(true), []);
 
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
@@ -182,7 +201,7 @@ export default function App() {
             className="text-[var(--text-main)] min-h-screen font-sans selection:bg-accent selection:text-black relative transition-colors duration-300"
           >
             <Navigation
-              onOpenBrief={() => setIsOpenBriefModal(true)}
+              onOpenBrief={handleOpenBrief}
               theme={theme}
               onToggleTheme={handleToggleTheme}
             />
@@ -190,8 +209,8 @@ export default function App() {
             <Hero />
 
             <WorkGallery
-              onSelectProject={(proj) => setSelectedProject(proj)}
-              onOpenReel={() => setIsOpenReelModal(true)}
+              onSelectProject={handleSelectProject}
+              onOpenReel={handleOpenReel}
             />
 
             <VoiceOverSection />

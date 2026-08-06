@@ -67,10 +67,10 @@ export const LoadingSplash: React.FC<LoadingSplashProps> = ({ onComplete }) => {
         transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
         className="flex flex-col items-center"
       >
-        <HydraLogo className="h-12 w-12 sm:h-14 sm:w-14 text-[#f3f4f6] hydra-mark-glow" />
+        <HydraLogo className="h-12 w-12 sm:h-14 sm:w-14 text-accent hydra-mark-glow" />
       </motion.div>
 
-      <span className="mt-5 font-display text-sm sm:text-base font-bold uppercase tracking-[0.35em] text-[#f3f4f6]">
+      <span className="mt-5 font-display text-sm sm:text-base font-bold uppercase tracking-[0.35em] text-[var(--text-main)]">
         HYDRA SAMO
       </span>
 
@@ -95,7 +95,7 @@ export const LoadingSplash: React.FC<LoadingSplashProps> = ({ onComplete }) => {
         </span>
       </div>
 
-      <span className="absolute bottom-8 text-[10px] uppercase tracking-[0.25em] text-white/35">
+      <span className="absolute bottom-8 text-[10px] uppercase tracking-[0.25em] text-[var(--text-muted)]">
         {t('splash.skip')}
       </span>
     </motion.div>

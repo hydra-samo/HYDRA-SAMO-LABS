@@ -188,3 +188,62 @@ Legacy names are historical only and continue to resolve nowhere in active code,
 - The project is approved for long-term maintenance, future feature development, and production deployment.
 - Stability was prioritized over optimization at every decision point; when uncertain, files were kept.
 - All phases of `OUTPUT/28_REPOSITORY_OPTIMIZATION.md` (01–13) are complete.
+
+---
+
+## Addendum — Theme Transition & Re-render Optimization (follow-up pass)
+
+A follow-up optimization pass was applied on top of the completed Phase 01–13 work. It targets the light/dark mode switch animation across every section, plus the re-render and accessibility wins that support it. No redesign, no feature removal, and no protected-asset change was made.
+
+### 1. Cohesive theme-switch crossfade (Phase 07 / Phase 05)
+
+Previously the theme swap relied on scattered `transition-colors` utilities plus the `body` rule; CSS custom properties (`--bg-canvas`, `--text-muted`, `--card-bg`, …) do not transition themselves, so many surfaces (glass cards, borders, text, shadows) popped at different moments. The switch is now a single centralized, paint-only crossfade:
+
+| Change | File | Detail |
+| --- | --- | --- |
+| `.theme-transition` sentinel | `src/App.tsx` | `App` drops the sentinel class on `<html>` only for the ~450 ms of a real toggle (never on first paint, via an applied-theme ref), then removes it — idle rendering stays transition-free. |
+| Global color transition rule | `src/index.css` | While the sentinel is present, `background-color`, `color`, `border-color`, `fill`, `stroke`, `box-shadow`, `text-decoration-color` are promoted to one shared 350 ms `cubic-bezier(0.22, 1, 0.36, 1)` transition on every element (incl. `::before`/`::after`). Custom-property consumers now crossfade together. |
+| Paint-only (no compositing) | `src/index.css` | `transform` / `opacity` / `filter` / `backdrop-filter` are deliberately excluded (Framer Motion's domain) and gradients are not animated — the switch costs zero compositing. |
+| Adaptive tiers | `src/index.css` | Low-tier devices (`html[data-quality="low"]`) get a fast 160 ms fade; `prefers-reduced-motion: reduce` switches instantly (0 ms). |
+| Native controls | `src/index.css` | Added `color-scheme: light` / `dark` so selects, sliders, and scrollbars follow the theme instantly. |
+
+### 2. Re-render avoidance (Phase 05 — supports the smooth switch)
+
+On every theme toggle the whole section tree used to re-render. Static sections are now memoized and App callbacks are stable, so a toggle re-renders only `App` + `Navigation` (the nav must re-render to swap its icon):
+
+| Component | Change |
+| --- | --- |
+| `Hero`, `VoiceOverSection`, `ProcessSection`, `AboutSection` | Wrapped in `React.memo` (no props — free win; still re-render on language change via context). |
+| `WorkGallery`, `ProjectCard` | Wrapped in `React.memo`; both only re-render when language or their (now stable) props change. |
+| `App` handlers | `handleToggleTheme`, `handleSelectProject`, `handleOpenReel`, `handleOpenBrief` are now `useCallback`-stable so memoized children keep their props identical. |
+
+### 3. Accessibility (Phase 08)
+
+| Fix | File |
+| --- | --- |
+| Theme toggle: `focus:outline-none` replaced with a visible `focus-visible:ring-2 ring-accent` focus ring | `Navigation.tsx` |
+| Hamburger menu: added `aria-expanded` + `aria-controls="mobile-menu"`; drawer gets `id="mobile-menu"` | `Navigation.tsx` |
+
+### 4. Build results
+
+| Check | Result |
+| --- | --- |
+| `npm run lint` (`tsc --noEmit`) | ✅ PASS (0 errors) |
+| `npm run build` (`vite build`) | ✅ PASS — 2102 modules, built in 4.48 s |
+| Main JS | 472.90 kB (gzip 150.32) — +0.55 kB raw from memo wrappers |
+| CSS | 68.65 kB (gzip 11.28) — +1.55 kB raw for the theme-transition rules + `color-scheme` |
+| Lazy chunks | `VideoModal` 8.53 kB / `ContactSection` 10.65 kB (unchanged) |
+| Preview smoke test | `/` 200; JS 200; CSS 200; compiled CSS verified to contain the `theme-transition` + `color-scheme` rules |
+
+### 5. Optimization statistics (follow-up pass)
+
+| Metric | Value |
+| --- | --- |
+| Theme-switch transition unified | every section (single 350 ms shared crossfade) |
+| Components memoized | 6 (`Hero`, `VoiceOverSection`, `ProcessSection`, `AboutSection`, `WorkGallery`, `ProjectCard`) |
+| App callbacks stabilized | 4 (`useCallback`) |
+| Adaptive theme motion | 160 ms low tier / 0 ms reduced-motion |
+| A11y fixes applied | 2 (focus ring, menu ARIA) |
+| Build | lint ✅ / build ✅ / preview ✅ |
+
+**REPOSITORY STATUS: OPTIMIZED** (follow-up pass complete — no regression, no protected asset touched).
