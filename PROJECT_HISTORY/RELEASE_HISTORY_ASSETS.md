@@ -35,7 +35,7 @@ on disk for traceability and is intentionally git-ignored
 | `MASTER_BUILD_PROMPT_HYDRA_REVISED_2.txt` | Master build prompt (revision 2) | `~/Downloads` | 16.7 KB | 2026-08-03 |
 | `MASTER_BUILD_PROMPT_HYDRA_REVISED_3.txt` | Master build prompt (revision 3) | `~/Downloads` | 16.7 KB | 2026-08-03 |
 | `MASTER_BUILD_PROMPT_HYDRA_REVISED_4.txt` | Master build prompt (revision 4) | `~/Downloads` | 18.0 KB | 2026-08-03 |
-| `MASTER BUILD PROMPT HYDRA.txt` | Original master build prompt | `~/Documents/hydra vault/` | 7.4 KB | 2026-08-02 |
+| `MASTER BUILD PROMPT HYDRA.txt` | Original master build prompt | `~/Documents/hydra-samo-labs/` | 7.4 KB | 2026-08-02 |
 | `hydra_samo_portfolio_discovery_prd_workshop.tsx` | PRD discovery workshop engine | `~/Downloads` | 59.0 KB | 2026-08-02 |
 | `PROMPT BLUEPRINT.md` | Planning protocol (Arabic) | `~/` | 7.5 KB | 2026-08-04 |
 | `1 برومبت التخطيط المطوّر.md` | Planning protocol (Arabic, duplicate of PROMPT BLUEPRINT.md) | `~/Documents/dev/` | 7.5 KB | 2026-08-03 |

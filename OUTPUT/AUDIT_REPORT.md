@@ -1,6 +1,6 @@
-# Hydra's Vault — Codebase Audit & Motion Restoration Report
+# Hydra Samo Labs — Codebase Audit & Motion Restoration Report
 
-**Project:** Hydra's Vault Portfolio  
+**Project:** Hydra Samo Labs Portfolio  
 **Stack:** React 19, Vite 6, Tailwind CSS v4, Framer Motion, Lenis  
 **Report Status:** Updated — Restoration Complete
 

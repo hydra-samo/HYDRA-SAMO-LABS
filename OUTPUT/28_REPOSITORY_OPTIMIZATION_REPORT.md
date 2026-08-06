@@ -17,7 +17,7 @@ All protected assets were left untouched: certified logo geometry, master SVGs, 
 
 ### Cleanup candidates (verified zero references)
 - `bun.lock` — Bun lockfile; the project is npm-managed (`package-lock.json`). No tooling/config references it.
-- `pdf-forge-exports/Hydras_Vault_Audit_Report/extracted-text.txt` — temporary PDF text-extraction export; no references in code, build, config, docs, or scripts.
+- `pdf-forge-exports/HYDRA_SAMO_Audit_Report/extracted-text.txt` — temporary PDF text-extraction export; no references in code, build, config, docs, or scripts.
 
 ### Explicitly preserved (policy/tracking)
 - `assets/` — tracked brand asset archive.
@@ -39,7 +39,7 @@ All protected assets were left untouched: certified logo geometry, master SVGs, 
 | File | Reason | Verified |
 | --- | --- | --- |
 | `bun.lock` | Redundant npm-unrelated lockfile | ✓ no refs |
-| `pdf-forge-exports/Hydras_Vault_Audit_Report/extracted-text.txt` | Temporary extraction artifact | ✓ no refs |
+| `pdf-forge-exports/HYDRA_SAMO_Audit_Report/extracted-text.txt` | Temporary extraction artifact | ✓ no refs |
 | `assets/` (root, empty) | Gitignored leftover (`ASSETS/` is the canonical tracked archive; only the live `src/assets/` import path is used) | ✓ no refs |
 
 ## Files Preserved

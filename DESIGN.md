@@ -1,4 +1,4 @@
-# SYSTEM DESIGN SPECIFICATION — HYDRA'S VAULT
+# SYSTEM DESIGN SPECIFICATION — HYDRA SAMO LABS
 
 ## Design Philosophy: Bio-Organic Dark Editorial
 - Aesthetic: Immersive, high-contrast, dark-mode-first editorial showcase.

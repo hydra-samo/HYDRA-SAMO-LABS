@@ -70,7 +70,7 @@ export const UI: Record<Lang, Dict> = {
     'work.streaming': 'STREAMING ASSETS...',
     'work.emptyTitle': 'Real Projects Loading',
     'work.emptyDesc':
-      'Selected case studies are being prepared for the vault. Until then, the master showreel below gives you the raw pacing and rhythm.',
+      'Selected case studies are being prepared for release. Until then, the master showreel below gives you the raw pacing and rhythm.',
     'voice.headingProf': 'PROFESSIONAL',
     'voice.headingOver': 'VOICE-OVER',
     'voice.comingSoon': 'COMING SOON',
