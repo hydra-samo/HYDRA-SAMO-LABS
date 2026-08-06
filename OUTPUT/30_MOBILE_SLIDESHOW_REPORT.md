@@ -190,3 +190,102 @@ single frosted pane blended into the page:
   repo description/topics updated; README + `CHANGELOG.md` refreshed; brand
   favicon set shipped in the site.
 
+---
+
+# Addendum — Post-Release Polish (same release, no v1.1.1 tag)
+
+| Field | Value |
+| --- | --- |
+| Status | **SHIPPED into v1.1.0** (pushed to `main`, release assets refreshed — no new tag) |
+| Scope | Polished scroll cursor, spacious two-tier mobile nav, richer-but-optimized mobile animations, retuned switchers, warm yellow eye-comfort light mode |
+
+## 5. Polished Scroll Cursor — all devices with a visible scrollbar
+
+`src/index.css` now styles the scrollbar as a thin, rounded emerald cursor on
+a transparent track:
+
+- **WebKit/Blink** — 10px scrollbar, `border-radius: 9999px` thumb clipped to a
+  3px padding-box ring, track and corner transparent; thumb brightens from 45%
+  to 75% accent on hover.
+- **Firefox** — `scrollbar-width: thin` + `scrollbar-color` using the same
+  accent token.
+- **Adaptive color** — built on `color-mix(in oklab, var(--color-accent) …)`
+  so light mode reads the deepened `#059669` and dark mode the `#10b981`
+  accent automatically.
+- **Touch untouched** — gated behind `@media (hover: hover) and (pointer: fine)`;
+  phones/tablets keep the native overlay scrollbar, so the mobile slideshow
+  and coarse-pointer behavior are byte-for-byte unchanged.
+- Covers every scrollable surface: the page, `.mobile-slide` slides, and the
+  `overflow-y-auto` contact-form panel + `data-lenis-prevent` modal.
+
+## 6. Spacious Two-Tier Mobile Nav — mobile only
+
+The compact top bar is no longer a single tight pill. It is now a roomy
+two-tier glass card that can never collide on any phone width:
+
+- **Tier 1** — the full stacked brand lockup (mark + wordmark) is dead-center
+  at every width; the wordmark no longer tucks in at 380px.
+- **Tier 2** — theme toggle (44px target) + language switcher on the left,
+  Start Project on the right, with comfortable `gap`/padding and
+  `min-h-[44px]` touch targets throughout.
+- Layout is a static flex/flow structure — zero overlap math, so nothing moves
+  between breakpoints. Desktop navigation is untouched.
+
+## 7. Richer Mobile Animations, Kept Cheap — mobile only
+
+The mobile slideshow no longer pops in flat and instant:
+
+- **`.mobile-slide-enter`** — 500ms rise with a barely-there overshoot settle
+  (`translateY(26px) scale(0.982)` → `-3px scale(1.002)` → rest). Transform +
+  opacity only (GPU-composited), never layout properties.
+- **`.dock-rise`** — the bottom dock now rises with the slide (500ms) so all
+  mobile chrome arrives as one gesture.
+- **Optimization preserved** — low-tier devices get a trimmed 320ms
+  `mobile-slide-in-simple` (fade + short rise); `prefers-reduced-motion`
+  disables both; the `min-width: 48rem` inert strip still cancels the
+  animation on desktop.
+
+## 8. Switcher Retune — theme + language
+
+- **Theme toggle** — the Sun/Moon swap now uses a 300ms `cubic-bezier(0.22, 1,
+  0.36, 1)` crossfade with a small rotate/scale (compact bar and desktop both,
+  previously 200ms instant). `AnimatePresence mode="wait"` keeps it to one
+  element at a time.
+- **Language switcher** — compact pills widened to `min-w-[38px]`, taller
+  36px targets, and a tuned 300ms `transition-all` with a press-down
+  `active:scale-90`; the active pill keeps the accent treatment. No heavy
+  springs or blurs added anywhere.
+
+## 9. Warm Yellow Eye-Comfort Light Mode — all devices
+
+Light mode shifts from neutral sage to a warm ivory editorial canvas with a
+faint golden cast to soften blue-light harshness:
+
+- `--bg-canvas: #f4f2ea` (warm ivory), `--text-main: #222c24`, `--text-muted:
+  #646852`, `--card-bg: rgba(255,253,245,0.7)` (warm paper).
+- Ambient bloom warmed — `--blob-lichen` becomes a lichen-amber `rgba(211,168,84,.18)`
+  and `--spot-glow` a warm `rgba(226,166,74,.07)` while the emerald crown/
+  abyss blobs stay; dark mode palettes untouched.
+- `.glass-card`, `.glass-modal`, contact inputs and the modal close button all
+  use the warm paper tone; accent stays `#059669` for AA contrast.
+
+## Files Changed (post-release polish)
+
+| File | Change |
+| --- | --- |
+| `src/index.css` | Scrollbar block; `mobile-slide-in` + `dock-rise` keyframes + low-tier `mobile-slide-in-simple`; warm light-mode tokens, glass, blobs |
+| `src/components/Navigation.tsx` | Two-tier compact nav; 300ms theme-toggle swap; widened/taller compact lang pills |
+| `src/components/MobileDock.tsx` | `dock-rise` entrance on the dock pill |
+| `src/components/ContactSection.tsx` | Warm paper inputs + close button (light) |
+| `RELEASE/…/SOURCE_CODE/…` | All of the above mirrored |
+| `RELEASE/HYDRA_SAMO_BRAND_v1.0.zip` | Regenerated |
+
+## Validation (post-release polish)
+
+- `npm run lint` clean; `npm run build` clean (CSS 75.30 kB / gzip 12.52).
+- Built CSS contains `::-webkit-scrollbar`, `mobile-slide-in`, `dock-rise`,
+  `mobile-slide-in-simple`, the `color-mix` thumbs, and the
+  `@media(min-width:48rem)` inert strip.
+
+
+

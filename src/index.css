@@ -24,24 +24,26 @@
 
 @layer base {
   :root {
-    /* Light Mode (Soft Editorial Comfort) — eye-friendly: warm sage canvas,
-       deep soft-green ink, translucent cards, calmer ambient bloom, and the
-       emerald accent deepened to its approved dark end (#059669) so text and
-       icons clear the WCAG AA contrast bar on light surfaces. */
+    /* Light Mode (Warm Editorial Comfort) — eye-friendly with a soft golden
+       cast: warm ivory canvas, deep warm-green ink, translucent paper cards,
+       calmer ambient bloom with a lichen-amber under-glow, and the emerald
+       accent deepened to its approved dark end (#059669) so text and icons
+       clear the WCAG AA contrast bar on light surfaces. The faint yellow
+       temperature reduces blue-light harshness during long reading sessions. */
     color-scheme: light;
-    --bg-canvas: #f1f4f1;
-    --text-main: #16201b;
-    --text-muted: #56635c;
-    --card-bg: rgba(255, 255, 255, 0.66);
-    --border-color: rgba(16, 185, 129, 0.18);
+    --bg-canvas: #f4f2ea;
+    --text-main: #222c24;
+    --text-muted: #646852;
+    --card-bg: rgba(255, 253, 245, 0.7);
+    --border-color: rgba(16, 185, 129, 0.16);
     --color-accent: #059669;
     --color-accent-soft: #10b981;
 
-    /* Ambient background palettes (light, quieted for comfort) */
-    --blob-moss: rgba(16, 185, 129, 0.16);
-    --blob-jade: rgba(5, 150, 105, 0.12);
-    --blob-lichen: rgba(52, 211, 153, 0.09);
-    --spot-glow: rgba(16, 185, 129, 0.07);
+    /* Ambient background palettes (warm light, quieted for comfort) */
+    --blob-moss: rgba(16, 185, 129, 0.15);
+    --blob-jade: rgba(5, 150, 105, 0.11);
+    --blob-lichen: rgba(211, 168, 84, 0.18);
+    --spot-glow: rgba(226, 166, 74, 0.07);
   }
 
   html.dark {
@@ -165,7 +167,7 @@
    * hairline border and soft elevation that the theme-token pass flattened.
    */
   .glass-card {
-    background: rgba(251, 253, 252, 0.7);
+    background: rgba(255, 253, 245, 0.74);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(16, 185, 129, 0.16);
@@ -184,10 +186,10 @@
    * ambient glow. Used by ContactSection.
    */
   .glass-modal {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(247, 250, 248, 0.7));
+    background: linear-gradient(180deg, rgba(255, 253, 245, 0.9), rgba(248, 245, 234, 0.74));
     backdrop-filter: blur(28px) saturate(140%);
     -webkit-backdrop-filter: blur(28px) saturate(140%);
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 253, 245, 0.65);
     box-shadow:
       0 30px 80px -30px rgba(5, 150, 105, 0.35),
       inset 0 1px 0 rgba(255, 255, 255, 0.75);
@@ -334,6 +336,28 @@ html[data-quality='low'] .animate-pulse {
   animation: none;
 }
 
+/* Low tier keeps the mobile slide + dock motion but trims it to a quick
+   fade-rise — same gesture, a fraction of the compositor time. */
+html[data-quality='low'] .mobile-slide-enter,
+html[data-quality='low'] .dock-rise {
+  animation-duration: 0.32s;
+}
+
+html[data-quality='low'] .mobile-slide-enter {
+  animation-name: mobile-slide-in-simple;
+}
+
+@keyframes mobile-slide-in-simple {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---------------------------------------------------------------------------
  * Mobile slideshow — phones (< md) render the sections as full-viewport
  * slides navigated by the bottom dock; each slide scrolls internally only as
@@ -352,13 +376,39 @@ html[data-quality='low'] .animate-pulse {
 }
 
 .mobile-slide-enter {
-  animation: mobile-slide-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* Longer, purpose-driven entrance: a soft rise with a barely-there
+     overshoot settle. Only transform + opacity (GPU-composited), never
+     layout properties, so the 500ms feels rich without taxing weak phones. */
+  animation: mobile-slide-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes mobile-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(26px) scale(0.982);
+  }
+  55% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-3px) scale(1.002);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Bottom dock entrance — rises with the slide so the whole mobile chrome
+   arrives as one gesture instead of popping in flat and instant. */
+.dock-rise {
+  animation: dock-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes dock-rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -378,7 +428,8 @@ html[data-quality='low'] .animate-pulse {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mobile-slide-enter {
+  .mobile-slide-enter,
+  .dock-rise {
     animation: none;
   }
 }
@@ -387,6 +438,47 @@ html[data-quality='low'] .animate-pulse {
    clears the floating nav when the browser jumps to #work/#voice/#process/#about. */
 [id] {
   scroll-margin-top: 96px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Polished scroll cursor — branded scrollbar for every scroll container
+ * (all sections, the mobile slides, and the contact-form panel). A thin
+ * rounded emerald "cursor" over a transparent track, brightening on hover,
+ * in both light and dark mode via the accent token. Applied only where a
+ * scrollbar is actually visible (mouse / trackpad); touch devices keep their
+ * native overlay so nothing changes on phones.
+ * ------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--color-accent) 55%, transparent) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-accent) 45%, transparent);
+    border: 3px solid transparent;
+    border-radius: 9999px;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, var(--color-accent) 75%, transparent);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
 
 /* ---------------------------------------------------------------------------

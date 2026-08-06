@@ -87,7 +87,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
   };
 
   const glassInput =
-    'w-full bg-white/60 dark:bg-white/5 border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl px-4 py-3.5 text-base text-[var(--text-main)] outline-none transition-all shadow-sm dark:shadow-none backdrop-blur-md placeholder:text-slate-400 dark:placeholder:text-white/30';
+    'w-full bg-[#fffdf5]/60 dark:bg-white/5 border border-[var(--border-color)] focus:border-accent focus:ring-2 focus:ring-[#10b981]/40 rounded-xl px-4 py-3.5 text-base text-[var(--text-main)] outline-none transition-all shadow-sm dark:shadow-none backdrop-blur-md placeholder:text-slate-400 dark:placeholder:text-white/30';
 
   const fieldLabel =
     'block text-xs uppercase tracking-widest text-slate-600 dark:text-white/50 mb-2 font-medium';
@@ -266,7 +266,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
         <button
           onClick={onCloseModal}
           aria-label={t('modal.close')}
-          className="absolute top-5 right-5 p-2.5 min-w-[44px] min-h-[44px] rounded-full bg-white/70 dark:bg-white/5 border border-[var(--border-color)] text-slate-700 dark:text-white/70 hover:text-slate-950 dark:hover:text-white flex items-center justify-center backdrop-blur-md"
+          className="absolute top-5 right-5 p-2.5 min-w-[44px] min-h-[44px] rounded-full bg-[#fffdf5]/70 dark:bg-white/5 border border-[var(--border-color)] text-slate-700 dark:text-white/70 hover:text-slate-950 dark:hover:text-white flex items-center justify-center backdrop-blur-md"
         >
           <X size={20} />
         </button>
