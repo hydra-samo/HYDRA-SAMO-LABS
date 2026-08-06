@@ -478,6 +478,186 @@ Production notes
 
 ---
 
+# PHASE 13 — LOGO LOCKUP PACKAGE
+
+## Official Wordmark & Lockup Production
+
+Generate:
+
+ASSETS/LOGO_LOCKUPS/
+
+The official HYDRA SAMO logo lockup system derived from the certified master logo.
+
+This phase is an extension of the asset production pipeline.
+
+No redesign is permitted.
+
+No modification to the certified symbol is permitted.
+
+The Hydra symbol must remain pixel-perfect and geometrically identical to the certified master SVG.
+
+Lockups are explicitly permitted derived assets under `09_BRAND_FREEZE.md`.
+
+---
+
+## 13.1 Typography
+
+Wordmark:
+
+HYDRA SAMO
+
+Font:
+
+Space Grotesk
+
+Weight:
+
+700
+
+Letter spacing:
+
+Per the Brand Book — `-0.02em` (nav / standard), uppercase.
+
+Adjust optical kerning only when required.
+
+Do not distort the typography.
+
+---
+
+## 13.2 Color System
+
+Use only approved brand colors.
+
+Symbol and wordmark must match the certified palette.
+
+Support:
+
+Primary
+
+Dark
+
+Light
+
+Monochrome Black
+
+Monochrome White
+
+CurrentColor
+
+Transparent
+
+---
+
+## 13.3 Lockup Variants
+
+### 13.3.1 Horizontal Lockup
+
+ASSETS/LOGO_LOCKUPS/Horizontal/
+
+Hydra symbol.
+
+HYDRA SAMO wordmark placed to the right of the symbol.
+
+Both vertically centered.
+
+Maintain the clear space defined in the Brand Book.
+
+### 13.3.2 Vertical Lockup
+
+ASSETS/LOGO_LOCKUPS/Vertical/
+
+Hydra symbol above the wordmark.
+
+Center-align both elements.
+
+Maintain the certified spacing ratio.
+
+---
+
+## 13.4 Exports
+
+Generate for each lockup variant:
+
+SVG
+
+Optimized SVG
+
+PNG
+
+PDF
+
+Print SVG
+
+CurrentColor SVG
+
+Monochrome
+
+Dark
+
+Light
+
+Transparent
+
+Web Optimized
+
+---
+
+## 13.5 Quality Assurance
+
+Verify:
+
+✓ Symbol geometry unchanged
+
+✓ Typography follows the Brand Book
+
+✓ Approved colors only
+
+✓ Correct spacing
+
+✓ Optical alignment
+
+✓ Pixel-perfect rendering
+
+✓ SVG validity
+
+✓ Transparent exports
+
+✓ Retina-ready PNG exports
+
+✓ Print-ready vector exports
+
+---
+
+## 13.6 Documentation
+
+Generate:
+
+OUTPUT/29_LOGO_LOCKUP_SYSTEM.md
+
+Include:
+
+Overview
+
+Horizontal Lockup Specification
+
+Vertical Lockup Specification
+
+Typography
+
+Spacing Rules
+
+Color Variants
+
+Export Inventory
+
+Usage Guidelines
+
+Restrictions
+
+Validation Results
+
+---
+
 # SUCCESS CRITERIA
 
 The phase succeeds only if:
