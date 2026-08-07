@@ -9,8 +9,9 @@ coverage/
 Thumbs.db
 *.log
 
-# Local AI Studio / scratch folders — not part of the public source
-assets/
+# Local AI Studio / scratch folders — not part of the public source.
+# Anchored to the repo root so nested assets/ (e.g. WEBSITE_v1.1/src/assets/) stays tracked.
+/assets/
 
 # Package-manager lockfile drift (npm is canonical) — kept on disk, not tracked
 bun.lock
@@ -20,7 +21,7 @@ pdf-forge-exports/
 
 # Legacy project-history archive — large binaries kept on disk, not tracked.
 # The inventory is documented in PROJECT_HISTORY/RELEASE_HISTORY_ASSETS.md
-PROJECT_HISTORY/ARCHIVES/
+BRAND/PROJECT_HISTORY/ARCHIVES/
 
 # Secrets & local config — NEVER commit real values
 .env
