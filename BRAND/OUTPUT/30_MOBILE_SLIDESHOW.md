@@ -24,35 +24,35 @@ No redesign of section content, typography, colors, or brand assets is permitted
 
 Read completely before making changes.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
-@OUTPUT/26_LIFECYCLE_REPLICATOR.md
+@BRAND/OUTPUT/26_LIFECYCLE_REPLICATOR.md
 
-@OUTPUT/28_REPOSITORY_OPTIMIZATION.md
+@BRAND/OUTPUT/28_REPOSITORY_OPTIMIZATION.md
 
-@OUTPUT/28_REPOSITORY_OPTIMIZATION_REPORT.md
+@BRAND/OUTPUT/28_REPOSITORY_OPTIMIZATION_REPORT.md
 
 Read the source code of:
 
-@src/App.tsx
+@WEBSITE_v1.1/src/App.tsx
 
-@src/components/Navigation.tsx
+@WEBSITE_v1.1/src/components/Navigation.tsx
 
-@src/components/Hero.tsx
+@WEBSITE_v1.1/src/components/Hero.tsx
 
-@src/components/WorkGallery.tsx
+@WEBSITE_v1.1/src/components/WorkGallery.tsx
 
-@src/components/VoiceOverSection.tsx
+@WEBSITE_v1.1/src/components/VoiceOverSection.tsx
 
-@src/components/ProcessSection.tsx
+@WEBSITE_v1.1/src/components/ProcessSection.tsx
 
-@src/components/AboutSection.tsx
+@WEBSITE_v1.1/src/components/AboutSection.tsx
 
-@src/hooks/useLenis.ts
+@WEBSITE_v1.1/src/hooks/useLenis.ts
 
-@src/i18n/translations.ts
+@WEBSITE_v1.1/src/i18n/translations.ts
 
 ---
 
@@ -90,15 +90,15 @@ Read the source code of:
 
    Mirror every changed/new source file into
 
-   RELEASE/HYDRA_SAMO_BRAND_v1.0/SOURCE_CODE/
+   BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/SOURCE_CODE/
 
-   and regenerate RELEASE/HYDRA_SAMO_BRAND_v1.0.zip before committing.
+   and regenerate BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0.zip before committing.
 
 7. REPORT NUMBERING.
 
-   OUTPUT/29_LOGO_LOCKUP_SYSTEM.md already exists and is frozen governance.
+   BRAND/OUTPUT/29_LOGO_LOCKUP_SYSTEM.md already exists and is frozen governance.
 
-   Use OUTPUT/30_ for this phase. Write the report and the prompt used.
+   Use BRAND/OUTPUT/30_ for this phase. Write the report and the prompt used.
 
 ---
 
@@ -132,7 +132,7 @@ Implement the following mobile-only experience.
 
    On mobile only:
 
-   - Fixed bottom dock, glassmorphic dark editorial style per DESIGN.md.
+   - Fixed bottom dock, glassmorphic dark editorial style per BRAND/DESIGN.md.
 
    - Each item shows a lucide icon AND a label.
 
@@ -174,11 +174,11 @@ Implement the following mobile-only experience.
 
 1. The implemented mobile slideshow + dock + compact nav.
 
-2. A numbered report markdown in OUTPUT/ (OUTPUT/30_MOBILE_SLIDESHOW_REPORT.md)
+2. A numbered report markdown in BRAND/OUTPUT/ (BRAND/OUTPUT/30_MOBILE_SLIDESHOW_REPORT.md)
 
-   following the format of OUTPUT/28_REPOSITORY_OPTIMIZATION_REPORT.md.
+   following the format of BRAND/OUTPUT/28_REPOSITORY_OPTIMIZATION_REPORT.md.
 
-3. This prompt saved as OUTPUT/30_MOBILE_SLIDESHOW.md (same base name as the report).
+3. This prompt saved as BRAND/OUTPUT/30_MOBILE_SLIDESHOW.md (same base name as the report).
 
 4. Release sync + zip regeneration.
 

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://hydra-samo.github.io/HYDRA-SAMO-LABS/">
-    <img src="./public/hydra-mark.svg" width="96" alt="Hydra Samo" />
+    <img src="./WEBSITE_v1.1/public/hydra-mark.svg" width="96" alt="Hydra Samo" />
   </a>
 </p>
 
@@ -21,7 +21,7 @@
   <img src="https://img.shields.io/badge/typescript-strict-059669?style=flat-square&color=%2310b981" alt="TypeScript" />
   <img src="https://img.shields.io/badge/vite-6-059669?style=flat-square&color=%2310b981" alt="Vite 6" />
   <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/changelog-v1.1.0-059669?style=flat-square&color=%2334d399" alt="Changelog" /></a>
-  <a href="./RELEASE/HYDRA_SAMO_BRAND_v1.0/LICENSE/usage-terms.md"><img src="https://img.shields.io/badge/usage-terms-059669?style=flat-square&color=%2334d399" alt="Usage terms" /></a>
+  <a href="./BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/LICENSE/usage-terms.md"><img src="https://img.shields.io/badge/usage-terms-059669?style=flat-square&color=%2334d399" alt="Usage terms" /></a>
 </p>
 
 ---
@@ -36,14 +36,38 @@ discipline. Zero hand-offs. No lost narrative intent.
 - **Motion** — kinetic motion graphics and 3D VFX
 - **Voice** — professional narration in EN / FR / AR
 
-## Live site
+## Workspace layout
 
-- **Deployed:** https://hydra-samo.github.io/HYDRA-SAMO-LABS/
-- **Mobile:** slideshow navigation with a glass bottom dock (VE & MD / Work / Voice / Process / Origin), compact hero bar, and a glassmorphic brief screen.
+| Area | Location |
+| --- | --- |
+| **Production website** (v1.1) | `WEBSITE_v1.1/` — Vite 6 + React 19 + TS strict + Tailwind v4 |
+| **Brand system** (certified v1.0) | `BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/` |
+| **Brand docs & reviews** | `BRAND/DOCUMENTATION/`, `BRAND/REVIEWS/` |
+| **Engineering reports** | `BRAND/OUTPUT/` |
+| **Design intent** | `BRAND/DESIGN.md` |
+| **Next-gen website** (, engineering workspace) | `iteration workspace/` — `REFERENCES/` symlinks into `BRAND/` |
 
-## Run locally
+The workspace splits the repo into two concerns:
+
+- **`WEBSITE_v1.1/`** — the shipped, deployable production portfolio. Its `public/`,
+  `src/`, `index.html`, `metadata.json`, and `package.json` live inside this folder;
+  `deploy.yml` builds and publishes only this tree to GitHub Pages.
+- **`BRAND/`** — the immutable brand authority: master assets, frozen releases,
+  governance docs, reviews, and engineering reports. Production code references it
+  through canonical paths, never copies.
+- **`iteration workspace/`** — the future site, still empty by design. Its `REFERENCES/`
+  tree is a read-only symlink mirror of `BRAND/`, so  engineering can never drift
+  from the certified brand.
+
+Full brand engineering lifecycle, governance, and release packaging live in
+`BRAND/RELEASE/` — see `BRAND/OUTPUT/26_LIFECYCLE_REPLICATOR.md`.
+
+## Getting started
+
+The production website is self-contained in `WEBSITE_v1.1/`:
 
 ```bash
+cd WEBSITE_v1.1
 npm install
 npm run dev        # http://localhost:3000
 ```
@@ -51,45 +75,18 @@ npm run dev        # http://localhost:3000
 ## Build / checks
 
 ```bash
-npm run build      # production build to dist/
+cd WEBSITE_v1.1
+npm run build      # production build to WEBSITE_v1.1/dist/
 npm run lint       # TypeScript typecheck (tsc --noEmit)
 ```
 
-## Configuration
+The GitHub Actions workflow in `.github/workflows/deploy.yml` installs, builds, and
+deploys `WEBSITE_v1.1/dist` to GitHub Pages on every push to `main`.
 
-The site is fully static. The only optional config is the contact form
-submission service. Copy `.env.example` to `.env` and set:
+## Live site
 
-- `VITE_FORM_ENDPOINT` — Formspree (`https://formspree.io/f/…`) or Web3Forms
-  (`https://api.web3forms.com/submit`)
-- `VITE_FORM_ACCESS_KEY` — required for Web3Forms only
-
-Until an endpoint is configured the contact form shows a "not configured"
-notice and will not send briefs.
-
-## Content
-
-- **Projects** — add real case studies to `PROJECTS` in `src/data/portfolioData.ts`
-  (the gallery shows a deliberate empty state until projects exist).
-- **Voice tracks** — set `audioUrl` on a `VOICE_TRACKS` entry (drop the file in
-  `/public/audio/`) to enable playback.
-- **Images** — portraits live in `src/assets/images/` (WebP, imported via Vite);
-  shared site assets live in `/public`.
-- **Metadata** — `metadata.json` feeds the Open Graph / Twitter tags injected by
-  `src/hooks/useOpenGraph.ts`; `og:url` auto-detects the deployed origin.
-
-## Repository
-
-| Area | Location |
-| --- | --- |
-| Source code | `src/` |
-| Brand system (certified v1.0) | `RELEASE/HYDRA_SAMO_BRAND_v1.0/` |
-| Brand docs & reviews | `DOCUMENTATION/`, `REVIEWS/` |
-| Engineering reports | `OUTPUT/` |
-| Design intent | `DESIGN.md` |
-
-Full brand engineering lifecycle, governance, and release packaging live in
-the `RELEASE/` archive — see `OUTPUT/26_LIFECYCLE_REPLICATOR.md`.
+- **Deployed:** https://hydra-samo.github.io/HYDRA-SAMO-LABS/
+- **Mobile:** slideshow navigation with a glass bottom dock (VE & MD / Work / Voice / Process / Origin), compact hero bar, and a glassmorphic brief screen.
 
 ---
 

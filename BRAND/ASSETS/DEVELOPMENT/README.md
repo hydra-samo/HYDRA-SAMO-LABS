@@ -2,8 +2,8 @@
 
 ## Import rules
 
-- **Relative imports only**; the `@` alias points to root, not `src/` (NEVER `@/components/`).
-- Consume the mark exclusively via `src/components/HydraLogo.tsx` — never inline raw path `d` strings elsewhere.
+- **Relative imports only**; the `@` alias points to root, not `WEBSITE_v1.1/src/` (NEVER `@/components/`).
+- Consume the mark exclusively via `WEBSITE_v1.1/src/components/HydraLogo.tsx` — never inline raw path `d` strings elsewhere.
 
 ## Usage
 
@@ -28,7 +28,7 @@ See `usage-examples.tsx`.
 
 - Colors: `accent #10b981`, `accent-soft #34d399`, `accent-dark #059669`; canvas dark `#060c09`; text `#f3f4f6`; muted `#94a3b8`.
 - Dark mode is class-based (`html.dark`); never hardcode a theme value.
-- Use `cn()` from `src/lib/utils.ts` for conditional classes.
+- Use `cn()` from `WEBSITE_v1.1/src/lib/utils.ts` for conditional classes.
 
 ## Hard rules
 

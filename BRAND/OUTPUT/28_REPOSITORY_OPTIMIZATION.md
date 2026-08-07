@@ -26,13 +26,13 @@ No feature removal is permitted unless the feature is confirmed to be obsolete, 
 
 Read completely before making changes.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 Read the complete repository.
 
@@ -536,7 +536,7 @@ DO NOT DELETE.
 
 Generate:
 
-OUTPUT/28_REPOSITORY_OPTIMIZATION_REPORT.md
+BRAND/OUTPUT/28_REPOSITORY_OPTIMIZATION_REPORT.md
 
 Include:
 
@@ -712,9 +712,9 @@ The following are protected unless a verified production issue requires modifica
 
 • Master SVG paths
 
-• DESIGN.md
+• BRAND/DESIGN.md
 
-• AGENTS.md
+• BRAND/AGENTS.md
 
 • Approved governance documents
 
@@ -784,7 +784,7 @@ The Brand Book is the canonical human-readable publication of the project.
 
 Whenever repository documentation changes, regenerate:
 
-DOCUMENTATION/
+BRAND/DOCUMENTATION/
 
 HYDRA_SAMO_Brand_Book_v1.0.md
 
@@ -1092,8 +1092,8 @@ HYDRA SAMO
     ├── assets
     ├── OUTPUT
     ├── DOCUMENTATION
-    ├── DESIGN.md
-    ├── AGENTS.md
+    ├── BRAND/DESIGN.md
+    ├── BRAND/AGENTS.md
     ├── package.json
     ├── README.md
     └── ...

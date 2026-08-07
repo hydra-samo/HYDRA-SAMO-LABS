@@ -23,6 +23,11 @@ pdf-forge-exports/
 # The inventory is documented in PROJECT_HISTORY/RELEASE_HISTORY_ASSETS.md
 BRAND/PROJECT_HISTORY/ARCHIVES/
 
+# External skill bundles — never tracked (kept on disk for local agent use)
+.opencode/skills/ecc-harness/
+.opencode/skills/emilkowalski-skills/
+.opencode/skills/ui-ux-pro-max/
+
 # Secrets & local config — NEVER commit real values
 .env
 .env.*

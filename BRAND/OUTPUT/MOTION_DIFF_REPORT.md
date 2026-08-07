@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-04
 **Compared:**
-- `A` = `PROJECT_HISTORY/ARCHIVES/00_PROJECT_HISTORY/hydra-samo-portfolio-fixed/hydra-review 1` (older snapshot, archived)
+- `A` = `BRAND/PROJECT_HISTORY/ARCHIVES/00_PROJECT_HISTORY/hydra-samo-portfolio-fixed/hydra-review 1` (older snapshot, archived)
 - `B` = `/home/hydrasamo/Projects HYDRA/HYDRA SAMO LABS` (**this repo, current**)
 
 ---
@@ -31,20 +31,20 @@ would strip the restored motion and regress the site back to flat.**
 
 | File | Differs? | What differs in `B` (current) vs `A` |
 |---|---|---|
-| `src/index.css` | **Yes — critical** | `B` adds the full `@layer components` block: `.ambient-blob` (+ `--a/b/c` drift durations), `.cursor-spotlight`, `.glass-card` (+ dark variant), `.glass-hover`, `@keyframes ambient-drift`, `--blob-moss/jade/lichen` and `--spot-glow` tokens for light+dark, plus `prefers-reduced-motion` guards. `A` has **none** of this. |
-| `src/components/AmbientBackground.tsx` | Yes (minor) | Identical structure; `B` adds a static deep emerald radial wash behind the drifting blobs. |
-| `src/App.tsx` | Yes | `B` uses the `useLenis()` return ref and adds a scroll-lock effect that stops/starts Lenis + `body.overflow` while video/brief modals are open (fixes scroll-through-under-modal). |
-| `src/hooks/useLenis.ts` | Yes | `B` returns a `Lenis` ref (nullable) so callers can stop/start it; behavior otherwise identical. |
-| `src/hooks/useOpenGraph.ts` | Yes | `B` respects Vite `BASE_URL` when resolving `/hydra_logo.jpg` (GitHub Pages sub-path fix). |
-| `src/components/Hero.tsx` | Yes | `B` wraps the CTA in a springy `motion.div` (`whileHover` lift + `whileTap`), uses `bg-accent`, `glass-card`, adds hover bloom. |
-| `src/components/ContactSection.tsx` | Yes | `B` wraps submit + "submit another brief" buttons in `motion.div` springs, `glass-card` panels, `backdrop-blur-md` inputs. |
-| `src/components/VoiceOverSection.tsx` | Yes | `B` adds `whileHover`/`whileTap` on track rows, emerald hover glow, `glass-card` surfaces. |
-| `src/components/WorkGallery.tsx` | Yes | `B` adds `whileHover`/`whileTap` on project cards, `glass-card`/`glass-hover` surfaces, empty-state retained. |
-| `src/components/AboutSection.tsx` | Yes (cosmetic) | `B` uses `glass-card`, `bg-canvas` backdrop tint. |
-| `src/components/ProcessSection.tsx` | Yes (cosmetic) | `B` uses `glass-card`/`glass-hover` surfaces. |
-| `src/components/Navigation.tsx` | Yes (cosmetic) | `B` swaps `bg-slate-900` CTAs → `bg-accent` tokens. |
-| `src/components/VideoModal.tsx` | Yes (cosmetic) | `B` swaps CTA tokens → `bg-accent`. |
-| `src/i18n/translations.ts` | Yes (content) | `about.headingTwo` reworded ("ONE ORIGIN." / "UNE SEULE ORIGINE." / "أصل واحد."). |
+| `WEBSITE_v1.1/src/index.css` | **Yes — critical** | `B` adds the full `@layer components` block: `.ambient-blob` (+ `--a/b/c` drift durations), `.cursor-spotlight`, `.glass-card` (+ dark variant), `.glass-hover`, `@keyframes ambient-drift`, `--blob-moss/jade/lichen` and `--spot-glow` tokens for light+dark, plus `prefers-reduced-motion` guards. `A` has **none** of this. |
+| `WEBSITE_v1.1/src/components/AmbientBackground.tsx` | Yes (minor) | Identical structure; `B` adds a static deep emerald radial wash behind the drifting blobs. |
+| `WEBSITE_v1.1/src/App.tsx` | Yes | `B` uses the `useLenis()` return ref and adds a scroll-lock effect that stops/starts Lenis + `body.overflow` while video/brief modals are open (fixes scroll-through-under-modal). |
+| `WEBSITE_v1.1/src/hooks/useLenis.ts` | Yes | `B` returns a `Lenis` ref (nullable) so callers can stop/start it; behavior otherwise identical. |
+| `WEBSITE_v1.1/src/hooks/useOpenGraph.ts` | Yes | `B` respects Vite `BASE_URL` when resolving `/hydra_logo.jpg` (GitHub Pages sub-path fix). |
+| `WEBSITE_v1.1/src/components/Hero.tsx` | Yes | `B` wraps the CTA in a springy `motion.div` (`whileHover` lift + `whileTap`), uses `bg-accent`, `glass-card`, adds hover bloom. |
+| `WEBSITE_v1.1/src/components/ContactSection.tsx` | Yes | `B` wraps submit + "submit another brief" buttons in `motion.div` springs, `glass-card` panels, `backdrop-blur-md` inputs. |
+| `WEBSITE_v1.1/src/components/VoiceOverSection.tsx` | Yes | `B` adds `whileHover`/`whileTap` on track rows, emerald hover glow, `glass-card` surfaces. |
+| `WEBSITE_v1.1/src/components/WorkGallery.tsx` | Yes | `B` adds `whileHover`/`whileTap` on project cards, `glass-card`/`glass-hover` surfaces, empty-state retained. |
+| `WEBSITE_v1.1/src/components/AboutSection.tsx` | Yes (cosmetic) | `B` uses `glass-card`, `bg-canvas` backdrop tint. |
+| `WEBSITE_v1.1/src/components/ProcessSection.tsx` | Yes (cosmetic) | `B` uses `glass-card`/`glass-hover` surfaces. |
+| `WEBSITE_v1.1/src/components/Navigation.tsx` | Yes (cosmetic) | `B` swaps `bg-slate-900` CTAs → `bg-accent` tokens. |
+| `WEBSITE_v1.1/src/components/VideoModal.tsx` | Yes (cosmetic) | `B` swaps CTA tokens → `bg-accent`. |
+| `WEBSITE_v1.1/src/i18n/translations.ts` | Yes (content) | `about.headingTwo` reworded ("ONE ORIGIN." / "UNE SEULE ORIGINE." / "أصل واحد."). |
 | `TiltCard.tsx`, `MagneticButton.tsx`, `PlymouthSplash.tsx`, `portfolioData.ts`, `types.ts`, `LanguageContext.tsx`, `useOpenGraph.ts` (see above) | **Identical** | No motion content differs. |
 
 ---
@@ -76,7 +76,7 @@ The motion is present and shipping. If the rendered page still reads as flat:
 1. **OS "reduce motion" is enabled** → Lenis is skipped and blob drift is disabled by the
    `@media (prefers-reduced-motion: reduce)` guard. That is intentional.
 2. **Stale build** — `dist/` or the deployed GH Pages site may predate the restored CSS.
-   Rebuild/redeploy from `src/` (current `dist/` was rebuilt 2026-08-04 and includes the keyframes).
+   Rebuild/redeploy from `WEBSITE_v1.1/src/` (current `dist/` was rebuilt 2026-08-04 and includes the keyframes).
 3. **Light theme** lowers blob opacity (`--blob-*` 0.2/0.16/0.12 vs 0.3/0.24/0.16 in dark) —
    blobs are deliberately subtle in light mode.
 

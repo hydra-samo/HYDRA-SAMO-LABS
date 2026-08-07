@@ -2,7 +2,7 @@
 
 ## Brand Identity System — Engineering Documentation — Production Handbook
 
-![HYDRA SAMO — Certified Mark](../public/hydra-mark.svg)
+![HYDRA SAMO — Certified Mark](.WEBSITE_v1.1/public/hydra-mark.svg)
 
 **Version:** 1.0
 **Release Status:** PRODUCTION-READY
@@ -95,31 +95,31 @@ Every chapter references the authoritative source documents in the repository; w
 
 | Phase | Source docs | Status |
 |---|---|---|
-| Design specification | `DESIGN.md`, `AGENTS.md` | ✅ Complete |
-| Independent reviews | `OUTPUT/01` … `04` | ✅ Complete |
-| Consensus review | `OUTPUT/05` | ✅ Complete |
-| Implementation plan | `OUTPUT/06` | ✅ Complete |
-| Changelog | `OUTPUT/07` | ✅ Complete |
-| Final certification | `OUTPUT/08` | ✅ CERTIFIED |
-| Brand freeze | `OUTPUT/09` | ✅ LOCKED |
-| Master asset | `OUTPUT/10` | ✅ Complete |
-| Export pipeline | `OUTPUT/11` | ✅ Complete |
-| Website assets | `OUTPUT/12` | ✅ Complete |
-| Motion system | `OUTPUT/13` | ✅ Complete |
-| Social system | `OUTPUT/14` | ✅ Complete |
-| Print system | `OUTPUT/15` | ✅ Complete |
-| Brand governance | `OUTPUT/16` | ✅ Complete |
-| File structure | `OUTPUT/17` | ✅ Complete |
-| QA validation | `OUTPUT/18` | ✅ Complete |
-| Final release | `OUTPUT/19` | ✅ Complete |
-| Asset production | `OUTPUT/20` + report | ✅ Complete |
-| Production QA | `OUTPUT/21` + report | ✅ PASSED |
-| Completion audit | `OUTPUT/22` + report | ✅ Complete |
-| Release packaging | `OUTPUT/23` + report | ✅ Complete |
-| Final sign-off | `OUTPUT/24` + report | ✅ COMPLETE |
-| Pipeline execution | `OUTPUT/25` + execution | ✅ Complete |
-| Complete brand system | `OUTPUT/26` | ✅ Complete |
-| Brand book | `OUTPUT/27` | ✅ This document |
+| Design specification | `BRAND/DESIGN.md`, `BRAND/AGENTS.md` | ✅ Complete |
+| Independent reviews | `BRAND/OUTPUT/01` … `04` | ✅ Complete |
+| Consensus review | `BRAND/OUTPUT/05` | ✅ Complete |
+| Implementation plan | `BRAND/OUTPUT/06` | ✅ Complete |
+| Changelog | `BRAND/OUTPUT/07` | ✅ Complete |
+| Final certification | `BRAND/OUTPUT/08` | ✅ CERTIFIED |
+| Brand freeze | `BRAND/OUTPUT/09` | ✅ LOCKED |
+| Master asset | `BRAND/OUTPUT/10` | ✅ Complete |
+| Export pipeline | `BRAND/OUTPUT/11` | ✅ Complete |
+| Website assets | `BRAND/OUTPUT/12` | ✅ Complete |
+| Motion system | `BRAND/OUTPUT/13` | ✅ Complete |
+| Social system | `BRAND/OUTPUT/14` | ✅ Complete |
+| Print system | `BRAND/OUTPUT/15` | ✅ Complete |
+| Brand governance | `BRAND/OUTPUT/16` | ✅ Complete |
+| File structure | `BRAND/OUTPUT/17` | ✅ Complete |
+| QA validation | `BRAND/OUTPUT/18` | ✅ Complete |
+| Final release | `BRAND/OUTPUT/19` | ✅ Complete |
+| Asset production | `BRAND/OUTPUT/20` + report | ✅ Complete |
+| Production QA | `BRAND/OUTPUT/21` + report | ✅ PASSED |
+| Completion audit | `BRAND/OUTPUT/22` + report | ✅ Complete |
+| Release packaging | `BRAND/OUTPUT/23` + report | ✅ Complete |
+| Final sign-off | `BRAND/OUTPUT/24` + report | ✅ COMPLETE |
+| Pipeline execution | `BRAND/OUTPUT/25` + execution | ✅ Complete |
+| Complete brand system | `BRAND/OUTPUT/26` | ✅ Complete |
+| Brand book | `BRAND/OUTPUT/27` | ✅ This document |
 
 ---
 
@@ -155,7 +155,7 @@ The following are **strictly forbidden** in every language, locale, and surface:
 | Numbered badges | `01`, `02` rigid numbered markers |
 | Geo/location badges | `ALGERIA // GLOBAL`, "Based in …", country pins — in any locale |
 
-These were codified during the review pipeline and remain active governance (`DESIGN.md`, `AGENTS.md`).
+These were codified during the review pipeline and remain active governance (`BRAND/DESIGN.md`, `BRAND/AGENTS.md`).
 
 ## 2.5 Communication Values
 
@@ -254,7 +254,7 @@ The first independent review cycle scored the V2 baseline:
 
 ## 5.3 Refinement Plan (Priority 1)
 
-The implementation plan (`OUTPUT/06`) defined launch-blocking changes:
+The implementation plan (`BRAND/OUTPUT/06`) defined launch-blocking changes:
 
 - **P1-1** Fix the optical frame (viewBox re-balance → ≥75% coverage, optical center at center).
 - **P1-2** Provide a dedicated favicon that reads at 16 px.
@@ -281,7 +281,7 @@ Executed on brand-owner approval, the V4 refinement delivered:
 
 ## 6.1 Certified Parameters
 
-The geometry sheet below is the certified record, sourced from `MASTER/hydra-mark_v4_master.svg` (`ASSETS/SOURCE/geometry-sheet.md`):
+The geometry sheet below is the certified record, sourced from `MASTER/hydra-mark_v4_master.svg` (`BRAND/ASSETS/SOURCE/geometry-sheet.md`):
 
 | Parameter | Value |
 |---|---|
@@ -459,11 +459,11 @@ Rebuilt head path (two open Catmull-Rom chains + V-base) is **tangent-continuous
 
 ## 9.5 OpenGraph Rebuild (P1-5)
 
-`public/hydra_logo.jpg` rebuilt 1024×1024: abyssal `#060c09` field, emerald `#10b981` mark, centered at **84.6% × 77.1%** coverage — the real emerald mark, not the old steel-blue asset.
+`WEBSITE_v1.1/public/hydra_logo.jpg` rebuilt 1024×1024: abyssal `#060c09` field, emerald `#10b981` mark, centered at **84.6% × 77.1%** coverage — the real emerald mark, not the old steel-blue asset.
 
 ## 9.6 Legacy Cleanup (P1-6 / P2)
 
-- Teal / violet / warm logo rasters **retired** from `src/assets/images/` (kept `hydra_samo.webp` portrait).
+- Teal / violet / warm logo rasters **retired** from `WEBSITE_v1.1/src/assets/images/` (kept `hydra_samo.webp` portrait).
 - `.hydra-mark-spin` **removed** from CSS, keyframes, and reduced-motion references.
 - Unused `animated` component prop removed.
 - Outline-variant interior leak **fixed** — no interior tail strokes cross the transparent hexagon.
@@ -502,7 +502,7 @@ The mark is monochrome-true: it reads as a compact **triangular-hex emblem** eve
 
 ## 11.1 Font Stacks
 
-Canonical tokens in `src/index.css` `@theme`:
+Canonical tokens in `WEBSITE_v1.1/src/index.css` `@theme`:
 
 | Token | Font | Usage |
 |---|---|---|
@@ -616,7 +616,7 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 
 | Asset | File | Size | Notes |
 |---|---|---|---|
-| Browser favicon (SVG) | `/hydra-mark.svg` (served) | vector | `%BASE_URL%hydra-mark.svg` in `index.html` |
+| Browser favicon (SVG) | `/hydra-mark.svg` (served) | vector | `%BASE_URL%hydra-mark.svg` in `WEBSITE_v1.1/index.html` |
 | Browser favicon (ICO) | `favicon.ico` | 16/24/32/48/64 (+256) | Optional legacy fallback |
 | Safari mask icon | `safari-pinned-tab.svg` | vector | Monochrome silhouette; black fill |
 | Apple touch icon | `apple-touch-icon.png` | 180×180 | Emerald fill, solid tile |
@@ -625,9 +625,9 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 
 ## 13.4 OpenGraph / Social Card
 
-- File: `public/hydra_logo.jpg` — 1024×1024 JPEG.
+- File: `WEBSITE_v1.1/public/hydra_logo.jpg` — 1024×1024 JPEG.
 - Field: abyssal `#060c09`; mark emerald `#10b981`, centered, dominant (84.6% × 77.1% coverage).
-- Injected via `metadata.json` → `src/hooks/useOpenGraph.ts`, resolved through Vite base path for GitHub Pages subpath deploys.
+- Injected via `WEBSITE_v1.1/metadata.json` → `WEBSITE_v1.1/src/hooks/useOpenGraph.ts`, resolved through Vite base path for GitHub Pages subpath deploys.
 - Twitter card: `summary_large_image`.
 
 ---
@@ -660,7 +660,7 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 ## 14.3 Technique Layers
 
 - **SVG animation:** all paths carry `pathLength={1}` — `stroke-dasharray: 1; stroke-dashoffset: 1 → 0` per path reveals heads and core. Draw order: heads (0, 1, 2) first, then the core.
-- **CSS animation:** `.hydra-mark-glow` (drop-shadow 0 0 6px / 0 0 16px `currentColor`) and `.hydra-mark-pulse`. New utilities live in `src/index.css` under the mark block and respect reduced motion. Prefer `opacity` / `filter` / small `scale`.
+- **CSS animation:** `.hydra-mark-glow` (drop-shadow 0 0 6px / 0 0 16px `currentColor`) and `.hydra-mark-pulse`. New utilities live in `WEBSITE_v1.1/src/index.css` under the mark block and respect reduced motion. Prefer `opacity` / `filter` / small `scale`.
 - **Framer Motion:** the site motion runtime. Animate the wrapper/motion element — **never** mutate `HydraLogo` path data or per-head transforms at runtime. Gate via `useReducedMotion()`.
 
 ## 14.4 Toolchain
@@ -692,13 +692,13 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 
 | Surface | Component / Location | Implementation | Color |
 |---|---|---|---|
-| Navbar | `src/components/Navigation.tsx` | `HydraLogo` | Emerald `#10b981` via `text-accent` |
-| Hero | `src/components/Hero.tsx` | Typography-led hero — **no standalone mark** on any device; the identity is anchored by the nav lockup and the loading/splash surfaces | — |
+| Navbar | `WEBSITE_v1.1/src/components/Navigation.tsx` | `HydraLogo` | Emerald `#10b981` via `text-accent` |
+| Hero | `WEBSITE_v1.1/src/components/Hero.tsx` | Typography-led hero — **no standalone mark** on any device; the identity is anchored by the nav lockup and the loading/splash surfaces | — |
 | Footer | Footer (existing layout) | `HydraLogo` (or favicon raster fallback) | Muted emerald / white mono |
-| Loading | `src/components/LoadingSplash.tsx` | `HydraLogo` + wordmark + emerald progress bar | Emerald |
-| Splash | `src/components/PreSplashSelector.tsx` | `HydraLogo` selection tile | Emerald |
+| Loading | `WEBSITE_v1.1/src/components/LoadingSplash.tsx` | `HydraLogo` + wordmark + emerald progress bar | Emerald |
+| Splash | `WEBSITE_v1.1/src/components/PreSplashSelector.tsx` | `HydraLogo` selection tile | Emerald |
 | Watermark | Full-page / section watermark | `HydraLogo` at ≈8–14% opacity | Low-opacity mono |
-| OpenGraph | `public/hydra_logo.jpg` via `useOpenGraph.ts` | 1024×1024 raster | Emerald on Abyssal |
+| OpenGraph | `WEBSITE_v1.1/public/hydra_logo.jpg` via `useOpenGraph.ts` | 1024×1024 raster | Emerald on Abyssal |
 | Manifest icons | `/manifest` icons | 192 + 512 px | Emerald fill |
 | Safari mask icon | `safari-pinned-tab.svg` | Monochrome silhouette | Black fill |
 | Dark mode | `html.dark` + `localStorage['hydra-theme']` | Emerald on Abyssal `#060c09` | Emerald |
@@ -748,10 +748,10 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 
 ## 16.1 Stack
 
-- **React + Vite** (TypeScript), Tailwind v4 CSS-first config in `src/index.css` (`@import "tailwindcss"`).
+- **React + Vite** (TypeScript), Tailwind v4 CSS-first config in `WEBSITE_v1.1/src/index.css` (`@import "tailwindcss"`).
 - Dark mode is class-based (`html.dark`), controlled by `App.tsx` and `localStorage['hydra-theme']`.
-- Class logic always through `cn()` from `src/lib/utils.ts`.
-- **Relative imports only** (`../components/...`) — the `@` alias points to root, never `src/`.
+- Class logic always through `cn()` from `WEBSITE_v1.1/src/lib/utils.ts`.
+- **Relative imports only** (`../components/...`) — the `@` alias points to root, never `WEBSITE_v1.1/src/`.
 - Motion: Framer Motion + Lenis smooth scroll.
 - Package name: `react-example`.
 
@@ -766,11 +766,11 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 
 ## 16.3 Content Architecture
 
-- All content from `src/data/portfolioData.ts`.
+- All content from `WEBSITE_v1.1/src/data/portfolioData.ts`.
 - `PROJECTS` is deliberately empty — `WorkGallery` must retain its empty-state handler.
 - `VOICE_TRACKS` playback relies on `audioUrl` in `/public/audio/`.
 - `DISCIPLINES` IDs are strictly `'video' | 'motion' | 'voice'`.
-- Metadata handled client-side via `src/hooks/useOpenGraph.ts` pointing to `/hydra_logo.jpg`.
+- Metadata handled client-side via `WEBSITE_v1.1/src/hooks/useOpenGraph.ts` pointing to `/hydra_logo.jpg`.
 - Contact form uses `VITE_FORM_ENDPOINT` / `VITE_FORM_ACCESS_KEY`; unconfigured warning state is kept.
 - The brief window **blends into the section content behind it** — a soft gradient-mask glass pane over a light backdrop tint (no flat modal look). It closes on **Esc**, on **tapping the backdrop**, or via the close button; the services package picker is a concept-blended styled select with an emerald chevron.
 - UI glyphs come from `lucide-react` — stock components only (`Play`, `Pause`, `Volume2`, `VolumeX`, `Mic`, `MicOff`, `FileText`, `Film`, `Layers`, `X`, `Check`, `CheckCircle2`, `ArrowRight`, `ChevronDown`); no hand-rolled SVG glyph sets.
@@ -778,7 +778,7 @@ Generated per `11_EXPORT_PIPELINE.md`: 16–2048 px PNG/WEBP, maskable 512, Appl
 
 ## 16.4 Device-Tier Performance Budget
 
-Source of truth: `src/hooks/useDeviceTier.ts` detects `low | medium | high` once per session (CPU cores, deviceMemory, effectiveType, saveData, coarse pointer) and mirrors it onto `<html data-quality="low|medium|high">`.
+Source of truth: `WEBSITE_v1.1/src/hooks/useDeviceTier.ts` detects `low | medium | high` once per session (CPU cores, deviceMemory, effectiveType, saveData, coarse pointer) and mirrors it onto `<html data-quality="low|medium|high">`.
 
 | Tier | Experience |
 |---|---|
@@ -790,7 +790,7 @@ Source of truth: `src/hooks/useDeviceTier.ts` detects `low | medium | high` once
 
 ## 16.5 Content Security Policy
 
-`index.html` ships a CSP meta tag with **no `unsafe-eval`** — required for Electron to clear its "Insecure Content-Security-Policy" warning. `script-src 'unsafe-inline'` is kept for Vite dev; do not add `unsafe-eval` back.
+`WEBSITE_v1.1/index.html` ships a CSP meta tag with **no `unsafe-eval`** — required for Electron to clear its "Insecure Content-Security-Policy" warning. `script-src 'unsafe-inline'` is kept for Vite dev; do not add `unsafe-eval` back.
 
 ---
 
@@ -798,7 +798,7 @@ Source of truth: `src/hooks/useDeviceTier.ts` detects `low | medium | high` once
 
 ## 17.1 The Master File
 
-`public/hydra-mark.svg` — the canonical static SVG (favicon, downloads, static tools), generated from the same geometry as `src/components/HydraLogo.tsx`:
+`WEBSITE_v1.1/public/hydra-mark.svg` — the canonical static SVG (favicon, downloads, static tools), generated from the same geometry as `WEBSITE_v1.1/src/components/HydraLogo.tsx`:
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="11 2.94 78 78">
@@ -824,9 +824,9 @@ Source of truth: `src/hooks/useDeviceTier.ts` detects `low | medium | high` once
 
 ## 17.3 Single Source of Truth
 
-- `src/components/HydraLogo.tsx` — live geometry used by every UI surface.
-- `public/hydra-mark.svg` — canonical static SVG (favicon, downloads, static tools), generated from the same geometry.
-- `public/hydra_logo.jpg` — derived OpenGraph / Twitter card (1024×1024).
+- `WEBSITE_v1.1/src/components/HydraLogo.tsx` — live geometry used by every UI surface.
+- `WEBSITE_v1.1/public/hydra-mark.svg` — canonical static SVG (favicon, downloads, static tools), generated from the same geometry.
+- `WEBSITE_v1.1/public/hydra_logo.jpg` — derived OpenGraph / Twitter card (1024×1024).
 
 > **Rule:** every raster, icon, social asset, print file, or motion asset MUST be generated from the certified geometry. It is forbidden to re-draw, re-trace, or re-imagine the mark for any export. Re-export only, never re-create.
 
@@ -1002,7 +1002,7 @@ Re-exports are free and encouraged; **re-creations are prohibited**. If a tool i
 
 ## 20.2 Step 01 — Asset Production
 
-12 packages, **147 files** in `ASSETS/`:
+12 packages, **147 files** in `BRAND/ASSETS/`:
 
 | Package | Files |
 |---|---|
@@ -1031,7 +1031,7 @@ Resolved every fixable QA issue, generated every supported missing asset, archiv
 
 ## 20.5 Step 04 — Release Packaging
 
-QA-passed tree packaged into `RELEASE/HYDRA_SAMO_BRAND_v1.0/` — **14 folders** (11 asset packages + DOCUMENTATION + LICENSE + REPORTS), **178 files**, enhanced `ASSET_MANIFEST.md`, release README, informational usage terms (no invented legal language), and archive `HYDRA_SAMO_BRAND_v1.0.zip` (**27 MB, 205 entries**, integrity test passed). Master checksum matches certified master byte-for-byte.
+QA-passed tree packaged into `BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/` — **14 folders** (11 asset packages + DOCUMENTATION + LICENSE + REPORTS), **178 files**, enhanced `ASSET_MANIFEST.md`, release README, informational usage terms (no invented legal language), and archive `HYDRA_SAMO_BRAND_v1.0.zip` (**27 MB, 205 entries**, integrity test passed). Master checksum matches certified master byte-for-byte.
 
 ## 20.6 Step 05 — Final Sign-Off
 
@@ -1043,7 +1043,7 @@ Official project closure: **STATUS: COMPLETE** — the HYDRA SAMO Brand Identity
 
 ## 21.1 Validation Categories
 
-The QA validation checklist (`OUTPUT/18_QA_VALIDATION.md`) defines PASS criteria, FAIL criteria, and verification methods across 12 categories:
+The QA validation checklist (`BRAND/OUTPUT/18_QA_VALIDATION.md`) defines PASS criteria, FAIL criteria, and verification methods across 12 categories:
 
 1. **SVG Integrity** — geometry unchanged, class contract intact, no baked decoration, checksum matches.
 2. **Favicon Readability** — 16 px legibility, optical centering, contrast.
@@ -1065,7 +1065,7 @@ The QA validation checklist (`OUTPUT/18_QA_VALIDATION.md`) defines PASS criteria
 
 ## 21.3 Verified Result
 
-The production QA run on 2026-08-05 audited `ASSETS/` (12 packages, 147 files) with automated scripts + manual spot checks (xmllint, ImageMagick, rsvg, sha256sum):
+The production QA run on 2026-08-05 audited `BRAND/ASSETS/` (12 packages, 147 files) with automated scripts + manual spot checks (xmllint, ImageMagick, rsvg, sha256sum):
 
 - **221 / 221 checks passed** — score **100 / 100**.
 - Geometry preserved exactly across all 13 master/production SVG variants.
@@ -1259,10 +1259,10 @@ HYDRA SAMO LABS/
 
 | Repo path | Brand drive path |
 |---|---|
-| `public/hydra-mark.svg` | `brand/MASTER/vector/hydra-mark_v4.svg` |
-| `src/components/HydraLogo.tsx` | `brand/MASTER/component/HydraLogo.tsx` |
-| `public/hydra_logo.jpg` | `brand/MASTER/social_card/hydra_logo_v4.jpg` |
-| `OUTPUT/10_MASTER_ASSET.md` … `19_FINAL_RELEASE.md` | `brand/GUIDELINES/` |
+| `WEBSITE_v1.1/public/hydra-mark.svg` | `brand/MASTER/vector/hydra-mark_v4.svg` |
+| `WEBSITE_v1.1/src/components/HydraLogo.tsx` | `brand/MASTER/component/HydraLogo.tsx` |
+| `WEBSITE_v1.1/public/hydra_logo.jpg` | `brand/MASTER/social_card/hydra_logo_v4.jpg` |
+| `BRAND/OUTPUT/10_MASTER_ASSET.md` … `19_FINAL_RELEASE.md` | `brand/GUIDELINES/` |
 
 ---
 
@@ -1270,7 +1270,7 @@ HYDRA SAMO LABS/
 
 ## 26.1 Package Overview
 
-`ASSETS/` — 12 packages, **147 files**, all QA-passed:
+`BRAND/ASSETS/` — 12 packages, **147 files**, all QA-passed:
 
 | Package | Files | Contents |
 |---|---|---|
@@ -1300,7 +1300,7 @@ Documented unsupported formats do not fail QA. Create the destination folder, ge
 
 ## 26.3 Integrity
 
-- Master SHA-256 `f12de4fd…1fa` byte-identical to `public/hydra-mark.svg`.
+- Master SHA-256 `f12de4fd…1fa` byte-identical to `WEBSITE_v1.1/public/hydra-mark.svg`.
 - Fresh rsvg render of the master is byte-identical to shipped `PNG/hydra-mark-emerald-256px.png`.
 
 ---
@@ -1375,7 +1375,7 @@ Offset/digital print 0.1 pt (rules 0.4 pt) · laser 0.3 mm · foil 0.25 mm · vi
 
 # 29. Motion Deliverables
 
-`ASSETS/MOTION/` (9 files) — all valid SVG with `pathLength="1"`, all honoring `prefers-reduced-motion`:
+`BRAND/ASSETS/MOTION/` (9 files) — all valid SVG with `pathLength="1"`, all honoring `prefers-reduced-motion`:
 
 | Asset | Spec |
 |---|---|
@@ -1392,13 +1392,13 @@ Offset/digital print 0.1 pt (rules 0.4 pt) · laser 0.3 mm · foil 0.25 mm · vi
 
 # 30. Website Assets
 
-`ASSETS/WEB/` (23 files) + the live site assets:
+`BRAND/ASSETS/WEB/` (23 files) + the live site assets:
 
 | Asset | File | Status |
 |---|---|---|
-| Live geometry | `src/components/HydraLogo.tsx` | ✅ live |
-| Standalone SVG | `public/hydra-mark.svg` | ✅ live |
-| Social card | `public/hydra_logo.jpg` (1024×1024) | ✅ live |
+| Live geometry | `WEBSITE_v1.1/src/components/HydraLogo.tsx` | ✅ live |
+| Standalone SVG | `WEBSITE_v1.1/public/hydra-mark.svg` | ✅ live |
+| Social card | `WEBSITE_v1.1/public/hydra_logo.jpg` (1024×1024) | ✅ live |
 | Favicon set | `favicon.ico`, `apple-touch-icon.png`, `safari-pinned-tab.svg`, manifest icons | ✅ generated |
 | WEB package | Navbar/hero/footer/loading/splash/watermark + OG/twitter PNG & WEBP | ✅ generated |
 
@@ -1421,11 +1421,11 @@ All generated from the master per the export pipeline and validated per QA. Favi
 ## 31.2 Conventions
 
 - **Relative imports only** (`../components/...`) — never `@/components/`.
-- Pass all class strings through `cn()` from `src/lib/utils.ts`.
+- Pass all class strings through `cn()` from `WEBSITE_v1.1/src/lib/utils.ts`.
 - Use Tailwind v4 CSS-first config; dark mode via `html.dark` + `localStorage['hydra-theme']`.
 - UI icons via `lucide-react` stock components — never hand-rolled replacement SVG glyphs.
 - Do not modify the `server` block or `DISABLE_HMR` logic in `vite.config.ts`.
-- Do not add `unsafe-eval` to the CSP in `index.html`.
+- Do not add `unsafe-eval` to the CSP in `WEBSITE_v1.1/index.html`.
 
 ## 31.3 Using the Mark
 
@@ -1447,7 +1447,7 @@ import { HydraLogo } from '../components/HydraLogo';
 
 ## 31.5 Content
 
-- All content in `src/data/portfolioData.ts`. `PROJECTS` is deliberately empty — keep `WorkGallery`'s empty-state handler. Audio relies on `/public/audio/`. `DISCIPLINES` IDs: `'video' | 'motion' | 'voice'`.
+- All content in `WEBSITE_v1.1/src/data/portfolioData.ts`. `PROJECTS` is deliberately empty — keep `WorkGallery`'s empty-state handler. Audio relies on `/public/audio/`. `DISCIPLINES` IDs: `'video' | 'motion' | 'voice'`.
 - `VoiceOverSection` is a "coming soon" placeholder — do not restore the removed audio-player content unless approved.
 
 ---
@@ -1484,7 +1484,7 @@ brand/
 1. **MASTER/ is immutable** — writes require brand-owner approval.
 2. **EXPORTS/ is disposable** — regenerate any time; never hand-edit an export.
 3. **ARCHIVE/ is read-only** — retired assets kept for provenance, never reused.
-4. **GUIDELINES/ mirrors `OUTPUT/`** — the repo is the source of truth; the brand drive copy is a mirror.
+4. **GUIDELINES/ mirrors `BRAND/OUTPUT/`** — the repo is the source of truth; the brand drive copy is a mirror.
 5. **RELEASES/** holds a frozen snapshot per release tag so the brand can be reproduced from any release.
 6. **Naming** everywhere follows the export-pipeline template; no version stamps inside EXPORTS (the folder path carries it).
 
@@ -1521,15 +1521,15 @@ The version numbering is independent of the logo `V{n}` label (the logo stays V4
 
 ## 33.4 Repository Optimization (STEP 28, 2026-08-06)
 
-Engineering-only optimization per `OUTPUT/28_REPOSITORY_OPTIMIZATION.md` — "Optimize, Never Rewrite". No brand-visible change.
+Engineering-only optimization per `BRAND/OUTPUT/28_REPOSITORY_OPTIMIZATION.md` — "Optimize, Never Rewrite". No brand-visible change.
 
-- **Removed:** `bun.lock` (npm-only project); `pdf-forge-exports/.../extracted-text.txt` (temporary artifact); empty gitignored `assets/` leftover (Phase 03 — `ASSETS/` remains the canonical brand archive).
+- **Removed:** `bun.lock` (npm-only project); `pdf-forge-exports/.../extracted-text.txt` (temporary artifact); empty gitignored `assets/` leftover (Phase 03 — `BRAND/ASSETS/` remains the canonical brand archive).
 - **Dependencies:** removed `motion` (duplicate of `framer-motion`), `autoprefixer`, `esbuild`, `tsx`; reclassified `vite`, `@tailwindcss/vite`, `@vitejs/plugin-react` to devDependencies. 0 vulnerabilities.
-- **Dead code:** removed 47 unused translation keys × 3 locales + `localizeDisciplines`/`localizeVoiceTracks` helpers (−180 lines in `src/i18n/translations.ts`).
+- **Dead code:** removed 47 unused translation keys × 3 locales + `localizeDisciplines`/`localizeVoiceTracks` helpers (−180 lines in `WEBSITE_v1.1/src/i18n/translations.ts`).
 - **Performance:** main JS `495.88 kB → 472.35 kB` raw (`154.81 → 150.15 kB` gzip); `VideoModal` (8.5 kB) and `ContactSection` (10.7 kB) lazy-loaded via `React.lazy` + `Suspense` (≈19 kB off the critical path). Adaptive performance system (device tier → `html[data-quality]` + reduced-motion CSS) verified intact.
 - **Accessibility:** state-aware localized `aria-label` on close/play/pause/mute controls and grade slider; `role="dialog"` + `aria-modal` on both modals; localized alt text on grade comparison images (5 new keys × 3 locales).
 - **Identity (Phase 13):** repository migrated to `HYDRA SAMO/HYDRA SAMO LABS/` (workspace `HYDRA SAMO`); git remote already `github.com/hydra-samo/HYDRA-SAMO-LABS`; `MOTION_DIFF_REPORT.md` reference synchronized; this Brand Book's repo-structure diagram updated.
-- **Untouched:** certified logo geometry, master SVGs, palette, typography, routes, `DESIGN.md`, `AGENTS.md`, governance docs, `RELEASE/` archive, `ASSETS/`.
+- **Untouched:** certified logo geometry, master SVGs, palette, typography, routes, `BRAND/DESIGN.md`, `BRAND/AGENTS.md`, governance docs, `BRAND/RELEASE/` archive, `BRAND/ASSETS/`.
 - **Validation:** `npm run lint` ✅, `npm run build` ✅, production-preview smoke test ✅ (all assets HTTP 200), responsive/asset audits clean.
 - **Status:** `REPOSITORY STATUS: OPTIMIZED` — approved for long-term maintenance and production deployment.
 
@@ -1573,8 +1573,8 @@ Future work is limited to:
 | Release name | Production Asset Ecosystem |
 | System status | 🟢 **PRODUCTION-READY** |
 | Release date | 2026-08-05 |
-| Certification | `OUTPUT/08` — ✅ CERTIFIED |
-| Freeze | `OUTPUT/09` — 🟢 LOCKED |
+| Certification | `BRAND/OUTPUT/08` — ✅ CERTIFIED |
+| Freeze | `BRAND/OUTPUT/09` — 🟢 LOCKED |
 
 ## 35.2 Release Notes
 
@@ -1590,7 +1590,7 @@ Future work is limited to:
 
 ## 35.4 Release Package
 
-`RELEASE/HYDRA_SAMO_BRAND_v1.0/` — 14 folders, 178 files, plus archive `HYDRA_SAMO_BRAND_v1.0.zip` (27 MB, 205 entries, integrity-tested). Master checksum matches certified master byte-for-byte. Release README documents brand overview, folder structure, per-discipline usage, and maintenance.
+`BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/` — 14 folders, 178 files, plus archive `HYDRA_SAMO_BRAND_v1.0.zip` (27 MB, 205 entries, integrity-tested). Master checksum matches certified master byte-for-byte. Release README documents brand overview, folder structure, per-discipline usage, and maintenance.
 
 ---
 
@@ -1627,16 +1627,16 @@ Post-validation: all seven critical + five minor findings closed by measured V4 
 
 | Document | Role |
 |---|---|
-| `DESIGN.md` | System design specification |
-| `AGENTS.md` | Project + brand governance |
-| `OUTPUT/BRAND_ASSET_PIPELINE.md` | Pipeline overview |
-| `OUTPUT/01`–`07` | Review pipeline (reports, plan, changelog) |
-| `OUTPUT/08`–`09` | Certification + freeze |
-| `OUTPUT/10`–`19` | Production documentation series |
-| `OUTPUT/20`–`25` (+ reports) | Asset production, QA, completion, packaging, sign-off, execution |
-| `OUTPUT/26`–`27` | Complete brand system + this book |
-| `ASSETS/SOURCE/geometry-sheet.md` | Certified geometry record |
-| `ASSETS/DEVELOPMENT/` | HydraLogo.tsx, tokens, usage examples, a11y notes |
+| `BRAND/DESIGN.md` | System design specification |
+| `BRAND/AGENTS.md` | Project + brand governance |
+| `BRAND/OUTPUT/BRAND_ASSET_PIPELINE.md` | Pipeline overview |
+| `BRAND/OUTPUT/01`–`07` | Review pipeline (reports, plan, changelog) |
+| `BRAND/OUTPUT/08`–`09` | Certification + freeze |
+| `BRAND/OUTPUT/10`–`19` | Production documentation series |
+| `BRAND/OUTPUT/20`–`25` (+ reports) | Asset production, QA, completion, packaging, sign-off, execution |
+| `BRAND/OUTPUT/26`–`27` | Complete brand system + this book |
+| `BRAND/ASSETS/SOURCE/geometry-sheet.md` | Certified geometry record |
+| `BRAND/ASSETS/DEVELOPMENT/` | HydraLogo.tsx, tokens, usage examples, a11y notes |
 
 ## 36.4 Master Checksum
 
@@ -1657,24 +1657,24 @@ screenshots, and first-generation visual assets — that predate the certified
 V4 identity and the current `HYDRA SAMO LABS` repository.
 
 These legacy artifacts are recovered, preserved, and organized inside the
-repository under `PROJECT_HISTORY/`, grouped by flag:
+repository under `BRAND/PROJECT_HISTORY/`, grouped by flag:
 
 | Flag | Meaning | Location |
 | --- | --- | --- |
-| **Project history** | Outdated/legacy project builds (`hydra-samo-portfolio-fixed`, `hydra-samo-portfolio-audit-fixed`, stray governance notes) | `PROJECT_HISTORY/ARCHIVES/00_PROJECT_HISTORY/` |
-| **1st concept** | The original master build prompts and planning documents used to conceive the first version of the site | `PROJECT_HISTORY/ARCHIVES/01_1ST_CONCEPT/` |
-| **Website preview** | Pre-release full-page screenshots of the site (Apex captures) | `PROJECT_HISTORY/ARCHIVES/02_WEBSITE_PREVIEW/` |
-| **Previous 1st assets** | First-generation visual assets (ChatGPT-generated portrait concepts, `hydra_samo_portrait.png`) superseded by the certified V4 asset library | `PROJECT_HISTORY/ARCHIVES/03_PREVIOUS_1ST_ASSETS/` |
+| **Project history** | Outdated/legacy project builds (`hydra-samo-portfolio-fixed`, `hydra-samo-portfolio-audit-fixed`, stray governance notes) | `BRAND/PROJECT_HISTORY/ARCHIVES/00_PROJECT_HISTORY/` |
+| **1st concept** | The original master build prompts and planning documents used to conceive the first version of the site | `BRAND/PROJECT_HISTORY/ARCHIVES/01_1ST_CONCEPT/` |
+| **Website preview** | Pre-release full-page screenshots of the site (Apex captures) | `BRAND/PROJECT_HISTORY/ARCHIVES/02_WEBSITE_PREVIEW/` |
+| **Previous 1st assets** | First-generation visual assets (ChatGPT-generated portrait concepts, `hydra_samo_portrait.png`) superseded by the certified V4 asset library | `BRAND/PROJECT_HISTORY/ARCHIVES/03_PREVIOUS_1ST_ASSETS/` |
 
 ## 37.2 Governance
 
 - The archive is **historical only** — no archived file is part of the active
   source, build, configuration, or release pipeline.
 - The archive is intentionally **git-ignored** (`.gitignore` →
-  `PROJECT_HISTORY/ARCHIVES/`) to avoid committing large legacy binaries; it is
+  `BRAND/PROJECT_HISTORY/ARCHIVES/`) to avoid committing large legacy binaries; it is
   kept on disk for traceability and audit.
 - The full inventory — every archived file with size, source location, and date —
-  is documented in `PROJECT_HISTORY/RELEASE_HISTORY_ASSETS.md`.
+  is documented in `BRAND/PROJECT_HISTORY/RELEASE_HISTORY_ASSETS.md`.
 - Legacy names (`hydra-review`, `hydra-samo-portfolio-fixed`,
   `hydra-samo-portfolio-audit-fixed`) remain as historical records only and do
   not resolve anywhere in active code, configs, or build paths.
@@ -1686,8 +1686,8 @@ assets and are preserved as history only:
 
 | Legacy asset | Superseded by |
 | --- | --- |
-| `hydra_samo_portrait.png` / ChatGPT portrait (12_45_56 AM) | `src/assets/images/hydra_samo.webp` |
-| ChatGPT secondary concept (03_15_56 AM) | Certified V4 asset library (`ASSETS/`) |
+| `hydra_samo_portrait.png` / ChatGPT portrait (12_45_56 AM) | `WEBSITE_v1.1/src/assets/images/hydra_samo.webp` |
+| ChatGPT secondary concept (03_15_56 AM) | Certified V4 asset library (`BRAND/ASSETS/`) |
 | Legacy project builds | Current `HYDRA SAMO LABS` repository |
 
 ---

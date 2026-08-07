@@ -119,5 +119,5 @@ Not because the direction is wrong — the three-heads-one-body concept and the 
 - Each head sweeps ≈37° of angle at its outer radius; gaps between arms ≈83°.
 - The head silhouette is asymmetric (convex right edge to x ≈ 57.4, concave left throat to x ≈ 44.6).
 - Core hexagon: exact regular flat-top hexagon, circumradius 14.5, ≈40% of total ink.
-- OG image (`public/hydra_logo.jpg`, 1024×1024): dark field with a small steel-blue mark (dominant color ≈ RGB 85,143,188), not the emerald system.
-- Unused legacy logo rasters present in `src/assets/images/`: teal, violet, and warm colorways.
+- OG image (`WEBSITE_v1.1/public/hydra_logo.jpg`, 1024×1024): dark field with a small steel-blue mark (dominant color ≈ RGB 85,143,188), not the emerald system.
+- Unused legacy logo rasters present in `WEBSITE_v1.1/src/assets/images/`: teal, violet, and warm colorways.

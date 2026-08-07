@@ -3,9 +3,9 @@
 | Property        | Value                                                        |
 | --------------- | ------------------------------------------------------------ |
 | Governing doc   | `13_MOTION_SYSTEM` (audit) / `14_INTERACTION_MODEL`          |
-| Source geometry | `ASSETS/MASTER/hydra-mark_v4_master.svg` (certified V4)      |
+| Source geometry | `BRAND/ASSETS/MASTER/hydra-mark_v4_master.svg` (certified V4)      |
 | Certified state | V4 logo, `viewBox="11 2.94 78 78"`, 4 paths, `pathLength="1"` |
-| Class hooks     | `.hydra-mark-glow`, `.hydra-mark-pulse` (CSS utility layer, `src/index.css`) |
+| Class hooks     | `.hydra-mark-glow`, `.hydra-mark-pulse` (CSS utility layer, `WEBSITE_v1.1/src/index.css`) |
 | Forbidden       | Continuous rotation (`.hydra-mark-spin` retired). See `rotation-forbidden.md`. |
 
 ## Motion library

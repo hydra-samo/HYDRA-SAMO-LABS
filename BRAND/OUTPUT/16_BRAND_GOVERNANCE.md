@@ -2,7 +2,7 @@
 
 ## Phase 07 — Usage Rules & Protection Standards
 
-The certified V4 mark is the permanent identity. This governance is the rulebook for every surface, from 16 px favicon to print and motion. It extends and codifies the constraints in `DESIGN.md`, `AGENTS.md`, and `09_BRAND_FREEZE.md`.
+The certified V4 mark is the permanent identity. This governance is the rulebook for every surface, from 16 px favicon to print and motion. It extends and codifies the constraints in `BRAND/DESIGN.md`, `BRAND/AGENTS.md`, and `09_BRAND_FREEZE.md`.
 
 ---
 
@@ -39,7 +39,7 @@ Below the minimum, do not render the mark — use the wordmark/name in type inst
 
 # 4. Forbidden Colors
 
-- **No neon cyan** (`#00FFCC`, `#00F0FF`, or `#00E5FF`) — explicitly banned by `AGENTS.md`; the historical design-brief recolor candidates (Neon Green `#39FF14`, Electric Cyan `#00E5FF`) are **not certified** and must not be used in any surface.
+- **No neon cyan** (`#00FFCC`, `#00F0FF`, or `#00E5FF`) — explicitly banned by `BRAND/AGENTS.md`; the historical design-brief recolor candidates (Neon Green `#39FF14`, Electric Cyan `#00E5FF`) are **not certified** and must not be used in any surface.
 - **No cyan/blue gradients** or bright blue accents.
 - **No legacy colorways** (teal/violet/warm logo variants were retired at certification).
 - **No out-of-palette hex drift** — verify hex values against the approved table before export.

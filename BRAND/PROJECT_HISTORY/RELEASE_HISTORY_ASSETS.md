@@ -1,11 +1,11 @@
 # HYDRA SAMO — Release History Assets
 
 Inventory of legacy project files recovered from the developer workspace
-(`/home/hydrasamo`), reorganized into `PROJECT_HISTORY/ARCHIVES/` under their
+(`/home/hydrasamo`), reorganized into `BRAND/PROJECT_HISTORY/ARCHIVES/` under their
 assigned flags. These files are historical only — none of them are part of the
 active `HYDRA SAMO LABS` source, build, or release pipeline. The archive is kept
 on disk for traceability and is intentionally git-ignored
-(`.gitignore` → `PROJECT_HISTORY/ARCHIVES/`).
+(`.gitignore` → `BRAND/PROJECT_HISTORY/ARCHIVES/`).
 
 > **Flag key**
 > - **Project history** — outdated/legacy project builds and notes.
@@ -24,7 +24,7 @@ on disk for traceability and is intentionally git-ignored
 | `hydra-samo-portfolio-fixed/` | Legacy project folder (contains `hydra-review 1/` source tree + `hydra-review.zip`) | `~/Downloads` | 303 MB | 2026-08-04 |
 | `hydra-samo-portfolio-fixed.zip` | Legacy project archive | `~/Downloads` | 10.5 MB | 2026-08-03 |
 | `hydra-samo-portfolio-audit-fixed.zip` | Legacy audit-fixed project archive | `~/Downloads` | 2.5 MB | 2026-08-04 |
-| `agent.md` | Stray governance note (Ambient Background Rule), absorbed into `AGENTS.md` | `~/` | 252 B | 2026-08-04 |
+| `agent.md` | Stray governance note (Ambient Background Rule), absorbed into `BRAND/AGENTS.md` | `~/` | 252 B | 2026-08-04 |
 
 ## 01_1ST_CONCEPT — Master Build Prompts & Planning Documents
 
@@ -60,7 +60,7 @@ Pre-release full-page screenshots of the website (10 PNG captures).
 
 | File | Kind | Source | Size | Date | Notes |
 | --- | --- | --- | --- | --- | --- |
-| `ChatGPT Image Aug 3, 2026, 12_45_56 AM.png` | AI-generated portrait concept | `~/Downloads` | 1.9 MB | 2026-08-03 | Superseded by `src/assets/images/hydra_samo.webp` |
+| `ChatGPT Image Aug 3, 2026, 12_45_56 AM.png` | AI-generated portrait concept | `~/Downloads` | 1.9 MB | 2026-08-03 | Superseded by `WEBSITE_v1.1/src/assets/images/hydra_samo.webp` |
 | `hydra_samo_portrait.png` | Renamed copy of the 12_45_56 AM ChatGPT portrait | `~/Downloads` | 1.9 MB | 2026-08-03 | Byte-identical (md5 `cf082c488d7f916feaf1c57a47999877`) |
 | `ChatGPT Image Aug 3, 2026, 03_15_56 AM (2).png` | AI-generated secondary concept | `~/Downloads` | 1.1 MB | 2026-08-03 | Superseded by certified V4 asset library |
 

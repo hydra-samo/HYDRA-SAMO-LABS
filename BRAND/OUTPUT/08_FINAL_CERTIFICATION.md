@@ -8,14 +8,14 @@
 - **Final Verdict:** ✅ CERTIFIED
 - **Review Cycle:** 2026-08-05 (First Review → REFINE → V4 Implementation → Final Validation)
 - **Files Reviewed:**
-  - `src/components/HydraLogo.tsx`
-  - `public/hydra-mark.svg`
-  - `public/hydra_logo.jpg`
-  - `index.html` (favicon link, metadata)
-  - `src/hooks/useOpenGraph.ts`, `metadata.json`
-  - `src/index.css` (`.hydra-mark-glow` / `.hydra-mark-pulse`, reduced-motion)
+  - `WEBSITE_v1.1/src/components/HydraLogo.tsx`
+  - `WEBSITE_v1.1/public/hydra-mark.svg`
+  - `WEBSITE_v1.1/public/hydra_logo.jpg`
+  - `WEBSITE_v1.1/index.html` (favicon link, metadata)
+  - `WEBSITE_v1.1/src/hooks/useOpenGraph.ts`, `WEBSITE_v1.1/metadata.json`
+  - `WEBSITE_v1.1/src/index.css` (`.hydra-mark-glow` / `.hydra-mark-pulse`, reduced-motion)
   - Logo surfaces: `Navigation.tsx`, `Hero.tsx`, `PreSplashSelector.tsx`, `PlymouthSplash.tsx`
-  - `src/assets/images/` (legacy rasters retired)
+  - `WEBSITE_v1.1/src/assets/images/` (legacy rasters retired)
 
 ---
 

@@ -6,7 +6,7 @@
 | Executed | 2026-08-05 |
 | Certified geometry | V4 · `viewBox="11 2.94 78 78"` · 4 paths · heads 0°/120°/240° + hex core |
 | Master SHA-256 | `f12de4fdd94c2dbd155b0c4a23c80cdbb6420bd394a601492ade20d23380c1fa` |
-| Master integrity | byte-identical to `public/hydra-mark.svg` ✓ |
+| Master integrity | byte-identical to `WEBSITE_v1.1/public/hydra-mark.svg` ✓ |
 | Total assets | 147 files across 12 packages |
 
 ## Assets Generated

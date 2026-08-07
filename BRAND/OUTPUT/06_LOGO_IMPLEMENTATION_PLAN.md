@@ -37,7 +37,7 @@ These are launch-blocking and must be done first.
 ### P1-2. Provide a dedicated favicon that reads at 16px
 - Produce a favicon-specific asset generated from the single source SVG, tightly cropped to the re-framed mark, emerald fill on the brand canvas.
 - The 16px render must show three distinct head masses around a visible center (see Acceptance Criteria). If the refined geometry alone cannot achieve this, add the minimum 16px-safe simplification to the favicon asset only — never to the live component geometry.
-- Update `index.html` to reference the new favicon asset.
+- Update `WEBSITE_v1.1/index.html` to reference the new favicon asset.
 
 ### P1-3. Make the head read as a head, not a blade
 - Broaden the connection between each head and the core so the arms flare into the body instead of tapering like blades.
@@ -50,12 +50,12 @@ These are launch-blocking and must be done first.
 - Net result: the head must read as one continuous serpentine curve. No corners, no visible angles at any zoom.
 
 ### P1-5. Rebuild the OpenGraph / social preview asset
-- Regenerate `public/hydra_logo.jpg` (or the configured OG image) from the single source SVG so the social card shows the real emerald mark, properly centered and framed.
+- Regenerate `WEBSITE_v1.1/public/hydra_logo.jpg` (or the configured OG image) from the single source SVG so the social card shows the real emerald mark, properly centered and framed.
 - Target frame behavior: the mark should occupy a dominant share of the 1024×1024 canvas, centered, on the abyssal dark canvas.
-- Keep `metadata.json` pointing at the regenerated asset; no other metadata changes.
+- Keep `WEBSITE_v1.1/metadata.json` pointing at the regenerated asset; no other metadata changes.
 
 ### P1-6. Retire the legacy raster logo variants
-- Remove or regenerate the unreferenced teal / violet / warm logo rasters in `src/assets/images/` so the repository contains exactly one logo source of truth plus derived assets.
+- Remove or regenerate the unreferenced teal / violet / warm logo rasters in `WEBSITE_v1.1/src/assets/images/` so the repository contains exactly one logo source of truth plus derived assets.
 - If any are needed for historical reference, move them out of the active asset tree.
 
 ---
@@ -79,7 +79,7 @@ These improve quality and durability; they should follow P1.
 - Remove or repurpose the currently unused `animated` and `variant` props if they remain unused after P2-1. No dead public API.
 
 ### P2-5. Document minimum sizes and clearspace
-- Record in DESIGN.md/AGENTS.md: minimum render size (target 24px for UI, 16px favicon), clearspace rule, and the rule that the mark is never to be re-generated from any asset other than the single source SVG.
+- Record in BRAND/DESIGN.md/AGENTS.md: minimum render size (target 24px for UI, 16px favicon), clearspace rule, and the rule that the mark is never to be re-generated from any asset other than the single source SVG.
 
 ---
 
@@ -103,7 +103,7 @@ These improve quality and durability; they should follow P1.
 
 # SVG Requirements
 
-- Keep the single-source philosophy: `HydraLogo.tsx` remains the live geometry; `public/hydra-mark.svg` and any social/favicon assets are derived from it.
+- Keep the single-source philosophy: `HydraLogo.tsx` remains the live geometry; `WEBSITE_v1.1/public/hydra-mark.svg` and any social/favicon assets are derived from it.
 - No gradients, glow, shadows, or reflections inside any SVG. Lighting stays in the CSS layer utilities.
 - `currentColor` fills/strokes, `pathLength={1}` on every path, `aria-hidden`, `focusable={false}` retained.
 - One viewBox shared by the component; dedicated tight crops only for favicon/social derived assets.
@@ -124,7 +124,7 @@ These improve quality and durability; they should follow P1.
 
 - No prop/API/class-name changes that break existing call sites: Navigation, Hero, PreSplashSelector, PlymouthSplash must keep working unchanged.
 - All UI surfaces must show the same mark in the same emerald family (`#10b981` / `#34d399` accents as already used).
-- Favicon link in `index.html` must keep respecting VITE's base path (`%BASE_URL%`) so GitHub Pages sub-path deploy keeps working.
+- Favicon link in `WEBSITE_v1.1/index.html` must keep respecting VITE's base path (`%BASE_URL%`) so GitHub Pages sub-path deploy keeps working.
 - The OpenGraph hook must keep resolving the regenerated image through the existing base-path logic; only the image asset changes.
 
 ---

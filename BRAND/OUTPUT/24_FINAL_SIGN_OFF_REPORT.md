@@ -14,11 +14,11 @@ The HYDRA SAMO Brand Identity System has satisfied every approval criterion. The
 
 ## Lifecycle Summary
 
-Design → independent reviews → consensus → validation → certification → brand freeze → master asset → export pipeline → production (01) → QA (02) → completion audit (03) → release packaging (04) → final sign-off (05). All lifecycle phases exist in `OUTPUT/` (30 documents) with their expected outputs.
+Design → independent reviews → consensus → validation → certification → brand freeze → master asset → export pipeline → production (01) → QA (02) → completion audit (03) → release packaging (04) → final sign-off (05). All lifecycle phases exist in `BRAND/OUTPUT/` (30 documents) with their expected outputs.
 
 ## Certification Status
 
-Valid. `OUTPUT/08_FINAL_CERTIFICATION.md` + `09_BRAND_FREEZE.md` in effect. Geometry frozen: `viewBox="11 2.94 78 78"`, 4 paths, three heads rotated 120°/240° around `(50,50)` + hex core.
+Valid. `BRAND/OUTPUT/08_FINAL_CERTIFICATION.md` + `09_BRAND_FREEZE.md` in effect. Geometry frozen: `viewBox="11 2.94 78 78"`, 4 paths, three heads rotated 120°/240° around `(50,50)` + hex core.
 
 ## Production Status
 
@@ -30,22 +30,22 @@ PASSED. 221/221 checks, 0 failures, 0 warnings (STEP 02). No corrupted or missin
 
 ## Repository Status
 
-- `ASSETS/` organized per `17_FILE_STRUCTURE.md`; naming and versioning consistent.
-- Master SHA-256 `f12de4fd…1fa` = `public/hydra-mark.svg` (byte-identical); site `HydraLogo.tsx` geometry matches master exactly (verified).
+- `BRAND/ASSETS/` organized per `17_FILE_STRUCTURE.md`; naming and versioning consistent.
+- Master SHA-256 `f12de4fd…1fa` = `WEBSITE_v1.1/public/hydra-mark.svg` (byte-identical); site `HydraLogo.tsx` geometry matches master exactly (verified).
 - README coverage 12/12 folders; no duplicates, no deprecated assets, no temporary files, no broken references.
 
 ## Governance Status
 
-Enforced. Icon-only mark; glow external to SVG; rotation forbidden (`.hydra-mark-spin` retired, no rotate/spin animation anywhere in ASSETS); palette locked — forbidden neon cyan appears only as documentation text in the color sheet, never as a fill; no location badges; no SaaS tropes reintroduced. `AGENTS.md` and `DESIGN.md` remain authoritative.
+Enforced. Icon-only mark; glow external to SVG; rotation forbidden (`.hydra-mark-spin` retired, no rotate/spin animation anywhere in ASSETS); palette locked — forbidden neon cyan appears only as documentation text in the color sheet, never as a fill; no location badges; no SaaS tropes reintroduced. `BRAND/AGENTS.md` and `BRAND/DESIGN.md` remain authoritative.
 
 ## Brand Integrity
 
-- Certified SVG unchanged — master byte-identical to the tracked `public/hydra-mark.svg`.
+- Certified SVG unchanged — master byte-identical to the tracked `WEBSITE_v1.1/public/hydra-mark.svg`.
 - No path modifications post-certification; no unauthorized redesign; no unofficial variants (all mark-bearing SVGs are certified master/variants or the site component).
 
 ## Release Readiness
 
-`RELEASE/HYDRA_SAMO_BRAND_v1.0/` — 14 folders, 181 files, enhanced `ASSET_MANIFEST.md`, release `README.md`, informational usage terms, and validated archive `HYDRA_SAMO_BRAND_v1.0.zip` (205 entries, `unzip -t` OK). Suitable for GitHub archival, professional client delivery, and future integration.
+`BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/` — 14 folders, 181 files, enhanced `ASSET_MANIFEST.md`, release `README.md`, informational usage terms, and validated archive `HYDRA_SAMO_BRAND_v1.0.zip` (205 entries, `unzip -t` OK). Suitable for GitHub archival, professional client delivery, and future integration.
 
 ## Project Metrics
 

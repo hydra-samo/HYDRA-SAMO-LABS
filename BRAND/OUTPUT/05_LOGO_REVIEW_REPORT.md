@@ -3,7 +3,7 @@
 **Orchestrated by:** Lead Design Director
 **Reviewers:** Creative Director · Senior Logo Designer · Brand Recognition Specialist · Devil's Advocate
 **Date:** 2026-08-05
-**Target:** Current implementation — `src/components/HydraLogo.tsx`, `public/hydra-mark.svg`, `index.html`, all surfaces (nav, hero, pre-splash, splash, favicon, OpenGraph, metadata, reusable component, raster assets)
+**Target:** Current implementation — `WEBSITE_v1.1/src/components/HydraLogo.tsx`, `WEBSITE_v1.1/public/hydra-mark.svg`, `WEBSITE_v1.1/index.html`, all surfaces (nav, hero, pre-splash, splash, favicon, OpenGraph, metadata, reusable component, raster assets)
 
 All four reviews were executed independently. Each reviewer inspected the same implementation and reached their own conclusions. This document preserves every viewpoint, including disagreements.
 
@@ -120,14 +120,14 @@ Ranked highest priority first.
 - **Confidence:** High (tangent computation)
 
 ### C5. OpenGraph / social preview is off-brand
-- **Description:** `public/hydra_logo.jpg` (1024×1024) shows a steel-blue mark (dominant ≈ RGB 85,143,188) on a dark field, mark small in frame; unrelated to the live emerald SVG system.
+- **Description:** `WEBSITE_v1.1/public/hydra_logo.jpg` (1024×1024) shows a steel-blue mark (dominant ≈ RGB 85,143,188) on a dark field, mark small in frame; unrelated to the live emerald SVG system.
 - **Why it matters:** The first impression most prospective clients meet is the social share card. It shows a different, off-palette brand.
 - **Expected visual impact:** Replacing it with the single emerald mark (regenerated from the SVG source) restores one-identity discipline across all channels.
 - **Severity:** High
 - **Confidence:** High (pixel analysis)
 
 ### C6. Unused legacy logo colorways in the repo
-- **Description:** `src/assets/images/` contains teal, violet, and warm raster logo variants, unreferenced by any code.
+- **Description:** `WEBSITE_v1.1/src/assets/images/` contains teal, violet, and warm raster logo variants, unreferenced by any code.
 - **Why it matters:** Dead, ungoverned logo variants contradict a single-source-of-truth identity and invite future misuse.
 - **Expected visual impact:** Removal (or regeneration from the one SVG source) eliminates palette drift risk.
 - **Severity:** Medium
@@ -187,7 +187,7 @@ The evidence across all four reviews supports a disciplined refinement cycle tha
 # Post-Implementation Validation (V4) — FINAL
 
 **Date:** 2026-08-05 (same cycle)
-**Validated Version:** V4 — `src/components/HydraLogo.tsx`, `public/hydra-mark.svg`, `public/hydra_logo.jpg`
+**Validated Version:** V4 — `WEBSITE_v1.1/src/components/HydraLogo.tsx`, `WEBSITE_v1.1/public/hydra-mark.svg`, `WEBSITE_v1.1/public/hydra_logo.jpg`
 **Method:** Independent geometric measurement (SVG path analysis), rasterized rendering (rsvg-convert) with alpha-corrected pixel inspection, and the acceptance gates defined in `06_LOGO_IMPLEMENTATION_PLAN.md`.
 
 ## Resolution of Critical Issues
@@ -199,13 +199,13 @@ The evidence across all four reviews supports a disciplined refinement cycle tha
 | C3 Rotor / fan category | ~37° arcs, ~83° dead wedges, clockwise lean | Head flare tightened to 57.5° wedge; crown/hood + throat flare the head-on-body read; `.hydra-mark-spin` retired | Wedge measurement 57.5° (target 55–60°) |
 | C4 Construction kinks | ≈20° and ≈26.6° tangent breaks | All crown / throat / neck joints tangent-continuous | Tangency 0.0° across all joints |
 | C5 Off-brand social asset | Steel-blue, under-sized | Rebuilt 1024×1024 from emerald source on `#060c09`; mark centered at 84.6% × 77.1% | Pixel analysis (green-dominance detection) |
-| C6 Legacy colorway rasters | teal / violet / warm, unreferenced | Retired from `src/assets/images/` | Directory listing; reference grep |
+| C6 Legacy colorway rasters | teal / violet / warm, unreferenced | Retired from `WEBSITE_v1.1/src/assets/images/` | Directory listing; reference grep |
 | C7 Hidden hydra invisible | Throat/crown vanish below ~48px | Bold crown/hood and deep negative-space throat notch read at 16px; core body visible | 16px lobe ink + core-region ink measurement |
 
 ## Resolution of Minor Issues
 
 - **Outline variant leak** — head-base strokes no longer cross the transparent core interior; all interior ink ≤1.6 units from the hex boundary (the hexagon's own outline stroke). Verified alpha-corrected.
-- **`.hydra-mark-spin`** — removed from CSS (utility, keyframes, reduced-motion reference) and documented as forbidden in `AGENTS.md`.
+- **`.hydra-mark-spin`** — removed from CSS (utility, keyframes, reduced-motion reference) and documented as forbidden in `BRAND/AGENTS.md`.
 - **Unused `animated` prop** — removed from the component API; `variant` retained (now renders cleanly).
 - **Internal bottom-heaviness** — center-anchored R17 core redistributes optical weight into the center; lobes balanced.
 - **Head sweep asymmetry at small sizes** — head wedge widened to 57.5°; serpent read survives 16px.

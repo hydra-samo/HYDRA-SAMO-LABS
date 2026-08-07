@@ -29,7 +29,7 @@ The certified mark is **motion-ready**: `pathLength={1}` on every path, stable c
 ## 2.2 CSS animation
 
 - **Existing utilities:** `.hydra-mark-glow` (drop-shadow 0 0 6px / 0 0 16px `currentColor`) and `.hydra-mark-pulse` (`hydra-pulse 3.2s ease-in-out infinite`: opacity 1→0.55, scale 1→0.9).
-- **New utilities** must live in `src/index.css` under the mark block and respect reduced motion.
+- **New utilities** must live in `WEBSITE_v1.1/src/index.css` under the mark block and respect reduced motion.
 - **Prefer `opacity` / `filter` / small `scale`** over `width`/`transform` churn on the mark for GPU economy.
 
 ## 2.3 Framer Motion
@@ -80,7 +80,7 @@ The certified mark is **motion-ready**: `pathLength={1}` on every path, stable c
 
 # 6. Animation Restrictions
 
-1. **No continuous rotation.** `.hydra-mark-spin` remains retired and forbidden (`AGENTS.md`, `09_BRAND_FREEZE.md`).
+1. **No continuous rotation.** `.hydra-mark-spin` remains retired and forbidden (`BRAND/AGENTS.md`, `09_BRAND_FREEZE.md`).
 2. **No per-head independent motion.** The three heads are welded to one body.
 3. **No color-shifting flashes.** Stick to the certified palette; no neon/cyan strobing.
 4. **No morphing paths.** The certified path data is frozen; effects animate stroke/opacity/transform wrappers only.

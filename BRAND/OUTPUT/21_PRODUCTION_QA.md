@@ -26,13 +26,13 @@ No optimization may alter the approved SVG construction.
 
 Read completely before taking any action.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 especially:
 
@@ -84,7 +84,7 @@ Do not create new assets unless an existing production asset is objectively corr
 
 Inspect:
 
-ASSETS/
+BRAND/ASSETS/
 
 Recursively inspect every folder.
 
@@ -422,7 +422,7 @@ unused logo variants
 
 Generate:
 
-OUTPUT/21_PRODUCTION_QA_REPORT.md
+BRAND/OUTPUT/21_PRODUCTION_QA_REPORT.md
 
 Include:
 
@@ -514,7 +514,7 @@ This phase performs validation only.
 
 Generate:
 
-OUTPUT/21_PRODUCTION_QA_REPORT.md
+BRAND/OUTPUT/21_PRODUCTION_QA_REPORT.md
 
 If every verification passes, conclude:
 

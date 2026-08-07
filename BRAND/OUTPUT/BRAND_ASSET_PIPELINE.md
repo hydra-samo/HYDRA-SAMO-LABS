@@ -41,13 +41,13 @@ Your responsibility is to build the complete production asset ecosystem around t
 
 Read before doing anything:
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 especially:
 
@@ -79,7 +79,7 @@ Only document the production pipeline.
 
 Generate:
 
-@OUTPUT/10_MASTER_ASSET.md
+@BRAND/OUTPUT/10_MASTER_ASSET.md
 
 Document:
 
@@ -99,7 +99,7 @@ Document:
 
 Generate:
 
-@OUTPUT/11_EXPORT_PIPELINE.md
+@BRAND/OUTPUT/11_EXPORT_PIPELINE.md
 
 Specify every required export.
 
@@ -161,7 +161,7 @@ filled variants
 
 Generate:
 
-@OUTPUT/12_WEBSITE_ASSETS.md
+@BRAND/OUTPUT/12_WEBSITE_ASSETS.md
 
 Document every website asset.
 
@@ -201,7 +201,7 @@ Light Mode
 
 Generate:
 
-@OUTPUT/13_MOTION_SYSTEM.md
+@BRAND/OUTPUT/13_MOTION_SYSTEM.md
 
 Document production animation standards.
 
@@ -245,7 +245,7 @@ Animation restrictions
 
 Generate:
 
-@OUTPUT/14_SOCIAL_SYSTEM.md
+@BRAND/OUTPUT/14_SOCIAL_SYSTEM.md
 
 Include production specifications for:
 
@@ -287,7 +287,7 @@ Cropping rules
 
 Generate:
 
-@OUTPUT/15_PRINT_SYSTEM.md
+@BRAND/OUTPUT/15_PRINT_SYSTEM.md
 
 Business Cards
 
@@ -323,7 +323,7 @@ Minimum line widths
 
 Generate:
 
-@OUTPUT/16_BRAND_GOVERNANCE.md
+@BRAND/OUTPUT/16_BRAND_GOVERNANCE.md
 
 Document:
 
@@ -357,7 +357,7 @@ Distortion Policy
 
 Generate:
 
-@OUTPUT/17_FILE_STRUCTURE.md
+@BRAND/OUTPUT/17_FILE_STRUCTURE.md
 
 Design the complete production folder hierarchy.
 
@@ -387,7 +387,7 @@ Future Releases/
 
 Generate:
 
-@OUTPUT/18_QA_VALIDATION.md
+@BRAND/OUTPUT/18_QA_VALIDATION.md
 
 Create the final production QA checklist.
 
@@ -431,7 +431,7 @@ Verification method
 
 Generate:
 
-@OUTPUT/19_FINAL_RELEASE.md
+@BRAND/OUTPUT/19_FINAL_RELEASE.md
 
 Create the production release document.
 

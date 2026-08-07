@@ -42,13 +42,13 @@ Your responsibility is to generate every production asset that can be produced f
 
 Read completely before taking any action.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 especially:
 
@@ -118,7 +118,7 @@ Never simplify paths.
 
 Create if necessary:
 
-ASSETS/
+BRAND/ASSETS/
 
 ---
 
@@ -126,7 +126,7 @@ ASSETS/
 
 Generate:
 
-ASSETS/MASTER/
+BRAND/ASSETS/MASTER/
 
 Produce:
 
@@ -154,7 +154,7 @@ Optimize every SVG without altering geometry.
 
 Generate:
 
-ASSETS/SVG/
+BRAND/ASSETS/SVG/
 
 Organize production SVG variants.
 
@@ -166,7 +166,7 @@ Preserve identical geometry.
 
 Generate:
 
-ASSETS/PNG/
+BRAND/ASSETS/PNG/
 
 Export:
 
@@ -212,7 +212,7 @@ Transparent background only.
 
 Generate:
 
-ASSETS/FAVICON/
+BRAND/ASSETS/FAVICON/
 
 favicon.ico
 
@@ -244,7 +244,7 @@ browserconfig.xml
 
 Generate:
 
-ASSETS/WEB/
+BRAND/ASSETS/WEB/
 
 Navbar Logo
 
@@ -278,7 +278,7 @@ Browser Assets
 
 Generate:
 
-ASSETS/SOCIAL/
+BRAND/ASSETS/SOCIAL/
 
 Instagram Avatar
 
@@ -316,7 +316,7 @@ Facebook Cover
 
 Generate:
 
-ASSETS/MOTION/
+BRAND/ASSETS/MOTION/
 
 Animated SVG
 
@@ -346,7 +346,7 @@ Otherwise document manual creation.
 
 Generate:
 
-ASSETS/PRINT/
+BRAND/ASSETS/PRINT/
 
 PDF
 
@@ -378,7 +378,7 @@ Otherwise document them.
 
 Generate:
 
-ASSETS/APP/
+BRAND/ASSETS/APP/
 
 Android
 
@@ -406,7 +406,7 @@ Safari
 
 Generate:
 
-ASSETS/DEVELOPMENT/
+BRAND/ASSETS/DEVELOPMENT/
 
 React Component
 
@@ -454,7 +454,7 @@ Requirements:
 
 Generate:
 
-ASSETS/README.md
+BRAND/ASSETS/README.md
 
 Document:
 
@@ -484,7 +484,7 @@ Production notes
 
 Generate:
 
-ASSETS/LOGO_LOCKUPS/
+BRAND/ASSETS/LOGO_LOCKUPS/
 
 The official HYDRA SAMO logo lockup system derived from the certified master logo.
 
@@ -552,7 +552,7 @@ Transparent
 
 ### 13.3.1 Horizontal Lockup
 
-ASSETS/LOGO_LOCKUPS/Horizontal/
+BRAND/ASSETS/LOGO_LOCKUPS/Horizontal/
 
 Hydra symbol.
 
@@ -564,7 +564,7 @@ Maintain the clear space defined in the Brand Book.
 
 ### 13.3.2 Vertical Lockup
 
-ASSETS/LOGO_LOCKUPS/Vertical/
+BRAND/ASSETS/LOGO_LOCKUPS/Vertical/
 
 Hydra symbol above the wordmark.
 
@@ -632,7 +632,7 @@ Verify:
 
 Generate:
 
-OUTPUT/29_LOGO_LOCKUP_SYSTEM.md
+BRAND/OUTPUT/29_LOGO_LOCKUP_SYSTEM.md
 
 Include:
 
@@ -682,7 +682,7 @@ Stop only after every supported production asset has been created and every unsu
 
 Generate:
 
-OUTPUT/20_ASSET_PRODUCTION_REPORT.md
+BRAND/OUTPUT/20_ASSET_PRODUCTION_REPORT.md
 
 Include:
 

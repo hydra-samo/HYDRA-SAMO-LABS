@@ -21,14 +21,14 @@ This document is the release record for the certified V4 brand asset system. It 
 
 # 3. Certification Reference
 
-- **Document:** `OUTPUT/08_FINAL_CERTIFICATION.md`
+- **Document:** `BRAND/OUTPUT/08_FINAL_CERTIFICATION.md`
 - **Verdict:** ✅ CERTIFIED
 - **Score:** 59 / 100 (V2 consensus baseline) — certified on full closure of all review findings by measured V4 validation; all acceptance gates PASS
-- **Review pipeline:** `OUTPUT/01` … `07` (independent reviews → consensus → refinement → V4 validation)
+- **Review pipeline:** `BRAND/OUTPUT/01` … `07` (independent reviews → consensus → refinement → V4 validation)
 
 # 4. Freeze Reference
 
-- **Document:** `OUTPUT/09_BRAND_FREEZE.md`
+- **Document:** `BRAND/OUTPUT/09_BRAND_FREEZE.md`
 - **Freeze date:** 2026-08-05
 - **Status:** 🟢 LOCKED — Permanent production identity
 - **Scope:** Geometry, palette, frame, construction, and all derived assets are frozen. Continuous rotation (`.hydra-mark-spin`) remains forbidden.
@@ -37,9 +37,9 @@ This document is the release record for the certified V4 brand asset system. It 
 
 | Asset | Location | Type | Status |
 |---|---|---|---|
-| Master standalone SVG | `public/hydra-mark.svg` (≡ `brand/MASTER/vector/hydra-mark_v4.svg`) | vector | ✅ certified |
-| Live geometry component | `src/components/HydraLogo.tsx` | React/SVG | ✅ certified |
-| Social card | `public/hydra_logo.jpg` (1024×1024) | raster | ✅ certified |
+| Master standalone SVG | `WEBSITE_v1.1/public/hydra-mark.svg` (≡ `brand/MASTER/vector/hydra-mark_v4.svg`) | vector | ✅ certified |
+| Live geometry component | `WEBSITE_v1.1/src/components/HydraLogo.tsx` | React/SVG | ✅ certified |
+| Social card | `WEBSITE_v1.1/public/hydra_logo.jpg` (1024×1024) | raster | ✅ certified |
 | Checksum | `sha256sum`: `[PLACEHOLDER — fill at export]` | SHA-256 | ⏳ record at first export |
 | Export matrix (SVG/PNG/WEBP/ICO/PDF/EPS/AI/FIG × 16–2048) | `brand/EXPORTS/` | generated | 📦 pending generation |
 | Website icons (favicon.ico, apple-touch, manifest, mask) | `brand/WEBSITE/` | generated | 📦 pending generation |
@@ -49,7 +49,7 @@ This document is the release record for the certified V4 brand asset system. It 
 
 # 6. Folder Manifest
 
-Per `OUTPUT/17_FILE_STRUCTURE.md` — all nine production directories defined: `MASTER/`, `EXPORTS/`, `WEBSITE/`, `SOCIAL/`, `PRINT/`, `MOTION/`, `GUIDELINES/`, `ARCHIVE/`, `RELEASES/`. Generation and population follow the export pipeline.
+Per `BRAND/OUTPUT/17_FILE_STRUCTURE.md` — all nine production directories defined: `MASTER/`, `EXPORTS/`, `WEBSITE/`, `SOCIAL/`, `PRINT/`, `MOTION/`, `GUIDELINES/`, `ARCHIVE/`, `RELEASES/`. Generation and population follow the export pipeline.
 
 # 7. Release Notes
 

@@ -48,13 +48,13 @@ It is not a redesign phase.
 
 Read completely before taking any action.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 especially:
 
@@ -114,7 +114,7 @@ Continue the completion process.
 
 Read:
 
-OUTPUT/21_PRODUCTION_QA_REPORT.md
+BRAND/OUTPUT/21_PRODUCTION_QA_REPORT.md
 
 Resolve every issue marked:
 
@@ -310,7 +310,7 @@ application readiness
 
 Generate:
 
-OUTPUT/22_COMPLETION_AUDIT.md
+BRAND/OUTPUT/22_COMPLETION_AUDIT.md
 
 Include:
 
@@ -364,7 +364,7 @@ Completion succeeds only if:
 
 Generate:
 
-OUTPUT/22_COMPLETION_AUDIT.md
+BRAND/OUTPUT/22_COMPLETION_AUDIT.md
 
 Conclude with one of:
 

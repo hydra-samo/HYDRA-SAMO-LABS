@@ -4,7 +4,7 @@
 | --- | --- |
 | Pipeline step | STEP 04 — Release Packaging (`23_RELEASE_PACKAGING.md`) |
 | Executed | 2026-08-05 |
-| Release | `RELEASE/HYDRA_SAMO_BRAND_v1.0/` |
+| Release | `BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/` |
 
 ## Executive Summary
 
@@ -23,14 +23,14 @@ RELEASE/HYDRA_SAMO_BRAND_v1.0/
 
 ## Assets Included
 
-158 QA-passed asset files copied from `ASSETS/` (verified — identical counts per package, no temp or obsolete files). All passed STEP 02 QA (0 failures).
+158 QA-passed asset files copied from `BRAND/ASSETS/` (verified — identical counts per package, no temp or obsolete files). All passed STEP 02 QA (0 failures).
 
 ## Documents Included
 
 - Governance / certification / freeze / export / QA validation / final release docs (OUTPUT 08–19).
-- `DESIGN.md`, `AGENTS.md`, `BRAND_ASSET_PIPELINE.md`, `HYDRA_SAMO_Design_AGENTS_Guidelines.pdf`.
+- `BRAND/DESIGN.md`, `BRAND/AGENTS.md`, `BRAND_ASSET_PIPELINE.md`, `HYDRA_SAMO_Design_AGENTS_Guidelines.pdf`.
 - Production, QA, and completion reports (OUTPUT 20–22).
-- `UNSUPPORTED_FORMATS.md` (from `ASSETS/UNSUPPORTED/README.md`).
+- `UNSUPPORTED_FORMATS.md` (from `BRAND/ASSETS/UNSUPPORTED/README.md`).
 - `ASSET_MANIFEST.md` and release `README.md`.
 
 ## Excluded Assets
@@ -41,7 +41,7 @@ RELEASE/HYDRA_SAMO_BRAND_v1.0/
 
 ## Unsupported Formats
 
-Covered in `DOCUMENTATION/UNSUPPORTED_FORMATS.md` with purpose, format, software, manual workflow, source, destination, and status for each.
+Covered in `BRAND/DOCUMENTATION/UNSUPPORTED_FORMATS.md` with purpose, format, software, manual workflow, source, destination, and status for each.
 
 ## Packaging Notes
 
@@ -51,7 +51,7 @@ Covered in `DOCUMENTATION/UNSUPPORTED_FORMATS.md` with purpose, format, software
 
 ## Archive Readiness
 
-- Archive: `RELEASE/HYDRA_SAMO_BRAND_v1.0.zip` — created and tested OK (205 entries).
+- Archive: `BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0.zip` — created and tested OK (205 entries).
 - Expected layout preserved: `HYDRA_SAMO_BRAND_v1.0/` at archive root.
 
 ## Release Integrity

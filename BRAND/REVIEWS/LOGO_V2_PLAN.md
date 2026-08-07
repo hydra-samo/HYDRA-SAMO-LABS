@@ -17,7 +17,7 @@ drone rotor / loading spinner.
 
 ## 2. Diagnosis of V1 (why it reads as a "blade / rotor")
 
-Current master head path (`HEAD_PATH` in `src/components/HydraLogo.tsx`):
+Current master head path (`HEAD_PATH` in `WEBSITE_v1.1/src/components/HydraLogo.tsx`):
 
 ```
 M 50 11 C 53 15, 56 19, 57.8 24 C 59.5 28.5, 56.5 38, 54 45
@@ -114,25 +114,25 @@ Z
 
 ## 5. Files to change
 
-1. **`src/components/HydraLogo.tsx`**
+1. **`WEBSITE_v1.1/src/components/HydraLogo.tsx`**
    - Replace `HEAD_PATH` with the V2 draft above.
    - Add `CORE_PATH` (hexagon) and a `<path className="hydra-core" pathLength={1}>`
      inside the existing `<g className="hydra-heads">`.
    - Fill/outline logic unchanged (core inherits the same group fill/stroke).
    - No prop/API/class-name changes → all existing call sites keep working.
-2. **`public/hydra-mark.svg`**
+2. **`WEBSITE_v1.1/public/hydra-mark.svg`**
    - Regenerate favicon with V2 geometry: 3 arms + hex core, fill `#10b981`.
-3. **`DESIGN.md`**
+3. **`BRAND/DESIGN.md`**
    - Update the *Implementation* bullets under `## HYDRA SAMO — Master Logo Design System`
      to document V2: hex core (`Rc ≈ 12.5`, `hydra-core`), throat-notch hood,
      weight redistribution, monochrome / 16px behavior.
    - The Master Brief section stays **verbatim, untouched**.
-4. **`AGENTS.md`**
+4. **`BRAND/AGENTS.md`**
    - One-line governance update: add `hydra-core` to the class list in
      `## Logo & Brand Mark Governance`.
 
 **Not changed:** `Navigation.tsx`, `Hero.tsx`, `PreSplashSelector.tsx`,
-`PlymouthSplash.tsx`, `index.html`, `src/index.css`, translations, data.
+`PlymouthSplash.tsx`, `WEBSITE_v1.1/index.html`, `WEBSITE_v1.1/src/index.css`, translations, data.
 
 ## 6. Verification
 

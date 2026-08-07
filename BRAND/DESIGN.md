@@ -30,13 +30,13 @@
 
 ## Typography System
 
-### Font Stacks (canonical tokens in `src/index.css` `@theme`)
+### Font Stacks (canonical tokens in `WEBSITE_v1.1/src/index.css` `@theme`)
 - **`--font-sans`** — `Manrope` · EN/FR body (400), UI labels (500), buttons/CTAs (600).
 - **`--font-display`** — `Space Grotesk` · Wordmark (700), hero (700), primary section titles (600), secondary headings (500).
 - **`--font-arabic`** — `IBM Plex Sans Arabic` · Arabic headings (600, 500 for secondary) and body (400), applied automatically by the `html.lang-ar` overrides.
 - **`--font-mono`** — `JetBrains Mono` · Code and technical readouts only (400, 600 for emphasis).
 
-Wired from Google Fonts in `index.html` — weights are deliberately limited for performance:
+Wired from Google Fonts in `WEBSITE_v1.1/index.html` — weights are deliberately limited for performance:
 `Space+Grotesk:wght@500;600;700`, `Manrope:wght@400;500;600`, `IBM+Plex+Sans+Arabic:wght@400;500;600;700`, `JetBrains+Mono:wght@400;600`.
 
 ### Type Hierarchy
@@ -65,19 +65,19 @@ JetBrains Mono is reserved for code and data readouts. Every prose eyebrow, form
 
 ## Architectural Rules
 - Use relative imports ONLY (`../components/...`).
-- Utility function: Always pass class strings through `cn()` from `src/lib/utils.ts`.
+- Utility function: Always pass class strings through `cn()` from `WEBSITE_v1.1/src/lib/utils.ts`.
 
 ## Device-Tier Performance Budget
-- **Source of truth**: `src/hooks/useDeviceTier.ts` detects `low | medium | high` once per session (CPU cores, deviceMemory, effectiveType, saveData, coarse pointer) and mirrors it onto `<html data-quality="low|medium|high">`.
+- **Source of truth**: `WEBSITE_v1.1/src/hooks/useDeviceTier.ts` detects `low | medium | high` once per session (CPU cores, deviceMemory, effectiveType, saveData, coarse pointer) and mirrors it onto `<html data-quality="low|medium|high">`.
 - **Low tier** (weak phones): no Lenis (native scroll — anchor jumps need `[id] { scroll-margin-top: 96px }`), 1 static ambient blob, no aurora/spotlight/drift, no backdrop-blur on glass, no blur entrance animations, every other waveform bar.
 - **Medium tier**: Lenis at 0.95s, 2 ambient blobs, reduced `blur(9px)` glass, no spotlight.
 - **High tier**: full experience (Lenis 1.2s, 3 blobs + drift + aurora + spotlight, `blur(12px)` glass).
-- **Convention**: components gate JS animations with `cheapMotion = isCoarse || tier === 'low'`; CSS gates static compositing cost via `html[data-quality]` selectors in `src/index.css`.
-- **CSP**: `index.html` ships a Content-Security-Policy meta tag with NO `unsafe-eval` — required for Electron to clear its "Insecure Content-Security-Policy" warning. `script-src 'unsafe-inline'` is kept for Vite dev; do not add `unsafe-eval` back.
+- **Convention**: components gate JS animations with `cheapMotion = isCoarse || tier === 'low'`; CSS gates static compositing cost via `html[data-quality]` selectors in `WEBSITE_v1.1/src/index.css`.
+- **CSP**: `WEBSITE_v1.1/index.html` ships a Content-Security-Policy meta tag with NO `unsafe-eval` — required for Electron to clear its "Insecure Content-Security-Policy" warning. `script-src 'unsafe-inline'` is kept for Vite dev; do not add `unsafe-eval` back.
 
 ## HYDRA SAMO — Master Logo Design System
 
-### Implementation (`src/components/HydraLogo.tsx`)
+### Implementation (`WEBSITE_v1.1/src/components/HydraLogo.tsx`)
 - **Geometry**: A single pure vector mark built on an invisible **pointy-top hexagonal grid** (construction hex circumradius 36, center at `50,50`, rendered in a shared optical frame `viewBox="11 2.94 78 78"`). A **pointy-top hexagon core** (circumradius `Rc ≈ 17`, class `hydra-core`) is the hydra's one body — a genuine structural anchor the three necks flow into, not a hub or dot.
 - **Construction**: One master serpent-head path (class `hydra-head-0`) replicated in exact **3-fold rotational symmetry** via `rotate(120 50 50)` and `rotate(240 50 50)`, plus a separate hex-core path. Every head shares the same anchor set — minimal anchors, clean cubic Béziers, fully editable in Figma/Illustrator/Inkscape. No path merging.
 - **Hidden Hydra**: At a glance the mark reads as a clean, engineered tri-sym emblem. On closer inspection each of the three forms is a serpent head in profile — pointed snout, **bold crown/hood**, and a **deep concave throat notch carved entirely through negative space** — representing **Video Editing (up), Motion Design (down-left), Voice Over (down-right)**. Each head overhangs a distinct **neck waist** that flares back out into the solid hexagon core: **one body, three heads**.

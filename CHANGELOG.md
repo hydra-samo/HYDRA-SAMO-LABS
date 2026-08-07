@@ -31,16 +31,16 @@ The mobile experience reached release maturity.
 
 ### Infrastructure
 - GitHub Release `v1.1.0` with mobile changelog + brand zip asset; post-release polish pushed to `main` and the release asset refreshed in place (no v1.1.1 tag).
-- Repo description, topics, and README refreshed; brand system docs intact in `RELEASE/`.
-- Brand Book (`DOCUMENTATION/HYDRA_SAMO_Brand_Book_v1.0.{pdf,html,md}`) re-synced — hero mark governance, light-mode canvas, and brief-window behavior now match the site.
+- Repo description, topics, and README refreshed; brand system docs intact in `BRAND/RELEASE/`.
+- Brand Book (`BRAND/DOCUMENTATION/HYDRA_SAMO_Brand_Book_v1.0.{pdf,html,md}`) re-synced — hero mark governance, light-mode canvas, and brief-window behavior now match the site.
 
 ## [v1.0.0] — Brand Release — 2026-08-05
 
 Initial certified brand engineering lifecycle — see
-`OUTPUT/26_LIFECYCLE_REPLICATOR.md` for the full orchestrator record.
+`BRAND/OUTPUT/26_LIFECYCLE_REPLICATOR.md` for the full orchestrator record.
 
 ### Shipped
 - HYDRA SAMO brand identity v1.0: certified V4 mark, frozen geometry, lockup system, palette, governance, production assets.
 - Full portfolio source: React 19 + Vite 6 + Tailwind v4, EN/FR/AR with RTL, dark bio-organic editorial theme, Lenis smooth scroll, AmbientBackground, loading/pre splash flow.
 - Low-end device tiering, GPU-cheap motion, accessibility hardening.
-- `RELEASE/HYDRA_SAMO_BRAND_v1.0/` package + regenerated zip.
+- `BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/` package + regenerated zip.

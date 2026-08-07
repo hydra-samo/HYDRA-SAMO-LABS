@@ -110,7 +110,7 @@ brand/
 1. **MASTER/ is immutable** — writes require brand-owner approval and modify only `MANIFEST.md` or the versioned file set.
 2. **EXPORTS/ is disposable** — regenerate any time; never hand-edit an export (edit the master, re-export).
 3. **ARCHIVE/ is read-only** — retired assets are kept for provenance, never reused.
-4. **GUIDELINES/ mirrors the canonical docs in the repo `OUTPUT/`** — the repo `OUTPUT/` is the source of truth; the brand drive copy is a mirror.
+4. **GUIDELINES/ mirrors the canonical docs in the repo `BRAND/OUTPUT/`** — the repo `BRAND/OUTPUT/` is the source of truth; the brand drive copy is a mirror.
 5. **RELEASES/** holds a frozen snapshot per release tag (`v4.0.0`, …) including the asset manifest, so the brand can be reproduced from any release.
 6. **Naming** everywhere follows `11_EXPORT_PIPELINE.md` §2; no version stamps inside `EXPORTS/` (the folder path carries it).
 
@@ -120,7 +120,7 @@ brand/
 
 | Repo path | Brand drive path |
 |---|---|
-| `public/hydra-mark.svg` | `brand/MASTER/vector/hydra-mark_v4.svg` |
-| `src/components/HydraLogo.tsx` | `brand/MASTER/component/HydraLogo.tsx` |
-| `public/hydra_logo.jpg` | `brand/MASTER/social_card/hydra_logo_v4.jpg` |
-| `OUTPUT/10_MASTER_ASSET.md` … `19_FINAL_RELEASE.md` | `brand/GUIDELINES/` |
+| `WEBSITE_v1.1/public/hydra-mark.svg` | `brand/MASTER/vector/hydra-mark_v4.svg` |
+| `WEBSITE_v1.1/src/components/HydraLogo.tsx` | `brand/MASTER/component/HydraLogo.tsx` |
+| `WEBSITE_v1.1/public/hydra_logo.jpg` | `brand/MASTER/social_card/hydra_logo_v4.jpg` |
+| `BRAND/OUTPUT/10_MASTER_ASSET.md` … `19_FINAL_RELEASE.md` | `brand/GUIDELINES/` |

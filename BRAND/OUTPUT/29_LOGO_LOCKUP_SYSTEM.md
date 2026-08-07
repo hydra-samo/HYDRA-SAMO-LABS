@@ -6,8 +6,8 @@
 | Executed | 2026-08-06 |
 | Certified geometry | `viewBox="11 2.94 78 78"`, 4 paths, three heads rotated 120/240 around `(50,50)` + hex core |
 | Master SHA-256 | `f12de4fdd94c2dbd155b0c4a23c80cdbb6420bd394a601492ade20d23380c1fa` |
-| Master integrity | byte-identical to `public/hydra-mark.svg`; all 4 mark paths embedded verbatim in every lockup SVG |
-| Total assets | 134 files across `ASSETS/LOGO_LOCKUPS/` |
+| Master integrity | byte-identical to `WEBSITE_v1.1/public/hydra-mark.svg`; all 4 mark paths embedded verbatim in every lockup SVG |
+| Total assets | 134 files across `BRAND/ASSETS/LOGO_LOCKUPS/` |
 
 ## STATUS: COMPLETE
 
@@ -23,7 +23,7 @@ only, no text inside the mark SVG, per Brand Book §15.2).
 Both lockups are pure vector. The wordmark is converted to paths (fontTools) from
 the **exact build the website renders** — Space Grotesk 700, Google Fonts
 **v2.000** (release v22) — so the lockup matches the site wordmark letter-for-letter
-(see `ASSETS/LOGO_LOCKUPS/source/`). The SVGs therefore carry **no font dependency**.
+(see `BRAND/ASSETS/LOGO_LOCKUPS/source/`). The SVGs therefore carry **no font dependency**.
 Raster and PDF exports derive from the same vectors via `rsvg-convert`.
 
 ## Horizontal Lockup Specification
@@ -47,7 +47,7 @@ Raster and PDF exports derive from the same vectors via `rsvg-convert`.
 - Wordmark: **HYDRA SAMO** — Space Grotesk **700**, uppercase.
 - Tracking: **`-0.02em`** per Brand Book §11.2 (nav / standard). No distort, no italic.
 - Font build: **Google Fonts v2.000** (release v22) — byte-faithful to the site's
-  `--font-display` wordmark (`index.html` loads `Space+Grotesk:wght@500;600;700`).
+  `--font-display` wordmark (`WEBSITE_v1.1/index.html` loads `Space+Grotesk:wght@500;600;700`).
   Kept in `source/` (`SpaceGrotesk-700-google-v2.000.ttf`, OFL 1.1) for regeneration.
 - Space Grotesk v2 has no GPOS pair kerning on the lockup's letter pairs, so the
   tracked advance is exact; the wordmark is fully path-converted (no live text).

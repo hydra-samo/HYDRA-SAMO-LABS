@@ -14,7 +14,7 @@ During recent refactoring to standardize button tokens and eliminate duplicate h
 Replacing hardcoded glassmorphism classes (`bg-slate-900/60`, `backdrop-blur-md`, `border-white/10`) with solid theme tokens stripped out backdrop filters and transition properties. Additionally, solid opaque section backgrounds masked the ambient mesh and canvas layers rendering underneath.
 
 ### Secondary Cause (Discovered During Audit)
-`AmbientBackground.tsx` still referenced `.ambient-blob`, `.cursor-spotlight`, and the `--blob-moss` / `--blob-jade` / `--blob-lichen` / `--spot-glow` variables, but **all of these were deleted from `src/index.css`** during the token-standardization pass. The blobs therefore rendered transparent and inert, which is why the background motion appeared completely flat.
+`AmbientBackground.tsx` still referenced `.ambient-blob`, `.cursor-spotlight`, and the `--blob-moss` / `--blob-jade` / `--blob-lichen` / `--spot-glow` variables, but **all of these were deleted from `WEBSITE_v1.1/src/index.css`** during the token-standardization pass. The blobs therefore rendered transparent and inert, which is why the background motion appeared completely flat.
 
 ---
 
@@ -24,7 +24,7 @@ Replacing hardcoded glassmorphism classes (`bg-slate-900/60`, `backdrop-blur-md`
 | :--- | :--- | :--- | :--- |
 | `useLenis.ts` / `App.tsx` | Continuous inertia scrolling | Added modal check (`lenis.stop()`) | **Fixed** (Scroll locks correctly) |
 | `AboutSection.tsx` | "MANY HEADS. ONE UNIFIED VISION." | Updated to "MANY HEADS. ONE ORIGIN." | **Fixed** (Heading collision resolved) |
-| `src/index.css` | Glass & glow classes removed | Restored `.ambient-blob` keyframes, `.cursor-spotlight`, blob palette vars, `.glass-card`, `.glass-hover` | **Restored** (Blur, glow & ambient motion back) |
+| `WEBSITE_v1.1/src/index.css` | Glass & glow classes removed | Restored `.ambient-blob` keyframes, `.cursor-spotlight`, blob palette vars, `.glass-card`, `.glass-hover` | **Restored** (Blur, glow & ambient motion back) |
 | Ambient Canvas / Hero | Blobs rendered invisible (CSS stripped) | Re-added drift animations + `--blob-*` / `--spot-glow` vars | **Restored** (Organic motion visible) |
 | Section Wrappers | No layer between content & blobs | Added `bg-[var(--bg-canvas)]/80 backdrop-blur-sm` | **Restored** (Motion reads behind glass) |
 | Cards & Interactive Elements | Inline transitions & hover glow stripped | Re-applied glass surfaces + emerald hover glow | **Restored** (Lift, blur & glow active) |
@@ -42,7 +42,7 @@ Replacing hardcoded glassmorphism classes (`bg-slate-900/60`, `backdrop-blur-md`
 
 ## 4. Changes Executed
 
-### 4.1 `src/index.css` (Restored Layer)
+### 4.1 `WEBSITE_v1.1/src/index.css` (Restored Layer)
 - Added `.ambient-blob` drift animation (`@keyframes ambient-drift`, 20s alternating) with per-blob durations for `--a` / `--b` / `--c`.
 - Added `.cursor-spotlight` blur + `pointer-events: none`.
 - Re-introduced ambient palette vars `--blob-moss`, `--blob-jade`, `--blob-lichen`, `--spot-glow` for light and dark modes.

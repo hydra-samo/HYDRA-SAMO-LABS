@@ -2,7 +2,7 @@
 
 | Field | Value |
 | --- | --- |
-| Pipeline | HYDRA SAMO Production Pipeline (`OUTPUT/25_EXECUTE_PRODUCTION_PIPELINE.md`) |
+| Pipeline | HYDRA SAMO Production Pipeline (`BRAND/OUTPUT/25_EXECUTE_PRODUCTION_PIPELINE.md`) |
 | Executed | 2026-08-05 |
 | Scope | Steps 01–05: Asset Production → QA → Completion Audit → Release Packaging → Final Sign-Off |
 | Deadline honored | 2026-08-05T15:00-08:00 |
@@ -18,7 +18,7 @@ All five steps executed in order. The certified V4 mark was preserved exactly (n
 | STEP 01 | Asset production (12 packages, PHASES 01–12 of doc 20) | 158 assets; report `20_ASSET_PRODUCTION_REPORT.md` |
 | STEP 02 | QA audit (PHASES 01–12 of doc 21) | 221/221 checks passed; report `21_PRODUCTION_QA_REPORT.md` |
 | STEP 03 | Completion audit (doc 22): docs, geometry sheet, UNSUPPORTED, manifest | report `22_COMPLETION_AUDIT_REPORT.md` |
-| STEP 04 | Release packaging (doc 23): RELEASE/ v1.0 + zip | report `23_RELEASE_PACKAGING_REPORT.md` |
+| STEP 04 | Release packaging (doc 23): BRAND/RELEASE/ v1.0 + zip | report `23_RELEASE_PACKAGING_REPORT.md` |
 | STEP 05 | Final sign-off (doc 24): governance review | STATUS COMPLETE; report `24_FINAL_SIGN_OFF_REPORT.md` |
 
 ## Executed Phases
@@ -31,16 +31,16 @@ All five steps executed in order. The certified V4 mark was preserved exactly (n
 
 ## Generated Reports
 
-- `OUTPUT/20_ASSET_PRODUCTION_REPORT.md`
-- `OUTPUT/21_PRODUCTION_QA_REPORT.md`
-- `OUTPUT/22_COMPLETION_AUDIT_REPORT.md`
-- `OUTPUT/23_RELEASE_PACKAGING_REPORT.md`
-- `OUTPUT/24_FINAL_SIGN_OFF_REPORT.md`
-- `OUTPUT/25_PRODUCTION_PIPELINE_EXECUTION.md` (this file)
+- `BRAND/OUTPUT/20_ASSET_PRODUCTION_REPORT.md`
+- `BRAND/OUTPUT/21_PRODUCTION_QA_REPORT.md`
+- `BRAND/OUTPUT/22_COMPLETION_AUDIT_REPORT.md`
+- `BRAND/OUTPUT/23_RELEASE_PACKAGING_REPORT.md`
+- `BRAND/OUTPUT/24_FINAL_SIGN_OFF_REPORT.md`
+- `BRAND/OUTPUT/25_PRODUCTION_PIPELINE_EXECUTION.md` (this file)
 
 ## Assets Produced
 
-158 files in `ASSETS/`: MASTER 9 · SVG 6 · PNG 18 · FAVICON 16 · WEB 24 · SOCIAL 16 · MOTION 9 · PRINT 10 · APP 30 · SOURCE 11 · DEVELOPMENT 7 · UNSUPPORTED doc · manifest.
+158 files in `BRAND/ASSETS/`: MASTER 9 · SVG 6 · PNG 18 · FAVICON 16 · WEB 24 · SOCIAL 16 · MOTION 9 · PRINT 10 · APP 30 · SOURCE 11 · DEVELOPMENT 7 · UNSUPPORTED doc · manifest.
 Export counts: SVG 35, PNG 88, WEBP 2, ICO 2, TIFF 1, PDF/EPS 2.
 
 ## QA Findings
@@ -52,20 +52,20 @@ Export counts: SVG 35, PNG 88, WEBP 2, ICO 2, TIFF 1, PDF/EPS 2.
 - Android launcher 72/144 px and mstile-70/310/wide tiles were missing from the initial generation — generated and added (FAVICON/APP completed).
 - Initial `browserconfig.xml` referenced mstile sizes that did not exist — sizes generated to match.
 - Per-folder README documentation completed for all 13 folders.
-- `version-metadata.json` aligned with certified geometry (core bbox vs full-mark extent, radii).
+- `version-WEBSITE_v1.1/metadata.json` aligned with certified geometry (core bbox vs full-mark extent, radii).
 - Root manifest updated to final 158-file inventory.
 
 ## Manual-Only Items
 
-Unsupported proprietary formats `.ai`, `.fig`, `.aep`, `.riv` — documented with purpose, format, software, manual export workflow, source, destination, and status in `ASSETS/UNSUPPORTED/README.md` (also `RELEASE/.../DOCUMENTATION/UNSUPPORTED_FORMATS.md`). No fake files created.
+Unsupported proprietary formats `.ai`, `.fig`, `.aep`, `.riv` — documented with purpose, format, software, manual export workflow, source, destination, and status in `BRAND/ASSETS/UNSUPPORTED/README.md` (also `BRAND/RELEASE/.../DOCUMENTATION/UNSUPPORTED_FORMATS.md`). No fake files created.
 
 ## Repository Status
 
-Production-ready. `ASSETS/` organized per doc 17; master byte-identical to `public/hydra-mark.svg`; site component geometry matches master; no legacy/temp/duplicate assets; naming and versioning consistent.
+Production-ready. `BRAND/ASSETS/` organized per doc 17; master byte-identical to `WEBSITE_v1.1/public/hydra-mark.svg`; site component geometry matches master; no legacy/temp/duplicate assets; naming and versioning consistent.
 
 ## Packaging Status
 
-`RELEASE/HYDRA_SAMO_BRAND_v1.0/` — 14 folders, 181 files, `ASSET_MANIFEST.md`, release `README.md`, informational `LICENSE/usage-terms.md`, `REPORTS/` (5 reports + review PDF), archive `HYDRA_SAMO_BRAND_v1.0.zip` (205 entries, integrity OK).
+`BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/` — 14 folders, 181 files, `ASSET_MANIFEST.md`, release `README.md`, informational `LICENSE/usage-terms.md`, `REPORTS/` (5 reports + review PDF), archive `HYDRA_SAMO_BRAND_v1.0.zip` (205 entries, integrity OK).
 
 ## Governance Status
 

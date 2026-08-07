@@ -1,7 +1,7 @@
 # HYDRA SAMO — Senior Logo Designer Technical Review
 
 **Role:** Senior Identity Designer, 20 years, production-focused
-**Target:** `src/components/HydraLogo.tsx`, `public/hydra-mark.svg`, favicon behavior, all render surfaces
+**Target:** `WEBSITE_v1.1/src/components/HydraLogo.tsx`, `WEBSITE_v1.1/public/hydra-mark.svg`, favicon behavior, all render surfaces
 **Date:** 2026-08-05
 
 I inspected the mark as if it were entering production: engraving, embroidery, laser cut, animation, and scaling from 16px to billboard. Marketing and storytelling are ignored.

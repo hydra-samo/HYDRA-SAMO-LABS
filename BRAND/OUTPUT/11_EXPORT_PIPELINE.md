@@ -2,7 +2,7 @@
 
 ## Phase 02 — Export Pipeline Specification
 
-Every export is generated from the certified master (`public/hydra-mark.svg`, geometry identical to `src/components/HydraLogo.tsx`). **No export may be hand-recreated.** Export from the source, verify, then release.
+Every export is generated from the certified master (`WEBSITE_v1.1/public/hydra-mark.svg`, geometry identical to `WEBSITE_v1.1/src/components/HydraLogo.tsx`). **No export may be hand-recreated.** Export from the source, verify, then release.
 
 ---
 

@@ -32,13 +32,13 @@ This document represents the official project closure.
 
 Read completely before taking any action.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 including (but not limited to):
 
@@ -226,9 +226,9 @@ Brand Freeze remains valid.
 
 Governance rules remain enforced.
 
-AGENTS.md reflects current governance.
+BRAND/AGENTS.md reflects current governance.
 
-DESIGN.md remains authoritative.
+BRAND/DESIGN.md remains authoritative.
 
 No governance violations exist.
 
@@ -290,7 +290,7 @@ Overall project maturity
 
 Generate:
 
-OUTPUT/24_FINAL_SIGN_OFF.md
+BRAND/OUTPUT/24_FINAL_SIGN_OFF.md
 
 Include:
 

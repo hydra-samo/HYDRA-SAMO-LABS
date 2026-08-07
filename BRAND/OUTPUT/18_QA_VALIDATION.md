@@ -13,7 +13,7 @@ Every checklist item defines **PASS criteria**, **FAIL criteria**, and a **verif
 | Master geometry unchanged | Path data in the deployed file matches the certified V4 paths; viewBox `11 2.94 78 78`; no added/replaced paths | Any path data diff, frame change, merged/added path | `diff` against certified path strings; re-measure wedge 57.5° ± tolerance and tangency 0.0° |
 | Class contract intact | `hydra-head-0/1/2` + `hydra-core` present; 3-fold `rotate(120/240 50 50)`; `pathLength={1}`; `currentColor` | Missing/renamed classes, removed transforms or pathLength | Grep the SVG and `HydraLogo.tsx` for the class + attribute set |
 | No baked decoration | No gradients, glow, shadows, or reflections inside the SVG; no `<defs>` lighting | Any `<linearGradient>`, `<filter>`, drop-shadow, or fill-rule abuse | Inspect markup; `rg -n "gradient|filter|drop-shadow"` on the master |
-| Checksum matches | `sha256sum` equals the recorded master checksum (once set) | Checksum mismatch | `sha256sum public/hydra-mark.svg` vs `10_MASTER_ASSET.md` |
+| Checksum matches | `sha256sum` equals the recorded master checksum (once set) | Checksum mismatch | `sha256sum WEBSITE_v1.1/public/hydra-mark.svg` vs `10_MASTER_ASSET.md` |
 
 # 2. Favicon Readability
 
@@ -28,8 +28,8 @@ Every checklist item defines **PASS criteria**, **FAIL criteria**, and a **verif
 | Item | PASS | FAIL | Verification |
 |---|---|---|---|
 | All surfaces use one mark | Nav, hero, footer, splash, favicon, OG all show the certified mark | Any surface shows a legacy/different asset | Visual diff per surface; grep legacy references |
-| Favicon wired | `index.html` references `%BASE_URL%hydra-mark.svg`; resolves on the deployed subpath | 404 favicon; wrong base path | Open deployed site; `curl` the favicon URL |
-| OG wired | `metadata.json` → `useOpenGraph.ts` injects `og:image` / `twitter:image` pointing at `/hydra_logo.jpg` resolved through BASE_URL | Missing/incorrect OG tags or image URL | Inspect `<head>` on deployed site; validate with a card debugger |
+| Favicon wired | `WEBSITE_v1.1/index.html` references `%BASE_URL%hydra-mark.svg`; resolves on the deployed subpath | 404 favicon; wrong base path | Open deployed site; `curl` the favicon URL |
+| OG wired | `WEBSITE_v1.1/metadata.json` → `useOpenGraph.ts` injects `og:image` / `twitter:image` pointing at `/hydra_logo.jpg` resolved through BASE_URL | Missing/incorrect OG tags or image URL | Inspect `<head>` on deployed site; validate with a card debugger |
 | Build clean | `npm run lint` (tsc --noEmit) and `npm run build` pass; call sites unchanged | Type errors or broken surfaces | Run both commands |
 
 # 4. Motion Compatibility
@@ -37,7 +37,7 @@ Every checklist item defines **PASS criteria**, **FAIL criteria**, and a **verif
 | Item | PASS | FAIL | Verification |
 |---|---|---|---|
 | Stroke-draw readiness | All paths stroke-draw cleanly via `pathLength`; reveal ends at full fill | Dashed leftover, incomplete reveal, or path drift | Animate a test reveal at display size |
-| No spin | No `.hydra-mark-spin` or equivalent rotation anywhere | Any continuous rotation reference | `rg -n "spin|rotate" src/index.css src/components` |
+| No spin | No `.hydra-mark-spin` or equivalent rotation anywhere | Any continuous rotation reference | `rg -n "spin|rotate" WEBSITE_v1.1/src/index.css WEBSITE_v1.1/src/components` |
 | Motion settles | Approved reveals settle; only the loading pulse loops | Busy/infinite non-approved loop | Watch each motion surface |
 | Reduced motion | `prefers-reduced-motion: reduce` disables pulse/ambient/reveals; mark renders static | Animation continues under reduced motion | Emulate the media query and inspect |
 
@@ -100,7 +100,7 @@ Every checklist item defines **PASS criteria**, **FAIL criteria**, and a **verif
 
 | Item | PASS | FAIL | Verification |
 |---|---|---|---|
-| All 10 docs present | `10` … `19_FINAL_RELEASE.md` exist in `OUTPUT/` | Missing phase doc | List `OUTPUT/` |
+| All 10 docs present | `10` … `19_FINAL_RELEASE.md` exist in `BRAND/OUTPUT/` | Missing phase doc | List `BRAND/OUTPUT/` |
 | Cross-references resolve | Referenced docs/filenames exist | Broken references | Link check the 10 docs |
 | Release manifest up to date | `19_FINAL_RELEASE.md` reflects this release's assets and checksums | Stale manifest | Diff manifest vs actual files |
 

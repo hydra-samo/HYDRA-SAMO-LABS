@@ -54,13 +54,13 @@ It does not regenerate certified assets.
 
 Read completely before taking any action.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 especially:
 
@@ -98,7 +98,7 @@ The release package should be suitable for:
 
 Create:
 
-RELEASE/
+BRAND/RELEASE/
 
 Version:
 
@@ -110,7 +110,7 @@ HYDRA_SAMO_BRAND_v1.0/
 
 Create:
 
-RELEASE/
+BRAND/RELEASE/
 
 HYDRA_SAMO_BRAND_v1.0/
 
@@ -138,7 +138,7 @@ SOURCE/
 
 DEVELOPMENT/
 
-DOCUMENTATION/
+BRAND/DOCUMENTATION/
 
 LICENSE/
 
@@ -164,9 +164,9 @@ Do not include experimental exports.
 
 Include:
 
-DESIGN.md
+BRAND/DESIGN.md
 
-AGENTS.md
+BRAND/AGENTS.md
 
 Every OUTPUT report
 
@@ -194,7 +194,7 @@ Asset manifest
 
 Generate:
 
-RELEASE/ASSET_MANIFEST.md
+BRAND/RELEASE/ASSET_MANIFEST.md
 
 Include:
 
@@ -220,7 +220,7 @@ Manual production notes
 
 Generate:
 
-RELEASE/README.md
+BRAND/RELEASE/README.md
 
 Include:
 
@@ -304,7 +304,7 @@ No temporary artifacts
 
 Generate:
 
-OUTPUT/23_RELEASE_PACKAGING_REPORT.md
+BRAND/OUTPUT/23_RELEASE_PACKAGING_REPORT.md
 
 Include:
 
@@ -356,7 +356,7 @@ Packaging succeeds only if:
 
 Generate:
 
-OUTPUT/23_RELEASE_PACKAGING_REPORT.md
+BRAND/OUTPUT/23_RELEASE_PACKAGING_REPORT.md
 
 Conclude with one of:
 

@@ -26,13 +26,13 @@ The finished document shall become the permanent reference for the entire brand.
 
 Read completely before writing.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 including every generated markdown file from the beginning of the project through the final release.
 
@@ -326,7 +326,7 @@ Professional headers and footers
 
 Generate:
 
-DOCUMENTATION/
+BRAND/DOCUMENTATION/
 
 HYDRA_SAMO_Brand_Book_v1.0.pdf
 

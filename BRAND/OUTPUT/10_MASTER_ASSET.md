@@ -13,8 +13,8 @@ The single source of truth for every HYDRA SAMO brand asset. The certified V4 ma
 | **Brand** | HYDRA SAMO |
 | **Logo version** | **V4** (certified) |
 | **Asset name** | `hydra-mark.svg` |
-| **Canonical standalone filename** | `public/hydra-mark.svg` |
-| **Live geometry source** | `src/components/HydraLogo.tsx` (React) |
+| **Canonical standalone filename** | `WEBSITE_v1.1/public/hydra-mark.svg` |
+| **Live geometry source** | `WEBSITE_v1.1/src/components/HydraLogo.tsx` (React) |
 | **Asset type** | Single-icon SVG brand mark (no text, no initials, no border, no background) |
 | **Surface category** | Master vector — every other asset is derived from this file |
 
@@ -28,9 +28,9 @@ The single source of truth for every HYDRA SAMO brand asset. The certified V4 ma
 | **Certification version** | V4 (refinement of V2) |
 | **Versioning scheme** | `V{n}` — increment only via an approved rebranding initiative |
 | **Superseded versions** | V2 (pre-refinement baseline), V1 (original concept) |
-| **Changelog** | `OUTPUT/07_LOGO_CHANGELOG.md` |
-| **Certification record** | `OUTPUT/08_FINAL_CERTIFICATION.md` |
-| **Freeze record** | `OUTPUT/09_BRAND_FREEZE.md` |
+| **Changelog** | `BRAND/OUTPUT/07_LOGO_CHANGELOG.md` |
+| **Certification record** | `BRAND/OUTPUT/08_FINAL_CERTIFICATION.md` |
+| **Freeze record** | `BRAND/OUTPUT/09_BRAND_FREEZE.md` |
 
 ---
 
@@ -55,9 +55,9 @@ The master asset integrity fingerprint. **Placeholder — fill at first release.
 | Field | Value |
 |---|---|
 | **Algorithm** | SHA-256 |
-| **Expected value** | `[PLACEHOLDER — set at release: sha256sum public/hydra-mark.svg]` |
-| **File** | `public/hydra-mark.svg` |
-| **Verification command** | `sha256sum public/hydra-mark.svg` |
+| **Expected value** | `[PLACEHOLDER — set at release: sha256sum WEBSITE_v1.1/public/hydra-mark.svg]` |
+| **File** | `WEBSITE_v1.1/public/hydra-mark.svg` |
+| **Verification command** | `sha256sum WEBSITE_v1.1/public/hydra-mark.svg` |
 | **Policy** | Any file whose checksum diverges from the recorded value on a released version is NOT the certified master and must be quarantined. |
 
 ---
@@ -133,12 +133,12 @@ Only the following modifications are permitted to the master asset (from `09_BRA
 
 | Asset | Location | Role |
 |---|---|---|
-| **Live geometry (React)** | `src/components/HydraLogo.tsx` | Master geometry used by every UI surface |
-| **Standalone SVG** | `public/hydra-mark.svg` | Canonical static SVG (favicon, downloads, static tools) — generated from the same geometry |
-| **Social card** | `public/hydra_logo.jpg` | Derived OpenGraph / Twitter card (1024×1024) |
-| **Production guidelines** | `OUTPUT/` | `10_MASTER_ASSET.md` … `19_FINAL_RELEASE.md` |
-| **Design spec** | `DESIGN.md` | System design specification |
-| **Agent governance** | `AGENTS.md` | Project + brand governance |
+| **Live geometry (React)** | `WEBSITE_v1.1/src/components/HydraLogo.tsx` | Master geometry used by every UI surface |
+| **Standalone SVG** | `WEBSITE_v1.1/public/hydra-mark.svg` | Canonical static SVG (favicon, downloads, static tools) — generated from the same geometry |
+| **Social card** | `WEBSITE_v1.1/public/hydra_logo.jpg` | Derived OpenGraph / Twitter card (1024×1024) |
+| **Production guidelines** | `BRAND/OUTPUT/` | `10_MASTER_ASSET.md` … `19_FINAL_RELEASE.md` |
+| **Design spec** | `BRAND/DESIGN.md` | System design specification |
+| **Agent governance** | `BRAND/AGENTS.md` | Project + brand governance |
 
 **Rule — Single source of truth:** every raster, icon, social asset, print file, or motion asset MUST be generated from `hydra-mark.svg` (or the identical geometry in `HydraLogo.tsx`). It is forbidden to re-draw, re-trace, or re-imagine the mark for any export. Re-export only, never re-create.
 

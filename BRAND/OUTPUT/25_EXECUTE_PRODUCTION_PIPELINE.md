@@ -28,13 +28,13 @@ The pipeline must continue through QA and Completion Audit before determining th
 
 Read:
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 including all governance, certification and release documents generated during phases 01–19.
 
@@ -50,7 +50,7 @@ Execute the following documents exactly in this order.
 
 Execute:
 
-@OUTPUT/20_ASSET_PRODUCTION.md
+@BRAND/OUTPUT/20_ASSET_PRODUCTION.md
 
 Wait until:
 
@@ -62,7 +62,7 @@ Wait until:
 
 Expected output:
 
-OUTPUT/20_ASSET_PRODUCTION_REPORT.md
+BRAND/OUTPUT/20_ASSET_PRODUCTION_REPORT.md
 
 ---
 
@@ -70,11 +70,11 @@ OUTPUT/20_ASSET_PRODUCTION_REPORT.md
 
 Execute:
 
-@OUTPUT/21_PRODUCTION_QA.md
+@BRAND/OUTPUT/21_PRODUCTION_QA.md
 
 Input:
 
-OUTPUT/20_ASSET_PRODUCTION_REPORT.md
+BRAND/OUTPUT/20_ASSET_PRODUCTION_REPORT.md
 
 Purpose:
 
@@ -96,7 +96,7 @@ Unsupported proprietary assets
 
 Expected output:
 
-OUTPUT/21_PRODUCTION_QA_REPORT.md
+BRAND/OUTPUT/21_PRODUCTION_QA_REPORT.md
 
 Important:
 
@@ -114,13 +114,13 @@ Continue automatically.
 
 Execute:
 
-@OUTPUT/22_COMPLETION_AUDIT.md
+@BRAND/OUTPUT/22_COMPLETION_AUDIT.md
 
 Inputs:
 
-OUTPUT/20_ASSET_PRODUCTION_REPORT.md
+BRAND/OUTPUT/20_ASSET_PRODUCTION_REPORT.md
 
-OUTPUT/21_PRODUCTION_QA_REPORT.md
+BRAND/OUTPUT/21_PRODUCTION_QA_REPORT.md
 
 Purpose:
 
@@ -142,7 +142,7 @@ Do not modify certified geometry.
 
 Expected output:
 
-OUTPUT/22_COMPLETION_AUDIT.md
+BRAND/OUTPUT/22_COMPLETION_AUDIT.md
 
 Important:
 
@@ -172,15 +172,15 @@ Do not fail solely because proprietary formats cannot be generated.
 
 Execute:
 
-@OUTPUT/23_RELEASE_PACKAGING.md
+@BRAND/OUTPUT/23_RELEASE_PACKAGING.md
 
 Inputs:
 
-OUTPUT/20_ASSET_PRODUCTION_REPORT.md
+BRAND/OUTPUT/20_ASSET_PRODUCTION_REPORT.md
 
-OUTPUT/21_PRODUCTION_QA_REPORT.md
+BRAND/OUTPUT/21_PRODUCTION_QA_REPORT.md
 
-OUTPUT/22_COMPLETION_AUDIT.md
+BRAND/OUTPUT/22_COMPLETION_AUDIT.md
 
 Purpose:
 
@@ -204,7 +204,7 @@ experimental assets
 
 Expected output:
 
-OUTPUT/23_RELEASE_PACKAGING_REPORT.md
+BRAND/OUTPUT/23_RELEASE_PACKAGING_REPORT.md
 
 Packaging should not fail merely because proprietary project files are unavailable.
 
@@ -214,7 +214,7 @@ Packaging should not fail merely because proprietary project files are unavailab
 
 Execute:
 
-@OUTPUT/24_FINAL_SIGN_OFF.md
+@BRAND/OUTPUT/24_FINAL_SIGN_OFF.md
 
 Inputs:
 
@@ -236,7 +236,7 @@ STATUS: INCOMPLETE
 
 Expected output:
 
-OUTPUT/24_FINAL_SIGN_OFF.md
+BRAND/OUTPUT/24_FINAL_SIGN_OFF.md
 
 ---
 
@@ -294,7 +294,7 @@ The workflow shall terminate only if a genuinely blocking condition prevents rep
 
 Generate:
 
-OUTPUT/25_PRODUCTION_PIPELINE_EXECUTION.md
+BRAND/OUTPUT/25_PRODUCTION_PIPELINE_EXECUTION.md
 
 Include:
 
@@ -358,4 +358,4 @@ Do not redesign the brand.
 
 Do not reopen brand development.
 
-The final authority remains OUTPUT/24_FINAL_SIGN_OFF.md.
+The final authority remains BRAND/OUTPUT/24_FINAL_SIGN_OFF.md.

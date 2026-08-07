@@ -30,13 +30,13 @@ Treat each one as an independent expert.
 
 Read them completely before starting.
 
-@REVIEWS/CREATIVE DIRECTOR REVIEW.md
+@BRAND/REVIEWS/CREATIVE DIRECTOR REVIEW.md
 
-@REVIEWS/SENIOR LOGO DESIGNER REVIEW.md
+@BRAND/REVIEWS/SENIOR LOGO DESIGNER REVIEW.md
 
-@REVIEWS/BRAND RECOGNITION & MEMORY REVIEW.md
+@BRAND/REVIEWS/BRAND RECOGNITION & MEMORY REVIEW.md
 
-@REVIEWS/DEVILS ADVOCATE REVIEW.md
+@BRAND/REVIEWS/DEVILS ADVOCATE REVIEW.md
 
 No reviewer may influence another reviewer.
 
@@ -50,11 +50,11 @@ Inspect the current implementation of the HYDRA SAMO logo.
 
 At minimum inspect:
 
-@src/components/HydraLogo.tsx
+@WEBSITE_v1.1/src/components/HydraLogo.tsx
 
-@public/hydra-mark.svg
+@WEBSITE_v1.1/public/hydra-mark.svg
 
-@index.html
+@WEBSITE_v1.1/index.html
 
 Additionally inspect every location where the logo appears throughout the project.
 
@@ -84,7 +84,7 @@ Do not imagine future improvements.
 
 All generated files MUST be stored inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 Never generate reports outside this folder.
 
@@ -120,7 +120,7 @@ Generate:
 
 Store it inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 ---
 
@@ -134,7 +134,7 @@ Generate:
 
 Store it inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 ---
 
@@ -148,7 +148,7 @@ Generate:
 
 Store it inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 ---
 
@@ -166,7 +166,7 @@ Generate:
 
 Store it inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 ---
 
@@ -193,7 +193,7 @@ Generate:
 
 Store it inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 The report must contain:
 
@@ -300,7 +300,7 @@ Generate:
 
 Store it inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 This document must contain ONLY implementation tasks.
 
@@ -348,7 +348,7 @@ Generate or update:
 
 Store it inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 Maintain:
 

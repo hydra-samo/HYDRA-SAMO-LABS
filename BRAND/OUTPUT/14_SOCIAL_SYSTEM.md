@@ -2,7 +2,7 @@
 
 ## Phase 05 — Production Specifications per Platform
 
-All social assets are derived from the certified master (`public/hydra-mark.svg`, emerald `#10b981` on abyssal `#060c09`). Safe-area and cropping rules below match current platform constraints; re-verify before each release because platforms resize fields over time.
+All social assets are derived from the certified master (`WEBSITE_v1.1/public/hydra-mark.svg`, emerald `#10b981` on abyssal `#060c09`). Safe-area and cropping rules below match current platform constraints; re-verify before each release because platforms resize fields over time.
 
 ---
 
@@ -75,7 +75,7 @@ All social assets are derived from the certified master (`public/hydra-mark.svg`
 |---|---|---|
 | Profile photo | 400×400 px (circle crop) | Mark-only |
 | Header / banner | 1500×500 px (safe center 1280×360) | Mark within safe area; name in type |
-| Post card (OG) | 1200×675 px (summary_large_image) | Served from `public/hydra_logo.jpg` (1024×1024) via `useOpenGraph.ts` — keep ≥1200 width for the site OG; the 1024 asset is accepted, larger re-export optional |
+| Post card (OG) | 1200×675 px (summary_large_image) | Served from `WEBSITE_v1.1/public/hydra_logo.jpg` (1024×1024) via `useOpenGraph.ts` — keep ≥1200 width for the site OG; the 1024 asset is accepted, larger re-export optional |
 
 ## 2.8 Portfolio platforms (Behance, Dribbble, ArtStation, personal site)
 
@@ -107,4 +107,4 @@ All social assets are derived from the certified master (`public/hydra-mark.svg`
 - Generate avatars at 512 px (or higher) from the master and downscale; never upscale.
 - Keep avatar tiles square with the mark optically centered at ≥75% tile coverage (mirrors the favicon gate).
 - One shared asset pattern for banners: abyssal `#060c09` field, emerald mark, Geist-family name — recreate per platform dimensions, never resize one banner across platforms.
-- No location/geo badges anywhere in social assets (per `AGENTS.md`).
+- No location/geo badges anywhere in social assets (per `BRAND/AGENTS.md`).

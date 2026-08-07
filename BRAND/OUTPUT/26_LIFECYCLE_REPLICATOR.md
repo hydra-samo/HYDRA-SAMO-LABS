@@ -32,13 +32,13 @@ No phase may reinterpret the brand identity.
 
 Read completely before executing anything.
 
-@DESIGN.md
+@BRAND/DESIGN.md
 
-@AGENTS.md
+@BRAND/AGENTS.md
 
 Read every document inside:
 
-@OUTPUT/
+@BRAND/OUTPUT/
 
 These documents collectively define the complete HYDRA SAMO Brand Identity System.
 
@@ -150,27 +150,27 @@ Production Workflow
 
 Execute:
 
-@OUTPUT/20_ASSET_PRODUCTION.md
+@BRAND/OUTPUT/20_ASSET_PRODUCTION.md
 
 ↓
 
-@OUTPUT/21_PRODUCTION_QA.md
+@BRAND/OUTPUT/21_PRODUCTION_QA.md
 
 ↓
 
-@OUTPUT/22_COMPLETION_AUDIT.md
+@BRAND/OUTPUT/22_COMPLETION_AUDIT.md
 
 ↓
 
-@OUTPUT/23_RELEASE_PACKAGING.md
+@BRAND/OUTPUT/23_RELEASE_PACKAGING.md
 
 ↓
 
-@OUTPUT/24_FINAL_SIGN_OFF.md
+@BRAND/OUTPUT/24_FINAL_SIGN_OFF.md
 
 ↓
 
-@OUTPUT/25_PRODUCTION_PIPELINE_EXECUTION.md
+@BRAND/OUTPUT/25_PRODUCTION_PIPELINE_EXECUTION.md
 
 Purpose:
 
@@ -368,7 +368,7 @@ Only genuine blocking issues may prevent project completion.
 
 Generate:
 
-OUTPUT/26_LIFECYCLE_REPLICATOR_REPORT.md
+BRAND/OUTPUT/26_LIFECYCLE_REPLICATOR_REPORT.md
 
 Include:
 

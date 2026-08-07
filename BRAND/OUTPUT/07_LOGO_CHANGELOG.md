@@ -13,14 +13,14 @@ V2 (current implementation) — 3-fold master head path + pointy-top hexagon cor
 2026-08-05
 
 ### Files Reviewed
-- `src/components/HydraLogo.tsx`
-- `public/hydra-mark.svg`
-- `public/hydra_logo.jpg` (OpenGraph / social preview)
-- `index.html` (favicon link, metadata)
-- `src/hooks/useOpenGraph.ts`, `metadata.json`
-- `src/index.css` (`.hydra-mark-glow` / `.hydra-mark-pulse` / `.hydra-mark-spin`, reduced-motion)
+- `WEBSITE_v1.1/src/components/HydraLogo.tsx`
+- `WEBSITE_v1.1/public/hydra-mark.svg`
+- `WEBSITE_v1.1/public/hydra_logo.jpg` (OpenGraph / social preview)
+- `WEBSITE_v1.1/index.html` (favicon link, metadata)
+- `WEBSITE_v1.1/src/hooks/useOpenGraph.ts`, `WEBSITE_v1.1/metadata.json`
+- `WEBSITE_v1.1/src/index.css` (`.hydra-mark-glow` / `.hydra-mark-pulse` / `.hydra-mark-spin`, reduced-motion)
 - Logo surfaces: `Navigation.tsx`, `Hero.tsx`, `PreSplashSelector.tsx`, `PlymouthSplash.tsx`
-- Raster assets in `src/assets/images/` (legacy, unreferenced: teal / violet / warm variants)
+- Raster assets in `WEBSITE_v1.1/src/assets/images/` (legacy, unreferenced: teal / violet / warm variants)
 
 ### Overall Score
 59 / 100 (Creative Director 63 · Senior Logo Designer 67 · Brand Recognition 53 · Devil's Advocate 54)
@@ -64,13 +64,13 @@ V4 (refinement of V2) — head geometry rebuilt from two open Catmull-Rom chains
 2026-08-05 (same day as first review; executed on brand-owner approval)
 
 ### Files Changed
-- `src/components/HydraLogo.tsx` — new `HEAD_PATH` (asymmetric crown-right / throat-left serpent chain, V-base) and `CORE_PATH` (R17 pointy-top hexagon); `viewBox="11 2.94 78 78"`; removed the unused `animated` prop (P2-4).
-- `public/hydra-mark.svg` — favicon regenerated from the same geometry and reframed viewBox (P1-2).
-- `public/hydra_logo.jpg` — OpenGraph asset rebuilt 1024×1024: abyssal `#060c09` field, emerald `#10b981` mark, centered at 84.6% × 77.1% coverage (P1-5).
-- `src/assets/images/` — retired three unreferenced legacy logo rasters (teal/violet/warm) (P1-6); kept `hydra_samo.webp` portrait.
-- `src/index.css` — removed `.hydra-mark-spin` utility, `hydra-spin` keyframes, and its reduced-motion reference (P2-3).
-- `AGENTS.md` — governance updated: `.hydra-mark-spin` documented as retired and forbidden (rotor cue).
-- `DESIGN.md` — geometry, weight, and construction notes updated to V4.
+- `WEBSITE_v1.1/src/components/HydraLogo.tsx` — new `HEAD_PATH` (asymmetric crown-right / throat-left serpent chain, V-base) and `CORE_PATH` (R17 pointy-top hexagon); `viewBox="11 2.94 78 78"`; removed the unused `animated` prop (P2-4).
+- `WEBSITE_v1.1/public/hydra-mark.svg` — favicon regenerated from the same geometry and reframed viewBox (P1-2).
+- `WEBSITE_v1.1/public/hydra_logo.jpg` — OpenGraph asset rebuilt 1024×1024: abyssal `#060c09` field, emerald `#10b981` mark, centered at 84.6% × 77.1% coverage (P1-5).
+- `WEBSITE_v1.1/src/assets/images/` — retired three unreferenced legacy logo rasters (teal/violet/warm) (P1-6); kept `hydra_samo.webp` portrait.
+- `WEBSITE_v1.1/src/index.css` — removed `.hydra-mark-spin` utility, `hydra-spin` keyframes, and its reduced-motion reference (P2-3).
+- `BRAND/AGENTS.md` — governance updated: `.hydra-mark-spin` documented as retired and forbidden (rotor cue).
+- `BRAND/DESIGN.md` — geometry, weight, and construction notes updated to V4.
 
 ### Measured Verification
 - **Wedge / head flare**: 57.5° per head (target 55–60°) — heads read as serpent hoods, not rotor blades.

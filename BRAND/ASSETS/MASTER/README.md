@@ -4,7 +4,7 @@ Canonical geometry for the entire brand system. Never edit these files.
 
 | File | Use |
 | --- | --- |
-| `hydra-mark_v4_master.svg` | **Source of truth** — byte-identical to `public/hydra-mark.svg` |
+| `hydra-mark_v4_master.svg` | **Source of truth** — byte-identical to `WEBSITE_v1.1/public/hydra-mark.svg` |
 | `hydra-mark_v4_fill.svg` | Filled emerald `#10b981` |
 | `hydra-mark_v4_outline.svg` | Outline (stroke 3) |
 | `hydra-mark_v4_black.svg` | One-color black (laser/mask) |

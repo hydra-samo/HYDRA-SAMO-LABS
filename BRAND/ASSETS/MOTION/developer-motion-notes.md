@@ -46,5 +46,5 @@ Implement animation in the React app with the same contract as the demos in this
 
 1. Keep `pathLength="1"` on all four paths so draw/trace math stays uniform.
 2. Never animate `d`, never rotate the mark, never bake glow into the SVG.
-3. Glow and reflections remain external utilities (`.hydra-mark-glow` in `src/index.css`).
-4. Do not use `HydraLogo` outside its component contract (`src/components/HydraLogo.tsx`).
+3. Glow and reflections remain external utilities (`.hydra-mark-glow` in `WEBSITE_v1.1/src/index.css`).
+4. Do not use `HydraLogo` outside its component contract (`WEBSITE_v1.1/src/components/HydraLogo.tsx`).

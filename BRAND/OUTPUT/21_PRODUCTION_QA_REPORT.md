@@ -4,7 +4,7 @@
 | --- | --- |
 | Pipeline step | STEP 02 — Production QA (`21_PRODUCTION_QA.md`) |
 | Executed | 2026-08-05 |
-| Audited tree | `ASSETS/` (12 packages, 147 files) |
+| Audited tree | `BRAND/ASSETS/` (12 packages, 147 files) |
 | Audit method | Automated scripts + manual spot checks (xmllint, ImageMagick, rsvg, sha256sum) |
 
 ## STATUS: QA PASSED
@@ -63,9 +63,9 @@ Per doc 21, documented unsupported formats do **not** fail QA.
 
 ## Repository Integrity
 
-- Master SHA-256 `f12de4fd…1fa` byte-identical to `public/hydra-mark.svg`.
+- Master SHA-256 `f12de4fd…1fa` byte-identical to `WEBSITE_v1.1/public/hydra-mark.svg`.
 - Fresh rsvg render of master is byte-identical to shipped `PNG/hydra-mark-emerald-256px.png` — exports come straight from the certified vector.
-- Single source of truth: `ASSETS/MASTER/hydra-mark_v4_master.svg`.
+- Single source of truth: `BRAND/ASSETS/MASTER/hydra-mark_v4_master.svg`.
 
 ## Folder Structure
 
