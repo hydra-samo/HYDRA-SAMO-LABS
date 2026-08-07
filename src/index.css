@@ -67,7 +67,6 @@
   body {
     background-color: var(--bg-canvas);
     color: var(--text-main);
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Light mode: the deepened emerald selection needs white ink to stay legible
@@ -81,28 +80,49 @@
   /*
    * Theme switch — cohesive color crossfade across every section.
    *
-   * App.tsx drops `.theme-transition` on <html> for the ~450 ms of a theme
-   * toggle and removes it afterwards. While present, the color-bearing
-   * properties on EVERY element are promoted to a single shared transition,
-   * so the whole page — glass cards, borders, text, shadows, logos — crosses
-   * over together instead of popping at different moments. Custom properties
-   * themselves never transition; this makes their consumers do.
+   * Two paths, both triggered from App.tsx's `applyTheme`:
    *
-   * Deliberately excluded: transform / opacity / filter / backdrop-filter
-   * (Framer Motion's domain) and gradients (not cheaply animatable). The
-   * switch is therefore a paint-only crossfade with zero compositing cost.
+   * 1. View Transitions API (preferred): App.tsx wraps the class flip in
+   *    `document.startViewTransition()`, so the browser crossfades two
+   *    full-page snapshots entirely on the compositor. While it runs, the
+   *    `vt-theme-flip` guard below zeroes every CSS transition so the switch
+   *    costs a single cheap composite per frame — even on low-end phones.
+   * 2. `.theme-transition` fallback (no View Transitions support): the
+   *    color-bearing properties on every element are promoted to one shared
+   *    transition so the whole page crosses over together.
+   *
+   * Both guards deliberately exclude transform / opacity / filter /
+   * backdrop-filter (Framer Motion's domain), gradients (not cheaply
+   * animatable) and — because the fallback is paint-only — box-shadow, fill
+   * and stroke. Those three repaint every frame for every card, icon or logo
+   * on the page, which is the exact jank the switch must avoid on mobile.
    *
    * `!important` is required so the shared list also governs elements that
    * carry Tailwind transition utilities (and any inline transition styles).
-   * Reduced-motion users get an instant switch; low-tier devices get a fast
-   * 160 ms fade (minimal animation per the rendering budget).
+   * Reduced-motion users get an instant switch; low-tier devices skip the
+   * fallback fade entirely (a 160ms all-element fade still costs a full
+   * repaint on weak GPUs, so they get the same instant flip as reduced motion).
    */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 350ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    mix-blend-mode: normal;
+  }
+
+  html.vt-theme-flip,
+  html.vt-theme-flip *,
+  html.vt-theme-flip *::before,
+  html.vt-theme-flip *::after {
+    transition: none !important;
+  }
+
   html.theme-transition,
   html.theme-transition *,
   html.theme-transition *::before,
   html.theme-transition *::after {
-    transition-property: background-color, color, border-color, fill, stroke,
-      box-shadow, text-decoration-color !important;
+    transition-property: background-color, color, border-color,
+      text-decoration-color !important;
     transition-duration: 350ms !important;
     transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
     transition-delay: 0s !important;
@@ -112,10 +132,15 @@
   html[data-quality='low'].theme-transition *,
   html[data-quality='low'].theme-transition *::before,
   html[data-quality='low'].theme-transition *::after {
-    transition-duration: 160ms !important;
+    transition-duration: 0ms !important;
   }
 
   @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0ms;
+    }
+
     html.theme-transition,
     html.theme-transition *,
     html.theme-transition *::before,

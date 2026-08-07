@@ -17,7 +17,10 @@ interface MobileDockProps {
  * fit correctly on narrow screens. Glassmorphic dark editorial style per
  * DESIGN.md — no pills, no badges, emerald accent on the active slide.
  */
-export const MobileDock: React.FC<MobileDockProps> = ({ active, onSelect }) => {
+export const MobileDock = React.memo(function MobileDock({
+  active,
+  onSelect,
+}: MobileDockProps) {
   const { t } = useLanguage();
 
   const items: { key: SlideKey; label: string; icon: React.ReactNode }[] = [
@@ -67,4 +70,4 @@ export const MobileDock: React.FC<MobileDockProps> = ({ active, onSelect }) => {
       </div>
     </nav>
   );
-};
+});

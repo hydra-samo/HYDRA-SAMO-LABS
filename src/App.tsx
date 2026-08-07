@@ -92,8 +92,9 @@ export default function App() {
 
   const pendingNavRef = useRef<{ url: string; newTab: boolean } | null>(null);
 
-  // Holds the theme that was last applied, so the sentinel only animates the
-  // switch, never the first paint (stored theme is applied instantly).
+  // Holds the theme that was last applied to <html>, so the switch animations
+  // only ever run for a real change, never the first paint (the stored theme
+  // is applied instantly).
   const appliedThemeRef = useRef(theme);
 
   useOpenGraph(
@@ -106,25 +107,69 @@ export default function App() {
       : undefined
   );
 
+  // Centralized theme flip. Flips the classes synchronously (so the browser
+  // captures the new paint), then animates through the best available path:
+  //
+  //  1. View Transitions API — the browser snapshots both themes and
+  //     crossfades the whole page on the compositor: one cheap animation
+  //     instead of transitioning every element's colors on the main thread,
+  //     so it stays smooth on low-end phones too.
+  //  2. `.theme-transition` fallback — the slimmed class-based crossfade for
+  //     browsers without View Transitions support.
+  //
+  // While either path runs, CSS transitions are suppressed (`vt-theme-flip` /
+  // `.theme-transition` in index.css) so the browser never animates thousands
+  // of nodes underneath the animation layer.
+  const vtGuardCountRef = useRef(0);
+
+  const applyTheme = useCallback((next: 'dark' | 'light') => {
+    const root = document.documentElement;
+    const isToggle = appliedThemeRef.current !== next;
+
+    const flip = () => {
+      root.classList.toggle('dark', next === 'dark');
+      root.classList.toggle('light', next === 'light');
+      localStorage.setItem('hydra-theme', next);
+      appliedThemeRef.current = next;
+    };
+
+    if (isToggle) {
+      const vtDoc = document as Document & {
+        startViewTransition?: (update: () => void) => { finished?: Promise<void> };
+      };
+
+      if (typeof vtDoc.startViewTransition === 'function') {
+        vtGuardCountRef.current += 1;
+        root.classList.add('vt-theme-flip');
+        const vt = vtDoc.startViewTransition(flip);
+        const releaseGuard = () => {
+          vtGuardCountRef.current -= 1;
+          if (vtGuardCountRef.current === 0) root.classList.remove('vt-theme-flip');
+        };
+        if (vt.finished) {
+          vt.finished.then(releaseGuard, releaseGuard);
+        } else {
+          window.setTimeout(releaseGuard, 500);
+        }
+      } else {
+        root.classList.add('theme-transition');
+        flip();
+        window.setTimeout(() => root.classList.remove('theme-transition'), 450);
+      }
+    } else {
+      flip();
+    }
+
+    setTheme(next);
+  }, []);
+
+  // Keep the <html> classes in sync with state — covers the initial paint and
+  // any state-driven change. All animations live in `applyTheme`, never here.
   useEffect(() => {
     const root = document.documentElement;
-    const isToggle = appliedThemeRef.current !== theme;
-
-    if (isToggle) {
-      // Real toggle: enable the cohesive crossfade for the duration of the
-      // change, then remove it so idle rendering stays transition-free.
-      root.classList.add('theme-transition');
-    }
-
     root.classList.toggle('dark', theme === 'dark');
     root.classList.toggle('light', theme === 'light');
-    localStorage.setItem('hydra-theme', theme);
     appliedThemeRef.current = theme;
-
-    if (isToggle) {
-      const timer = window.setTimeout(() => root.classList.remove('theme-transition'), 450);
-      return () => window.clearTimeout(timer);
-    }
   }, [theme]);
 
   useEffect(() => {
@@ -146,8 +191,8 @@ export default function App() {
   }, [showPreSplash, showSplash, selectedProject, isOpenReelModal, isOpenBriefModal, lenisRef]);
 
   const handleToggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  }, []);
+    applyTheme(appliedThemeRef.current === 'dark' ? 'light' : 'dark');
+  }, [applyTheme]);
 
   const handleSelectProject = useCallback((proj: Project) => setSelectedProject(proj), []);
 
@@ -215,7 +260,7 @@ export default function App() {
           <PreSplashSelector
             key="pre-splash"
             theme={theme}
-            onSelectTheme={setTheme}
+            onSelectTheme={applyTheme}
             onComplete={() => {
               setShowPreSplash(false);
               setShowSplash(true);

@@ -18,7 +18,7 @@ import { useDeviceTier } from '../hooks/useDeviceTier';
  * wash plus a single faint blob (no drift, no aurora, no spotlight); medium
  * gets two static blobs; high gets the full living backdrop.
  */
-export const AmbientBackground: React.FC = () => {
+export const AmbientBackground = React.memo(function AmbientBackground() {
   const isCoarse = useCoarsePointer();
   const tier = useDeviceTier();
   const isFull = tier === 'high';
@@ -136,4 +136,4 @@ export const AmbientBackground: React.FC = () => {
       )}
     </div>
   );
-};
+});
