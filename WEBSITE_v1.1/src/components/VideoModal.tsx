@@ -7,14 +7,12 @@ import { cn } from '../lib/utils';
 
 interface VideoModalProps {
   project: Project | null;
-  isOpenReel?: boolean;
   onClose: () => void;
   onOpenBrief: () => void;
 }
 
 export const VideoModal: React.FC<VideoModalProps> = ({
   project,
-  isOpenReel,
   onClose,
   onOpenBrief,
 }) => {
@@ -27,11 +25,11 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
   const { t } = useLanguage();
 
-  if (!project && !isOpenReel) return null;
+  if (!project) return null;
 
-  const sampleVideo = project?.videoUrl || 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4';
-  const modalTitle = isOpenReel ? t('modal.reelTitle') : project?.title;
-  const clientName = isOpenReel ? t('modal.reelClient') : project?.client;
+  const sampleVideo = project.videoUrl || '';
+  const modalTitle = project.title;
+  const clientName = project.client;
 
   const togglePlay = () => {
     if (videoRef.current) {

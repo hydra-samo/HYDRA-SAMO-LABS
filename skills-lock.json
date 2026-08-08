@@ -1,0 +1,279 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-memory": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/agent-memory/SKILL.md",
+      "computedHash": "b06da61a6d4eeec0c202a6dce565c80267ff27e509fc8b2cb2335b349c0629a1"
+    },
+    "agent-orchestrator": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/agent-orchestrator/SKILL.md",
+      "computedHash": "d19f70a1a9da59c68b3097ab4fa6e39b0ec5822a6c3c07a13ef88b59d6ec9075"
+    },
+    "agentflow": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/agentflow/SKILL.md",
+      "computedHash": "02f92de3a1d16d88f6307cd356e2872a21a23534cdbc7328b8eb9d5a65d68ee2"
+    },
+    "ai-studio-image": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ai-studio-image/SKILL.md",
+      "computedHash": "5f6b780362a4a4cc8e0a4350370d3b8e4634ca1680f8b3d2192cef9cbb96bbe5"
+    },
+    "angular-ui-patterns": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/angular-ui-patterns/SKILL.md",
+      "computedHash": "199308770dfb6fdbf17696ceffcfd44d0472de258776b6977f7e90fa2d6c4189"
+    },
+    "anti-ui-slop": {
+      "source": "uizze.com",
+      "sourceUrl": "https://uizze.com/",
+      "sourceType": "well-known",
+      "computedHash": "6b9dd39aa002396961c2c8fff61c622e372a14216d537adc24322a17066ba672",
+      "wellKnownDigest": "sha256:95568167c89fe454591dad6ffce4c9807486a097bc1408831bde22b882654914"
+    },
+    "api-design-principles": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/api-design-principles/SKILL.md",
+      "computedHash": "853df00266999c9cddf8b6bbd563cf0fe822c1cf8463ef0c584c4af457d87b95"
+    },
+    "before-you-build": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/before-you-build/SKILL.md",
+      "computedHash": "7ed7664b7d33c160893e6c4a92752e212645285d276d80320a0f11bebec4900b"
+    },
+    "blueprint": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/blueprint/SKILL.md",
+      "computedHash": "55e830fc255a30f456a40cf504e4405c305ccff97020a6273b07e4ab0128f965"
+    },
+    "brandkit": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/brandkit/SKILL.md",
+      "computedHash": "b63012f3c3d21197e0185d3e9cc7ec40c589fb10e0b5a32a561739de31aa3f20"
+    },
+    "brave-man": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/brave-man/SKILL.md",
+      "computedHash": "05ae4da4aa0e86d0a02e7306214a67fad03e0a000fd74d79b0f1c42b418144e6"
+    },
+    "building-native-ui": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/building-native-ui/SKILL.md",
+      "computedHash": "3cd035dbbc3aa62618235dd2959c5275ca9b8d45857a6e0a98ade8849f64b3be"
+    },
+    "caveman": {
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "skillPath": "skills/caveman/SKILL.md",
+      "computedHash": "59e1fe0d3eeb4189ee5c467efde567672e5cacb41f157c477a6152ca907d44ea"
+    },
+    "claude-ally-health": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/claude-ally-health/SKILL.md",
+      "computedHash": "592ab0e9c495904fbbb7c10a33af1521cfcf794dcc8d731aeaec1762315922e3"
+    },
+    "claude-api": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/claude-api/SKILL.md",
+      "computedHash": "f06054cbd640ff4a404c72278fafacf1f2803c25b6fb36fd227eba4ed6b4beba"
+    },
+    "claude-code-expert": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/claude-code-expert/SKILL.md",
+      "computedHash": "21ac053afde7e7d64fc204a30b8f53afc13d2e4fb91e189df4cd572a44d6d552"
+    },
+    "claude-code-guide": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/claude-code-guide/SKILL.md",
+      "computedHash": "03476f9ed10e1cce010e9fed0c1dd52125f3c5db961e320dfca2a9a22b63f822"
+    },
+    "claude-d3js-skill": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/claude-d3js-skill/SKILL.md",
+      "computedHash": "5d3a920d020c56ec5e5cd619348b6bcb4d2835d0df1e82c6b99e08ee067e0c29"
+    },
+    "claude-in-chrome-troubleshooting": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/claude-in-chrome-troubleshooting/SKILL.md",
+      "computedHash": "401886d6e597dcc6c4e149f6961d78241034ca6d50fd2231be0e0c034d0ecaec"
+    },
+    "code-simplification": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/code-simplification/SKILL.md",
+      "computedHash": "6249b56550910247679aea0bbac030bb8a7dcfa2a58d4c64dc9ddcc9be87031b"
+    },
+    "code-simplifier": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/code-simplifier/SKILL.md",
+      "computedHash": "5d5a901ef1edb98df000bd96abd95a824ba9056205a3ce54dda41ade6aa228cd"
+    },
+    "codebase-audit-pre-push": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/codebase-audit-pre-push/SKILL.md",
+      "computedHash": "ac5c78d84aa4667bda9c812b4144bdd97382a70fcce834d327f66eeb2cf52a50"
+    },
+    "codebase-cleanup-deps-audit": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/codebase-cleanup-deps-audit/SKILL.md",
+      "computedHash": "b3e80dcf94424926aeae2b369048ff00abbff24c08b53a3ca08f160629c2efb9"
+    },
+    "codebase-cleanup-refactor-clean": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/codebase-cleanup-refactor-clean/SKILL.md",
+      "computedHash": "b474e6e47f76ca5fe6537bba30e9a062e6317caf41c239030d766c0e48d33763"
+    },
+    "codebase-cleanup-tech-debt": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/codebase-cleanup-tech-debt/SKILL.md",
+      "computedHash": "a99d9c40438dd97bc8b8ea7b76d6e466d11ee339029c9334cc844d17c117790e"
+    },
+    "codebase-design": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/codebase-design/SKILL.md",
+      "computedHash": "ce7834ff3c32a5d2af4ca517fdb5bb1635a187327354347220f534d120d5e61d"
+    },
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "computedHash": "6d838b246d0e35d0b53f4f23f98ba7a1dd561937e64f7d0c7553b0928e376c3e"
+    },
+    "design-taste-frontend-v1": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill-v1/SKILL.md",
+      "computedHash": "d704ab912c4d0ca954ffa858983da755ae4cd5cad9ba22554db5557382f5bd34"
+    },
+    "domain-modeling": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/domain-modeling/SKILL.md",
+      "computedHash": "363cb0f53b0b431e7c00086ad1f823500b7e1b70b5616ee969c979f0934e9e6e"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "4eabc66183767153e404b39d1b839b1c37f2d82d86f0a0d7e880a579d8d62336"
+    },
+    "full-output-enforcement": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/output-skill/SKILL.md",
+      "computedHash": "26bd29ce4c5e02c7666b2d503609bf466bd32290822e91f0e984147048dbb924"
+    },
+    "gpt-taste": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/gpt-tasteskill/SKILL.md",
+      "computedHash": "cc8f0c601d8240a124e1d11634351a2be7b8a72fd807c75e5b6bf7afcd5ddee0"
+    },
+    "high-end-visual-design": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/soft-skill/SKILL.md",
+      "computedHash": "7db385e4c5370e5a7fca9704a1361b056e4504ea6a03924bb86f33a4f00b5c73"
+    },
+    "image-to-code": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/image-to-code-skill/SKILL.md",
+      "computedHash": "58517b03b2a01f4c9ba65861559d03df931400871bbc200978c975b24bb92c73"
+    },
+    "imagegen-frontend-mobile": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/imagegen-frontend-mobile/SKILL.md",
+      "computedHash": "9ab7f4f6ce66a3cff02bbf5894e5bd5af50bf5d6ef0adffdc88e8fab772fe44f"
+    },
+    "imagegen-frontend-web": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/imagegen-frontend-web/SKILL.md",
+      "computedHash": "65f5ae59fa317567809438310b1c54f78cd133426deb43e4d3d4ca4c8f541628"
+    },
+    "industrial-brutalist-ui": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/brutalist-skill/SKILL.md",
+      "computedHash": "8fc355c4aadb7d29c53ca28bc41be3cd6eea765d121e3737c4dc2d0f90a8effa"
+    },
+    "minimalist-ui": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/minimalist-skill/SKILL.md",
+      "computedHash": "08873a3131d3be27bef9bf3304b310b16b44ca6e3561aebe532797be3443f6bd"
+    },
+    "redesign-existing-projects": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/redesign-skill/SKILL.md",
+      "computedHash": "b405eee0e0e80fc243f731d9aa368bca307e356db7e6157d27101d369dac6726"
+    },
+    "stitch-design-taste": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/stitch-skill/SKILL.md",
+      "computedHash": "13322f38406cd3abf16ba45e35bdc9b18002d0153a79b4612b97aefc65d5a335"
+    },
+    "tdd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/tdd/SKILL.md",
+      "computedHash": "614ac2e45fb0ec02f6ce422d26bd9aa4e33aa4867323f5a3a5c0c20b96f78ff4"
+    },
+    "ui-design": {
+      "source": "uizze.com",
+      "sourceUrl": "https://uizze.com/",
+      "sourceType": "well-known",
+      "computedHash": "8ae9d5062940f66edd96e00330c2721879f0df843e09064833c44b83dc3f4d07",
+      "wellKnownDigest": "sha256:f5d380f5d82a53023ce85cca081d1732313e20efbbac0ed13318642819744334"
+    },
+    "ui-radar": {
+      "source": "uizze.com",
+      "sourceUrl": "https://uizze.com/",
+      "sourceType": "well-known",
+      "computedHash": "ffe3853075bd6c67ad3b63149761302b120f12a179f5ea95a4d2f6df13fd835d",
+      "wellKnownDigest": "sha256:cb362261efbff5de4abb89ea4c90341eb978d43da3314c7dea026381c5e842e5"
+    },
+    "ui-slop-score": {
+      "source": "uizze.com",
+      "sourceUrl": "https://uizze.com/",
+      "sourceType": "well-known",
+      "computedHash": "88f396b20e5e44af95ef0767c8c2b69dc167941d035b0fb4066e6d78d85ce867",
+      "wellKnownDigest": "sha256:39e567495a2d3e05715cfe471c8203a959f2288e6d90e229b5ba73e35b433565"
+    },
+    "web-performance-optimization": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-performance-optimization/SKILL.md",
+      "computedHash": "196cdae4d572c88ee4575c5ab8068f2d6d5f7ef641bbdf2e1e64c26623a84cf8"
+    }
+  }
+}

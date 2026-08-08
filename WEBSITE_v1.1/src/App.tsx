@@ -82,7 +82,6 @@ export default function App() {
   });
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isOpenReelModal, setIsOpenReelModal] = useState<boolean>(false);
   const [isOpenBriefModal, setIsOpenBriefModal] = useState<boolean>(false);
   const [isExiting, setIsExiting] = useState<boolean>(false);
 
@@ -174,7 +173,7 @@ export default function App() {
 
   useEffect(() => {
     const isOverlayOpen = Boolean(
-      showPreSplash || showSplash || selectedProject || isOpenReelModal || isOpenBriefModal
+      showPreSplash || showSplash || selectedProject || isOpenBriefModal
     );
 
     if (isOverlayOpen) {
@@ -188,15 +187,13 @@ export default function App() {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [showPreSplash, showSplash, selectedProject, isOpenReelModal, isOpenBriefModal, lenisRef]);
+  }, [showPreSplash, showSplash, selectedProject, isOpenBriefModal, lenisRef]);
 
   const handleToggleTheme = useCallback(() => {
     applyTheme(appliedThemeRef.current === 'dark' ? 'light' : 'dark');
   }, [applyTheme]);
 
   const handleSelectProject = useCallback((proj: Project) => setSelectedProject(proj), []);
-
-  const handleOpenReel = useCallback(() => setIsOpenReelModal(true), []);
 
   const handleOpenBrief = useCallback(() => setIsOpenBriefModal(true), []);
 
@@ -308,10 +305,7 @@ export default function App() {
             </MobileSlide>
 
             <MobileSlide slideKey="work" active={activeSlide}>
-              <WorkGallery
-                onSelectProject={handleSelectProject}
-                onOpenReel={handleOpenReel}
-              />
+              <WorkGallery onSelectProject={handleSelectProject} />
             </MobileSlide>
 
             <MobileSlide slideKey="voice" active={activeSlide}>
@@ -329,17 +323,14 @@ export default function App() {
             <MobileDock active={activeSlide} onSelect={setActiveSlide} />
 
             <Suspense fallback={<ModalFallback />}>
-              {(selectedProject || isOpenReelModal) && (
+              {selectedProject && (
                 <VideoModal
                   project={selectedProject}
-                  isOpenReel={isOpenReelModal}
                   onClose={() => {
                     setSelectedProject(null);
-                    setIsOpenReelModal(false);
                   }}
                   onOpenBrief={() => {
                     setSelectedProject(null);
-                    setIsOpenReelModal(false);
                     setIsOpenBriefModal(true);
                   }}
                 />

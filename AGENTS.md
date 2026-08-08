@@ -18,5 +18,8 @@ Workspace root pointer. The authoritative project & design guidelines live in:
 ## Quick rules for this workspace
 
 - Use **relative imports only** in `WEBSITE_v1.1/src` (the `@` alias does NOT point there).
+- **No fake content.** Never ship sample placeholders, fictional case studies or
+  voice demos, or a fake "master showreel" (e.g. `TearsOfSteel.mp4`). `PROJECTS`
+  and `VOICE_TRACKS` stay empty until real, released work exists.
 - Brand mark governance is frozen — see `BRAND/AGENTS.md` before touching any logo or palette code.
 - Deploy is handled by `.github/workflows/deploy.yml`, which builds `WEBSITE_v1.1` only.

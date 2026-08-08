@@ -11,7 +11,6 @@ import { cn } from '../lib/utils';
 
 interface WorkGalleryProps {
   onSelectProject: (project: Project) => void;
-  onOpenReel: () => void;
 }
 
 // Variants for staggered container and item reveal
@@ -199,7 +198,7 @@ export const ProjectCard = React.memo(function ProjectCard({
   );
 });
 
-export const WorkGallery = React.memo(function WorkGallery({ onSelectProject, onOpenReel }: WorkGalleryProps) {
+export const WorkGallery = React.memo(function WorkGallery({ onSelectProject }: WorkGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<'all' | 'video' | 'motion' | 'direction'>('all');
 
   const { t } = useLanguage();
@@ -281,12 +280,6 @@ export const WorkGallery = React.memo(function WorkGallery({ onSelectProject, on
                 <p className="max-w-md text-sm text-slate-600 dark:text-white/60 leading-relaxed font-normal">
                   {t('work.emptyDesc')}
                 </p>
-                <button
-                  onClick={onOpenReel}
-                  className="mt-2 px-6 py-3.5 min-h-[44px] bg-accent text-white hover:bg-accent-dark dark:bg-white/[0.05] dark:border-emerald-500/30 dark:text-white dark:hover:bg-white/10 font-semibold text-xs uppercase tracking-wider rounded-full transition-all flex items-center gap-2.5"
-                >
-                  <Play size={14} className="fill-current" /> {t('btn.watchMasterShowreel')}
-                </button>
               </div>
             )}
           </motion.div>
