@@ -2,7 +2,7 @@
 
 ## Status: INSPECTION ONLY — No Code Modified
 
-Scope: `iteration workspace/src/systems/performance/*`, `App.tsx`, `main.tsx`, `index.css` (tier block),
+Scope: `src/systems/performance/*`, `App.tsx`, `main.tsx`, `index.css` (tier block),
 `validateShader.ts`, `shaders/index.ts`, `AtmosphereScene.tsx` (full), `usePerformanceProfile.ts`.
 `HydraMarkScene.tsx` (orphan) ignored.
 

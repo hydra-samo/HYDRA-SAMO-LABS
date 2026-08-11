@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle2, X, AlertCircle, ChevronDown } from 'lucide-react';
+import { Send, X, AlertCircle, ChevronDown } from 'lucide-react';
 import { BriefFormData } from '../types';
 import { useLanguage } from '../i18n/LanguageContext';
 import { MagneticButton } from './MagneticButton';
@@ -140,10 +140,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCloseModal }) 
           animate={{ opacity: 1, scale: 1 }}
           className="glass-modal rounded-[24px] p-8 sm:p-10 text-center max-w-xl mx-auto"
         >
-          <div className="w-20 h-20 rounded-full bg-emerald-100 dark:bg-accent/20 text-accent flex items-center justify-center mx-auto mb-6 border border-emerald-500 dark:border-accent">
-            <CheckCircle2 size={40} />
-          </div>
-
           <h3 className="text-2xl font-medium tracking-tight uppercase font-display text-[var(--text-main)] mb-4">
             {t('contact.successTitle')}
           </h3>

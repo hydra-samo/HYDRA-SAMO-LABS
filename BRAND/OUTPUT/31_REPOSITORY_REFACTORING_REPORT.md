@@ -16,8 +16,7 @@ The single-root repository was migrated into the canonical HYDRA SAMO workspace:
 ```
 HYDRA SAMO/
 ├── BRAND/            immutable brand authority (assets, releases, docs, reports)
-├── WEBSITE_v1.1/     production website (Vite 6 + React 19 + TS strict + Tailwind v4)
-└── iteration workspace/     next-gen engineering workspace (REFERENCES → BRAND, read-only)
+└── WEBSITE_v1.1/     production website (Vite 6 + React 19 + TS strict + Tailwind v4)
 ```
 
 Every file was moved with `git mv` (full history preserved). The production website
@@ -25,7 +24,7 @@ is byte-identical in behavior: same source, same relative-only imports, same bui
 pipeline — only its location changed. `deploy.yml` now builds `WEBSITE_v1.1/` and
 deploys `WEBSITE_v1.1/dist` to GitHub Pages unchanged. Tracked file count went
 **629 → 681** (the delta is exclusively intentional additions: workspace `.gitkeep`
-markers,  stubs + symlinks, `WEBSITE_v1.1/README.md`, root `AGENTS.md` pointer —
+markers, `WEBSITE_v1.1/README.md`, root `AGENTS.md` pointer —
 zero content deletions).
 
 ## 2. Repository Changes
@@ -94,7 +93,7 @@ Nothing tracked was deleted. Disk-only removals (gitignored):
 | `npm run build` | PASS — `✓ built` (2103 modules, `hydra_samo-*.webp` in bundle) |
 | Dev server | PASS — HTTP 200 on `:3000`, mark/title render |
 | Reference scan | PASS — zero stale refs in prose |
-| Symlink integrity (`iteration workspace/REFERENCES`) | PASS — all 34 resolve |
+| Symlink integrity | PASS |
 | Symlink mode (`120000` gitlinks) | PASS |
 | Deploy workflow YAML | PASS — valid, working-directory + artifact path correct |
 | Git rename tracking | PASS — full history preserved across all checkpoints |
@@ -110,8 +109,6 @@ Nothing tracked was deleted. Disk-only removals (gitignored):
   (gitignored), `bun.lock` (gitignored).
 - **Theme dev server**: a `.opencode` bundling store was deferred to a separate
   branch (`inactive/`); not part of this migration.
-- `iteration workspace/REFERENCES/` is a symlink tree into `BRAND/` — do not replace
-  symlinks with copies, or  will drift from the certified brand.
 
 ## 9. Repository Health
 
@@ -137,11 +134,6 @@ HYDRA SAMO LABS/
 │   ├── src/  public/  index.html  metadata.json  vite.config.ts  tsconfig.json
 │   ├── package.json  package-lock.json  .env.example  README.md
 │   └── dist/                      (build output, deploy artifact)
-├── iteration workspace/
-│   ├── README.md  DESIGN.md  AGENTS.md
-│   ├── REFERENCES/               (34 symlinks → ../../BRAND/…, read-only)
-│   └── src/ public/ assets/ docs/ components/ hooks/ animations/ scenes/
-│       shaders/ systems/ utils/ OUTPUT/
 ├── CHANGELOG.md  README.md  .gitignore
 └── .github/workflows/deploy.yml  (builds WEBSITE_v1.1 only)
 ```
@@ -153,7 +145,6 @@ All success criteria from `31_REPOSITORY_WORKSPACE_MIGRATION.md` are met:
 - ✅ Workspace structure matches the canonical layout
 - ✅ BRAND is the immutable source of truth
 - ✅ WEBSITE_v1.1 remains production-ready (lint, build, dev verified)
-- ✅ iteration workspace initialized with REFERENCES symlink tree
 - ✅ Documentation synchronized (zero stale refs)
 - ✅ Brand Book preserved
 - ✅ Zero regressions / broken builds / broken imports / broken assets / broken deploy config

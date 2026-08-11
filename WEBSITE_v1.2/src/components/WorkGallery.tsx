@@ -159,7 +159,7 @@ export const ProjectCard = React.memo(function ProjectCard({
                 <span className="px-3 py-1 rounded-full bg-slate-900/80 dark:bg-[var(--card-bg)]/80 backdrop-blur-md border border-white/10 text-xs text-accent font-medium uppercase tracking-widest">
                   {project.tag}
                 </span>
-                <span className="px-2.5 py-1 rounded-md bg-black/60 text-xs font-mono text-white/90">
+                <span className="px-2.5 py-1 rounded-md bg-black/60 text-xs text-white/90">
                   {project.year}
                 </span>
               </div>
@@ -177,7 +177,7 @@ export const ProjectCard = React.memo(function ProjectCard({
 
       {/* Card Footer Info */}
       <div className="p-6 relative z-10">
-        <div className="flex items-center justify-between text-xs sm:text-sm font-mono text-slate-500 dark:text-white/50 mb-2">
+        <div className="flex items-center justify-between text-xs sm:text-sm uppercase tracking-wider text-slate-500 dark:text-white/50 mb-2">
           <span>{t('work.client')} {project.client.toUpperCase()}</span>
           <span className="text-accent font-semibold">{t('work.caseStudy')}</span>
         </div>
@@ -196,7 +196,7 @@ export const ProjectCard = React.memo(function ProjectCard({
             {project.softwareStack.map((sw) => (
               <span
                 key={sw}
-                className="text-xs sm:text-sm font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-white/60 border border-slate-200 dark:border-transparent"
+                className="text-xs sm:text-sm uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-white/60 border border-slate-200 dark:border-transparent"
               >
                 {sw}
               </span>
@@ -297,16 +297,19 @@ export const WorkGallery = React.memo(function WorkGallery({ onSelectProject }: 
             ))}
 
             {filteredProjects.length === 0 && (
-              <div className="p-6 sm:p-8 md:p-16 glass-card rounded-3xl text-center flex flex-col items-center gap-3 md:gap-4">
-                <span className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-accent/15 text-accent flex items-center justify-center">
-                  <Film size={22} />
-                </span>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-display font-medium text-[var(--text-main)] uppercase">
-                  {t('work.emptyTitle')}
-                </h3>
-                <p className="max-w-md text-sm text-slate-600 dark:text-white/60 leading-relaxed font-normal">
-                  {t('work.emptyDesc')}
-                </p>
+              <div className="relative w-full aspect-[21/9] min-h-[220px] rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/10 flex items-center justify-center">
+                {/* Cinematic atmosphere — emerald haze rising behind the frame,
+                    no glass card, no badge, no placeholder chrome. */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_40%,rgba(16,185,129,0.14),rgba(16,185,129,0.03)_55%,transparent_80%)]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#02160c] via-transparent to-[#02160c] opacity-60" />
+                <div className="relative z-10 px-6 py-10 text-center max-w-2xl mx-auto">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-semibold uppercase tracking-tight text-[var(--text-main)] mb-3">
+                    {t('work.emptyTitle')}
+                  </h3>
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed font-normal">
+                    {t('work.emptyDesc')}
+                  </p>
+                </div>
               </div>
             )}
           </motion.div>

@@ -5,6 +5,25 @@ All notable changes to **HYDRA SAMO LABS**.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased] — v1.2 (in development, NOT shipped)
+
+Iteration workspace for the next production release. **Deploy stays on
+`WEBSITE_v1.1/`** — `deploy.yml` still points its `working-directory`,
+`cache-dependency-path`, and artifact `path` at v1.1 until v1.2 is ready.
+
+### Added
+- `WEBSITE_v1.2/` tree — verbatim clone of the frozen v1.1 site (Vite 6 + React 19 + TS strict + Tailwind v4); all assets preserved as-is.
+- **HeroAmbient** — lightweight 2D canvas emerald dot field scoped to the Hero (`HeroAmbient.tsx`); low-GPU alternative to the retired 3D emblem.
+
+### Changed
+- **Light mode restored** — shipped v1.1 light palette (`html.light`) and theme vars back for hero text.
+- **WebGL emblem removed** — floating 3D glass shard (`Hero3DShard`) and drei/maath deps dropped from v1.2.
+- **LTR/RTL language switch fixed** — logical text-align, direction-aware arrows, logical badge/chevron/close positions; `lang`/`dir` applied synchronously pre-paint so saved Arabic never flashes LTR.
+
+### Infrastructure
+- `hydra-samo` skill added (creative-direction authority), `BRAND/OUTPUT/32_PERFORMANCE_TIER_INVESTIGATION.md` and asset brief documented.
+- `deploy.yml` intentionally left on `WEBSITE_v1.1`; switch its `working-directory`, `cache-dependency-path`, and artifact `path` to `WEBSITE_v1.2` only when v1.2 ships.
+
 ## [v1.1.0] — Mobile Section — 2026-08-06
 
 The mobile experience reached release maturity.

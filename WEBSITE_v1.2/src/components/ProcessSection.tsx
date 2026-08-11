@@ -1,10 +1,8 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import { Check, X, Layers } from 'lucide-react';
 import { PROCESS_STEPS, COMPARISON_MATRIX } from '../data/portfolioData';
 import { useLanguage } from '../i18n/LanguageContext';
 import { localizeProcessSteps, localizeComparison } from '../i18n/translations';
-import { TiltCard } from './TiltCard';
 
 // Line-by-line header reveal — each word/line rises from y:40 on its own beat.
 const headerWordVariants: Variants = {
@@ -59,49 +57,44 @@ export const ProcessSection = React.memo(function ProcessSection() {
           </motion.p>
         </motion.div>
 
-        {/* 5-Step Workflow Cards — magnetic 3D tilt, no SaaS badges, soft emerald hover */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 mb-8 md:mb-16">
+        {/* 5-Step Workflow — editorial timeline. No cards, no glass, no
+            badges: a hairline grid with bold emerald step numerals carrying
+            the sequence like a film treatment. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0 mb-8 md:mb-16 border-t border-slate-200 dark:border-white/10">
           {steps.map((step, idx) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 35, scale: 0.96 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group h-full"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative pt-6 md:pt-8 pb-8 md:pb-10 px-0 sm:pr-6 lg:pr-8 lg:border-l border-slate-200/60 dark:border-white/5 lg:first:border-l-0"
             >
-              <TiltCard className="glass-card glass-hover p-4 md:p-6 rounded-2xl flex flex-col justify-between h-full">
-                <div>
-                  <div className="flex items-center gap-2.5 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-accent/60 group-hover:bg-accent transition-colors shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
-                    <span className="text-xs text-accent uppercase tracking-widest font-medium">
-                      {step.subtitle}
-                    </span>
-                  </div>
-
-                  <h3 className="text-base font-display font-medium text-[var(--text-main)] uppercase mb-3 group-hover:text-accent transition-colors">
-                    {step.title}
-                  </h3>
-
-                  <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
-                    {step.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100 dark:border-white/5">
-                  <span className="text-xs text-slate-400 dark:text-white/40 uppercase block mb-1">
-                    {t('process.deliverable')}
-                  </span>
-                  <span className="text-sm font-semibold text-slate-800 dark:text-white/90">
-                    {step.deliverable}
-                  </span>
-                </div>
-              </TiltCard>
+              <span className="block font-display text-4xl md:text-5xl font-bold text-accent/90 leading-none mb-4 group-hover:text-accent transition-colors">
+                {step.number}
+              </span>
+              <span className="block text-xs text-[var(--text-muted)] uppercase tracking-widest font-medium mb-2">
+                {step.subtitle}
+              </span>
+              <h3 className="text-base font-display font-medium text-[var(--text-main)] uppercase mb-3">
+                {step.title}
+              </h3>
+              <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-5">
+                {step.description}
+              </p>
+              <div className="pt-4 border-t border-slate-100 dark:border-white/5">
+                <span className="text-xs text-slate-400 dark:text-white/40 uppercase block mb-1">
+                  {t('process.deliverable')}
+                </span>
+                <span className="text-sm font-semibold text-slate-800 dark:text-white/90">
+                  {step.deliverable}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Many Heads, One Unified Vision — humanized two-column narrative */}
+        {/* Many Heads, One Unified Vision — pure typography, no containers */}
         <motion.h3
           initial="hidden"
           whileInView="show"
@@ -117,72 +110,55 @@ export const ProcessSection = React.memo(function ProcessSection() {
           </motion.span>
         </motion.h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Fragmented workflow column */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+          {/* Fragmented workflow — editorial column */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="h-full"
           >
-            <TiltCard max={3} className="glass-card glass-hover p-6 sm:p-9 rounded-3xl h-full">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-500 dark:text-white/50">
-                    <Layers size={18} />
-                  </div>
-                  <h4 className="text-sm font-display font-medium uppercase tracking-wider text-slate-700 dark:text-white/70">
-                    {t('process.fragmentedTitle')}
-                  </h4>
+            <h4 className="text-sm font-display font-medium uppercase tracking-wider text-slate-700 dark:text-white/70 border-b border-slate-200 dark:border-white/10 pb-4 mb-5">
+              {t('process.fragmentedTitle')}
+            </h4>
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-7">
+              {t('process.fragmentedDesc')}
+            </p>
+            <div className="divide-y divide-slate-100 dark:divide-white/5">
+              {comparison.map((row) => (
+                <div key={row.feature} className="py-4 text-sm text-[var(--text-muted)]">
+                  <span className="block text-xs uppercase tracking-widest text-slate-400 dark:text-white/30 mb-0.5">
+                    {row.feature}
+                  </span>
+                  <span>{row.agency}</span>
                 </div>
-                <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-7">
-                  {t('process.fragmentedDesc')}
-                </p>
-                <ul className="space-y-4">
-                  {comparison.map((row) => (
-                    <li key={row.feature} className="flex items-start gap-3 text-sm text-[var(--text-muted)]">
-                      <X size={16} className="text-slate-400 dark:text-white/30 shrink-0 mt-0.5" />
-                      <span>{row.agency}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </TiltCard>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Unified vision column */}
+          {/* Unified vision — editorial column */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="h-full"
           >
-            <TiltCard max={3} className="relative glass-card glass-hover p-6 sm:p-9 rounded-3xl border-accent/30 dark:border-accent/40 shadow-[0_24px_70px_-30px_rgba(16,185,129,0.35)] overflow-hidden h-full">
-              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
-              <div className="flex items-center gap-3 mb-5 relative">
-                <div className="p-2.5 rounded-xl bg-accent/15 border border-accent/40 text-accent">
-                  <Check size={18} />
+            <h4 className="text-sm font-display font-medium uppercase tracking-wider text-[var(--text-main)] border-b border-accent/40 pb-4 mb-5">
+              {t('process.unifiedTitle')}
+            </h4>
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-7">
+              {t('process.unifiedDesc')}
+            </p>
+            <div className="divide-y divide-slate-100 dark:divide-white/5">
+              {comparison.map((row) => (
+                <div key={row.feature} className="py-4 text-sm text-[var(--text-main)]">
+                  <span className="block text-xs uppercase tracking-widest text-accent mb-0.5">
+                    {row.feature}
+                  </span>
+                  <span className="font-medium">{row.hydra}</span>
                 </div>
-                <h4 className="text-sm font-display font-medium uppercase tracking-wider text-[var(--text-main)]">
-                  {t('process.unifiedTitle')}
-                </h4>
-              </div>
-              <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-7 relative">
-                {t('process.unifiedDesc')}
-              </p>
-              <ul className="space-y-4 relative">
-                {comparison.map((row) => (
-                  <li key={row.feature} className="flex items-start gap-3 text-sm text-[var(--text-main)]">
-                    <span className="w-5 h-5 rounded-full bg-accent/15 border border-accent/40 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check size={11} className="text-accent" />
-                    </span>
-                    <span className="font-medium">{row.hydra}</span>
-                  </li>
-                ))}
-              </ul>
-            </TiltCard>
+              ))}
+            </div>
           </motion.div>
         </div>
 

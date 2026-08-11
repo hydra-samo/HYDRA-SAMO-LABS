@@ -70,7 +70,7 @@ export const UI: Record<Lang, Dict> = {
     'work.caseStudy': 'CASE STUDY AVAILABLE',
     'work.inspect': 'Inspect',
     'work.streaming': 'STREAMING ASSETS...',
-    'work.emptyTitle': 'Real Projects Loading',
+    'work.emptyTitle': 'Nothing ships until it\'s real',
     'work.emptyDesc':
       'Selected case studies are being prepared for release and will appear here as they ship.',
     'voice.headingProf': 'PROFESSIONAL',
@@ -90,7 +90,7 @@ export const UI: Record<Lang, Dict> = {
     'modal.close': 'Close',
     'contact.headingLet': 'LET\'S BUILD',
     'contact.headingTogether': 'TOGETHER',
-    'contact.successTitle': 'BRIEF RECEIVED // HYDRA DISPATCHED',
+    'contact.successTitle': 'BRIEF RECEIVED',
     'contact.successPrefix': 'Thanks,',
     'contact.successBody':
       '— your brief has been dispatched. Expect a direct reply with a proposal, turnaround, and pricing within 24 hours.',
@@ -197,7 +197,7 @@ export const UI: Record<Lang, Dict> = {
     'work.caseStudy': 'ÉTUDE DE CAS DISPONIBLE',
     'work.inspect': 'Inspecter',
     'work.streaming': 'CHARGEMENT DES CONTENUS...',
-    'work.emptyTitle': 'Études de cas en préparation',
+    'work.emptyTitle': 'Rien ne sort tant que c\'est réel',
     'work.emptyDesc':
       'Les études de cas sélectionnées sont en préparation et apparaîtront ici dès leur publication.',
     'voice.headingProf': 'VOIX',
@@ -217,7 +217,7 @@ export const UI: Record<Lang, Dict> = {
     'modal.close': 'Fermer',
     'contact.headingLet': 'CRÉONS',
     'contact.headingTogether': 'ENSEMBLE',
-    'contact.successTitle': 'BRIEF REÇU // HYDRA ENVOYÉ',
+    'contact.successTitle': 'BRIEF REÇU',
     'contact.successPrefix': 'Merci,',
     'contact.successBody':
       '— votre brief a bien été envoyé. Attendez-vous à une réponse directe avec proposition, délais et tarifs sous 24 heures.',
@@ -323,7 +323,7 @@ export const UI: Record<Lang, Dict> = {
     'work.caseStudy': 'دراسة حالة متاحة',
     'work.inspect': 'استكشف',
     'work.streaming': 'جارٍ تحميل المحتوى...',
-    'work.emptyTitle': 'دراسات الحالة قيد التجهيز',
+    'work.emptyTitle': 'لا شيء يُنشر قبل أن يصبح حقيقياً',
     'work.emptyDesc':
       'يتم الآن تجهيز دراسات الحالة المختارة وستظهر هنا فور نشرها.',
     'voice.headingProf': 'تعليق',
@@ -343,7 +343,7 @@ export const UI: Record<Lang, Dict> = {
     'modal.close': 'إغلاق',
     'contact.headingLet': 'لنصنع',
     'contact.headingTogether': 'معاً',
-    'contact.successTitle': 'تم استلام الموجز // هيدرا في الطريق',
+    'contact.successTitle': 'تم استلام الموجز',
     'contact.successPrefix': 'شكراً،',
     'contact.successBody':
       '— تم إرسال موجزك. توقع رداً مباشراً يتضمن المقترح والمدة والتسعير خلال 24 ساعة.',

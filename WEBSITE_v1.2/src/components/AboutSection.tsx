@@ -1,7 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
-import aboutPortrait from '../assets/images/hydra_samo.webp';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export const AboutSection = React.memo(function AboutSection() {
@@ -9,38 +7,15 @@ export const AboutSection = React.memo(function AboutSection() {
 
   return (
     <section id="about" className="py-8 sm:py-10 md:py-24 px-4 sm:px-6 text-[var(--text-main)] relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-6 lg:gap-16">
+        <div className="max-w-7xl mx-auto">
         
-        {/* Portrait Image Column */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40, scale: 0.96 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="w-40 sm:w-56 md:w-full lg:w-1/2 max-w-md mx-auto lg:max-w-none"
-        >
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/25 via-accent-soft/15 to-accent/30 dark:from-accent/25 dark:via-accent/15 dark:to-accent/30 opacity-10 dark:opacity-25 blur-2xl group-hover:opacity-25 dark:group-hover:opacity-45 transition-opacity duration-700 rounded-3xl" />
-            
-            <div className="relative z-10 glass-card dark:border-accent/25 rounded-3xl overflow-hidden p-3">
-              <img 
-                src={aboutPortrait} 
-                alt="Bendali Issam Eddine - Hydra Samo" 
-                loading="lazy"
-                decoding="async"
-                className="w-full aspect-square object-cover object-top rounded-2xl transition-transform duration-700 transform group-hover:scale-[1.02]"
-              />
-            </div>
-          </div>
-        </motion.div>
-
         {/* Narrative Column */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full lg:w-1/2"
+          className="w-full"
         >
           <span className="text-accent text-xs uppercase tracking-widest block mb-3 font-medium">
             {t('about.eyebrow')}
@@ -81,9 +56,9 @@ export const AboutSection = React.memo(function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="flex items-center gap-3 font-medium text-xs uppercase tracking-wider text-[var(--text-main)]"
+                className="flex items-start gap-3 font-medium text-xs uppercase tracking-wider text-[var(--text-main)]"
               >
-                <CheckCircle2 size={18} className="text-accent shrink-0" />
+                <span className="text-accent shrink-0">—</span>
                 <span>{adv}</span>
               </motion.div>
             ))}

@@ -340,7 +340,7 @@ HYDRA SAMO/
 │
 ├── WEBSITE_v1.1/
 │
-└── iteration workspace/
+└── WEBSITE_v1.2/
 
 The migration must be dynamic.
 
@@ -420,11 +420,11 @@ Do not modify production behavior.
 
 ---
 
-# iteration workspace INITIALIZATION
+# WEBSITE ITERATION WORKSPACE INITIALIZATION
 
 Create:
 
-iteration workspace/
+WEBSITE_v1.2/
 
 Generate the following initial structure.
 
@@ -470,7 +470,7 @@ Only initialize the engineering workspace.
 
 Inside:
 
-iteration workspace/REFERENCES/
+WEBSITE_v1.2/REFERENCES/
 
 Copy or reference only the official brand authority.
 
@@ -504,7 +504,7 @@ Certification
 
 Brand Freeze
 
-These become the only design authority for iteration workspace.
+These become the only design authority for WEBSITE_v1.2.
 
 ---
 
@@ -696,7 +696,7 @@ BRAND/
 
 WEBSITE_v1.1/
 
-iteration workspace/
+WEBSITE_v1.2/
 
 REFERENCES/
 
@@ -744,7 +744,7 @@ Only continue if all checks pass.
 
 ## Checkpoint 05
 
-Website  Initialization
+Website Iteration Workspace Initialization
 
 Create empty engineering workspace.
 
@@ -960,7 +960,7 @@ Verify:
 
 ✓ Brand assets preserved.
 
-✓ iteration workspace initialized successfully.
+✓ WEBSITE_v1.2 workspace initialized successfully.
 
 ---
 
@@ -1006,7 +1006,7 @@ The migration is successful only if:
 
 ✓ WEBSITE_v1.1 remains production-ready.
 
-✓ iteration workspace is initialized.
+✓ WEBSITE_v1.2 workspace is initialized.
 
 ✓ REFERENCES folder created.
 
@@ -1040,7 +1040,7 @@ HYDRA SAMO/
 │
 ├── WEBSITE_v1.1/
 │
-└── iteration workspace/
+└── WEBSITE_v1.2/
 
 This architecture becomes the canonical repository structure for all future HYDRA SAMO development.
 

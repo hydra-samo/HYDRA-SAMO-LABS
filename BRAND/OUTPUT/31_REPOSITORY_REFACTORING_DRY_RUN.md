@@ -1,6 +1,6 @@
 # HYDRA SAMO — REPOSITORY REFACTORING DRY RUN REPORT
 ## Safe Repository Migration — Analysis Only (Zero Filesystem Changes to Existing Files)
-### Orchestrator: `OUTPUT/31_REPOSITORY_WORKSPACE_MIGRATION.md` ()
+### Orchestrator: `OUTPUT/31_REPOSITORY_WORKSPACE_MIGRATION.md`
 ### Date: 2026-08-07
 
 ---
@@ -9,7 +9,7 @@
 
 The repository is a single **production-ready Vite 6 + React 19 + TypeScript** portfolio (HYDRA SAMO LABS) that mixes two concerns at the root: the **production website** (`src/`, `public/`, `index.html`, Vite configs, metadata) and the **immutable brand system** (`ASSETS/`, `DOCUMENTATION/`, `OUTPUT/`, `RELEASE/`, `REVIEWS/`, `PROJECT_HISTORY/`, `DESIGN.md`, `AGENTS.md`).
 
-The migration reorganizes the root into the official **HYDRA SAMO workspace**: `BRAND/` + `WEBSITE_v1.1/` + `iteration workspace/`, preserving git history, build integrity, runtime behavior, imports, assets, documentation, deployment, and the certified brand release.
+The migration reorganizes the root into the official **HYDRA SAMO workspace**: `BRAND/` + `WEBSITE_v1.1/`, preserving git history, build integrity, runtime behavior, imports, assets, documentation, deployment, and the certified brand release.
 
 **Verdict: SAFE TO PROCEED** after user approval. All moves are `git mv` (history-preserving). The website is internally self-contained (relative imports only, `metadata.json` imported via relative path, `base: './'` build), so the site keeps working once moved. Two high-risk areas require deliberate handling before execution: **CI/CD deploy paths** and **the ~60 brand docs that reference `src/` and `public/` paths**. Both have concrete mitigations below.
 
@@ -104,17 +104,6 @@ HYDRA SAMO/                        (same repo root, new organization)
 │   ├── metadata.json
 │   └── README.md                  (site docs moved from root README; paths updated)
 │
-├── iteration workspace/                  ← initialized empty engineering workspace
-│   ├── README.md                  (workspace stub)
-│   ├── DESIGN.md                  (workspace stub)
-│   ├── AGENTS.md                  (workspace stub)
-│   ├── OUTPUT/                    (.gitkeep)
-│   ├── REFERENCES/                (official brand authority — [DECISION D2])
-│   ├── src/  public/  assets/  docs/
-│   ├── components/  hooks/  animations/
-│   ├── scenes/  shaders/  systems/  utils/
-│   └── (all dirs .gitkeep'd — no implementation code)
-│
 ├── README.md                      (rewritten as workspace README)
 ├── CHANGELOG.md                   [D1 — kept at root if D1 = keep]
 ├── .github/workflows/deploy.yml   (updated working-directory + artifact path)
@@ -140,7 +129,6 @@ HYDRA SAMO/                        (same repo root, new organization)
 | `.gitignore` | stays | edit | ignore rules |
 | `.vscode/`, `.opencode/` | stay | none | tooling |
 | `dist/`, root `node_modules/`, `bun.lock` | stays (ignored) | cleanup [D4] | — |
-| `iteration workspace/*` | new dirs | create | — |
 
 ---
 
@@ -148,8 +136,7 @@ HYDRA SAMO/                        (same repo root, new organization)
 
 1. **BRAND (Checkpoint 03)** — `git mv` 6 directories (ASSETS 292, DOCUMENTATION 7+2 untracked, OUTPUT 42, RELEASE 228, REVIEWS 6, PROJECT_HISTORY 1) + `git mv` DESIGN.md, AGENTS.md → `BRAND/`.
 2. **WEBSITE_v1.1 (Checkpoint 04)** — `git mv` `src/`, `public/`, `index.html`, `package.json`, `package-lock.json`, `vite.config.ts`, `tsconfig.json`, `.env.example`, `metadata.json` → `WEBSITE_v1.1/`.
-3. **iteration workspace (Checkpoint 05)** — create stub dirs + `.gitkeep`; init `REFERENCES/` [D2].
-4. Untracked PDFs in `DOCUMENTATION/` move with their tree (they are not deleted).
+3. Untracked PDFs in `DOCUMENTATION/` move with their tree (they are not deleted).
 
 **No file/directory renames required** (all names stay identical; only containers change).
 
@@ -177,11 +164,10 @@ No tracked file is deleted. Nothing referenced by imports, routing, config, docs
 - `actions/setup-node` cache stays automatic. Live URL unchanged (relative `base`).
 
 ## 8.2 `.gitignore` — REQUIRED
-- `assets/` → anchor to `/assets/` (prevents ignoring `iteration workspace/assets/`).
 - `PROJECT_HISTORY/ARCHIVES/` → `BRAND/PROJECT_HISTORY/ARCHIVES/`.
 
 ## 8.3 READMEs — REQUIRED
-- Root `README.md` → rewrite as **workspace README** (BRAND / WEBSITE_v1.1 / iteration workspace map, live URL, changelog link).
+- Root `README.md` → rewrite as **workspace README** (BRAND / WEBSITE_v1.1 map, live URL, changelog link).
 - `WEBSITE_v1.1/README.md` → site docs moved from root README; `./RELEASE/…` → `../BRAND/RELEASE/…`, `./CHANGELOG.md` → `../CHANGELOG.md`.
 
 ## 8.4 Brand docs referencing the live site — REQUIRED, HIGH EFFORT (~60 files)
@@ -210,7 +196,7 @@ Bare root-relative references to brand trees appearing in root-level docs (READM
 | R1 | **Deploy breaks** if `deploy.yml` not updated (npm runs at root; artifact path `dist`) | **HIGH** | Build root changes | Update `working-directory` + artifact path in §8.1; simulate workflow steps locally; real validation on next push to `main` |
 | R2 | **AGENTS.md move** silently drops the auto-loaded project rules for tooling (opencode/Claude read repo-root `AGENTS.md`) | **HIGH** | Root-level convention | Keep a thin **root `AGENTS.md`** pointing to `BRAND/AGENTS.md` (authority) + `WEBSITE_v1.1/` conventions (workspace pointer, part of §8.3/Checkpoint 08) |
 | R3 | **~60 brand docs** reference `src/`/`public/` with stale root-relative paths | **MED-HIGH** | Bare paths break after move | §8.4 mechanical sync + post-migration reference scan gate (zero-broken-refs criterion) |
-| R4 | `.gitignore` `assets/` rule would ignore `iteration workspace/assets/` | **MED** | Unanchored ignore pattern | Anchor to `/assets/` (§8.2) |
+| R4 | `.gitignore` `assets/` rule vs brand `ASSETS/` tree | **MED** | Unanchored ignore pattern | Anchor to `/assets/` (§8.2) |
 | R5 | `metadata.json` path coupling (`../../metadata.json`) | **MED** | If metadata.json forgotten, build breaks | Move metadata.json in same step as `src/`; validate build at Checkpoint 04 |
 | R6 | README/changelog path links (`./public/…`, `./RELEASE/…`, `./OUTPUT/…`) | **MED** | 404 links after move | §8.3 rewrite + scan |
 | R7 | `RELEASE/` contains full duplicates of `ASSETS/` and an older `SOURCE_CODE/` snapshot | **MED** | Duplication, drift temptation to delete | **Preserve** (certified release archive); moved to `BRAND/`; not deleted (cleanup rule) |
@@ -257,10 +243,10 @@ Per checkpoint (required before advancing):
 | Checkpoint | Phase | Deliverable / Gate |
 |---|---|---|
 | 01 | Repository analysis | this report ✓ (complete) |
-| 02 | Workspace initialization | create `BRAND/`, `WEBSITE_v1.1/`, `iteration workspace/` (empty) |
+| 02 | Workspace initialization | create `BRAND/`, `WEBSITE_v1.1/` |
 | 03 | Brand migration | `git mv` brand trees + DESIGN/AGENTS → `BRAND/`; validate |
 | 04 | Website v1.1 migration | move site files; update internal paths; **build + dev + asset check** |
-| 05 |  initialization | stub dirs + README/DESIGN/AGENTS/OUTPUT/REFERENCES |
+| 05 | (removed) | — |
 | 06 | Reference synchronization | deploy.yml, .gitignore, READMEs, brand-doc path sync; scan gate |
 | 07 | Cleanup | remove only verified obsolete (root dist/, stale node_modules) |
 | 08 | Final optimization | workspace README/AGENTS pointer, tag, final report |
