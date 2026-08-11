@@ -63,9 +63,10 @@ function MobileSlide({ slideKey, active, children }: {
   );
 }
 
-/* The WebGL glass emblem was removed entirely by directive: the page is
-   typography-led on the noir/paper canvas, black → light → black, with no
-   floating 3D logo in the atmosphere. */
+/* The WebGL cinematographer is retired (three/fiber/drei fully removed).
+   The hero now carries its own lightweight 2D canvas ambient field —
+   scoped strictly inside Hero.tsx, so no global fixed layer bleeds into
+   the sections below. */
 
 export default function App() {
   const { t } = useLanguage();
@@ -281,7 +282,7 @@ export default function App() {
               ...(cheapMotion ? {} : { scale: 0.98, filter: 'blur(12px)' }),
               transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
             }}
-            className="text-[var(--text-main)] min-h-screen font-sans selection:bg-accent selection:text-black relative transition-colors duration-300"
+            className="text-[var(--text-main)] min-h-screen font-sans selection:bg-accent selection:text-black relative z-10 transition-colors duration-300"
           >
             {/* Desktop / tablet floating nav — unchanged, hidden on mobile */}
             <div className="hidden md:block">

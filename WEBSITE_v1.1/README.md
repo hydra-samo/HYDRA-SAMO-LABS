@@ -65,7 +65,7 @@ notice and will not send briefs.
 ## Repository
 
 The enclosing repo is the HYDRA SAMO LABS workspace — see `../README.md` for the
-full layout (`WEBSITE_v1.1` / `BRAND` / `iteration workspace`).
+full layout (`WEBSITE_v1.1` / `BRAND`).
 
 ---
 

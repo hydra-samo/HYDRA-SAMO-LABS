@@ -30,7 +30,7 @@ HYDRA SAMO LABS is the personal brand and portfolio of **Bendali Issam Eddine (H
 - The site is trilingual (EN/FR/AR with RTL), dark bio-organic editorial by default with a light-mode variant; theme persists via `localStorage['hydra-theme']`.
 - Device experience is tiered (`useDeviceTier`: low/medium/high) — Lenis smooth scroll, ambient emerald blobs, glass blur, and heavy motion are gated down on weak devices.
 - Voice-sample audio files live in `/public/audio/` and are referenced per track by `VOICE_TRACKS.audioUrl`.
-- `iteration workspace/` is the reserved next-generation workspace (WebGL2 baseline, ADR-governed, performance-tiered, DOM owns content / canvas owns atmosphere) — initialized and planned, no implementation yet.
+- The next-gen website () is on hold; the production portfolio is `WEBSITE_v1.1/` only.
 
 ## Capabilities and Constraints
 

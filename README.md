@@ -40,34 +40,35 @@ discipline. Zero hand-offs. No lost narrative intent.
 
 | Area | Location |
 | --- | --- |
-| **Production website** (v1.1) | `WEBSITE_v1.1/` — Vite 6 + React 19 + TS strict + Tailwind v4 |
+| **Frozen production website** (v1.1) | `WEBSITE_v1.1/` — Vite 6 + React 19 + TS strict + Tailwind v4 (read-only) |
+| **Evolving production website** (v1.2) | `WEBSITE_v1.2/` — clone of v1.1, assets frozen as-is; next iteration happens here |
 | **Brand system** (certified v1.0) | `BRAND/RELEASE/HYDRA_SAMO_BRAND_v1.0/` |
 | **Brand docs & reviews** | `BRAND/DOCUMENTATION/`, `BRAND/REVIEWS/` |
 | **Engineering reports** | `BRAND/OUTPUT/` |
 | **Design intent** | `BRAND/DESIGN.md` |
-| **Next-gen website** (, engineering workspace) | `iteration workspace/` — `REFERENCES/` symlinks into `BRAND/` |
 
-The workspace splits the repo into two concerns:
+The workspace splits the repo into three concerns:
 
 - **`WEBSITE_v1.1/`** — the shipped, deployable production portfolio. Its `public/`,
   `src/`, `index.html`, `metadata.json`, and `package.json` live inside this folder;
-  `deploy.yml` builds and publishes only this tree to GitHub Pages.
+  `deploy.yml` builds and publishes only this tree to GitHub Pages. **Frozen —
+  read-only by convention, never edited.**
+- **`WEBSITE_v1.2/`** — the evolving production website, cloned verbatim from
+  `WEBSITE_v1.1` with every asset preserved as-is. This is where the next iteration
+  happens. When it is ready to ship, switch `deploy.yml` to build this tree.
 - **`BRAND/`** — the immutable brand authority: master assets, frozen releases,
   governance docs, reviews, and engineering reports. Production code references it
   through canonical paths, never copies.
-- **`iteration workspace/`** — the future site, still empty by design. Its `REFERENCES/`
-  tree is a read-only symlink mirror of `BRAND/`, so  engineering can never drift
-  from the certified brand.
 
 Full brand engineering lifecycle, governance, and release packaging live in
 `BRAND/RELEASE/` — see `BRAND/OUTPUT/26_LIFECYCLE_REPLICATOR.md`.
 
 ## Getting started
 
-The production website is self-contained in `WEBSITE_v1.1/`:
+The evolving production website is self-contained in `WEBSITE_v1.2/`:
 
 ```bash
-cd WEBSITE_v1.1
+cd WEBSITE_v1.2
 npm install
 npm run dev        # http://localhost:3000
 ```
@@ -75,13 +76,16 @@ npm run dev        # http://localhost:3000
 ## Build / checks
 
 ```bash
-cd WEBSITE_v1.1
-npm run build      # production build to WEBSITE_v1.1/dist/
+cd WEBSITE_v1.2
+npm run build      # production build to WEBSITE_v1.2/dist/
 npm run lint       # TypeScript typecheck (tsc --noEmit)
 ```
 
-The GitHub Actions workflow in `.github/workflows/deploy.yml` installs, builds, and
-deploys `WEBSITE_v1.1/dist` to GitHub Pages on every push to `main`.
+The GitHub Actions workflow in `.github/workflows/deploy.yml` currently installs,
+builds, and deploys `WEBSITE_v1.1/dist` to GitHub Pages on every push to `main`.
+It stays pointed at v1.1 until v1.2 is ready to ship, then its
+`working-directory`, `cache-dependency-path`, and artifact `path` are switched to
+`WEBSITE_v1.2`.
 
 ## Live site
 

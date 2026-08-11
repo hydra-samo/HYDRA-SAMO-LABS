@@ -149,9 +149,10 @@ export const ProjectCard = React.memo(function ProjectCard({
                 <div className="absolute inset-0 bg-slate-200 dark:bg-[var(--card-bg)] animate-pulse" />
               )}
 
-              {/* Digital Noir vignette mask — Abyssal Near-Black sealing the
-                  top and bottom edges so the frame reads as film stock. */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030705] via-transparent to-[#030705] opacity-70 group-hover:opacity-40 transition-opacity" />
+              {/* Digital Noir vignette mask — Flow-Wave Deep (the wave sheet's
+                  lowest tint) sealing the top and bottom edges so the frame
+                  reads as film stock under the emerald WebGL atmosphere. */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#02160c] via-transparent to-[#02160c] opacity-70 group-hover:opacity-40 transition-opacity" />
 
               {/* Top Badge Info */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">

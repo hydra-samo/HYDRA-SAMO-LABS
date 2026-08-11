@@ -9,6 +9,7 @@ import {
 import { useLanguage } from '../i18n/LanguageContext';
 import { useCoarsePointer } from '../hooks/useCoarsePointer';
 import { useDeviceTier } from '../hooks/useDeviceTier';
+import { HeroAmbient } from './HeroAmbient';
 
 /* Staggered, blur-in reveal for the hero typography. The blur filter is a
    full-screen compositing cost on low-end GPUs, so touch devices get the same
@@ -66,16 +67,28 @@ export const Hero = React.memo(function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-0 md:min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-10 pt-10 md:pt-28 pb-16 text-start text-[var(--text-main)]"
+      className="relative overflow-hidden min-h-0 md:min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-10 pt-10 md:pt-28 pb-16 text-start text-[var(--text-main)]"
     >
-      {/* The WebGL glass layer was removed — the hero is pure typography on the
-          noir/paper canvas. */}
+      {/* Digital Noir stage: a lightweight 2D canvas ambient field (dot-matrix
+          emerald at ≤12% opacity) scoped strictly inside the hero — no global
+          fixed layer, nothing bleeds into the sections below. */}
+      {/* Soft radial spotlight first, then the ambient dots paint above it so
+          the field stays crisp. Transparent falloff — never an opaque end-stop
+          that would bury the dots (Tailwind v4 from/via/to need a
+          --tw-gradient-position only direction utilities set, so the stops are
+          baked in). */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top,rgba(16,185,129,0.12),rgba(16,185,129,0.04)_45%,rgba(16,185,129,0))]"
+      />
+      <HeroAmbient />
+
       <motion.div
         variants={heroContainer}
         initial={reduceMotion ? false : 'hidden'}
         animate="show"
         style={scrollEnabled ? { y: parallaxY, scale: parallaxScale, willChange: 'transform' } : undefined}
-        className="relative z-20 w-full max-w-7xl mx-auto transform-gpu"
+        className="relative z-10 w-full max-w-7xl mx-auto transform-gpu"
       >
         <div className="md:grid md:grid-cols-12 md:items-end md:gap-10">
           {/* Massive fluid editorial display stack — Design & Motion in Bone

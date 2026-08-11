@@ -10,16 +10,15 @@ Workspace root pointer. The authoritative project & design guidelines live in:
 
 ## Layout
 
-- `BRAND/` — immutable brand authority (assets, releases, docs, reports).
-- `WEBSITE_v1.1/` — production website (Vite 6 + React 19 + TS strict + Tailwind v4).
-  Run all site commands from this directory (`npm install`, `npm run dev`, `npm run lint`, `npm run build`).
-- `iteration workspace/` — next-gen website workspace; `REFERENCES/` mirrors `BRAND/` read-only.
+- `BRAND/` — immutable brand authority (assets, releases, docs, reports). **Frozen — read-only by convention, never edit.**
+- `WEBSITE_v1.1/` — frozen production website snapshot (Vite 6 + React 19 + TS strict + Tailwind v4). **Read-only by convention — never edit; kept intact as the shipped reference.**
+- `WEBSITE_v1.2/` — evolving production website, cloned verbatim from `WEBSITE_v1.1` with every asset preserved as-is. This is where the next iteration happens. Run all site commands from this directory (`npm install`, `npm run dev`, `npm run lint`, `npm run build`).
 
 ## Quick rules for this workspace
 
-- Use **relative imports only** in `WEBSITE_v1.1/src` (the `@` alias does NOT point there).
+- Use **relative imports only** in `WEBSITE_v1.2/src` (the `@` alias does NOT point there).
 - **No fake content.** Never ship sample placeholders, fictional case studies or
   voice demos, or a fake "master showreel" (e.g. `TearsOfSteel.mp4`). `PROJECTS`
   and `VOICE_TRACKS` stay empty until real, released work exists.
 - Brand mark governance is frozen — see `BRAND/AGENTS.md` before touching any logo or palette code.
-- Deploy is handled by `.github/workflows/deploy.yml`, which builds `WEBSITE_v1.1` only.
+- Deploy is handled by `.github/workflows/deploy.yml`, which builds `WEBSITE_v1.1` only — until v1.2 is ready to ship, then switch the workflow's `working-directory`, `cache-dependency-path`, and artifact `path` to `WEBSITE_v1.2`.
